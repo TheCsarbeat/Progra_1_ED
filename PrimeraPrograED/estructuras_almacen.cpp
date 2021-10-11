@@ -47,3 +47,10 @@ RegistroAlmacen::RegistroAlmacen(){
     cantMezclaCargada = 0;
     cantChocolateCargado = 0;
 }
+
+void RegistroAlmacen::sumarCantMezcla(int cantidad){
+    cantMezclaCargada+=cantidad;
+}
+void RegistroAlmacen::sumarCantChocolate(int cantidad){
+    cantChocolateCargado+=cantidad;
+}

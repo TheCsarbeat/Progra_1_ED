@@ -34,8 +34,8 @@ struct RegistroAlmacen{
 
     RegistroAlmacen();
 
-    void sumarCantMezcla();
-    void sumarCantChocolate();
+    void sumarCantMezcla(int);
+    void sumarCantChocolate(int);
 };
 
 struct Almacen{

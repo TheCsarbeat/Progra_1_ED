@@ -4,7 +4,7 @@ thread_main::thread_main(){
 
 }
 
-void thread_main::__init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[3], QLabel *lbCola) {
+void thread_main::__init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[5], QLabel *lbCola) {
     this->mainStruct = mainStruct;
     this->running = false;
     this->paused = false;
@@ -14,6 +14,8 @@ void thread_main::__init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel *
     this->arraylbMachines[1] = arraylbMachines[1];
     this->arraylbMachines[2] = arraylbMachines[2];
     this->lbCola = lbCola;
+    this->lbTotalChocolate = arraylbMachines[3];
+    this->lbTotalMezcla = arraylbMachines[4];
 }
 
 void thread_main::run() {
@@ -52,7 +54,7 @@ void thread_main::run() {
 
             corrida++;
             hiloCarritoMachines[peticion->idMachine] = new ThreadAlmacenMachines();
-            hiloCarritoMachines[peticion->idMachine]->__init__(mainStruct->almacen, mainStruct->arrayMachine->array[peticion->idMachine], mutexMachinesCarrito,this->lbCarro, colaPeticiones, lbCola);
+            hiloCarritoMachines[peticion->idMachine]->__init__(mainStruct->almacen, mainStruct->arrayMachine->array[peticion->idMachine], mutexMachinesCarrito,this->lbCarro, colaPeticiones, lbCola, lbTotalChocolate, lbTotalMezcla);
             hiloCarritoMachines[peticion->idMachine]->start();
 
             msleep(500);

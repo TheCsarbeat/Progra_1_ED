@@ -27,10 +27,6 @@ public:
 
 private slots:
     void on_btnIniciar_clicked();
-    QMainWindow* getMainWindow();
-
-public slots:
-    void setLabel(const QString &name);
 
 };
 #endif // MAINWINDOW_H

@@ -27,12 +27,17 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QFrame *panelMain;
-    QLabel *lbMezcladora1;
+    QLabel *lbMachine1;
     QLabel *lbCarro;
-    QLabel *lbMezcladora3;
-    QLabel *lbMezcladora2;
+    QLabel *lbMachine3;
+    QLabel *lbMachine2;
     QPushButton *btnIniciar;
     QLineEdit *lineEdit;
+    QLabel *lbCola;
+    QLabel *lbRegistroMezcla0;
+    QLabel *lbRegistroMezcla;
+    QLabel *lbRegistroChoco0;
+    QLabel *lbRegistroChoco;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -45,27 +50,42 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         panelMain = new QFrame(centralwidget);
         panelMain->setObjectName(QString::fromUtf8("panelMain"));
-        panelMain->setGeometry(QRect(0, 0, 791, 561));
+        panelMain->setGeometry(QRect(0, 0, 801, 571));
         panelMain->setFrameShape(QFrame::StyledPanel);
         panelMain->setFrameShadow(QFrame::Raised);
-        lbMezcladora1 = new QLabel(panelMain);
-        lbMezcladora1->setObjectName(QString::fromUtf8("lbMezcladora1"));
-        lbMezcladora1->setGeometry(QRect(250, 50, 71, 51));
+        lbMachine1 = new QLabel(panelMain);
+        lbMachine1->setObjectName(QString::fromUtf8("lbMachine1"));
+        lbMachine1->setGeometry(QRect(60, 180, 301, 91));
         lbCarro = new QLabel(panelMain);
         lbCarro->setObjectName(QString::fromUtf8("lbCarro"));
-        lbCarro->setGeometry(QRect(250, 220, 271, 51));
-        lbMezcladora3 = new QLabel(panelMain);
-        lbMezcladora3->setObjectName(QString::fromUtf8("lbMezcladora3"));
-        lbMezcladora3->setGeometry(QRect(580, 50, 71, 51));
-        lbMezcladora2 = new QLabel(panelMain);
-        lbMezcladora2->setObjectName(QString::fromUtf8("lbMezcladora2"));
-        lbMezcladora2->setGeometry(QRect(100, 80, 71, 51));
+        lbCarro->setGeometry(QRect(60, 40, 371, 101));
+        lbMachine3 = new QLabel(panelMain);
+        lbMachine3->setObjectName(QString::fromUtf8("lbMachine3"));
+        lbMachine3->setGeometry(QRect(60, 360, 421, 71));
+        lbMachine2 = new QLabel(panelMain);
+        lbMachine2->setObjectName(QString::fromUtf8("lbMachine2"));
+        lbMachine2->setGeometry(QRect(60, 280, 341, 71));
         btnIniciar = new QPushButton(panelMain);
         btnIniciar->setObjectName(QString::fromUtf8("btnIniciar"));
-        btnIniciar->setGeometry(QRect(430, 100, 75, 23));
+        btnIniciar->setGeometry(QRect(650, 350, 75, 23));
         lineEdit = new QLineEdit(panelMain);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(460, 200, 113, 20));
+        lineEdit->setGeometry(QRect(400, 390, 113, 20));
+        lbCola = new QLabel(panelMain);
+        lbCola->setObjectName(QString::fromUtf8("lbCola"));
+        lbCola->setGeometry(QRect(470, 40, 311, 251));
+        lbRegistroMezcla0 = new QLabel(panelMain);
+        lbRegistroMezcla0->setObjectName(QString::fromUtf8("lbRegistroMezcla0"));
+        lbRegistroMezcla0->setGeometry(QRect(60, 500, 71, 31));
+        lbRegistroMezcla = new QLabel(panelMain);
+        lbRegistroMezcla->setObjectName(QString::fromUtf8("lbRegistroMezcla"));
+        lbRegistroMezcla->setGeometry(QRect(130, 500, 81, 31));
+        lbRegistroChoco0 = new QLabel(panelMain);
+        lbRegistroChoco0->setObjectName(QString::fromUtf8("lbRegistroChoco0"));
+        lbRegistroChoco0->setGeometry(QRect(260, 500, 91, 31));
+        lbRegistroChoco = new QLabel(panelMain);
+        lbRegistroChoco->setObjectName(QString::fromUtf8("lbRegistroChoco"));
+        lbRegistroChoco->setGeometry(QRect(350, 500, 61, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -83,11 +103,16 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        lbMezcladora1->setText(QCoreApplication::translate("MainWindow", "Carro", nullptr));
+        lbMachine1->setText(QCoreApplication::translate("MainWindow", "Carro", nullptr));
         lbCarro->setText(QCoreApplication::translate("MainWindow", "Carro", nullptr));
-        lbMezcladora3->setText(QCoreApplication::translate("MainWindow", "Carro", nullptr));
-        lbMezcladora2->setText(QCoreApplication::translate("MainWindow", "Carro", nullptr));
+        lbMachine3->setText(QCoreApplication::translate("MainWindow", "Carro", nullptr));
+        lbMachine2->setText(QCoreApplication::translate("MainWindow", "Carro", nullptr));
         btnIniciar->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        lbCola->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        lbRegistroMezcla0->setText(QCoreApplication::translate("MainWindow", "Total Mezcla: ", nullptr));
+        lbRegistroMezcla->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        lbRegistroChoco0->setText(QCoreApplication::translate("MainWindow", "Total Chocolate: ", nullptr));
+        lbRegistroChoco->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
     } // retranslateUi
 
 };

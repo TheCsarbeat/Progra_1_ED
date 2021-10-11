@@ -1,4 +1,5 @@
 release/estructuras_almacen.o
+release/estructuras_ensambladora.o
 release/estructuras_mezcladoras.o
 release/estructuras_planificacion.o
 release/machines_thread.o
@@ -7,4 +8,5 @@ release/main_struct.o
 release/main_thread.o
 release/mainwindow.o
 release/thread_almacen_machines.o
+release/thread_machines_ensambladora.o
 release/moc_mainwindow.o

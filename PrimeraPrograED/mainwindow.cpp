@@ -26,6 +26,7 @@ void MainWindow::on_btnIniciar_clicked(){
 
 
     Almacen * almacenNuevo = new Almacen(carro, registro);
+    almacenNuevo->registro = new RegistroAlmacen();
 
     ArrayMachines *arraymachines = new ArrayMachines();
     Main_Struct * mainStruct = new Main_Struct(almacenNuevo, arraymachines);
@@ -52,10 +53,12 @@ void MainWindow::on_btnIniciar_clicked(){
     mainStruct->arrayMachine->array[2]->duracionSegudos = 5;
     mainStruct->arrayMachine->array[2]->gramosProcesar = 10;
 
-    QLabel * arrayLbMachines[3];
+    QLabel * arrayLbMachines[5];
     arrayLbMachines[0] = this->ui->lbMachine1;
     arrayLbMachines[1] = this->ui->lbMachine2;
     arrayLbMachines[2] = this->ui->lbMachine3;
+    arrayLbMachines[3] = this->ui->lbRegistroChoco;
+    arrayLbMachines[4] = this->ui->lbRegistroMezcla;
     mainThread = new thread_main();
     mainThread->__init__(mainStruct, this->ui->panelMain,this->ui->lbCarro, arrayLbMachines, this->ui->lbCola);
     mainThread->start();

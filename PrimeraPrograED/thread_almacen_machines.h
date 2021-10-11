@@ -19,11 +19,14 @@ public:
 
     QLabel * label;
     QLabel * lbCola;
+    QLabel * lbTotalChocolate;
+    QLabel * lbTotalMezcla;
+
 
     bool running;
     bool paused;
 
-    void __init__(Almacen * almacen, Machine * machine,QMutex *mutex, QLabel * label, ColaPeticiones * colaPeticiones, QLabel *lbCola);
+    void __init__(Almacen * almacen, Machine * machine, QMutex * mutex, QLabel * label, ColaPeticiones * colaPeticiones, QLabel * lbCola, QLabel * lbTotalChocolate, QLabel * lbTotalMezcla);
     void run();
     void stop();
     void pause();

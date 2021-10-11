@@ -29,6 +29,8 @@ public:
     QLabel * lbCarro;
     QLabel * arraylbMachines[3];
     QLabel * lbCola;
+    QLabel * lbTotalChocolate;
+    QLabel * lbTotalMezcla;
 
     //Sub hilos
     ThreadAlmacenMachines * hiloCarritoMachines[3];
