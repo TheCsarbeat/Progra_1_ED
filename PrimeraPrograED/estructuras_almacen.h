@@ -13,6 +13,7 @@ struct MateriaPrima{
 struct Carrito{
     int capacidad;
     int duracionTotal;
+    int cargaNow;
     bool estado;
 
     bool libre;

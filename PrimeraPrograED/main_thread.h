@@ -7,6 +7,8 @@
 
 #include "main_struct.h"
 #include "thread_almacen_machines.h"
+#include "thread_machines_ensambladora.h"
+
 
 
 #include <QLabel>
@@ -25,10 +27,14 @@ public:
 
     //Label de cada elemento
     QLabel * lbCarro;
+    QLabel * arraylbMachines[3];
+    QLabel * lbCola;
+
     //Sub hilos
     ThreadAlmacenMachines * hiloCarritoMachines[3];
+    ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
 
-    void __init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel * lbCarro);
+    void __init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[3], QLabel * lbCola);
     void run();
     void stop();
     void pause();

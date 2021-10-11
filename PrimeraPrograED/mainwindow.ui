@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
-      <width>791</width>
-      <height>561</height>
+      <y>-10</y>
+      <width>801</width>
+      <height>571</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -29,13 +29,13 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="lbMezcladora1">
+    <widget class="QLabel" name="lbMachine1">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>50</y>
-       <width>71</width>
-       <height>51</height>
+       <x>60</x>
+       <y>180</y>
+       <width>301</width>
+       <height>91</height>
       </rect>
      </property>
      <property name="text">
@@ -45,36 +45,36 @@
     <widget class="QLabel" name="lbCarro">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>220</y>
-       <width>271</width>
-       <height>51</height>
+       <x>60</x>
+       <y>40</y>
+       <width>371</width>
+       <height>101</height>
       </rect>
      </property>
      <property name="text">
       <string>Carro</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lbMezcladora3">
+    <widget class="QLabel" name="lbMachine3">
      <property name="geometry">
       <rect>
-       <x>580</x>
-       <y>50</y>
-       <width>71</width>
-       <height>51</height>
+       <x>60</x>
+       <y>360</y>
+       <width>421</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="text">
       <string>Carro</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lbMezcladora2">
+    <widget class="QLabel" name="lbMachine2">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>80</y>
-       <width>71</width>
-       <height>51</height>
+       <x>60</x>
+       <y>280</y>
+       <width>341</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="text">
@@ -84,8 +84,8 @@
     <widget class="QPushButton" name="btnIniciar">
      <property name="geometry">
       <rect>
-       <x>430</x>
-       <y>100</y>
+       <x>650</x>
+       <y>350</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -97,11 +97,24 @@
     <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>200</y>
+       <x>370</x>
+       <y>490</y>
        <width>113</width>
        <height>20</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbCola">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>40</y>
+       <width>311</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
      </property>
     </widget>
    </widget>

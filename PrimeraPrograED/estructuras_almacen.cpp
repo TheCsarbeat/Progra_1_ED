@@ -12,9 +12,10 @@ MateriaPrima::MateriaPrima(QString _name, int _cant){
 Carrito::Carrito(){
     capacidad = 0;
     duracionTotal = 0;
+    cargaNow = 0;
     estado = false;
     timeActual = 0;
-    libre = false;
+    libre = true;
 }
 
 Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado){

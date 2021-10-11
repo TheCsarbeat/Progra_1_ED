@@ -15,13 +15,15 @@ public:
     Almacen * almacen;
     Machine * machine;
     QMutex * mutex;
+    ColaPeticiones * colaPeticiones;
 
     QLabel * label;
+    QLabel * lbCola;
 
     bool running;
     bool paused;
 
-    void __init__(Almacen * almacen, Machine * machine,QMutex *mutex, QLabel * label);
+    void __init__(Almacen * almacen, Machine * machine,QMutex *mutex, QLabel * label, ColaPeticiones * colaPeticiones, QLabel *lbCola);
     void run();
     void stop();
     void pause();
