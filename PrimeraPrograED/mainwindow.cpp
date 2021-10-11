@@ -20,7 +20,7 @@ void MainWindow::on_btnIniciar_clicked(){
     RegistroAlmacen * registro = new RegistroAlmacen();
     Carrito *carro= new Carrito();
 
-     //Varaibels de interfaz gr[afica
+     //Variables de interfaz gráfica
     carro->capacidad = 10;
     carro->duracionTotal = 10;
 
@@ -38,9 +38,22 @@ void MainWindow::on_btnIniciar_clicked(){
     mainStruct->arrayMachine->array[2]->min = 25;
 
 
-    mainThread = new thread_main();
-    mainThread->__init__(mainStruct, this->ui->panelMain,this->ui->lbCarro);
-    mainThread->start();
+    thread_main * mainThread = new thread_main();
+    mainThread->__init__(mainStruct, getMainWindow());
 
+    QObject::connect(mainThread, SIGNAL(enviarTexto(QString)), this, SLOT(setLabel(QString)));
+
+    mainThread->start();
+}
+
+QMainWindow* MainWindow::getMainWindow(){
+    foreach (QWidget *w, qApp->topLevelWidgets())
+            if (QMainWindow* mainWin = qobject_cast<QMainWindow*>(w))
+                return mainWin;
+        return nullptr;
+}
+
+void MainWindow::setLabel(const QString &name){
+    ui->lineEdit->setText(name);
 }
 

@@ -18,6 +18,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    Ui::MainWindow *ui;
 
      thread_main * mainThread;
      Main_Struct * mainStruct;
@@ -26,8 +27,10 @@ public:
 
 private slots:
     void on_btnIniciar_clicked();
+    QMainWindow* getMainWindow();
 
-private:
-    Ui::MainWindow *ui;
+public slots:
+    void setLabel(const QString &name);
+
 };
 #endif // MAINWINDOW_H

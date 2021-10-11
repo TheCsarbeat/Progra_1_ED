@@ -4,18 +4,23 @@ thread_main::thread_main(){
 
 }
 
-void thread_main::__init__(Main_Struct * mainStruct,QFrame *mainPanel, QLabel * lbCarro) {
+void thread_main::escribirTexto(const QString &name){
+    emit enviarTexto(name);
+}
+
+void thread_main::__init__(Main_Struct * mainStruct,QMainWindow* ui) {
     this->mainStruct = mainStruct;
     this->running = false;
     this->paused = false;
-    this->mainPanel = mainPanel;
-    this->lbCarro = lbCarro;
+    this->ui = ui;
 }
 
 void thread_main::run() {
     this->running = true;
 
     QMutex *mutexMachinesCarrito = new QMutex;
+
+    this->escribirTexto("Doggie");
 
     for(int i= 0; i<3; i++){
             int cantNow = mainStruct->arrayMachine->array[i]->cantNow;
@@ -26,7 +31,7 @@ void thread_main::run() {
 
         if(cantNow < cantMin && estadoDeLlenado == false){
             hiloCarritoMachines[i] = new ThreadAlmacenMachines();
-            hiloCarritoMachines[i]->__init__(mainStruct->almacen, mainStruct->arrayMachine->array[i], mutexMachinesCarrito,this->lbCarro);
+            hiloCarritoMachines[i]->__init__(mainStruct->almacen, mainStruct->arrayMachine->array[i], mutexMachinesCarrito,ui->centralWidget()->findChild<QFrame*>("panelMain")->findChild<QLabel*>("lbCarro"));
             hiloCarritoMachines[i]->start();
         }
     }
