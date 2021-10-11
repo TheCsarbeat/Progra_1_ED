@@ -6,42 +6,55 @@
 //Estructuras de las maquinas mezcladoras
 struct Machine{
     QString nombre;
+    int id;
     int max;
     int min;
     int cantNow;
-    char type;
+    int gramosProcesar;
+    int tiempoActual;
+    int duracionSegudos;
+
     bool state;
-    bool fillState;
+    bool flagEncolado;
+    bool flagProcesando;
 
     Machine();
 
     void setMax(int _max);
     void setMin(int _min);
     void setCantNow(int _cantNow);
-    void setType(char _type);
     void setState(bool _state);
+    void procesar();
 
 };
 
 struct ArrayMachines{
     Machine* array[3];
     ArrayMachines();
+
 };
 
 struct Peticion{
     QString nombreMachine;
+    int idMachine;
     int cant;
 
     Peticion(){
         nombreMachine = "";
+        idMachine = -1;
         cant = 0;
     }
-    Peticion(QString _nombreMachine, int _cant){
+    Peticion(QString _nombreMachine, int _cant, int id){
         nombreMachine = _nombreMachine;
         cant = _cant;
+        idMachine = id;
     }
     void imprimir(){
-        qDebug()<<"Machine: "<<nombreMachine<<"\n cantidad: "<<cant;
+        qDebug()<<"ID: "<<idMachine<<"\nMachine: "<<nombreMachine<<"\n cantidad: "<<cant;
+    }
+
+    QString toString(){
+        return "\n\nID: "+QString::number(idMachine)+"\nMachine: "+nombreMachine+"\nCantidad: "+QString::number(cant);
     }
 
 };
@@ -61,6 +74,9 @@ struct NodoPeticion{
     void imprimir(){
         peticion->imprimir();
     }
+    QString toString(){
+        return peticion->toString();
+    }
 };
 
 struct ColaPeticiones{
@@ -71,11 +87,12 @@ struct ColaPeticiones{
     }
 
     // encabezados de funcion
-    void encolar(QString _nombreMachine, int _cant);
+    void encolar(QString _nombreMachine, int _cant, int id);
     NodoPeticion * desencolar (void);
     NodoPeticion * verFrente(void);
     bool vacia(void);
     void imprimir(void);
+    QString toString();
 };
 
 #endif // ESTRUCTURAS_MEZCLADORAS_H
