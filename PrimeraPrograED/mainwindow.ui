@@ -33,13 +33,13 @@
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>180</y>
+       <y>120</y>
        <width>301</width>
        <height>91</height>
       </rect>
      </property>
      <property name="text">
-      <string>Carro</string>
+      <string>Mezcladora 1</string>
      </property>
     </widget>
     <widget class="QLabel" name="lbCarro">
@@ -58,14 +58,14 @@
     <widget class="QLabel" name="lbMachine3">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>360</y>
+       <x>50</x>
+       <y>410</y>
        <width>421</width>
        <height>71</height>
       </rect>
      </property>
      <property name="text">
-      <string>Carro</string>
+      <string>Chocolatera</string>
      </property>
     </widget>
     <widget class="QLabel" name="lbMachine2">
@@ -78,7 +78,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Carro</string>
+      <string>Mezcladora 2</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btnIniciar">
@@ -115,6 +115,45 @@
      </property>
      <property name="text">
       <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbDatosMachine2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>340</y>
+       <width>311</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>datos</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbDatosMachine1">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>200</y>
+       <width>311</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>datos</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbDatosMachine3">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>470</y>
+       <width>311</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>datos</string>
      </property>
     </widget>
    </widget>

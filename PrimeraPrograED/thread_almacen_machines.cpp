@@ -4,7 +4,7 @@ ThreadAlmacenMachines::ThreadAlmacenMachines(){
 
 }
 
-void ThreadAlmacenMachines::__init__(Almacen * almacen, Machine * machine, QMutex * mutex, QLabel * label, ColaPeticiones * colaPeticiones, QLabel * lbCola) {
+void ThreadAlmacenMachines::__init__(Almacen * almacen, Machine * machine, QMutex * mutex, QLabel * label, ColaPeticiones * colaPeticiones, QLabel * lbCola, QLabel * arraylbDatosMachines[6]) {
     this->almacen = almacen;
     this->running = false;
     this->paused = false;
@@ -13,18 +13,18 @@ void ThreadAlmacenMachines::__init__(Almacen * almacen, Machine * machine, QMute
     this->label = label;
     this->colaPeticiones= colaPeticiones;
     this->lbCola =lbCola;
+    this->arraylbDatosMachines[0] = arraylbDatosMachines[3];
+    this->arraylbDatosMachines[1] = arraylbDatosMachines[4];
+    this->arraylbDatosMachines[2] = arraylbDatosMachines[5];
+
 }
 
 void ThreadAlmacenMachines::run() {
     this->mutex->lock();
     this->running = true;
     Peticion * peticion = colaPeticiones->verFrente()->peticion;
-    colaPeticiones->imprimir();
-    qDebug()<<"\n*****************";
-    qDebug()<<"Nombre"<<machine->nombre;
-    qDebug()<<"Cantidad actual "<<machine->cantNow;
-    qDebug()<<"Cantidad minima "<<machine->min;
-    qDebug()<<"*****************\n";
+
+
 
     this->lbCola->setText(colaPeticiones->toString());
     this->machine->flagEncolado= true;
@@ -50,6 +50,7 @@ void ThreadAlmacenMachines::run() {
 
         this->label->setText(QString::number(this->almacen->carrito->timeActual)+" de "+QString::number(this->almacen->carrito->duracionTotal)
                              +" segundos para llegar a la "+this->machine->nombre);
+
         sleep(1);
         if(this->almacen->carrito->duracionTotal == this->almacen->carrito->timeActual){
             this->machine->cantNow += this->almacen->carrito->cargaNow;
@@ -72,18 +73,18 @@ void ThreadAlmacenMachines::stop() {
     this->running = false;
 
     NodoPeticion * listo = colaPeticiones->verFrente();
-    qDebug()<<"##########";
-    listo->imprimir();
-    qDebug()<<"##########";
 
     if(listo->peticion->cant == 0){
         colaPeticiones->desencolar();
         this->machine->flagEncolado= false;
     }
 
-    colaPeticiones->imprimir();
+
     this->lbCola->setText(colaPeticiones->toString());
-    qDebug()<<"\n\n\n";
+
+    this->arraylbDatosMachines[this->machine->id]->setText(+"\n cantidad Actual: "+QString::number(machine->cantNow)
+                                                           +"\n Min: "+QString::number(machine->min)
+                                                           +"\n Max: "+QString::number(machine->max));
 }
 
 void ThreadAlmacenMachines::resume() {

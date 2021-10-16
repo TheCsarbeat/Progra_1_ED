@@ -27,7 +27,7 @@ public:
 
     //Label de cada elemento
     QLabel * lbCarro;
-    QLabel * arraylbMachines[3];
+    QLabel * arraylbMachines[6];
     QLabel * lbCola;
 
     //Sub hilos
