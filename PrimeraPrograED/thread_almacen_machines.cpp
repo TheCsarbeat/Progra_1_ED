@@ -42,10 +42,8 @@ void ThreadAlmacenMachines::run() {
             this->machine->cantNow += this->almacen->carrito->cargaNow;
             if(this->machine->nombre == "Chocolatera"){
                 this->almacen->registro->sumarCantChocolate(this->almacen->carrito->cargaNow);
-                this->lbTotalChocolate->setText(QString::number(this->almacen->registro->cantChocolateCargado));
             }else{
                 this->almacen->registro->sumarCantMezcla(this->almacen->carrito->cargaNow);
-                this->lbTotalMezcla->setText(QString::number(this->almacen->registro->cantMezclaCargada));
             }
             stop();
         }
