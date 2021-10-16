@@ -53,12 +53,15 @@ void MainWindow::on_btnIniciar_clicked(){
     mainStruct->arrayMachine->array[2]->duracionSegudos = 5;
     mainStruct->arrayMachine->array[2]->gramosProcesar = 10;
 
-    QLabel * arrayLbMachines[5];
+    QLabel * arrayLbMachines[6];
     arrayLbMachines[0] = this->ui->lbMachine1;
     arrayLbMachines[1] = this->ui->lbMachine2;
     arrayLbMachines[2] = this->ui->lbMachine3;
-    arrayLbMachines[3] = this->ui->lbRegistroChoco;
-    arrayLbMachines[4] = this->ui->lbRegistroMezcla;
+
+    arrayLbMachines[3] = this->ui->lbDatosMachine1;
+    arrayLbMachines[4] = this->ui->lbDatosMachine2;
+    arrayLbMachines[5] = this->ui->lbDatosMachine3;
+
     mainThread = new thread_main();
     mainThread->__init__(mainStruct, this->ui->panelMain,this->ui->lbCarro, arrayLbMachines, this->ui->lbCola);
     mainThread->start();
