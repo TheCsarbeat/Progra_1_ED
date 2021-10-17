@@ -4,7 +4,7 @@ thread_main::thread_main(){
 
 }
 
-void thread_main::__init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[6], QLabel *lbCola) {
+void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[6], QLabel *lbCola) {
     this->mainStruct = mainStruct;
     this->running = false;
     this->paused = false;

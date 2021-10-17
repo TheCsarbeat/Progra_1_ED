@@ -2,7 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <QPalette>
+#include "qpalette.h"
+#include <QDebug>
+#include <QString>
 
 #include "main_thread.h"
 #include "main_struct.h"
@@ -21,12 +24,25 @@ public:
     Ui::MainWindow *ui;
 
      thread_main * mainThread;
-     Main_Struct * mainStruct;
+     MainStruct * mainStruct;
 
     ~MainWindow();
+
+     void design();
+     MainStruct * cargarDatos();
 
 private slots:
     void on_btnIniciar_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_btnGotoSimulacion_clicked();
+
+    void on_btnGotoDatos_clicked();
+
+private:
+    Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

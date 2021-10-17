@@ -19,7 +19,7 @@ public:
 
     thread_main();
     //Variables propias
-    Main_Struct * mainStruct;
+    MainStruct * mainStruct;
     QFrame * mainPanel;
     bool running;
     bool paused;
