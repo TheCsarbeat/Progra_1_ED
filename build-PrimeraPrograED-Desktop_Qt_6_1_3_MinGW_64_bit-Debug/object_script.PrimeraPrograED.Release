@@ -1,6 +1,7 @@
 release/estructuras_almacen.o
 release/estructuras_ensambladora.o
 release/estructuras_mezcladoras.o
+release/estructuras_peticiones.o
 release/estructuras_planificacion.o
 release/machines_thread.o
 release/main.o

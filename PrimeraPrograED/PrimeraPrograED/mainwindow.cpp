@@ -75,8 +75,10 @@ MainStruct * MainWindow::cargarDatos(){
     arraymachines->array[2]->duracionSegudos = ui->txtDurationChocolatera->text().toInt();
     arraymachines->array[2]->gramosProcesar =  ui->txtCantProcesarChocolatera->text().toInt();
 
+    Receta * recetaCookies = new Receta(5,5);
+
     //Main Struct
-    MainStruct * mainStruct = new MainStruct(almacenNuevo, arraymachines);
+    MainStruct * mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies);
     Ensambladora * nuevaEnsabladora = new Ensambladora();
 
     mainStruct->ensambladora  = nuevaEnsabladora;

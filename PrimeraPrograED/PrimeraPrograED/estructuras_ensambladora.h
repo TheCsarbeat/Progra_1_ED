@@ -20,7 +20,7 @@ struct ArrayBandas{
         array[0] = new Banda();
         array[0]->nombre = "Banda 1";
         array[1] = new Banda();
-        array[0]->nombre = "Banda 2";
+        array[1]->nombre = "Banda 2";
     }
 };
 

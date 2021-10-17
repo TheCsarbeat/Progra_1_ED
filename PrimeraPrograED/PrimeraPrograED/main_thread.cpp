@@ -95,11 +95,13 @@ void thread_main::arrancarMezcladoras(){
 }
 
 void thread_main::arrancarEnsambladora(){
+    /*
     int cantMezcla = mainStruct->ensambladora->cant * mainStruct->receta->cantMezcla;
     int cantChoco = mainStruct->ensambladora->cant * mainStruct->receta->cantChocolate;
     int banda1Now = mainStruct->ensambladora->bandas->array[0]->cantNow;
     int banda2Now = mainStruct->ensambladora->bandas->array[1]->cantNow;
     if(banda2Now>=cantChoco && banda)
+    */
 }
 
 void thread_main::pause() {

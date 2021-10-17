@@ -21,29 +21,27 @@ void ThreadMachinesEnsambladora::__init__(Machine * machine, ColaPeticiones * co
 void ThreadMachinesEnsambladora::run() {
 
     this->running = true;
-    Banda * banda1 = ensambladora->bandas->array[0];
-    Banda * banda2 = ensambladora->bandas->array[1];
+    Banda * banda;
     this->machine->flagProcesando = true;
-
+    if(machine->nombre != "Chocolatera"){
+        banda = ensambladora->bandas->array[0];
+    }else{
+        banda = ensambladora->bandas->array[1];
+    }
     while (running) {
         while (paused) {
             sleep(1);
         }
 
         this->machine->procesar();
-
         this->label->setText(QString::number(this->machine->tiempoActual)+" de "+QString::number(this->machine->duracionSegudos)
-                             +" segundos para procesar a la "+banda1->nombre);
+                             +" segundos para procesar a la "+banda->nombre);
 
 
         sleep(1);
 
         if(this->machine->tiempoActual == this->machine->duracionSegudos){
-            if(machine->nombre != "Chocolatera"){
-                banda1->cantNow += this->machine->gramosProcesar;
-            }else{
-                banda2->cantNow += this->machine->gramosProcesar;
-            }
+            banda->cantNow += this->machine->gramosProcesar;
             this->machine->cantNow -= this->machine->gramosProcesar;
             stop();
         }

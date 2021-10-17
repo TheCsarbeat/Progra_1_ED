@@ -39,7 +39,7 @@ public:
     QMutex *mutexMachinesCarrito;
     QMutex *mutexMachinesEnsabladora;
 
-    void __init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[3], QLabel * lbCola);
+    void __init__(MainStruct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[3], QLabel * lbCola);
     void run();
     void stop();
     void pause();

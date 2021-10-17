@@ -21,7 +21,6 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    Ui::MainWindow *ui;
 
      thread_main * mainThread;
      MainStruct * mainStruct;
@@ -33,10 +32,6 @@ public:
 
 private slots:
     void on_btnIniciar_clicked();
-
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
 
     void on_btnGotoSimulacion_clicked();
 

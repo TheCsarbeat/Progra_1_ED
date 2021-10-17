@@ -13,9 +13,10 @@ struct MainStruct{
     ArrayMachines * arrayMachine;
     ColaPeticiones * colaPeticiones;
     Ensambladora * ensambladora;
+    Receta * receta;
 
     MainStruct();
-    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine);
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta);
 
     void encolarPeticiones();
 
