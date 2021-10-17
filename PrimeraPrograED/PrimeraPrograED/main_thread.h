@@ -19,7 +19,7 @@ public:
 
     thread_main();
     //Variables propias
-    Main_Struct * mainStruct;
+    MainStruct * mainStruct;
     QFrame * mainPanel;
     bool running;
     bool paused;
@@ -34,7 +34,7 @@ public:
     ThreadAlmacenMachines * hiloCarritoMachines[3];
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
 
-    void __init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[3], QLabel * lbCola);
+    void __init__(MainStruct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[3], QLabel * lbCola);
     void run();
     void stop();
     void pause();

@@ -12,6 +12,7 @@ SOURCES += \
     estructuras_almacen.cpp \
     estructuras_ensambladora.cpp \
     estructuras_mezcladoras.cpp \
+    estructuras_peticiones.cpp \
     estructuras_planificacion.cpp \
     machines_thread.cpp \
     main.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     estructuras_almacen.h \
     estructuras_ensambladora.h \
     estructuras_mezcladoras.h \
+    estructuras_peticiones.h \
     estructuras_planificacion.h \
     main_struct.h \
     main_thread.h \

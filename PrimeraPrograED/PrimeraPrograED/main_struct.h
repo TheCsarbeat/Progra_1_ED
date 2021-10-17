@@ -5,15 +5,19 @@
 #include "estructuras_almacen.h"
 #include "estructuras_mezcladoras.h"
 #include "estructuras_ensambladora.h"
+#include "estructuras_peticiones.h"
 
-struct Main_Struct{
+struct MainStruct{
 
     Almacen * almacen;
     ArrayMachines * arrayMachine;
+    ColaPeticiones * colaPeticiones;
     Ensambladora * ensambladora;
 
-    Main_Struct();
-    Main_Struct(Almacen * _almacen,  ArrayMachines * _arrayMachine);
+    MainStruct();
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine);
+
+    void encolarPeticiones();
 
     void requestRawMaterial();
 };
