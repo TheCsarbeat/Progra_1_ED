@@ -109,4 +109,3 @@ NodoPlanificacion* ListaSimplePlanificaciones::borrarAlInicio(){
     }
     return NULL;
 }
-

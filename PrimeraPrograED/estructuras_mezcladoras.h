@@ -15,8 +15,8 @@ struct Machine{
     int duracionSegudos;
 
     bool state;
-    bool flagEncolado;
     bool flagProcesando;
+    bool flagEncolado;
 
     Machine();
 

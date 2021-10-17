@@ -29,18 +29,26 @@ public:
     QLabel * lbCarro;
     QLabel * arraylbMachines[6];
     QLabel * lbCola;
-    QLabel * lbTotalChocolate;
-    QLabel * lbTotalMezcla;
+    ColaPeticiones * colaPeticiones;
 
     //Sub hilos
     ThreadAlmacenMachines * hiloCarritoMachines[3];
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
+
+    //Mutex
+    QMutex *mutexMachinesCarrito;
+    QMutex *mutexMachinesEnsabladora;
 
     void __init__(Main_Struct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[3], QLabel * lbCola);
     void run();
     void stop();
     void pause();
     void resume();
+
+    void encolar();
+    void arrancarCarrito();
+    void arrancarMezcladoras();
+    void arrancarEnsambladora();
 
 };
 

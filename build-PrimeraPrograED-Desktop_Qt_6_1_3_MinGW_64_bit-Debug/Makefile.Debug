@@ -407,11 +407,11 @@ debug/moc_mainwindow.cpp: ../PrimeraPrograED/mainwindow.h \
 		../PrimeraPrograED/estructuras_mezcladoras.h \
 		../PrimeraPrograED/estructuras_ensambladora.h \
 		../PrimeraPrograED/thread_almacen_machines.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpicture.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		../PrimeraPrograED/thread_machines_ensambladora.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.1.3/mingw81_64/bin/moc.exe
@@ -1027,11 +1027,11 @@ debug/machines_thread.o: ../PrimeraPrograED/machines_thread.cpp ../PrimeraProgra
 		../PrimeraPrograED/estructuras_mezcladoras.h \
 		../PrimeraPrograED/estructuras_ensambladora.h \
 		../PrimeraPrograED/thread_almacen_machines.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpicture.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		../PrimeraPrograED/thread_machines_ensambladora.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\machines_thread.o ..\PrimeraPrograED\machines_thread.cpp
 
@@ -1299,11 +1299,11 @@ debug/main.o: ../PrimeraPrograED/main.cpp ../PrimeraPrograED/mainwindow.h \
 		../PrimeraPrograED/estructuras_mezcladoras.h \
 		../PrimeraPrograED/estructuras_ensambladora.h \
 		../PrimeraPrograED/thread_almacen_machines.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpicture.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		../PrimeraPrograED/thread_machines_ensambladora.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qapplication.h \
@@ -1656,11 +1656,11 @@ debug/main_thread.o: ../PrimeraPrograED/main_thread.cpp ../PrimeraPrograED/main_
 		../PrimeraPrograED/estructuras_mezcladoras.h \
 		../PrimeraPrograED/estructuras_ensambladora.h \
 		../PrimeraPrograED/thread_almacen_machines.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpicture.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		../PrimeraPrograED/thread_machines_ensambladora.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main_thread.o ..\PrimeraPrograED\main_thread.cpp
 
@@ -1928,11 +1928,11 @@ debug/mainwindow.o: ../PrimeraPrograED/mainwindow.cpp ../PrimeraPrograED/mainwin
 		../PrimeraPrograED/estructuras_mezcladoras.h \
 		../PrimeraPrograED/estructuras_ensambladora.h \
 		../PrimeraPrograED/thread_almacen_machines.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpicture.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		../PrimeraPrograED/thread_machines_ensambladora.h \
 		ui_mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QVariant \
@@ -1959,8 +1959,10 @@ debug/mainwindow.o: ../PrimeraPrograED/mainwindow.cpp ../PrimeraPrograED/mainwin
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\PrimeraPrograED\mainwindow.cpp
 
 debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp ../PrimeraPrograED/thread_almacen_machines.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCore \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCoreDepends \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QLabel \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtguiglobal.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qglobal.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qconfig.h \
@@ -1982,12 +1984,17 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qmutex.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qnumeric.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractanimation.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qobject.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtgui-config.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qwidget.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qwindowdefs.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qobjectdefs.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qnamespace.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qtmetamacros.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qobject.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qstring.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qchar.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qstringview.h \
@@ -2029,20 +2036,66 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qproperty.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qshareddata.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qpropertyprivate.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstracteventdispatcher.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qhash.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qmargins.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpaintdevice.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qrect.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qsize.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qpoint.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpalette.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qcolor.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qrgb.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qrgba64.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qbrush.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qimage.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpixelformat.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtransform.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpolygon.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qregion.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qline.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpixmap.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qfont.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qfontinfo.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qcursor.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qbitmap.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qkeysequence.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qevent.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qiodevice.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qpointer.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qurl.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qvariant.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qmap.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qhash.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qdebug.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qtextstream.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qstringconverter.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qset.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qeventpoint.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qvector2d.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qvectornd.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpointingdevice.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qinputdevice.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qscreen.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QList \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QObject \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QRect \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QSize \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QSizeF \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/QTransform \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpicture.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCore \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCoreDepends \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractanimation.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstracteventdispatcher.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qeventloop.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractnativeeventfilter.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractproxymodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qanimationgroup.h \
@@ -2050,7 +2103,6 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qbasictimer.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qbitarray.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qbuffer.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qiodevice.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qbytearraymatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcache.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcalendar.h \
@@ -2060,7 +2112,6 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborcommon.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qurl.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcbormap.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborstream.h \
@@ -2085,7 +2136,6 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qexception.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfactoryinterface.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfileselector.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QObject \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QStringList \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfilesystemwatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuture.h \
@@ -2095,7 +2145,6 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuture_impl.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qthreadpool.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qthread.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qpointer.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuturesynchronizer.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuturewatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qidentityproxymodel.h \
@@ -2110,11 +2159,8 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlibrary.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlibraryinfo.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qversionnumber.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qline.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qpoint.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlockfile.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qloggingcategory.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qmargins.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qmessageauthenticationcode.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qmetaobject.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qmimedata.h \
@@ -2133,8 +2179,6 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qqueue.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qrandom.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qreadwritelock.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qrect.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qsize.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qresource.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qsavefile.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qscopedvaluerollback.h \
@@ -2169,57 +2213,13 @@ debug/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp 
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qtcoreversion.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QMutex \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QDebug \
 		../PrimeraPrograED/main_struct.h \
 		../PrimeraPrograED/estructuras_planificacion.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QString \
 		../PrimeraPrograED/estructuras_almacen.h \
 		../PrimeraPrograED/estructuras_mezcladoras.h \
-		../PrimeraPrograED/estructuras_ensambladora.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QLabel \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtguiglobal.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtgui-config.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qwidget.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qwindowdefs.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpaintdevice.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpalette.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qcolor.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qrgb.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qrgba64.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qbrush.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qimage.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpixelformat.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtransform.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpolygon.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qregion.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpixmap.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qfont.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qfontmetrics.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qfontinfo.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qcursor.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qbitmap.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qkeysequence.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qevent.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qeventpoint.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qvector2d.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qvectornd.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpointingdevice.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qinputdevice.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qscreen.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QList \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QRect \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QSize \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QSizeF \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/QTransform \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpicture.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextdocument.h
+		../PrimeraPrograED/estructuras_ensambladora.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\thread_almacen_machines.o ..\PrimeraPrograED\thread_almacen_machines.cpp
 
 debug/thread_machines_ensambladora.o: ../PrimeraPrograED/thread_machines_ensambladora.cpp ../PrimeraPrograED/thread_machines_ensambladora.h \

@@ -93,10 +93,17 @@ struct ListaSimplePlanificaciones{
     void imprimir();
 };
 struct Receta{
-    int cantMasa;
+    int cantMezcla;
     int cantChocolate;
 
-    Receta();
+    Receta(){
+        cantMezcla = 0;
+        cantChocolate = 0;
+    }
+    Receta(int _cantMezcla, int _cantChocolate){
+        cantMezcla = _cantMezcla;
+        cantChocolate = _cantChocolate;
+    }
 };
 
 #endif // ESTRUCTURAS_PLANIFICACION_H

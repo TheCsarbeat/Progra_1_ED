@@ -26,10 +26,12 @@ void MainWindow::on_btnIniciar_clicked(){
 
 
     Almacen * almacenNuevo = new Almacen(carro, registro);
-    almacenNuevo->registro = new RegistroAlmacen();
 
     ArrayMachines *arraymachines = new ArrayMachines();
-    Main_Struct * mainStruct = new Main_Struct(almacenNuevo, arraymachines);
+
+    Receta * recetaGalletas = new Receta(5,5);
+
+    Main_Struct * mainStruct = new Main_Struct(almacenNuevo, arraymachines, recetaGalletas);
 
 
     Ensambladora * nuevaEnsabladora = new Ensambladora();
@@ -67,4 +69,3 @@ void MainWindow::on_btnIniciar_clicked(){
     mainThread->start();
 
 }
-

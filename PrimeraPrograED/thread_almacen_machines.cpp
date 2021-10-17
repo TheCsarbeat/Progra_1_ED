@@ -23,9 +23,23 @@ void ThreadAlmacenMachines::run() {
     this->mutex->lock();
     this->running = true;
     Peticion * peticion = colaPeticiones->verFrente()->peticion;
+
+
+
     this->lbCola->setText(colaPeticiones->toString());
     this->machine->flagEncolado= true;
     this->almacen->carrito->libre = false;
+
+    int cantPeticion = peticion->cant;
+    int cargaCarrito = almacen->carrito->capacidad;
+    if(cantPeticion>= cargaCarrito){
+        this->almacen->carrito->cargaNow = almacen->carrito->capacidad;
+        peticion->cant = peticion->cant-cargaCarrito;
+    }else{
+        this->almacen->carrito->cargaNow = peticion->cant;
+        peticion->cant = 0;
+    }
+
 
     while (running) {
         while (paused) {
@@ -40,11 +54,6 @@ void ThreadAlmacenMachines::run() {
         sleep(1);
         if(this->almacen->carrito->duracionTotal == this->almacen->carrito->timeActual){
             this->machine->cantNow += this->almacen->carrito->cargaNow;
-            if(this->machine->nombre == "Chocolatera"){
-                this->almacen->registro->sumarCantChocolate(this->almacen->carrito->cargaNow);
-            }else{
-                this->almacen->registro->sumarCantMezcla(this->almacen->carrito->cargaNow);
-            }
             stop();
         }
 
@@ -57,17 +66,6 @@ void ThreadAlmacenMachines::pause() {
 }
 
 void ThreadAlmacenMachines::stop() {
-    Peticion * peticion = colaPeticiones->verFrente()->peticion;
-    int cantPeticion = peticion->cant;
-    int cargaCarrito = almacen->carrito->capacidad;
-
-    if(cantPeticion>= cargaCarrito){
-        this->almacen->carrito->cargaNow = almacen->carrito->capacidad;
-        peticion->cant = peticion->cant-cargaCarrito;
-    }else{
-        this->almacen->carrito->cargaNow = peticion->cant;
-        peticion->cant = 0;
-    }
 
 
     this->almacen->carrito->libre = true;
