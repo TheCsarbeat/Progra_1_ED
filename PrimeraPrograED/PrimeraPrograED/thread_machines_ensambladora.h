@@ -19,10 +19,12 @@ public:
     QLabel *lbCola;
 
     QLabel * arraylbDatosMachines[3];
+    QLabel * arraylbDatosBandas[2];
+    QLabel * arrayLbEnsambladora[2];
     bool running;
     bool paused;
 
-    void __init__(Machine * machine, ColaPeticiones * colaPeticiones, Ensambladora * ensambladora, QMutex * mutex, QLabel * label, QLabel *lbCola, QLabel * arraylbDatosMachines[6]);
+    void __init__(Machine * machine, ColaPeticiones * colaPeticiones, Ensambladora * ensambladora, QMutex * mutex, QLabel * label, QLabel *lbCola, QLabel * arraylbDatosMachines[6], QLabel * arrayLbEnsambladora[4]);
     void run();
     void stop();
     void pause();

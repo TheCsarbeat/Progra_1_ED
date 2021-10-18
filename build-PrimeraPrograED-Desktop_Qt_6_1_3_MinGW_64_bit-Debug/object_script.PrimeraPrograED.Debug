@@ -1,5 +1,6 @@
 debug/estructuras_almacen.o
 debug/estructuras_ensambladora.o
+debug/estructuras_horno.o
 debug/estructuras_mezcladoras.o
 debug/estructuras_peticiones.o
 debug/estructuras_planificacion.o
@@ -9,5 +10,6 @@ debug/main_struct.o
 debug/main_thread.o
 debug/mainwindow.o
 debug/thread_almacen_machines.o
+debug/thread_ensambladora_horno.o
 debug/thread_machines_ensambladora.o
 debug/moc_mainwindow.o

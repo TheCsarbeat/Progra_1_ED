@@ -8,11 +8,12 @@ MainStruct::MainStruct(){
     colaPeticiones = new ColaPeticiones();
 }
 
-MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta){
+MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta, Horno * _horno){
     almacen = _almacen;
     arrayMachine = _arrayMachine;
     colaPeticiones = new ColaPeticiones();
     receta = _receta;
+    horno = _horno;
 }
 
 void MainStruct::encolarPeticiones(){

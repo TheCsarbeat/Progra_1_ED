@@ -4,7 +4,7 @@ thread_main::thread_main(){
 
 }
 
-void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[6], QLabel *lbCola) {
+void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[6], QLabel *lbCola,QLabel * arrayLbEnsambladora[4]) {
     this->mainStruct = mainStruct;
     this->running = false;
     this->paused = false;
@@ -16,10 +16,17 @@ void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, QLabel * 
     this->arraylbMachines[3] = arraylbMachines[3];
     this->arraylbMachines[4] = arraylbMachines[4];
     this->arraylbMachines[5] = arraylbMachines[5];
+
+    this->arrayLbEnsambladora[0] = arrayLbEnsambladora[0];
+    this->arrayLbEnsambladora[1] = arrayLbEnsambladora[1];
+    this->arrayLbEnsambladora[2] = arrayLbEnsambladora[2];
+    this->arrayLbEnsambladora[3] = arrayLbEnsambladora[3];
+
     this->lbCola = lbCola;
     colaPeticiones = new ColaPeticiones();
     mutexMachinesEnsabladora = new QMutex();
     mutexMachinesCarrito = new QMutex();
+    mutexEnsambladoraHorno = new QMutex();
 
 }
 
@@ -34,7 +41,7 @@ void thread_main::run() {
         encolar();
         arrancarCarrito();
         arrancarMezcladoras();
-
+        arrancarEnsambladora();
 
         msleep(100);
     }
@@ -84,7 +91,7 @@ void thread_main::arrancarMezcladoras(){
             mainStruct->arrayMachine->array[i]->flagProcesando = true;
 
             hiloMachinesEnsambladora[i] = new ThreadMachinesEnsambladora();
-            hiloMachinesEnsambladora[i]->__init__(mainStruct->arrayMachine->array[i], colaPeticiones, mainStruct->ensambladora, mutexMachinesEnsabladora,arraylbMachines[i], lbCola, arraylbMachines);
+            hiloMachinesEnsambladora[i]->__init__(mainStruct->arrayMachine->array[i], colaPeticiones, mainStruct->ensambladora, mutexMachinesEnsabladora,arraylbMachines[i], lbCola, arraylbMachines, arrayLbEnsambladora);
             hiloMachinesEnsambladora[i]->start();
         }else{
             bool flagHiloStop = true;
@@ -95,13 +102,20 @@ void thread_main::arrancarMezcladoras(){
 }
 
 void thread_main::arrancarEnsambladora(){
-    /*
+
     int cantMezcla = mainStruct->ensambladora->cant * mainStruct->receta->cantMezcla;
     int cantChoco = mainStruct->ensambladora->cant * mainStruct->receta->cantChocolate;
     int banda1Now = mainStruct->ensambladora->bandas->array[0]->cantNow;
     int banda2Now = mainStruct->ensambladora->bandas->array[1]->cantNow;
-    if(banda2Now>=cantChoco && banda)
-    */
+
+    bool flagEnsambladora = mainStruct->ensambladora->flagProcesando;
+    if(banda1Now>=cantMezcla && banda2Now>=cantChoco && !flagEnsambladora){
+        mainStruct->ensambladora->flagProcesando = true;
+        hiloEnsambladoraHorno = new ThreadEnsambladoraHorno();
+        hiloEnsambladoraHorno->__init__(mutexMachinesEnsabladora,mainStruct->ensambladora,mainStruct->horno,mainStruct->receta,arrayLbEnsambladora);
+        hiloEnsambladoraHorno->start();
+    }
+    msleep(500);
 }
 
 void thread_main::pause() {

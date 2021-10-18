@@ -29,8 +29,14 @@ void MainWindow::on_btnIniciar_clicked(){
     arrayLbMachines[4] = this->ui->lbDatosMachine2;
     arrayLbMachines[5] = this->ui->lbDatosMachine3;
 
+    QLabel * arrayLbEnsambladora[4];
+    arrayLbEnsambladora[0] = this->ui->lbDatosBanda1;
+    arrayLbEnsambladora[1] = this->ui->lbDatosBanda2;
+    arrayLbEnsambladora[2] = this->ui->lbDatosEnsambladora;
+    arrayLbEnsambladora[3] = this->ui->lbDatosBandaHorno;
+
     mainThread = new thread_main();
-    mainThread->__init__(mainStruct, this->ui->factoryPanel,this->ui->lbCarro, arrayLbMachines, this->ui->lbCola);
+    mainThread->__init__(mainStruct, this->ui->factoryPanel,this->ui->lbCarro, arrayLbMachines, this->ui->lbCola,arrayLbEnsambladora);
     mainThread->start();
 
 }
@@ -77,14 +83,18 @@ MainStruct * MainWindow::cargarDatos(){
 
     Receta * recetaCookies = new Receta(5,5);
 
+    Horno * horno = new Horno();
+
     //Main Struct
-    MainStruct * mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies);
+    MainStruct * mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, horno);
     Ensambladora * nuevaEnsabladora = new Ensambladora();
 
+    nuevaEnsabladora->bandas->array[0]->capacidad = 50;
+    nuevaEnsabladora->bandas->array[1]->capacidad = 50;
+    nuevaEnsabladora->cant = 10;
+    nuevaEnsabladora->duracionSegundos = 5;
+
     mainStruct->ensambladora  = nuevaEnsabladora;
-
-
-
 }
 
 

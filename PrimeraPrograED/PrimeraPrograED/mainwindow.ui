@@ -185,6 +185,110 @@
         <string>Datos</string>
        </property>
       </widget>
+      <widget class="QLabel" name="lbNameBanda1">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>480</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Banda 1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbNameBanda2">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>480</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Banda 2</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosBanda1">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>530</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosBanda2">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>530</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbNameBanda1_2">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>480</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ensambladora</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosEnsambladora">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>530</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosBandaHorno">
+       <property name="geometry">
+        <rect>
+         <x>830</x>
+         <y>530</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbNameBandaHorno">
+       <property name="geometry">
+        <rect>
+         <x>820</x>
+         <y>480</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Banda Horno</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="dataPage">
@@ -834,7 +938,7 @@
      <x>0</x>
      <y>0</y>
      <width>1920</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

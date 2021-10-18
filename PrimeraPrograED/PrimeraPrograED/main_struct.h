@@ -6,6 +6,7 @@
 #include "estructuras_mezcladoras.h"
 #include "estructuras_ensambladora.h"
 #include "estructuras_peticiones.h"
+#include "estructuras_horno.h"
 
 struct MainStruct{
 
@@ -14,9 +15,10 @@ struct MainStruct{
     ColaPeticiones * colaPeticiones;
     Ensambladora * ensambladora;
     Receta * receta;
+    Horno * horno;
 
     MainStruct();
-    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta);
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta, Horno * _horno);
 
     void encolarPeticiones();
 
