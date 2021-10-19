@@ -51,6 +51,7 @@ void ThreadMachinesEnsambladora::run() {
                     resetDatos();
 
                     mutexMachineEnsambladora->lock();
+
                     banda->cantNow += this->machine->gramosProcesar;
                     mutexMachineEnsambladora->unlock();
 
