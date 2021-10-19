@@ -43,8 +43,6 @@ public:
 private slots:
     void on_btnIniciar_clicked();
 
-    void on_btnGotoSimulacion_clicked();
-
     void on_btnGotoDatos_clicked();
 
     void on_btnGoToSimulation_clicked();

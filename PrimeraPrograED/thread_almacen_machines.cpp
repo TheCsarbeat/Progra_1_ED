@@ -29,23 +29,29 @@ void ThreadAlmacenMachines::run() {
 
         if(!checkOnOff->isChecked()) pause();
         else{
-            //Own Statements
-            this->almacen->carrito->sumarSegundo();
-            this->almacen->carrito->lbTitulo->setText("Llevando a: "+this->machine->nombre);
-            this->progressBar->setValue(((double)this->almacen->carrito->timeActual/this->almacen->carrito->duracionTotal)*100);
-            sleep(1);
 
-            //Stop Condition
-            if(this->almacen->carrito->duracionTotal == this->almacen->carrito->timeActual){
+                //Own Statements
+                this->almacen->carrito->sumarSegundo();
+                this->almacen->carrito->lbTitulo->setText("Llevando a: "+this->machine->nombre);
+                this->progressBar->setValue(((double)this->almacen->carrito->timeActual/this->almacen->carrito->duracionTotal)*100);
+                sleep(1);
+
+                //Stop Condition
+                if(this->almacen->carrito->duracionTotal == this->almacen->carrito->timeActual){
 
 
-                this->mutex->lock();
-                this->machine->cantNow += this->almacen->carrito->cargaNow;
-                if(colaPeticiones->verFrente()->peticion->cant == 0)colaPeticiones->desencolar();
-                this->mutex->unlock();
-                resetDatos();
-                stop();
-            }
+                    this->mutex->lock();
+                    this->machine->cantNow += this->almacen->carrito->cargaNow;
+                    if(colaPeticiones->verFrente()->peticion->cant == 0)colaPeticiones->desencolar();
+                    this->mutex->unlock();
+                    resetDatos();
+
+                    //if(colaPeticiones->vacia())checkOnOff->setChecked(false);
+
+                    stop();
+                }
+
+
         }
     }
 

@@ -10,7 +10,6 @@
 
 
 
-#include <QLabel>
 
 class ThreadAlmacenMachines :public QThread {
 public:

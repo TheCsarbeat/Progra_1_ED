@@ -15,7 +15,8 @@ public:
     Machine * machine;
     Ensambladora * ensambladora;
     ColaPeticiones * colaPeticiones;
-    QMutex * mutex;
+    QMutex * mutexCarritoMachine;
+    QMutex * mutexMachineEnsambladora;
 
     EstructuraProgressBar * progressBar;
     QCheckBox * checkOnOff;
@@ -23,7 +24,7 @@ public:
     bool running;
     bool paused;
 
-    void __init__(Machine * machine, ColaPeticiones * colaPeticiones, Ensambladora * ensambladora, QMutex * mutex, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
+    void __init__(Machine * machine, ColaPeticiones * colaPeticiones, Ensambladora * ensambladora, QMutex * mutexCarritoMa, QMutex * mutexEnsam, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
     void run();
     void stop();
     void pause();

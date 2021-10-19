@@ -32,10 +32,10 @@ public:
 
 
     //Array ProgressBar
-    EstructuraProgressBar * arrayProgressBar[4];
+    EstructuraProgressBar * arrayProgressBar[40];
 
     //CheckBox Elements
-    QCheckBox * checkOnOff[4];
+    QCheckBox * checkOnOff[40];
 
 
     //Sub hilos
@@ -44,8 +44,8 @@ public:
     ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
 
     //Mutex
-    QMutex *mutexMachinesCarrito;
-    QMutex *mutexMachinesEnsabladora;
+    QMutex *mutexCarritoMachines;
+    QMutex *mutexMachinesEnsambladora;
     QMutex *mutexEnsambladoraHorno;
 
     void __init__(MainStruct * mainStruct, QFrame *mainPanel, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);

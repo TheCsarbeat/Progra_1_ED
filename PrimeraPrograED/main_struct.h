@@ -20,7 +20,7 @@ struct MainStruct{
     Horno * horno;
 
     MainStruct();
-    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Horno * _horno);
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno);
 
     void encolarPeticiones();
 

@@ -4,12 +4,13 @@ ThreadMachinesEnsambladora::ThreadMachinesEnsambladora(){
 
 }
 
-void ThreadMachinesEnsambladora::__init__(Machine * machine, ColaPeticiones * colaPeticiones, Ensambladora * ensambladora, QMutex * mutex,EstructuraProgressBar * progressBar, QCheckBox * checkOnOff) {
+void ThreadMachinesEnsambladora::__init__(Machine * machine, ColaPeticiones * colaPeticiones, Ensambladora * ensambladora,QMutex * mutexCarritoMa, QMutex * mutexEnsam,EstructuraProgressBar * progressBar, QCheckBox * checkOnOff) {
     this->running = false;
     this->paused = false;
     this->machine = machine;
     this->ensambladora = ensambladora;
-    this->mutex = mutex;
+    this->mutexCarritoMachine = mutexCarritoMa;
+    this->mutexMachineEnsambladora = mutexEnsam;
     this->colaPeticiones = colaPeticiones;
     this->progressBar = progressBar;
     this->checkOnOff = checkOnOff;
@@ -32,22 +33,36 @@ void ThreadMachinesEnsambladora::run() {
         }
         if(!checkOnOff->isChecked()) pause();
         else{
-            //Own Statements
-            this->machine->procesar();
-            this->machine->lbTitulo->setText("Processing...");
-            this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
-            sleep(1);
+            //Pause conditions
+            if(machine->gramosProcesar > (banda->capacidad-banda->cantNow)){
+                checkOnOff->setChecked(false);
+                pause();
+            }else{
+                //Own Statements
+                this->machine->procesar();
+                this->machine->lbTitulo->setText("Processing...");
+                this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
+                sleep(1);
 
-            //Stop Condition
-            if(this->machine->tiempoActual == this->machine->duracionSegudos){
-                resetDatos();
-                banda->cantNow += this->machine->gramosProcesar;
+                //Stop Condition
+                if(this->machine->tiempoActual == this->machine->duracionSegudos){
 
-                this->mutex->lock();
-                this->machine->cantNow -= this->machine->gramosProcesar;
-                this->mutex->unlock();
 
-                stop();
+                    resetDatos();
+
+                    mutexMachineEnsambladora->lock();
+                    banda->cantNow += this->machine->gramosProcesar;
+                    mutexMachineEnsambladora->unlock();
+
+
+                    mutexCarritoMachine->lock();
+                    this->machine->cantNow -= this->machine->gramosProcesar;
+                    mutexCarritoMachine->unlock();
+
+                    stop();
+                    banda->imprimir();
+
+                }
             }
         }
 
@@ -66,6 +81,7 @@ void ThreadMachinesEnsambladora::stop() {
 
     this->running = false;
     this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
+
     colaPeticiones->imprimir();
     this->machine->imprimirDatos();
 

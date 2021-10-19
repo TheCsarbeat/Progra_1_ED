@@ -29,6 +29,7 @@ HEADERS += \
     estructuras_almacen.h \
     estructuras_ensambladora.h \
     estructuras_horno.h \
+    estructuras_horno.h \
     estructuras_mezcladoras.h \
     estructuras_peticiones.h \
     estructuras_planificacion.h \
@@ -37,6 +38,7 @@ HEADERS += \
     main_thread.h \
     mainwindow.h \
     thread_almacen_machines.h \
+    thread_ensambladora_horno.h \
     thread_ensambladora_horno.h \
     thread_machines_ensambladora.h
 
