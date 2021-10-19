@@ -4,34 +4,83 @@ ThreadAlmacenMachines::ThreadAlmacenMachines(){
 
 }
 
-void ThreadAlmacenMachines::__init__(Almacen * almacen, Machine * machine, QMutex * mutex, QLabel * label, ColaPeticiones * colaPeticiones, QLabel * lbCola, QLabel * arraylbDatosMachines[6]) {
+void ThreadAlmacenMachines::__init__(Almacen * almacen, Machine * machine, QMutex * mutex, ColaPeticiones * colaPeticiones,EstructuraProgressBar * progressBar, QCheckBox * checkOnOff) {
     this->almacen = almacen;
     this->running = false;
     this->paused = false;
     this->mutex = mutex;
     this->machine = machine;
-    this->label = label;
     this->colaPeticiones= colaPeticiones;
-    this->lbCola =lbCola;
-    this->arraylbDatosMachines[0] = arraylbDatosMachines[3];
-    this->arraylbDatosMachines[1] = arraylbDatosMachines[4];
-    this->arraylbDatosMachines[2] = arraylbDatosMachines[5];
-
+    this->progressBar = progressBar;
+    this->checkOnOff = checkOnOff;
 }
 
 void ThreadAlmacenMachines::run() {
-    this->mutex->lock();
+
     this->running = true;
-    Peticion * peticion = colaPeticiones->verFrente()->peticion;
-
-
-
-    this->lbCola->setText(colaPeticiones->toString());
-    this->machine->flagEncolado= true;
     this->almacen->carrito->libre = false;
+    getCantPeticion();
+    almacen->carrito->imprimir();
+    while (running) {
+        while (paused) {
+            if(checkOnOff->isChecked()) resume();
+            msleep(500);
+        }
 
+        if(!checkOnOff->isChecked()) pause();
+        else{
+
+                //Own Statements
+                this->almacen->carrito->sumarSegundo();
+                this->almacen->carrito->lbTitulo->setText("Llevando a: "+this->machine->nombre);
+                this->progressBar->setValue(((double)this->almacen->carrito->timeActual/this->almacen->carrito->duracionTotal)*100);
+                sleep(1);
+
+                //Stop Condition
+                if(this->almacen->carrito->duracionTotal == this->almacen->carrito->timeActual){
+
+
+                    this->mutex->lock();
+                    this->machine->cantNow += this->almacen->carrito->cargaNow;
+                    if(colaPeticiones->verFrente()->peticion->cant == 0)colaPeticiones->desencolar();
+                    this->mutex->unlock();
+                    resetDatos();
+
+                    //if(colaPeticiones->vacia())checkOnOff->setChecked(false);
+
+                    stop();
+                }
+
+
+        }
+    }
+
+}
+
+void ThreadAlmacenMachines::pause() {
+    this->paused = true;
+    this->almacen->carrito->lbTitulo->setText("Waiting...");
+}
+
+void ThreadAlmacenMachines::stop() {
+    this->running = false;
+
+    colaPeticiones->imprimir();
+    machine->imprimirDatos();
+    almacen->carrito->imprimir();
+
+}
+
+void ThreadAlmacenMachines::resume() {
+    this->paused = false;
+}
+
+void ThreadAlmacenMachines::getCantPeticion(){
+
+    Peticion * peticion = colaPeticiones->verFrente()->peticion;
     int cantPeticion = peticion->cant;
     int cargaCarrito = almacen->carrito->capacidad;
+    colaPeticiones->imprimir();
     if(cantPeticion>= cargaCarrito){
         this->almacen->carrito->cargaNow = almacen->carrito->capacidad;
         peticion->cant = peticion->cant-cargaCarrito;
@@ -41,52 +90,20 @@ void ThreadAlmacenMachines::run() {
     }
 
 
-    while (running) {
-        while (paused) {
-            sleep(1);
-        }
-
-        this->almacen->carrito->sumarSegundo();
-
-        this->label->setText(QString::number(this->almacen->carrito->timeActual)+" de "+QString::number(this->almacen->carrito->duracionTotal)
-                             +" segundos para llegar a la "+this->machine->nombre);
-
-        sleep(1);
-        if(this->almacen->carrito->duracionTotal == this->almacen->carrito->timeActual){
-            this->machine->cantNow += this->almacen->carrito->cargaNow;
-            stop();
-        }
-
-    }
-    this->mutex->unlock();
 }
 
-void ThreadAlmacenMachines::pause() {
-    this->paused = true;
-}
+void ThreadAlmacenMachines::resetDatos(){
+    //Visuales
+    this->almacen->carrito->lbTitulo->setText("Waiting...");
+    almacen->carrito->imprimir();
+    this->progressBar->setValue(0);
 
-void ThreadAlmacenMachines::stop() {
-
-
+    //Code
     this->almacen->carrito->libre = true;
     this->almacen->carrito->timeActual = 0;
-    this->running = false;
-
-    NodoPeticion * listo = colaPeticiones->verFrente();
-
-    if(listo->peticion->cant == 0){
-        colaPeticiones->desencolar();
-        this->machine->flagEncolado= false;
-    }
-
-
-    this->lbCola->setText(colaPeticiones->toString());
-
-    this->arraylbDatosMachines[this->machine->id]->setText(+"\n cantidad Actual: "+QString::number(machine->cantNow)
-                                                           +"\n Min: "+QString::number(machine->min)
-                                                           +"\n Max: "+QString::number(machine->max));
+    this->almacen->carrito->cargaNow=0;
 }
 
-void ThreadAlmacenMachines::resume() {
-    this->paused = false;
+void ThreadAlmacenMachines::updateData(){
+
 }
