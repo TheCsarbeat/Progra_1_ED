@@ -214,9 +214,9 @@
       <widget class="QLabel" name="lbDatosBanda1">
        <property name="geometry">
         <rect>
-         <x>340</x>
+         <x>280</x>
          <y>530</y>
-         <width>91</width>
+         <width>151</width>
          <height>41</height>
         </rect>
        </property>
@@ -227,9 +227,9 @@
       <widget class="QLabel" name="lbDatosBanda2">
        <property name="geometry">
         <rect>
-         <x>520</x>
+         <x>470</x>
          <y>530</y>
-         <width>91</width>
+         <width>141</width>
          <height>41</height>
         </rect>
        </property>
@@ -253,9 +253,9 @@
       <widget class="QLabel" name="lbDatosEnsambladora">
        <property name="geometry">
         <rect>
-         <x>690</x>
+         <x>640</x>
          <y>530</y>
-         <width>91</width>
+         <width>141</width>
          <height>41</height>
         </rect>
        </property>
@@ -266,9 +266,9 @@
       <widget class="QLabel" name="lbDatosBandaHorno">
        <property name="geometry">
         <rect>
-         <x>830</x>
+         <x>810</x>
          <y>530</y>
-         <width>91</width>
+         <width>151</width>
          <height>41</height>
         </rect>
        </property>

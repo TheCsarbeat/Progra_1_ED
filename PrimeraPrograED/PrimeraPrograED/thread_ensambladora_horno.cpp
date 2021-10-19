@@ -26,11 +26,11 @@ void ThreadEnsambladoraHorno::run(){
     int choco = receta->cantChocolate;
     while(running){
         ensambladora->sumarSegundo();
-        arrayLbEnsambladora[2]->setText(QString::number(ensambladora->timeActual)+" para hacer las "+QString::number(ensambladora->cant)+" galletas");
-
+        arrayLbEnsambladora[2]->setText(QString::number(ensambladora->timeActual)+" de "+QString::number(ensambladora->duracionSegundos) +" para hacer las "+QString::number(ensambladora->cant)+" galletas");
+        sleep(1);
         if(ensambladora->timeActual == ensambladora->duracionSegundos){
             this->mutex->lock();
-            horno->banda->cantNow = ensambladora->makeCookies(mezcla, choco);
+            horno->banda->cantNow += ensambladora->makeCookies(mezcla, choco);
             arrayLbEnsambladora[0]->setText("\n cantidad Actual: "+QString::number(ensambladora->bandas->array[0]->cantNow)
                                                  +"\n Max: "+QString::number(ensambladora->bandas->array[0]->capacidad));
             arrayLbEnsambladora[1]->setText("\n cantidad Actual: "+QString::number(ensambladora->bandas->array[0]->cantNow)
