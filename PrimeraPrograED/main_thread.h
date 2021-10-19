@@ -4,7 +4,7 @@
 #include<QtCore>
 #include <QDebug>
 #include <QFrame>
-
+#include <QProgressBar>
 #include "main_struct.h"
 #include "thread_almacen_machines.h"
 #include "thread_machines_ensambladora.h"
@@ -12,6 +12,7 @@
 
 
 #include <QLabel>
+#include <QCheckBox>
 
 
 class thread_main :public QThread {
@@ -21,29 +22,33 @@ public:
     //Variables propias
     MainStruct * mainStruct;
     QFrame * mainPanel;
+
     bool running;
     bool paused;
 
 
-    //Label de cada elemento
-    QLabel * lbCarro;
-    QLabel * arraylbMachines[6];
-    QLabel * lbCola;
+
     ColaPeticiones * colaPeticiones;
 
-    QLabel * arrayLbEnsambladora[4];
+
+    //Array ProgressBar
+    EstructuraProgressBar * arrayProgressBar[40];
+
+    //CheckBox Elements
+    QCheckBox * checkOnOff[40];
+
 
     //Sub hilos
-    ThreadAlmacenMachines * hiloCarritoMachines[3];
+    ThreadAlmacenMachines * hiloCarritoMachines;
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
     ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
 
     //Mutex
-    QMutex *mutexMachinesCarrito;
-    QMutex *mutexMachinesEnsabladora;
+    QMutex *mutexCarritoMachines;
+    QMutex *mutexMachinesEnsambladora;
     QMutex *mutexEnsambladoraHorno;
 
-    void __init__(MainStruct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[3], QLabel * lbCola, QLabel * arrayLbEnsambladora[4]);
+    void __init__(MainStruct * mainStruct, QFrame *mainPanel, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);
     void run();
     void stop();
     void pause();
@@ -53,6 +58,8 @@ public:
     void arrancarCarrito();
     void arrancarMezcladoras();
     void arrancarEnsambladora();
+
+    void imprimirDatos();
 
 };
 

@@ -10,6 +10,8 @@
 #include "main_thread.h"
 #include "main_struct.h"
 
+#include "estructuras_progressbar.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,17 +27,25 @@ public:
      thread_main * mainThread;
      MainStruct * mainStruct;
 
+     QLabel * arrayLbMachines[3];
+     QLabel * arrayLbDatosMachines[3];
+
+     EstructuraProgressBar * arrayProgressBar[40];
+     QCheckBox * arrayCheackBoxOnOff[40];
+
     ~MainWindow();
 
      void design();
+     void getUIWidgets();
+
      MainStruct * cargarDatos();
 
 private slots:
     void on_btnIniciar_clicked();
 
-    void on_btnGotoSimulacion_clicked();
-
     void on_btnGotoDatos_clicked();
+
+    void on_btnGoToSimulation_clicked();
 
 private:
     Ui::MainWindow *ui;

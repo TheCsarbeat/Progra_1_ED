@@ -6,8 +6,10 @@
 #include "estructuras_mezcladoras.h"
 #include "estructuras_ensambladora.h"
 #include "estructuras_peticiones.h"
+#include "estructuras_progressbar.h"
 #include "estructuras_horno.h"
 
+#include <QLabel>
 struct MainStruct{
 
     Almacen * almacen;
@@ -18,7 +20,7 @@ struct MainStruct{
     Horno * horno;
 
     MainStruct();
-    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta, Horno * _horno);
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno);
 
     void encolarPeticiones();
 

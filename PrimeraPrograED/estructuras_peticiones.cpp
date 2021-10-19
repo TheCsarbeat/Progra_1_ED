@@ -40,15 +40,8 @@ NodoPeticion* ColaPeticiones::verFrente(){
 }
 
 void ColaPeticiones::imprimir(){
-    NodoPeticion * temp = frente;
-    qDebug()<<"------COLA DE PETICIONES------";
-    while(temp!=NULL){
 
-        temp->imprimir();
-
-        temp = temp->siguiente;
-    }
-    qDebug()<<"--------------------------------";
+    lbTitulo->setText(toString());
 
 }
 

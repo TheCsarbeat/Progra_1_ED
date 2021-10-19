@@ -4,10 +4,12 @@
 #include <QtCore>
 #include <QMutex>
 #include <QDebug>
+#include <QCheckBox>
+
 #include "main_struct.h"
 
 
-#include <QLabel>
+
 
 class ThreadAlmacenMachines :public QThread {
 public:
@@ -15,20 +17,22 @@ public:
     Almacen * almacen;
     Machine * machine;
     QMutex * mutex;
+
     ColaPeticiones * colaPeticiones;
 
-    QLabel * label;
-    QLabel * lbCola;
-    QLabel * arraylbDatosMachines[3];
-
+    EstructuraProgressBar * progressBar;
+    QCheckBox * checkOnOff;
     bool running;
     bool paused;
 
-    void __init__(Almacen * almacen, Machine * machine,QMutex *mutex, QLabel * label, ColaPeticiones * colaPeticiones, QLabel *lbCola, QLabel * arraylbDatosMachines[6]);
+    void __init__(Almacen * almacen, Machine * machine,QMutex *mutex, ColaPeticiones * colaPeticiones,EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
     void run();
     void stop();
     void pause();
     void resume();
+    void getCantPeticion();
+    void updateData();
+    void resetDatos();
 
 };
 

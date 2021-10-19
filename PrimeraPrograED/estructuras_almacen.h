@@ -2,6 +2,7 @@
 #define ESTRUCTURAS_ALMACEN_H
 #include <QDebug>
 #include <QString>
+#include <QLabel>
 
 struct MateriaPrima{
     QString nombre;
@@ -11,6 +12,8 @@ struct MateriaPrima{
 };
 
 struct Carrito{
+    QLabel * lbTitulo;
+    QLabel * lbDatos;
     int capacidad;
     int duracionTotal;
     int cargaNow;
@@ -20,10 +23,11 @@ struct Carrito{
     int timeActual;
 
 
-    Carrito();
-    Carrito(int _capacidad, int _duracionTotal, bool _estado);
+    Carrito(QLabel * Titulo,QLabel * Datos);
+    Carrito(int _capacidad, int _duracionTotal, bool _estado,QLabel * Titulo,QLabel * Datos);
 
     void sumarSegundo();
+    void imprimir();
 
 
 };

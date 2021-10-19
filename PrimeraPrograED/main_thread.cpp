@@ -4,46 +4,49 @@ thread_main::thread_main(){
 
 }
 
-void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, QLabel * lbCarro, QLabel * arraylbMachines[6], QLabel *lbCola,QLabel * arrayLbEnsambladora[4]) {
+void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, EstructuraProgressBar * arrayProgressBar[40],QCheckBox * checkOnOff[40]) {
     this->mainStruct = mainStruct;
     this->running = false;
     this->paused = false;
     this->mainPanel = mainPanel;
-    this->lbCarro = lbCarro;
-    this->arraylbMachines[0] = arraylbMachines[0];
-    this->arraylbMachines[1] = arraylbMachines[1];
-    this->arraylbMachines[2] = arraylbMachines[2];
-    this->arraylbMachines[3] = arraylbMachines[3];
-    this->arraylbMachines[4] = arraylbMachines[4];
-    this->arraylbMachines[5] = arraylbMachines[5];
 
-    this->arrayLbEnsambladora[0] = arrayLbEnsambladora[0];
-    this->arrayLbEnsambladora[1] = arrayLbEnsambladora[1];
-    this->arrayLbEnsambladora[2] = arrayLbEnsambladora[2];
-    this->arrayLbEnsambladora[3] = arrayLbEnsambladora[3];
+    //Array Progress Bar
+    this->arrayProgressBar[0] = arrayProgressBar[0];
+    this->arrayProgressBar[1] = arrayProgressBar[1];
+    this->arrayProgressBar[2] = arrayProgressBar[2];
+    this->arrayProgressBar[3] = arrayProgressBar[3];
+    this->arrayProgressBar[4] = arrayProgressBar[4];
 
-    this->lbCola = lbCola;
-    colaPeticiones = new ColaPeticiones();
-    mutexMachinesEnsabladora = new QMutex();
-    mutexMachinesCarrito = new QMutex();
+    //Array Checkbox
+    this->checkOnOff[0] = checkOnOff[0];
+    this->checkOnOff[1] = checkOnOff[1];
+    this->checkOnOff[2] = checkOnOff[2];
+    this->checkOnOff[3] = checkOnOff[3];
+    this->checkOnOff[4] = checkOnOff[4];
+
+
+    colaPeticiones = mainStruct->colaPeticiones;
+
+
+    mutexCarritoMachines = new QMutex();
+    mutexMachinesEnsambladora = new QMutex();
     mutexEnsambladoraHorno = new QMutex();
 
 }
 
 void thread_main::run() {
     this->running = true;
-    int corrida = 0;
-
+    encolar();
     while (running) {
         while (paused) {
             sleep(1);
         }
-        encolar();
+
         arrancarCarrito();
         arrancarMezcladoras();
         arrancarEnsambladora();
 
-        msleep(100);
+        msleep(500);
     }
 
 }
@@ -53,15 +56,12 @@ void thread_main::encolar(){
             int cantNow = mainStruct->arrayMachine->array[i]->cantNow;
             int cantMin = mainStruct->arrayMachine->array[i]->min;
             int cantMax = mainStruct->arrayMachine->array[i]->max;
-            bool flagEncolado = mainStruct->arrayMachine->array[i]->flagEncolado;
             bool flagProcesando = mainStruct->arrayMachine->array[i]->flagProcesando;
 
-        if(cantNow <= cantMin && flagEncolado == false && flagProcesando == false){
+        if(cantNow <= cantMin && flagProcesando == false){
             colaPeticiones->encolar(mainStruct->arrayMachine->array[i]->nombre, cantMax-cantNow, i);
             mainStruct->arrayMachine->array[i]->flagEncolado = true;
         }
-
-        msleep(500);
     }
 }
 
@@ -70,12 +70,9 @@ void thread_main::arrancarCarrito(){
     if(!colaPeticiones->vacia() && libreCarrito == true){
         Peticion * peticion = colaPeticiones->verFrente()->peticion;
 
-        hiloCarritoMachines[peticion->idMachine] = new ThreadAlmacenMachines();
-        hiloCarritoMachines[peticion->idMachine]->__init__(mainStruct->almacen, mainStruct->arrayMachine->array[peticion->idMachine], mutexMachinesCarrito,this->lbCarro, colaPeticiones, lbCola,
-                arraylbMachines);
-        hiloCarritoMachines[peticion->idMachine]->start();
-
-        msleep(500);
+        hiloCarritoMachines = new ThreadAlmacenMachines();
+        hiloCarritoMachines->__init__(mainStruct->almacen, mainStruct->arrayMachine->array[peticion->idMachine], mutexCarritoMachines,colaPeticiones,arrayProgressBar[0], checkOnOff[0]);
+        hiloCarritoMachines->start();
     }
 }
 
@@ -83,21 +80,18 @@ void thread_main::arrancarMezcladoras(){
     for(int i= 0; i<3; i++){
             int cantNow = mainStruct->arrayMachine->array[i]->cantNow;
             int cantMin = mainStruct->arrayMachine->array[i]->min;
-            /*int cantMax = mainStruct->arrayMachine->array[i]->max;
-            bool flagEncolado = mainStruct->arrayMachine->array[i]->flagEncolado;*/
             bool flagProcesando = mainStruct->arrayMachine->array[i]->flagProcesando;
+
 
         if(cantNow >= cantMin && flagProcesando == false){
             mainStruct->arrayMachine->array[i]->flagProcesando = true;
-
             hiloMachinesEnsambladora[i] = new ThreadMachinesEnsambladora();
-            hiloMachinesEnsambladora[i]->__init__(mainStruct->arrayMachine->array[i], colaPeticiones, mainStruct->ensambladora, mutexMachinesEnsabladora,arraylbMachines[i], lbCola, arraylbMachines, arrayLbEnsambladora);
+            hiloMachinesEnsambladora[i]->__init__(mainStruct->arrayMachine->array[i], colaPeticiones, mainStruct->ensambladora, mutexCarritoMachines,mutexMachinesEnsambladora,arrayProgressBar[i+1], checkOnOff[i+1]);
             hiloMachinesEnsambladora[i]->start();
+            msleep(300);
         }else{
             bool flagHiloStop = true;
         }
-
-        msleep(500);
     }
 }
 
@@ -112,10 +106,15 @@ void thread_main::arrancarEnsambladora(){
     if(banda1Now>=cantMezcla && banda2Now>=cantChoco && !flagEnsambladora){
         mainStruct->ensambladora->flagProcesando = true;
         hiloEnsambladoraHorno = new ThreadEnsambladoraHorno();
-        hiloEnsambladoraHorno->__init__(mutexMachinesEnsabladora,mainStruct->ensambladora,mainStruct->horno,mainStruct->receta,arrayLbEnsambladora);
+        hiloEnsambladoraHorno->__init__(mutexMachinesEnsambladora,mutexEnsambladoraHorno, mainStruct->ensambladora,mainStruct->horno,mainStruct->receta, arrayProgressBar[4], checkOnOff[4]);
         hiloEnsambladoraHorno->start();
     }
     msleep(500);
+}
+
+void thread_main::imprimirDatos(){
+    mainStruct->almacen->carrito->imprimir();
+    for(int i= 0; i<3; i++)mainStruct->arrayMachine->array[i]->imprimirDatos();
 }
 
 void thread_main::pause() {

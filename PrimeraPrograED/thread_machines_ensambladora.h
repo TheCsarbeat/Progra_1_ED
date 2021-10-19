@@ -7,6 +7,7 @@
 #include "main_struct.h"
 
 #include <QLabel>
+#include <QCheckBox>
 class ThreadMachinesEnsambladora: public QThread{
 public:
     ThreadMachinesEnsambladora();
@@ -14,21 +15,21 @@ public:
     Machine * machine;
     Ensambladora * ensambladora;
     ColaPeticiones * colaPeticiones;
-    QMutex * mutex;
-    QLabel * label;
-    QLabel *lbCola;
+    QMutex * mutexCarritoMachine;
+    QMutex * mutexMachineEnsambladora;
 
-    QLabel * arraylbDatosMachines[3];
-    QLabel * arraylbDatosBandas[2];
-    QLabel * arrayLbEnsambladora[2];
+    EstructuraProgressBar * progressBar;
+    QCheckBox * checkOnOff;
+
     bool running;
     bool paused;
 
-    void __init__(Machine * machine, ColaPeticiones * colaPeticiones, Ensambladora * ensambladora, QMutex * mutex, QLabel * label, QLabel *lbCola, QLabel * arraylbDatosMachines[6], QLabel * arrayLbEnsambladora[4]);
+    void __init__(Machine * machine, ColaPeticiones * colaPeticiones, Ensambladora * ensambladora, QMutex * mutexCarritoMa, QMutex * mutexEnsam, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
     void run();
     void stop();
     void pause();
     void resume();
+    void resetDatos();
 
 
 };

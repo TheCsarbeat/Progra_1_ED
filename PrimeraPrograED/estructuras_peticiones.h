@@ -3,6 +3,7 @@
 
 #include <QDebug>
 #include <QString>
+#include <QLabel>
 
 struct Peticion{
     QString nombreMachine;
@@ -51,9 +52,13 @@ struct NodoPeticion{
 
 struct ColaPeticiones{
     NodoPeticion *frente; // ERROR sin ultimo nodo
-
+    QLabel * lbTitulo;
     ColaPeticiones(){
          frente = NULL;
+    }
+    ColaPeticiones(QLabel * titulo){
+         frente = NULL;
+         lbTitulo = titulo;
     }
 
     // encabezados de funcion

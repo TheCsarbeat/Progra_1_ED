@@ -3,28 +3,33 @@
 MateriaPrima::MateriaPrima(){
     nombre = "";
     cant = 0;
+
 }
 MateriaPrima::MateriaPrima(QString _name, int _cant){
     nombre = _name;
     cant = _cant;
+
 }
 
-Carrito::Carrito(){
+Carrito::Carrito(QLabel *lb, QLabel * Datos){
     capacidad = 0;
     duracionTotal = 0;
     cargaNow = 0;
     estado = false;
     timeActual = 0;
     libre = true;
+    lbTitulo = lb;
+    lbDatos = Datos;
 }
 
-Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado){
+Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado, QLabel *lb,QLabel * Datos){
     capacidad = _capacidad;
     duracionTotal = _duracionTotal;
-    estado = _estado;
-
+    estado = _estado;    
     timeActual = 0;
     libre = false;
+    lbTitulo = lb;
+    lbDatos = Datos;
 
 }
 
@@ -32,8 +37,12 @@ void Carrito::sumarSegundo(){
     timeActual++;
 }
 
+void Carrito::imprimir(){
+    lbDatos->setText("Carga: "+QString::number(cargaNow));
+}
+
 Almacen::Almacen(){
-    carrito = new Carrito();
+    carrito = new Carrito(new QLabel, new QLabel);
     registro = new RegistroAlmacen;
 }
 
