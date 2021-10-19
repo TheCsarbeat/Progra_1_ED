@@ -8,7 +8,7 @@
 #include "main_struct.h"
 #include "thread_almacen_machines.h"
 #include "thread_machines_ensambladora.h"
-
+#include "thread_ensambladora_horno.h"
 
 
 #include <QLabel>
@@ -41,10 +41,12 @@ public:
     //Sub hilos
     ThreadAlmacenMachines * hiloCarritoMachines;
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
+    ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
 
     //Mutex
     QMutex *mutexMachinesCarrito;
     QMutex *mutexMachinesEnsabladora;
+    QMutex *mutexEnsambladoraHorno;
 
     void __init__(MainStruct * mainStruct, QFrame *mainPanel, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);
     void run();

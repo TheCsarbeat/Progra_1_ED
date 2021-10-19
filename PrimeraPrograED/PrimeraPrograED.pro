@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     estructuras_almacen.cpp \
     estructuras_ensambladora.cpp \
+    estructuras_horno.cpp \
     estructuras_mezcladoras.cpp \
     estructuras_peticiones.cpp \
     estructuras_planificacion.cpp \
@@ -21,11 +22,13 @@ SOURCES += \
     main_thread.cpp \
     mainwindow.cpp \
     thread_almacen_machines.cpp \
+    thread_ensambladora_horno.cpp \
     thread_machines_ensambladora.cpp
 
 HEADERS += \
     estructuras_almacen.h \
     estructuras_ensambladora.h \
+    estructuras_horno.h \
     estructuras_mezcladoras.h \
     estructuras_peticiones.h \
     estructuras_planificacion.h \
@@ -34,6 +37,7 @@ HEADERS += \
     main_thread.h \
     mainwindow.h \
     thread_almacen_machines.h \
+    thread_ensambladora_horno.h \
     thread_machines_ensambladora.h
 
 FORMS += \

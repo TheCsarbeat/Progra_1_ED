@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="contentPanel">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1920</width>
+      <height>1080</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">this-&gt;setStyleSheet(&quot;background-color: rgb(255, 255, 255);&quot;);</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="factoryPage">
+     <widget class="QFrame" name="factoryPanel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1731</width>
+        <height>951</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="lbMachine1">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>120</y>
+         <width>301</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mezcladora 1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbCarro">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>40</y>
+         <width>371</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Carro</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbMachine3">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>410</y>
+         <width>421</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Chocolatera</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbMachine2">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>280</y>
+         <width>341</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mezcladora 2</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnIniciar">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>350</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>230</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbCola">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>40</y>
+         <width>311</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosMachine2">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>340</y>
+         <width>311</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosMachine1">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>200</y>
+         <width>311</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosMachine3">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>470</y>
+         <width>311</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>datos</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnGotoDatos">
+       <property name="geometry">
+        <rect>
+         <x>1570</x>
+         <y>210</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbNameBanda1">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>480</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Banda 1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbNameBanda2">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>480</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Banda 2</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosBanda1">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>530</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosBanda2">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>530</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbNameBanda1_2">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>480</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ensambladora</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosEnsambladora">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>530</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDatosBandaHorno">
+       <property name="geometry">
+        <rect>
+         <x>830</x>
+         <y>530</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Datos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbNameBandaHorno">
+       <property name="geometry">
+        <rect>
+         <x>820</x>
+         <y>480</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Banda Horno</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="dataPage">
+     <widget class="QFrame" name="dataPanel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1921</width>
+        <height>1061</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLineEdit" name="txtCapacidadCar">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>60</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Datos Del Carrito</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Capacidad:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtDurationCar">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>120</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>120</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Duración:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>110</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Duración:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtDurationMecladora1">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>110</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>15</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>80</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Máximo:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtMinMezcladora1">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>50</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>20</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtMaxMecladora1">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>80</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>45</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>50</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Mínimo: </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>10</y>
+         <width>221</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Datos Mezcladora 1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>140</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cant Procesar</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtCantProcesarMezcladora1">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>140</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtCantProcesarMezcladora2">
+       <property name="geometry">
+        <rect>
+         <x>780</x>
+         <y>140</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>140</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cant Procesar</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtMinMezcladora2">
+       <property name="geometry">
+        <rect>
+         <x>780</x>
+         <y>50</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>20</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>80</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Máximo:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>110</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Duración:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtMaxMecladora2">
+       <property name="geometry">
+        <rect>
+         <x>780</x>
+         <y>80</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>50</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>50</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Mínimo: </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>10</y>
+         <width>221</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Datos Mezcladora 2</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txttDurationMecladora2">
+       <property name="geometry">
+        <rect>
+         <x>780</x>
+         <y>110</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtCantProcesarChocolatera">
+       <property name="geometry">
+        <rect>
+         <x>1100</x>
+         <y>140</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>20</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>990</x>
+         <y>140</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cant Procesar</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtMinChocolatera">
+       <property name="geometry">
+        <rect>
+         <x>1100</x>
+         <y>50</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>50</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>990</x>
+         <y>80</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Máximo:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>990</x>
+         <y>110</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Duración:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtMaxChocolatera">
+       <property name="geometry">
+        <rect>
+         <x>1100</x>
+         <y>80</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>60</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>990</x>
+         <y>50</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Mínimo: </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>990</x>
+         <y>10</y>
+         <width>221</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Datos Chocolatera</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtDurationChocolatera">
+       <property name="geometry">
+        <rect>
+         <x>1100</x>
+         <y>110</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnGotoSimulacion">
+       <property name="geometry">
+        <rect>
+         <x>1080</x>
+         <y>210</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ir a Simulacion</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

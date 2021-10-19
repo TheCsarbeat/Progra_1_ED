@@ -26,6 +26,7 @@ void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, Estructur
     colaPeticiones = mainStruct->colaPeticiones;
     mutexMachinesEnsabladora = new QMutex();
     mutexMachinesCarrito = new QMutex();
+    mutexEnsambladoraHorno = new QMutex();
 
 }
 
@@ -39,7 +40,7 @@ void thread_main::run() {
 
         arrancarCarrito();
         arrancarMezcladoras();
-
+        arrancarEnsambladora();
 
         msleep(500);
     }
@@ -90,13 +91,20 @@ void thread_main::arrancarMezcladoras(){
 }
 
 void thread_main::arrancarEnsambladora(){
-    /*
+
     int cantMezcla = mainStruct->ensambladora->cant * mainStruct->receta->cantMezcla;
     int cantChoco = mainStruct->ensambladora->cant * mainStruct->receta->cantChocolate;
     int banda1Now = mainStruct->ensambladora->bandas->array[0]->cantNow;
     int banda2Now = mainStruct->ensambladora->bandas->array[1]->cantNow;
-    if(banda2Now>=cantChoco && banda)
-    */
+
+    bool flagEnsambladora = mainStruct->ensambladora->flagProcesando;
+    if(banda1Now>=cantMezcla && banda2Now>=cantChoco && !flagEnsambladora){
+        mainStruct->ensambladora->flagProcesando = true;
+        hiloEnsambladoraHorno = new ThreadEnsambladoraHorno();
+        hiloEnsambladoraHorno->__init__(mutexMachinesEnsabladora,mainStruct->ensambladora,mainStruct->horno,mainStruct->receta,arrayLbEnsambladora);
+        hiloEnsambladoraHorno->start();
+    }
+    msleep(500);
 }
 
 void thread_main::imprimirDatos(){

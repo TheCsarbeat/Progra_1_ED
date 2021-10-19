@@ -29,13 +29,18 @@ struct Ensambladora{
     ArrayBandas * bandas;
     int duracionSegundos;
     int cant;
+    int timeActual;
+    bool flagProcesando;
     Ensambladora(){
         bandas = new ArrayBandas();
         duracionSegundos = 0;
         cant = 0;
+        timeActual = 0;
+        flagProcesando = false;
     }
 
-
+    void sumarSegundo();
+    int makeCookies(int mezcla, int choco);
 };
 
 #endif // ESTRUCTURAS_ENSAMBLADORA_H
