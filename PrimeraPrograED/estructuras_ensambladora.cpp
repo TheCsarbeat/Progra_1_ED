@@ -1,7 +1,7 @@
 #include "estructuras_ensambladora.h"
 
 void Banda::imprimir(){
-    lbDatos->setText("Cantidad Actual: "+QString::number(cantNow)
+    lbDatos->setText("Cant Actual: "+QString::number(cantNow)
                      +"\nMax: "+QString::number(capacidad));
 }
 void Ensambladora::sumarSegundo(){
@@ -17,7 +17,7 @@ int Ensambladora::makeCookies(int mezcla, int choco){
 }
 
 void Ensambladora::imprimir(){
-    lbDatos->setText("Galletas Hechas: working on it");
+    lbDatos->setText("Galletas Hechas: "+QString::number(galletasHechas));
 }
 
 

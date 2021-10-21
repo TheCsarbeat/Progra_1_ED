@@ -42,6 +42,7 @@ void ThreadAlmacenMachines::run() {
 
                     this->mutex->lock();
                     this->machine->cantNow += this->almacen->carrito->cargaNow;
+                    almacen->carrito->materiaPrimaEntregada += almacen->carrito->cargaNow;
                     if(colaPeticiones->verFrente()->peticion->cant == 0)colaPeticiones->desencolar();
                     this->mutex->unlock();
                     resetDatos();
@@ -102,8 +103,4 @@ void ThreadAlmacenMachines::resetDatos(){
     this->almacen->carrito->libre = true;
     this->almacen->carrito->timeActual = 0;
     this->almacen->carrito->cargaNow=0;
-}
-
-void ThreadAlmacenMachines::updateData(){
-
 }

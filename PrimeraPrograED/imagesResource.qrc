@@ -8,5 +8,8 @@
         <file>images/banda 2Chocolate.png</file>
         <file>images/banda1Mezcla.png</file>
         <file>images/assembler.png</file>
+        <file>images/banda_horno.png</file>
+        <file>images/bandeja.png</file>
+        <file>images/horno.png</file>
     </qresource>
 </RCC>

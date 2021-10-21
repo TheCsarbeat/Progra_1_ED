@@ -31,6 +31,7 @@ void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, Estructur
     mutexCarritoMachines = new QMutex();
     mutexMachinesEnsambladora = new QMutex();
     mutexEnsambladoraHorno = new QMutex();
+    mutexHornoInspectores = new QMutex();
 
 }
 
@@ -45,6 +46,7 @@ void thread_main::run() {
         arrancarCarrito();
         arrancarMezcladoras();
         arrancarEnsambladora();
+        arrancarHorno();
 
         msleep(500);
     }
@@ -89,8 +91,6 @@ void thread_main::arrancarMezcladoras(){
             hiloMachinesEnsambladora[i]->__init__(mainStruct->arrayMachine->array[i], colaPeticiones, mainStruct->ensambladora, mutexCarritoMachines,mutexMachinesEnsambladora,arrayProgressBar[i+1], checkOnOff[i+1]);
             hiloMachinesEnsambladora[i]->start();
             msleep(300);
-        }else{
-            bool flagHiloStop = true;
         }
     }
 }
@@ -110,6 +110,19 @@ void thread_main::arrancarEnsambladora(){
         hiloEnsambladoraHorno->start();
     }
     msleep(500);
+}
+
+void thread_main::arrancarHorno(){
+    qDebug() << "Entro a arrancar horno";
+    int flag = mainStruct->horno->flagProcesando;
+    //int cantNow = mainStruct->horno->getCurrentCantidad();
+    //int capacidad = mainStruct->horno->capacidad;
+    if(!flag && mainStruct->horno->banda->cantNow > 0){
+        qDebug() << "Entro al if de que puede procesar";
+        hiloHornoInspectores = new ThreadHornoInspectores();
+        hiloHornoInspectores->__init__(mutexEnsambladoraHorno,mutexHornoInspectores,mainStruct->horno,mainStruct->inspectores,arrayProgressBar[5],checkOnOff[5]);
+        hiloHornoInspectores->start();
+    }
 }
 
 void thread_main::imprimirDatos(){

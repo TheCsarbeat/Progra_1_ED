@@ -8,6 +8,7 @@
 #include "estructuras_peticiones.h"
 #include "estructuras_progressbar.h"
 #include "estructuras_horno.h"
+#include "estructuras_inspectores.h"
 
 #include <QLabel>
 struct MainStruct{
@@ -18,6 +19,7 @@ struct MainStruct{
     Ensambladora * ensambladora;
     Receta * receta;
     Horno * horno;
+    Inspectores * inspectores;
 
     MainStruct();
     MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno);

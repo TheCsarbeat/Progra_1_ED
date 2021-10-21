@@ -15,6 +15,12 @@ struct Banda{
         capacidad = 0;
         lbDatos = new QLabel();
     }
+    Banda(QString nombreBanda, QLabel * lbDatosBanda){
+        cantNow = 0;
+        capacidad = 0;
+        nombre = nombreBanda;
+        lbDatos = lbDatosBanda;
+    }
 
     void imprimir();
 };
@@ -23,13 +29,8 @@ struct ArrayBandas{
     Banda * array[2];
 
     ArrayBandas(QLabel * banda1, QLabel * banda2){
-        array[0] = new Banda();
-        array[0]->nombre = "Banda 1";
-        array[0]->lbDatos = banda1;
-
-        array[1] = new Banda();
-        array[1]->nombre = "Banda 2";
-        array[1]->lbDatos = banda2;
+        array[0] = new Banda("Banda 1",banda1);
+        array[1] = new Banda("Banda 2",banda2);
     }
 };
 
@@ -39,6 +40,7 @@ struct Ensambladora{
     int duracionSegundos;
     int cant;
     int timeActual;
+    int galletasHechas;
     bool flagProcesando;
     QLabel * lbTitulo;
     QLabel * lbDatos;
@@ -48,7 +50,7 @@ struct Ensambladora{
         cant = 0;
         timeActual = 0;
         flagProcesando = false;
-
+        galletasHechas = 0;
         lbTitulo = titulo;
         lbDatos = datos;
     }

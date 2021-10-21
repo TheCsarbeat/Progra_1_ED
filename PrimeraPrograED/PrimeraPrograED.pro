@@ -12,17 +12,18 @@ SOURCES += \
     estructuras_almacen.cpp \
     estructuras_ensambladora.cpp \
     estructuras_horno.cpp \
+    estructuras_inspectores.cpp \
     estructuras_mezcladoras.cpp \
     estructuras_peticiones.cpp \
     estructuras_planificacion.cpp \
     estructuras_progressbar.cpp \
-    machines_thread.cpp \
     main.cpp \
     main_struct.cpp \
     main_thread.cpp \
     mainwindow.cpp \
     thread_almacen_machines.cpp \
     thread_ensambladora_horno.cpp \
+    thread_horno_inspectores.cpp \
     thread_machines_ensambladora.cpp
 
 HEADERS += \
@@ -30,6 +31,7 @@ HEADERS += \
     estructuras_ensambladora.h \
     estructuras_horno.h \
     estructuras_horno.h \
+    estructuras_inspectores.h \
     estructuras_mezcladoras.h \
     estructuras_peticiones.h \
     estructuras_planificacion.h \
@@ -40,6 +42,7 @@ HEADERS += \
     thread_almacen_machines.h \
     thread_ensambladora_horno.h \
     thread_ensambladora_horno.h \
+    thread_horno_inspectores.h \
     thread_machines_ensambladora.h
 
 FORMS += \

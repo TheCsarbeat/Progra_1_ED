@@ -29,6 +29,7 @@ public:
 
      QLabel * arrayLbMachines[3];
      QLabel * arrayLbDatosMachines[3];
+     QLabel * arrayLbDatosBandejas[6];
 
      EstructuraProgressBar * arrayProgressBar[40];
      QCheckBox * arrayCheackBoxOnOff[40];

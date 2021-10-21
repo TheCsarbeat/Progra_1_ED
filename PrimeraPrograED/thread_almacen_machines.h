@@ -31,7 +31,6 @@ public:
     void pause();
     void resume();
     void getCantPeticion();
-    void updateData();
     void resetDatos();
 
 };

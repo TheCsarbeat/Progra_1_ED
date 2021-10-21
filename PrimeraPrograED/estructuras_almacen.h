@@ -19,6 +19,8 @@ struct Carrito{
     int cargaNow;
     bool estado;
 
+    int materiaPrimaEntregada;
+
     bool libre;
     int timeActual;
 
@@ -32,23 +34,12 @@ struct Carrito{
 
 };
 
-struct RegistroAlmacen{
-    int cantMezclaCargada;
-    int cantChocolateCargado;
-
-    RegistroAlmacen();
-
-    void sumarCantMezcla(int);
-    void sumarCantChocolate(int);
-};
-
 struct Almacen{
 
     Carrito * carrito;
-    RegistroAlmacen * registro;
 
     Almacen();
-    Almacen(Carrito * _car, RegistroAlmacen *_registro);
+    Almacen(Carrito * _car);
     void agregarMezclaCarrito();
     void agregarChocolateCarrito();
 

@@ -46,15 +46,11 @@ void ThreadMachinesEnsambladora::run() {
 
                 //Stop Condition
                 if(this->machine->tiempoActual == this->machine->duracionSegudos){
-
-
                     resetDatos();
-
                     mutexMachineEnsambladora->lock();
-
                     banda->cantNow += this->machine->gramosProcesar;
+                    machine->totalMezclado += this->machine->gramosProcesar;
                     mutexMachineEnsambladora->unlock();
-
 
                     mutexCarritoMachine->lock();
                     this->machine->cantNow -= this->machine->gramosProcesar;

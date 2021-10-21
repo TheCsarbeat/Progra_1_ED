@@ -21,15 +21,11 @@ MainWindow::~MainWindow(){
 
 
 void MainWindow::on_btnIniciar_clicked(){
-
-
     MainStruct * mainStruct = cargarDatos();
-
 
     mainThread = new thread_main();
     mainThread->__init__(mainStruct, this->ui->factoryPanel,arrayProgressBar, arrayCheackBoxOnOff);
     mainThread->start();
-
 }
 
 void MainWindow::design(){
@@ -50,12 +46,21 @@ void MainWindow::getUIWidgets(){
     arrayLbDatosMachines[1] = this->ui->lbDatosMachine2;
     arrayLbDatosMachines[2] = this->ui->lbDatosMachine3;
 
+    //Array datos bandejas
+    arrayLbDatosBandejas[0] = this->ui->lbDatosBandeja1;
+    arrayLbDatosBandejas[1] = this->ui->lbDatosBandeja2;
+    arrayLbDatosBandejas[2] = this->ui->lbDatosBandeja3;
+    arrayLbDatosBandejas[3] = this->ui->lbDatosBandeja4;
+    arrayLbDatosBandejas[4] = this->ui->lbDatosBandeja5;
+    arrayLbDatosBandejas[5] = this->ui->lbDatosBandeja6;
+
     //Array ProgressBar
     arrayProgressBar[0]= new EstructuraProgressBar(ui->progressCar, ui->lbProgressCar); //progressBar del carro
     arrayProgressBar[1]= new EstructuraProgressBar(ui->progressMachine1, ui->lbProgressMachine1); //progressBar del Machine 1
     arrayProgressBar[2]= new EstructuraProgressBar(ui->progressMachine2, ui->lbProgressMachine2); //progressBar del Machine 2
     arrayProgressBar[3]= new EstructuraProgressBar(ui->progressMachine3, ui->lbProgressMachine3); //progressBar del Chocolatera
     arrayProgressBar[4]= new EstructuraProgressBar(ui->progressAssembler, ui->lbProgressAssembler); //progressBar de Assembler
+    arrayProgressBar[5]= new EstructuraProgressBar(ui->progressHorno, ui->lbProgressHorno);
 
     //Array Checkbox
     arrayCheackBoxOnOff[0] = this->ui->checkBoxCar;
@@ -63,6 +68,7 @@ void MainWindow::getUIWidgets(){
     arrayCheackBoxOnOff[2] = this->ui->checkBoxMachine2;
     arrayCheackBoxOnOff[3] = this->ui->checkBoxMachine3;
     arrayCheackBoxOnOff[4] = this->ui->checkBoxAssembler;
+    arrayCheackBoxOnOff[5] = this->ui->checkBoxHorno;
 }
 
 void MainWindow::on_btnGotoDatos_clicked(){
@@ -78,13 +84,12 @@ void MainWindow::on_btnGoToSimulation_clicked(){
 MainStruct * MainWindow::cargarDatos(){
 
     //Almacen
-    RegistroAlmacen * registro = new RegistroAlmacen();
     Carrito *carro= new Carrito(this->ui->lbCarro, this->ui->lbDatosCar);
 
     carro->capacidad = ui->txtCapacidadCar->text().toInt();
     carro->duracionTotal = ui->txtDurationCar->text().toInt();
 
-    Almacen * almacenNuevo = new Almacen(carro, registro);
+    Almacen * almacenNuevo = new Almacen(carro);
 
     //Machines
     ArrayMachines *arraymachines = new ArrayMachines(arrayLbMachines,arrayLbDatosMachines);
@@ -119,7 +124,14 @@ MainStruct * MainWindow::cargarDatos(){
 
     Receta * recetaCookies = new Receta(5,5);
 
-    Horno * horno = new Horno();
+    Horno * horno = new Horno(ui->lbDatosBandaHorno, 90, 5, 3,ui->lbDatosHorno,arrayLbDatosBandejas);
+    horno->banda->capacidad = 200;
+    horno->bandejas->array[0]->capacidad = 15;
+    horno->bandejas->array[1]->capacidad = 15;
+    horno->bandejas->array[2]->capacidad = 15;
+    horno->bandejas->array[3]->capacidad = 15;
+    horno->bandejas->array[4]->capacidad = 15;
+    horno->bandejas->array[5]->capacidad = 15;
 
 
     //Main Struct

@@ -93,6 +93,38 @@ public:
     QFrame *barAssembler;
     QFrame *progressAssembler;
     QLabel *lbProgressAssembler;
+    QFrame *frame_horno;
+    QFrame *frame_17;
+    QLabel *label_3;
+    QLabel *lbNameBandaHorno;
+    QLabel *lbDatosBandaHorno;
+    QFrame *frame_18;
+    QLabel *label_29;
+    QLabel *lbNameHorno;
+    QLabel *lbDatosHorno;
+    QCheckBox *checkBoxAssembler_2;
+    QCheckBox *checkBoxAssembler_3;
+    QCheckBox *checkBoxAssembler_4;
+    QCheckBox *checkBoxAssembler_5;
+    QCheckBox *checkBoxAssembler_6;
+    QCheckBox *checkBoxAssembler_7;
+    QLabel *lbDatosBandeja1;
+    QLabel *lbDatosBandeja2;
+    QLabel *lbDatosBandeja3;
+    QLabel *lbDatosBandeja4;
+    QLabel *lbDatosBandeja5;
+    QLabel *lbDatosBandeja6;
+    QLabel *lbNameBandeja1;
+    QLabel *lbNameBandeja2;
+    QLabel *lbNameBandeja3;
+    QLabel *lbNameBandeja4;
+    QLabel *lbNameBandeja4_2;
+    QLabel *lbNameBandeja4_3;
+    QFrame *panelProgress3_4;
+    QFrame *barAssembler_2;
+    QFrame *progressHorno;
+    QLabel *lbProgressHorno;
+    QCheckBox *checkBoxHorno;
     QPushButton *btnIniciar;
     QWidget *dataPage;
     QFrame *dataPanel;
@@ -173,7 +205,7 @@ public:
         factoryPanel->setFrameShadow(QFrame::Raised);
         btnGotoDatos = new QPushButton(factoryPanel);
         btnGotoDatos->setObjectName(QString::fromUtf8("btnGotoDatos"));
-        btnGotoDatos->setGeometry(QRect(1570, 210, 75, 23));
+        btnGotoDatos->setGeometry(QRect(1450, 600, 75, 23));
         frameTop = new QFrame(factoryPanel);
         frameTop->setObjectName(QString::fromUtf8("frameTop"));
         frameTop->setGeometry(QRect(10, 0, 1921, 31));
@@ -242,7 +274,7 @@ public:
         lbProgressCar->setFont(font1);
         lbDatosCar = new QLabel(frame);
         lbDatosCar->setObjectName(QString::fromUtf8("lbDatosCar"));
-        lbDatosCar->setGeometry(QRect(10, 50, 151, 20));
+        lbDatosCar->setGeometry(QRect(10, 40, 151, 41));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Open Sans")});
         font2.setPointSize(10);
@@ -267,12 +299,12 @@ public:
         scrollArea->setWidget(scrollAreaContents);
         frame_6 = new QFrame(factoryPanel);
         frame_6->setObjectName(QString::fromUtf8("frame_6"));
-        frame_6->setGeometry(QRect(410, 50, 270, 501));
+        frame_6->setGeometry(QRect(410, 50, 270, 541));
         frame_6->setFrameShape(QFrame::StyledPanel);
         frame_6->setFrameShadow(QFrame::Raised);
         frame_3 = new QFrame(frame_6);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
-        frame_3->setGeometry(QRect(0, 0, 270, 150));
+        frame_3->setGeometry(QRect(0, 0, 270, 161));
         frame_3->setStyleSheet(QString::fromUtf8("background-color:rgb(167, 235, 248);"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
@@ -287,11 +319,11 @@ public:
         lbMachine1->setFont(font);
         lbDatosMachine1 = new QLabel(frame_3);
         lbDatosMachine1->setObjectName(QString::fromUtf8("lbDatosMachine1"));
-        lbDatosMachine1->setGeometry(QRect(10, 75, 150, 71));
+        lbDatosMachine1->setGeometry(QRect(10, 75, 150, 81));
         lbDatosMachine1->setFont(font2);
         checkBoxMachine1 = new QCheckBox(frame_3);
         checkBoxMachine1->setObjectName(QString::fromUtf8("checkBoxMachine1"));
-        checkBoxMachine1->setGeometry(QRect(200, 0, 51, 51));
+        checkBoxMachine1->setGeometry(QRect(200, 10, 51, 41));
         checkBoxMachine1->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
 "	width: 40px;\n"
 "	height:40px;\n"
@@ -307,7 +339,7 @@ public:
         checkBoxMachine1->setChecked(true);
         panelProgress2 = new QFrame(frame_3);
         panelProgress2->setObjectName(QString::fromUtf8("panelProgress2"));
-        panelProgress2->setGeometry(QRect(10, 50, 150, 20));
+        panelProgress2->setGeometry(QRect(10, 50, 151, 20));
         panelProgress2->setFrameShape(QFrame::StyledPanel);
         panelProgress2->setFrameShadow(QFrame::Raised);
         barMachine1 = new QFrame(panelProgress2);
@@ -324,11 +356,11 @@ public:
         progressMachine1->setFrameShadow(QFrame::Raised);
         lbProgressMachine1 = new QLabel(panelProgress2);
         lbProgressMachine1->setObjectName(QString::fromUtf8("lbProgressMachine1"));
-        lbProgressMachine1->setGeometry(QRect(110, 0, 21, 20));
+        lbProgressMachine1->setGeometry(QRect(110, 0, 31, 20));
         lbProgressMachine1->setFont(font1);
         frame_4 = new QFrame(frame_6);
         frame_4->setObjectName(QString::fromUtf8("frame_4"));
-        frame_4->setGeometry(QRect(0, 170, 270, 150));
+        frame_4->setGeometry(QRect(0, 180, 270, 161));
         frame_4->setStyleSheet(QString::fromUtf8("background-color:rgb(167, 235, 248);"));
         frame_4->setFrameShape(QFrame::StyledPanel);
         frame_4->setFrameShadow(QFrame::Raised);
@@ -343,11 +375,11 @@ public:
         lbMachine2->setFont(font);
         lbDatosMachine2 = new QLabel(frame_4);
         lbDatosMachine2->setObjectName(QString::fromUtf8("lbDatosMachine2"));
-        lbDatosMachine2->setGeometry(QRect(10, 75, 150, 71));
+        lbDatosMachine2->setGeometry(QRect(10, 75, 150, 81));
         lbDatosMachine2->setFont(font2);
         checkBoxMachine2 = new QCheckBox(frame_4);
         checkBoxMachine2->setObjectName(QString::fromUtf8("checkBoxMachine2"));
-        checkBoxMachine2->setGeometry(QRect(200, 0, 51, 51));
+        checkBoxMachine2->setGeometry(QRect(200, 10, 51, 41));
         checkBoxMachine2->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
 "	width: 40px;\n"
 "	height:40px;\n"
@@ -363,7 +395,7 @@ public:
         checkBoxMachine2->setChecked(true);
         panelProgress3 = new QFrame(frame_4);
         panelProgress3->setObjectName(QString::fromUtf8("panelProgress3"));
-        panelProgress3->setGeometry(QRect(10, 50, 150, 20));
+        panelProgress3->setGeometry(QRect(10, 50, 151, 20));
         panelProgress3->setFrameShape(QFrame::StyledPanel);
         panelProgress3->setFrameShadow(QFrame::Raised);
         barMachine2 = new QFrame(panelProgress3);
@@ -380,11 +412,11 @@ public:
         progressMachine2->setFrameShadow(QFrame::Raised);
         lbProgressMachine2 = new QLabel(panelProgress3);
         lbProgressMachine2->setObjectName(QString::fromUtf8("lbProgressMachine2"));
-        lbProgressMachine2->setGeometry(QRect(110, 0, 21, 20));
+        lbProgressMachine2->setGeometry(QRect(110, 0, 31, 20));
         lbProgressMachine2->setFont(font1);
         frame_5 = new QFrame(frame_6);
         frame_5->setObjectName(QString::fromUtf8("frame_5"));
-        frame_5->setGeometry(QRect(0, 340, 270, 150));
+        frame_5->setGeometry(QRect(0, 360, 270, 161));
         frame_5->setStyleSheet(QString::fromUtf8("background-color:rgb(167, 235, 248);"));
         frame_5->setFrameShape(QFrame::StyledPanel);
         frame_5->setFrameShadow(QFrame::Raised);
@@ -399,11 +431,11 @@ public:
         lbMachine3->setFont(font);
         lbDatosMachine3 = new QLabel(frame_5);
         lbDatosMachine3->setObjectName(QString::fromUtf8("lbDatosMachine3"));
-        lbDatosMachine3->setGeometry(QRect(10, 75, 150, 71));
+        lbDatosMachine3->setGeometry(QRect(10, 75, 150, 81));
         lbDatosMachine3->setFont(font2);
         checkBoxMachine3 = new QCheckBox(frame_5);
         checkBoxMachine3->setObjectName(QString::fromUtf8("checkBoxMachine3"));
-        checkBoxMachine3->setGeometry(QRect(200, 0, 51, 51));
+        checkBoxMachine3->setGeometry(QRect(200, 10, 51, 41));
         checkBoxMachine3->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
 "	width: 40px;\n"
 "	height:40px;\n"
@@ -419,7 +451,7 @@ public:
         checkBoxMachine3->setChecked(true);
         panelProgress4 = new QFrame(frame_5);
         panelProgress4->setObjectName(QString::fromUtf8("panelProgress4"));
-        panelProgress4->setGeometry(QRect(10, 50, 150, 20));
+        panelProgress4->setGeometry(QRect(10, 50, 151, 20));
         panelProgress4->setFrameShape(QFrame::StyledPanel);
         panelProgress4->setFrameShadow(QFrame::Raised);
         barMachine3 = new QFrame(panelProgress4);
@@ -436,16 +468,16 @@ public:
         progressMachine3->setFrameShadow(QFrame::Raised);
         lbProgressMachine3 = new QLabel(panelProgress4);
         lbProgressMachine3->setObjectName(QString::fromUtf8("lbProgressMachine3"));
-        lbProgressMachine3->setGeometry(QRect(110, 0, 21, 20));
+        lbProgressMachine3->setGeometry(QRect(110, 0, 31, 20));
         lbProgressMachine3->setFont(font1);
         frame_7 = new QFrame(factoryPanel);
         frame_7->setObjectName(QString::fromUtf8("frame_7"));
-        frame_7->setGeometry(QRect(730, 130, 441, 341));
+        frame_7->setGeometry(QRect(690, 150, 441, 341));
         frame_7->setFrameShape(QFrame::StyledPanel);
         frame_7->setFrameShadow(QFrame::Raised);
         frame_8 = new QFrame(frame_7);
         frame_8->setObjectName(QString::fromUtf8("frame_8"));
-        frame_8->setGeometry(QRect(0, 0, 130, 150));
+        frame_8->setGeometry(QRect(0, 0, 141, 150));
         frame_8->setStyleSheet(QString::fromUtf8("background-color:rgb(255, 239, 120);"));
         frame_8->setFrameShape(QFrame::StyledPanel);
         frame_8->setFrameShadow(QFrame::Raised);
@@ -456,7 +488,7 @@ public:
 ""));
         lbNameBanda1Mezcla = new QLabel(frame_8);
         lbNameBanda1Mezcla->setObjectName(QString::fromUtf8("lbNameBanda1Mezcla"));
-        lbNameBanda1Mezcla->setGeometry(QRect(10, 0, 120, 31));
+        lbNameBanda1Mezcla->setGeometry(QRect(20, 10, 111, 21));
         lbNameBanda1Mezcla->setFont(font);
         lbDatosBanda1Mezcla = new QLabel(frame_8);
         lbDatosBanda1Mezcla->setObjectName(QString::fromUtf8("lbDatosBanda1Mezcla"));
@@ -464,7 +496,7 @@ public:
         lbDatosBanda1Mezcla->setFont(font2);
         frame_9 = new QFrame(frame_7);
         frame_9->setObjectName(QString::fromUtf8("frame_9"));
-        frame_9->setGeometry(QRect(0, 170, 130, 151));
+        frame_9->setGeometry(QRect(0, 170, 141, 151));
         frame_9->setStyleSheet(QString::fromUtf8("background-color:rgb(255, 239, 120);"));
         frame_9->setFrameShape(QFrame::StyledPanel);
         frame_9->setFrameShadow(QFrame::Raised);
@@ -475,7 +507,7 @@ public:
 ""));
         lbNameBanda2Chocolate = new QLabel(frame_9);
         lbNameBanda2Chocolate->setObjectName(QString::fromUtf8("lbNameBanda2Chocolate"));
-        lbNameBanda2Chocolate->setGeometry(QRect(5, 0, 120, 31));
+        lbNameBanda2Chocolate->setGeometry(QRect(10, 10, 120, 21));
         lbNameBanda2Chocolate->setFont(font);
         lbDatosBanda2Chocolate = new QLabel(frame_9);
         lbDatosBanda2Chocolate->setObjectName(QString::fromUtf8("lbDatosBanda2Chocolate"));
@@ -502,7 +534,7 @@ public:
         lbDatosAssembler->setFont(font2);
         checkBoxAssembler = new QCheckBox(frame_10);
         checkBoxAssembler->setObjectName(QString::fromUtf8("checkBoxAssembler"));
-        checkBoxAssembler->setGeometry(QRect(200, 0, 51, 51));
+        checkBoxAssembler->setGeometry(QRect(200, 10, 51, 41));
         checkBoxAssembler->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
 "	width: 40px;\n"
 "	height:40px;\n"
@@ -537,6 +569,240 @@ public:
         lbProgressAssembler->setObjectName(QString::fromUtf8("lbProgressAssembler"));
         lbProgressAssembler->setGeometry(QRect(110, 0, 21, 20));
         lbProgressAssembler->setFont(font1);
+        frame_horno = new QFrame(factoryPanel);
+        frame_horno->setObjectName(QString::fromUtf8("frame_horno"));
+        frame_horno->setGeometry(QRect(1150, 130, 711, 361));
+        frame_horno->setFrameShape(QFrame::StyledPanel);
+        frame_horno->setFrameShadow(QFrame::Raised);
+        frame_17 = new QFrame(frame_horno);
+        frame_17->setObjectName(QString::fromUtf8("frame_17"));
+        frame_17->setGeometry(QRect(10, 90, 201, 141));
+        frame_17->setStyleSheet(QString::fromUtf8("background-color:rgb(240, 231, 227);"));
+        frame_17->setFrameShape(QFrame::StyledPanel);
+        frame_17->setFrameShadow(QFrame::Raised);
+        label_3 = new QLabel(frame_17);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(30, 30, 141, 51));
+        label_3->setStyleSheet(QString::fromUtf8("image:url(\":/images/banda_horno.png\");"));
+        lbNameBandaHorno = new QLabel(frame_17);
+        lbNameBandaHorno->setObjectName(QString::fromUtf8("lbNameBandaHorno"));
+        lbNameBandaHorno->setGeometry(QRect(60, 10, 121, 21));
+        lbNameBandaHorno->setFont(font);
+        lbNameBandaHorno->setStyleSheet(QString::fromUtf8("color: black;"));
+        lbDatosBandaHorno = new QLabel(frame_17);
+        lbDatosBandaHorno->setObjectName(QString::fromUtf8("lbDatosBandaHorno"));
+        lbDatosBandaHorno->setGeometry(QRect(10, 80, 111, 51));
+        frame_18 = new QFrame(frame_horno);
+        frame_18->setObjectName(QString::fromUtf8("frame_18"));
+        frame_18->setGeometry(QRect(230, 30, 451, 311));
+        frame_18->setStyleSheet(QString::fromUtf8("background-color:rgb(240, 231, 227);"));
+        frame_18->setFrameShape(QFrame::StyledPanel);
+        frame_18->setFrameShadow(QFrame::Raised);
+        label_29 = new QLabel(frame_18);
+        label_29->setObjectName(QString::fromUtf8("label_29"));
+        label_29->setGeometry(QRect(20, 210, 71, 61));
+        label_29->setStyleSheet(QString::fromUtf8("image:url(\":/images/horno.png\");"));
+        lbNameHorno = new QLabel(frame_18);
+        lbNameHorno->setObjectName(QString::fromUtf8("lbNameHorno"));
+        lbNameHorno->setGeometry(QRect(30, 180, 51, 21));
+        lbNameHorno->setFont(font);
+        lbNameHorno->setStyleSheet(QString::fromUtf8("color: black;"));
+        lbDatosHorno = new QLabel(frame_18);
+        lbDatosHorno->setObjectName(QString::fromUtf8("lbDatosHorno"));
+        lbDatosHorno->setGeometry(QRect(20, 120, 71, 61));
+        checkBoxAssembler_2 = new QCheckBox(frame_18);
+        checkBoxAssembler_2->setObjectName(QString::fromUtf8("checkBoxAssembler_2"));
+        checkBoxAssembler_2->setEnabled(false);
+        checkBoxAssembler_2->setGeometry(QRect(130, 100, 41, 41));
+        checkBoxAssembler_2->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
+"	width: 40px;\n"
+"	height:40px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked{\n"
+"	image:url(\":/images/switch-on.png\");\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked{\n"
+"	image:url(\":/images/bandeja.png\");\n"
+"}"));
+        checkBoxAssembler_2->setCheckable(true);
+        checkBoxAssembler_2->setChecked(false);
+        checkBoxAssembler_3 = new QCheckBox(frame_18);
+        checkBoxAssembler_3->setObjectName(QString::fromUtf8("checkBoxAssembler_3"));
+        checkBoxAssembler_3->setEnabled(false);
+        checkBoxAssembler_3->setGeometry(QRect(250, 100, 41, 41));
+        checkBoxAssembler_3->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
+"	width: 40px;\n"
+"	height:40px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked{\n"
+"	image:url(\":/images/switch-on.png\");\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked{\n"
+"	image:url(\":/images/bandeja.png\");\n"
+"}"));
+        checkBoxAssembler_3->setCheckable(true);
+        checkBoxAssembler_3->setChecked(false);
+        checkBoxAssembler_4 = new QCheckBox(frame_18);
+        checkBoxAssembler_4->setObjectName(QString::fromUtf8("checkBoxAssembler_4"));
+        checkBoxAssembler_4->setEnabled(false);
+        checkBoxAssembler_4->setGeometry(QRect(360, 100, 41, 41));
+        checkBoxAssembler_4->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
+"	width: 40px;\n"
+"	height:40px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked{\n"
+"	image:url(\":/images/switch-on.png\");\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked{\n"
+"	image:url(\":/images/bandeja.png\");\n"
+"}"));
+        checkBoxAssembler_4->setCheckable(true);
+        checkBoxAssembler_4->setChecked(false);
+        checkBoxAssembler_5 = new QCheckBox(frame_18);
+        checkBoxAssembler_5->setObjectName(QString::fromUtf8("checkBoxAssembler_5"));
+        checkBoxAssembler_5->setEnabled(false);
+        checkBoxAssembler_5->setGeometry(QRect(250, 220, 41, 41));
+        checkBoxAssembler_5->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
+"	width: 40px;\n"
+"	height:40px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked{\n"
+"	image:url(\":/images/switch-on.png\");\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked{\n"
+"	image:url(\":/images/bandeja.png\");\n"
+"}"));
+        checkBoxAssembler_5->setCheckable(true);
+        checkBoxAssembler_5->setChecked(false);
+        checkBoxAssembler_6 = new QCheckBox(frame_18);
+        checkBoxAssembler_6->setObjectName(QString::fromUtf8("checkBoxAssembler_6"));
+        checkBoxAssembler_6->setEnabled(false);
+        checkBoxAssembler_6->setGeometry(QRect(130, 220, 41, 41));
+        checkBoxAssembler_6->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
+"	width: 40px;\n"
+"	height:40px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked{\n"
+"	image:url(\":/images/switch-on.png\");\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked{\n"
+"	image:url(\":/images/bandeja.png\");\n"
+"}"));
+        checkBoxAssembler_6->setCheckable(true);
+        checkBoxAssembler_6->setChecked(false);
+        checkBoxAssembler_7 = new QCheckBox(frame_18);
+        checkBoxAssembler_7->setObjectName(QString::fromUtf8("checkBoxAssembler_7"));
+        checkBoxAssembler_7->setEnabled(false);
+        checkBoxAssembler_7->setGeometry(QRect(360, 220, 41, 41));
+        checkBoxAssembler_7->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
+"	width: 40px;\n"
+"	height:40px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked{\n"
+"	image:url(\":/images/switch-on.png\");\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked{\n"
+"	image:url(\":/images/bandeja.png\");\n"
+"}"));
+        checkBoxAssembler_7->setCheckable(true);
+        checkBoxAssembler_7->setChecked(false);
+        lbDatosBandeja1 = new QLabel(frame_18);
+        lbDatosBandeja1->setObjectName(QString::fromUtf8("lbDatosBandeja1"));
+        lbDatosBandeja1->setGeometry(QRect(120, 60, 71, 41));
+        lbDatosBandeja2 = new QLabel(frame_18);
+        lbDatosBandeja2->setObjectName(QString::fromUtf8("lbDatosBandeja2"));
+        lbDatosBandeja2->setGeometry(QRect(240, 60, 71, 41));
+        lbDatosBandeja3 = new QLabel(frame_18);
+        lbDatosBandeja3->setObjectName(QString::fromUtf8("lbDatosBandeja3"));
+        lbDatosBandeja3->setGeometry(QRect(350, 60, 71, 41));
+        lbDatosBandeja4 = new QLabel(frame_18);
+        lbDatosBandeja4->setObjectName(QString::fromUtf8("lbDatosBandeja4"));
+        lbDatosBandeja4->setGeometry(QRect(120, 180, 71, 41));
+        lbDatosBandeja5 = new QLabel(frame_18);
+        lbDatosBandeja5->setObjectName(QString::fromUtf8("lbDatosBandeja5"));
+        lbDatosBandeja5->setGeometry(QRect(250, 180, 61, 41));
+        lbDatosBandeja6 = new QLabel(frame_18);
+        lbDatosBandeja6->setObjectName(QString::fromUtf8("lbDatosBandeja6"));
+        lbDatosBandeja6->setGeometry(QRect(360, 180, 61, 41));
+        lbNameBandeja1 = new QLabel(frame_18);
+        lbNameBandeja1->setObjectName(QString::fromUtf8("lbNameBandeja1"));
+        lbNameBandeja1->setGeometry(QRect(120, 30, 71, 21));
+        lbNameBandeja1->setFont(font);
+        lbNameBandeja1->setStyleSheet(QString::fromUtf8("color: black;"));
+        lbNameBandeja2 = new QLabel(frame_18);
+        lbNameBandeja2->setObjectName(QString::fromUtf8("lbNameBandeja2"));
+        lbNameBandeja2->setGeometry(QRect(240, 30, 71, 21));
+        lbNameBandeja2->setFont(font);
+        lbNameBandeja2->setStyleSheet(QString::fromUtf8("color: black;"));
+        lbNameBandeja3 = new QLabel(frame_18);
+        lbNameBandeja3->setObjectName(QString::fromUtf8("lbNameBandeja3"));
+        lbNameBandeja3->setGeometry(QRect(350, 30, 71, 21));
+        lbNameBandeja3->setFont(font);
+        lbNameBandeja3->setStyleSheet(QString::fromUtf8("color: black;"));
+        lbNameBandeja4 = new QLabel(frame_18);
+        lbNameBandeja4->setObjectName(QString::fromUtf8("lbNameBandeja4"));
+        lbNameBandeja4->setGeometry(QRect(120, 150, 71, 21));
+        lbNameBandeja4->setFont(font);
+        lbNameBandeja4->setStyleSheet(QString::fromUtf8("color: black;"));
+        lbNameBandeja4_2 = new QLabel(frame_18);
+        lbNameBandeja4_2->setObjectName(QString::fromUtf8("lbNameBandeja4_2"));
+        lbNameBandeja4_2->setGeometry(QRect(240, 150, 71, 21));
+        lbNameBandeja4_2->setFont(font);
+        lbNameBandeja4_2->setStyleSheet(QString::fromUtf8("color: black;"));
+        lbNameBandeja4_3 = new QLabel(frame_18);
+        lbNameBandeja4_3->setObjectName(QString::fromUtf8("lbNameBandeja4_3"));
+        lbNameBandeja4_3->setGeometry(QRect(350, 150, 71, 21));
+        lbNameBandeja4_3->setFont(font);
+        lbNameBandeja4_3->setStyleSheet(QString::fromUtf8("color: black;"));
+        panelProgress3_4 = new QFrame(frame_18);
+        panelProgress3_4->setObjectName(QString::fromUtf8("panelProgress3_4"));
+        panelProgress3_4->setGeometry(QRect(10, 280, 150, 20));
+        panelProgress3_4->setFrameShape(QFrame::StyledPanel);
+        panelProgress3_4->setFrameShadow(QFrame::Raised);
+        barAssembler_2 = new QFrame(panelProgress3_4);
+        barAssembler_2->setObjectName(QString::fromUtf8("barAssembler_2"));
+        barAssembler_2->setGeometry(QRect(0, 0, 100, 20));
+        barAssembler_2->setStyleSheet(QString::fromUtf8("background-color:rgb(230, 230, 230);"));
+        barAssembler_2->setFrameShape(QFrame::StyledPanel);
+        barAssembler_2->setFrameShadow(QFrame::Raised);
+        progressHorno = new QFrame(barAssembler_2);
+        progressHorno->setObjectName(QString::fromUtf8("progressHorno"));
+        progressHorno->setGeometry(QRect(0, 0, 81, 20));
+        progressHorno->setStyleSheet(QString::fromUtf8("background-color:rgb(46, 194, 67);"));
+        progressHorno->setFrameShape(QFrame::StyledPanel);
+        progressHorno->setFrameShadow(QFrame::Raised);
+        lbProgressHorno = new QLabel(panelProgress3_4);
+        lbProgressHorno->setObjectName(QString::fromUtf8("lbProgressHorno"));
+        lbProgressHorno->setGeometry(QRect(110, 0, 21, 20));
+        lbProgressHorno->setFont(font1);
+        checkBoxHorno = new QCheckBox(frame_18);
+        checkBoxHorno->setObjectName(QString::fromUtf8("checkBoxHorno"));
+        checkBoxHorno->setGeometry(QRect(20, 10, 51, 41));
+        checkBoxHorno->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
+"	width: 40px;\n"
+"	height:40px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked{\n"
+"	image:url(\":/images/switch-on.png\");\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked{\n"
+"	image:url(\":/images/switch-off.png\");\n"
+"}"));
+        checkBoxHorno->setChecked(true);
         btnIniciar = new QPushButton(factoryPage);
         btnIniciar->setObjectName(QString::fromUtf8("btnIniciar"));
         btnIniciar->setGeometry(QRect(220, 890, 121, 41));
@@ -830,7 +1096,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1920, 21));
+        menubar->setGeometry(QRect(0, 0, 1920, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -880,6 +1146,32 @@ public:
         lbDatosAssembler->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
         checkBoxAssembler->setText(QString());
         lbProgressAssembler->setText(QCoreApplication::translate("MainWindow", "0 %", nullptr));
+        label_3->setText(QString());
+        lbNameBandaHorno->setText(QCoreApplication::translate("MainWindow", "Banda Horno", nullptr));
+        lbDatosBandaHorno->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
+        label_29->setText(QString());
+        lbNameHorno->setText(QCoreApplication::translate("MainWindow", "Horno", nullptr));
+        lbDatosHorno->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
+        checkBoxAssembler_2->setText(QString());
+        checkBoxAssembler_3->setText(QString());
+        checkBoxAssembler_4->setText(QString());
+        checkBoxAssembler_5->setText(QString());
+        checkBoxAssembler_6->setText(QString());
+        checkBoxAssembler_7->setText(QString());
+        lbDatosBandeja1->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
+        lbDatosBandeja2->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
+        lbDatosBandeja3->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
+        lbDatosBandeja4->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
+        lbDatosBandeja5->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
+        lbDatosBandeja6->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
+        lbNameBandeja1->setText(QCoreApplication::translate("MainWindow", "Bandeja 1", nullptr));
+        lbNameBandeja2->setText(QCoreApplication::translate("MainWindow", "Bandeja 2", nullptr));
+        lbNameBandeja3->setText(QCoreApplication::translate("MainWindow", "Bandeja 3", nullptr));
+        lbNameBandeja4->setText(QCoreApplication::translate("MainWindow", "Bandeja 4", nullptr));
+        lbNameBandeja4_2->setText(QCoreApplication::translate("MainWindow", "Bandeja 5", nullptr));
+        lbNameBandeja4_3->setText(QCoreApplication::translate("MainWindow", "Bandeja 6", nullptr));
+        lbProgressHorno->setText(QCoreApplication::translate("MainWindow", "0 %", nullptr));
+        checkBoxHorno->setText(QString());
         btnIniciar->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Duraci\303\263n:", nullptr));
         txtDurationCar->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
