@@ -3,9 +3,11 @@
 
 
 MainStruct::MainStruct(){
+    listaCircularTiposGalletas = new ListaCircular();
     almacen = new Almacen();
     arrayMachine = new ArrayMachines();
     colaPeticiones = new ColaPeticiones();
+    ensambladora = new Ensambladora();
 }
 
 

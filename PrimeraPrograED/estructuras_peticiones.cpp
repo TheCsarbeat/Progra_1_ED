@@ -39,6 +39,17 @@ NodoPeticion* ColaPeticiones::verFrente(){
       return frente;
 }
 
+NodoPeticion* ColaPeticiones::verUltimo(){
+
+    NodoPeticion * temp = frente;
+    if(vacia())return frente;
+    while(temp->siguiente!=NULL)
+        temp = temp->siguiente;
+    //temp->peticion->toString();
+    return temp;
+}
+
+
 void ColaPeticiones::imprimir(){
 
     lbTitulo->setText(toString());
@@ -48,12 +59,26 @@ void ColaPeticiones::imprimir(){
 QString ColaPeticiones::toString(){
     NodoPeticion * temp = frente;
     QString respuesta = "------COLA DE PETICIONES------";
+
     while(temp!=NULL){
         respuesta += temp->toString();
-
         temp = temp->siguiente;
     }
-    respuesta+="\n--------------------------------";
+    respuesta+="\n-----------------------------------";
     return respuesta;
 
 }
+
+int ColaPeticiones::getPeticionMachine(int id){
+    NodoPeticion * temp = frente;
+    int respuesta = 0;
+
+    while(temp!=NULL){
+        //respuesta += temp->toString();
+        temp = temp->siguiente;
+    }
+    //respuesta+="\n-----------------------------------";
+    return respuesta;
+
+}
+

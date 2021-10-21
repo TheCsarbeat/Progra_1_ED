@@ -39,7 +39,7 @@ public:
 
 
     //Sub hilos
-    ThreadAlmacenMachines * hiloCarritoMachines;
+    ThreadAlmacenMachines * hiloCarritoMachines[3];
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
     ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
 
@@ -48,6 +48,8 @@ public:
     QMutex *mutexMachinesEnsambladora;
     QMutex *mutexEnsambladoraHorno;
 
+
+    void iniciarThreads();
     void __init__(MainStruct * mainStruct, QFrame *mainPanel, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);
     void run();
     void stop();

@@ -6,6 +6,7 @@
 #include "qpalette.h"
 #include <QDebug>
 #include <QString>
+#include <QListWidgetItem>
 
 #include "main_thread.h"
 #include "main_struct.h"
@@ -25,7 +26,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
      thread_main * mainThread;
-     MainStruct * mainStruct;
+     MainStruct * mainStruct = new MainStruct();
 
      QLabel * arrayLbMachines[3];
      QLabel * arrayLbDatosMachines[3];
@@ -37,15 +38,30 @@ public:
 
      void design();
      void getUIWidgets();
-
-     MainStruct * cargarDatos();
+     void cargarDatos();
+     void imprimirDatos();
+     void loadDataOnPaused();
 
 private slots:
-    void on_btnIniciar_clicked();
+    //Inicio-Parado-Pausado-Play
+    void on_btnOnOff_clicked();
 
+    //Navegacion
     void on_btnGotoDatos_clicked();
-
     void on_btnGoToSimulation_clicked();
+
+    //Planificacion
+    void on_btnAgregarTipoGalleta_clicked();
+    void on_btnEliminarTipoGalleta_clicked();
+    void on_listTiposGalletas_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_btnAgregarPlanificacion_clicked();
+    void on_btnEliminarPlanificacion_clicked();
+    void on_listPlanificador_itemClicked(QListWidgetItem *item);
+
+
+
+    void on_btnPausedPlay_clicked();
 
 private:
     Ui::MainWindow *ui;

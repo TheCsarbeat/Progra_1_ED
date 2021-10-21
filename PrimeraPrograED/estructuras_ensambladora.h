@@ -42,6 +42,14 @@ struct Ensambladora{
     bool flagProcesando;
     QLabel * lbTitulo;
     QLabel * lbDatos;
+
+    Ensambladora(){
+         bandas = new ArrayBandas(new QLabel, new QLabel);
+        duracionSegundos = 0;
+        cant = 0;
+        timeActual = 0;
+        flagProcesando = false;
+    }
     Ensambladora(QLabel * titulo, QLabel * datos, QLabel * banda1, QLabel * banda2){
         bandas = new ArrayBandas(banda1, banda2);
         duracionSegundos = 0;

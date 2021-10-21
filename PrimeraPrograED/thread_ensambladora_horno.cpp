@@ -29,13 +29,16 @@ void ThreadEnsambladoraHorno::run(){
             if(checkOnOff->isChecked()) resume();
             msleep(500);
         }
-        if(!checkOnOff->isChecked()) pause();
-        else{
 
             ensambladora->sumarSegundo();
-            this->progressBar->setValue(((double)this->ensambladora->timeActual/this->ensambladora->duracionSegundos)*100);
+            try {
+                    this->progressBar->setValue(((double)this->ensambladora->timeActual/this->ensambladora->duracionSegundos)*100);
+                }  catch (...) {
+                    qDebug()<<EXIT_FAILURE;
+                }
+
             sleep(1);
-            if(ensambladora->timeActual == ensambladora->duracionSegundos){
+            if(ensambladora->timeActual >= ensambladora->duracionSegundos){
 
                 this->mutexMachineEnsambladora->lock();
                 int cantGalletas = ensambladora->makeCookies(mezcla, choco);
@@ -46,7 +49,7 @@ void ThreadEnsambladoraHorno::run(){
                 this->mutexEnsambladoraHorno->unlock();
                 stop();
             }
-        }
+
     }
 }
 

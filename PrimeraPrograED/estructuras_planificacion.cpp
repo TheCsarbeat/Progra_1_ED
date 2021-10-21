@@ -1,6 +1,7 @@
 #include "estructuras_planificacion.h"
 
 void ListaCircular::insertar(QString name, int cant){
+
     if (primerNodo == NULL){
         primerNodo = new NodoTipoGalleta(new TipoGalleta(name, cant));
         primerNodo->siguiente= primerNodo;
@@ -14,6 +15,39 @@ void ListaCircular::insertar(QString name, int cant){
     }
 }
 
+void ListaCircular::insertar(TipoGalleta *tipo){
+
+    if(!exist(tipo)){
+        if (primerNodo == NULL){
+            primerNodo = new NodoTipoGalleta(tipo);
+            primerNodo->siguiente= primerNodo;
+            primerNodo->anterior = primerNodo;
+        }else{
+            NodoTipoGalleta * nuevo = new NodoTipoGalleta(tipo);
+            nuevo->siguiente = primerNodo;
+            nuevo->anterior = primerNodo->anterior;
+            primerNodo->anterior->siguiente = nuevo;
+            primerNodo->anterior = nuevo;
+        }
+    }
+}
+
+bool ListaCircular::exist(TipoGalleta *tipo){
+    QString name = tipo->nombre;
+    int cant = tipo->cantGalletas;
+    if (primerNodo != NULL){
+        NodoTipoGalleta * tmp = primerNodo;
+        do{
+            if (tmp->tipo->nombre == name && tmp->tipo->cantGalletas == cant ){
+                return true;
+            }
+            tmp = tmp->siguiente;
+        }while(tmp!=primerNodo);
+
+    }
+
+    return false;
+}
 
 void ListaCircular::imprimir(){
     if (primerNodo != NULL){
@@ -26,16 +60,32 @@ void ListaCircular::imprimir(){
     }
 }
 
+QStringList  ListaCircular::toString(){
+    QStringList list;
+    if (primerNodo != NULL){
+        NodoTipoGalleta * tmp = primerNodo;
+        do{
+            QString tipo = "";
+            tipo=tmp->tipo->nombre+ ", "+QString::number(tmp->tipo->cantGalletas);
+            list.append(tipo);
+            tmp = tmp->siguiente;
+        }while(tmp!=primerNodo);
+    }
+    return list;
+}
+
 NodoTipoGalleta * ListaCircular::buscar(QString name, int cant){
     if (primerNodo != NULL){
         NodoTipoGalleta * tmp = primerNodo;
         do{
-            if (tmp->tipo->nombre == name && tmp->tipo->cantGalletas == cant )
+            if (tmp->tipo->nombre == name && tmp->tipo->cantGalletas == cant ){
                 return tmp;
+            }
             tmp = tmp->siguiente;
         }while(tmp!=primerNodo);
 
     }
+
     return NULL;
 }
 
@@ -108,4 +158,38 @@ NodoPlanificacion* ListaSimplePlanificaciones::borrarAlInicio(){
         return borrado;
     }
     return NULL;
+}
+void ListaSimplePlanificaciones::borrar(QString tipoGalleta, int cant){
+    if(!isEmpty()){
+            NodoPlanificacion * temp = primerNodo;
+            if (temp->planificacion->tipoGalleta->toString() == tipoGalleta && cant == temp->planificacion->cantTipos ){
+               borrarAlInicio();
+            }
+            NodoPlanificacion * temp2 = temp;
+            temp = temp->siguiente;
+            while(temp != NULL){
+                if (temp->planificacion->tipoGalleta->toString() == tipoGalleta && cant == temp->planificacion->cantTipos){
+
+                    temp2->siguiente = temp->siguiente;
+                    temp->siguiente = NULL;
+                    largo--;
+                    break;
+                }
+                temp2 = temp;
+                temp = temp->siguiente;
+            }
+    }
+}
+
+QStringList ListaSimplePlanificaciones::toString(){
+    QStringList list;
+    if (primerNodo != NULL){
+        NodoPlanificacion * temp = primerNodo;
+        do{
+            list.append(temp->planificacion->toString());
+            temp = temp->siguiente;
+        }while(temp!=NULL);
+    }
+
+    return list;
 }
