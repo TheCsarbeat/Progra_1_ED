@@ -33,6 +33,7 @@ void ThreadAlmacenMachines::run() {
                 //Own Statements
                 this->almacen->carrito->sumarSegundo();
                 this->almacen->carrito->lbTitulo->setText("Llevando a: "+this->machine->nombre);
+                qDebug() <<"Soy carro";
                 this->progressBar->setValue(((double)this->almacen->carrito->timeActual/this->almacen->carrito->duracionTotal)*100);
                 sleep(1);
 

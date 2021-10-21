@@ -21,6 +21,7 @@ struct Bandeja{
         capacidad = 0;
         active = false;
         totalHorneado = 0;
+        lbDatos = new QLabel;
     }
     Bandeja(QString _nombre, QLabel * _lbDatos){
         nombre = _nombre;

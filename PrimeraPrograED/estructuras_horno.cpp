@@ -10,14 +10,14 @@ void Bandeja::imprimir(){
 }
 
 void Horno::apagarBandejas(){
-    for(unsigned int i = 2; i < sizeof(bandejas);i++){
+    for(unsigned int i = 2; i < 6;i++){
         bandejas->array[i]->active = false;
     }
 }
 
 bool Horno::llenarBandejas(){
     if(banda->cantNow > 0){
-        for(unsigned int i = 0; i < sizeof(bandejas);i++){
+        for(unsigned int i = 0; i < 6;i++){
                 if(bandejas->array[i]->cantGalletasNow < bandejas->array[i]->capacidad && bandejas->array[i]->active){
                     if(cantidadRellenado <= banda->cantNow){
                         int suma = bandejas->array[i]->cantGalletasNow + cantidadRellenado;
@@ -74,7 +74,8 @@ int Horno::hornear(){
 }
 
 void Horno::imprimir(){
-    for(unsigned int i = 0; i < sizeof(bandejas);i++){
+    for(unsigned int i = 0; i < 6;i++){
         bandejas->array[i]->imprimir();
     }
+    banda->imprimir();
 }

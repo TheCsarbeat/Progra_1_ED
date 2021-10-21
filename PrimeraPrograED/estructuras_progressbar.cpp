@@ -8,6 +8,7 @@ EstructuraProgressBar::EstructuraProgressBar(QFrame * f, QLabel * lb){
 }
 
 void EstructuraProgressBar::setValue(int value){
+    qDebug() << "value: "+QString::number(value);
     progressBar->setGeometry(0,0,value,20);
     lbProgress->setText(QString::number(value)+" %");
 }

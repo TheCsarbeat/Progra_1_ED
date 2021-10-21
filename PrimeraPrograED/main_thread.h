@@ -40,7 +40,7 @@ public:
 
 
     //Sub hilos
-    ThreadAlmacenMachines * hiloCarritoMachines;
+    ThreadAlmacenMachines * hiloCarritoMachines[3];
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
     ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
     ThreadHornoInspectores * hiloHornoInspectores;
@@ -62,7 +62,7 @@ public:
     void arrancarMezcladoras();
     void arrancarEnsambladora();
     void arrancarHorno();
-
+    void iniciarThreads();
     void imprimirDatos();
 
 };

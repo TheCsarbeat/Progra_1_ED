@@ -36,6 +36,7 @@ void ThreadEnsambladoraHorno::run(){
                 pause();
             }
             ensambladora->sumarSegundo();
+            qDebug() <<"Soy ensambladora";
             this->progressBar->setValue(((double)this->ensambladora->timeActual/this->ensambladora->duracionSegundos)*100);
             sleep(1);
             if(ensambladora->timeActual == ensambladora->duracionSegundos){

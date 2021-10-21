@@ -1612,9 +1612,9 @@ QCheckBox::indicator:unchecked{
         <widget class="QLabel" name="lbDatosBandeja1">
          <property name="geometry">
           <rect>
-           <x>120</x>
+           <x>100</x>
            <y>60</y>
-           <width>71</width>
+           <width>91</width>
            <height>41</height>
           </rect>
          </property>
@@ -1625,9 +1625,9 @@ QCheckBox::indicator:unchecked{
         <widget class="QLabel" name="lbDatosBandeja2">
          <property name="geometry">
           <rect>
-           <x>240</x>
+           <x>220</x>
            <y>60</y>
-           <width>71</width>
+           <width>91</width>
            <height>41</height>
           </rect>
          </property>
@@ -1638,9 +1638,9 @@ QCheckBox::indicator:unchecked{
         <widget class="QLabel" name="lbDatosBandeja3">
          <property name="geometry">
           <rect>
-           <x>350</x>
+           <x>330</x>
            <y>60</y>
-           <width>71</width>
+           <width>91</width>
            <height>41</height>
           </rect>
          </property>
@@ -1651,9 +1651,9 @@ QCheckBox::indicator:unchecked{
         <widget class="QLabel" name="lbDatosBandeja4">
          <property name="geometry">
           <rect>
-           <x>120</x>
+           <x>100</x>
            <y>180</y>
-           <width>71</width>
+           <width>91</width>
            <height>41</height>
           </rect>
          </property>
@@ -1664,9 +1664,9 @@ QCheckBox::indicator:unchecked{
         <widget class="QLabel" name="lbDatosBandeja5">
          <property name="geometry">
           <rect>
-           <x>250</x>
+           <x>220</x>
            <y>180</y>
-           <width>61</width>
+           <width>91</width>
            <height>41</height>
           </rect>
          </property>
@@ -1677,9 +1677,9 @@ QCheckBox::indicator:unchecked{
         <widget class="QLabel" name="lbDatosBandeja6">
          <property name="geometry">
           <rect>
-           <x>360</x>
+           <x>330</x>
            <y>180</y>
-           <width>61</width>
+           <width>91</width>
            <height>41</height>
           </rect>
          </property>

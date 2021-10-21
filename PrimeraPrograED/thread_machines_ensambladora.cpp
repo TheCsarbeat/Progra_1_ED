@@ -41,6 +41,7 @@ void ThreadMachinesEnsambladora::run() {
                 //Own Statements
                 this->machine->procesar();
                 this->machine->lbTitulo->setText("Processing...");
+                qDebug() <<"Soy machine "+QString::number(machine->id);
                 this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
                 sleep(1);
 
