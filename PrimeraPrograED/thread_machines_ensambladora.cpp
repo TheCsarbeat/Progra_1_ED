@@ -27,21 +27,19 @@ void ThreadMachinesEnsambladora::run() {
         banda = ensambladora->bandas->array[1];
     }
     paused = true;
-    while (running) {
+    qDebug() << "Soy la mezcladora"+QString::number(machine->id);
+    while (running){
         this->machine->flagProcesando = false;
-        while (paused) {
+        while (paused){
             int cantNow = machine->cantNow;
             int cantMin = machine->min;
             bool flagProcesando = machine->flagProcesando;
             if(cantNow >= cantMin && flagProcesando == false  && checkOnOff->isChecked() && machine->state){
-
                 machine->flagProcesando = true;
                 resume();
             }
-
             msleep(500);
         }
-
         //Pause conditions
         if(machine->gramosProcesar > (banda->capacidad-banda->cantNow)){
             checkOnOff->setChecked(false);

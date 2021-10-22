@@ -20,21 +20,18 @@ void ThreadHornoInspectores::run(){
 
     this->running = true;
     this->paused = true;
+    qDebug() << "Soy un horno";
     while(running){
         horno->flagProcesando = false;
         while(paused){
             bool flag = horno->flagProcesando;
-            //int cantNow = mainStruct->horno->getCurrentCantidad();
-            //int capacidad = mainStruct->horno->capacidad;
-            if(!flag && horno->banda->cantNow > 0  && checkOnOff->isChecked() && horno->state ){
+            horno->lbTitulo->setText("Waiting...");
+            if(!flag && horno->banda->cantNow > 0  && horno->state && checkOnOff->isChecked()){
                 horno->flagProcesando = true;
                 resume();
             }
-
             msleep(500);
         }
-
-
         if(horno->capacidad > horno->getCurrentCantidad() && horno->banda->cantNow > 0){
             horno->lbTitulo->setText("Llenando...");
             sleep(horno->tiempoRellenado);
@@ -42,6 +39,7 @@ void ThreadHornoInspectores::run(){
             horno->imprimir();
         }else if(horno->capacidad <= horno->getCurrentCantidad()){
             horno->lbTitulo->setText("Horneando...");
+            progressBar->setValue(((double)this->horno->tiempoNow/this->horno->tiempoHorneado)*100);
             horno->sumarSegundo();
             qDebug() << "tiempoNow: "+QString::number(horno->tiempoNow);
             sleep(1);
@@ -66,6 +64,7 @@ void ThreadHornoInspectores::pause() {
     this->paused = true;
     horno->flagProcesando = false;
     horno->tiempoNow = 0;
+    progressBar->setValue(0);
     horno->imprimir();
 
 }

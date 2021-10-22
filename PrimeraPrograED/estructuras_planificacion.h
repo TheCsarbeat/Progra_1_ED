@@ -131,4 +131,5 @@ struct Receta{
     }
 };
 
+
 #endif // ESTRUCTURAS_PLANIFICACION_H

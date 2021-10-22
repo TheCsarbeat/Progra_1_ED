@@ -11,7 +11,7 @@ void ThreadAlmacenMachines::__init__(Almacen * almacen, ArrayMachines * machines
     this->paused = false;
     this->mutex = mutex;
     this->machines = machines;
-    this->colaPeticiones= colaPeticiones;
+    this->colaPeticiones = colaPeticiones;
     this->progressBar = progressBar;
     this->checkOnOff = checkOnOff;
 }
@@ -24,7 +24,9 @@ void ThreadAlmacenMachines::run() {
 
     //almacen->carrito->imprimir();
     almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
-                     +"\nTotal entregada: "+QString::number(almacen->carrito->materiaPrimaEntregada));
+                                       +"\nChocolate entregado: "+QString::number(almacen->carrito->chocoTotal)
+                                       +"\nMezcla entregada: "+QString::number(almacen->carrito->mezclaTotal));
+    qDebug() << "Soy un carro";
     while (running) {
         this->almacen->carrito->libre = true;
         while (paused) {
@@ -32,7 +34,7 @@ void ThreadAlmacenMachines::run() {
             if(!colaPeticiones->vacia() && this->almacen->carrito->libre == true  && checkOnOff->isChecked() && this->almacen->carrito->estado){
                 machine = machines->array[colaPeticiones->verFrente()->peticion->idMachine];
                 this->almacen->carrito->libre = false;
-                resume();                
+                resume();
             }
 
             msleep(500);
@@ -49,7 +51,11 @@ void ThreadAlmacenMachines::run() {
 
                 this->mutex->lock();
                 this->machine->cantNow += this->almacen->carrito->cargaNow;
-                almacen->carrito->materiaPrimaEntregada += almacen->carrito->cargaNow;
+                if(machine->nombre == "Chocolatera"){
+                    almacen->carrito->chocoTotal += almacen->carrito->cargaNow;
+                }else{
+                    almacen->carrito->mezclaTotal += almacen->carrito->cargaNow;
+                }
                 if(colaPeticiones->verFrente()->peticion->cant == 0)colaPeticiones->desencolar();
                 this->mutex->unlock();
 
@@ -69,6 +75,10 @@ void ThreadAlmacenMachines::pause() {
     colaPeticiones->imprimir();
     machine->imprimirDatos();
     almacen->carrito->imprimir();
+
+    almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
+                                       +"\nChocolate entregado: "+QString::number(almacen->carrito->chocoTotal)
+                                       +"\nMezcla entregada: "+QString::number(almacen->carrito->mezclaTotal));
     if(colaPeticiones->vacia())checkOnOff->setChecked(false);
 }
 
@@ -77,7 +87,11 @@ void ThreadAlmacenMachines::stop() {
 
     colaPeticiones->imprimir();
     machine->imprimirDatos();
-    almacen->carrito->imprimir();   
+    almacen->carrito->imprimir();
+
+    almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
+                                       +"\nChocolate entregado: "+QString::number(almacen->carrito->chocoTotal)
+                                       +"\nMezcla entregada: "+QString::number(almacen->carrito->mezclaTotal));
     if(colaPeticiones->vacia())checkOnOff->setChecked(false);
     //destroyed();
 }

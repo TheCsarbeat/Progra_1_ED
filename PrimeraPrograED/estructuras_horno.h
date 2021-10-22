@@ -94,7 +94,7 @@ struct Horno{
         state = true;
     }
     int getCurrentCantidad();
-    void apagarBandejas();
+    void apagarBandeja();
     bool llenarBandejas();
     void sumarSegundo();
     int hornear();

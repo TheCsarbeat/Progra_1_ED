@@ -64,7 +64,7 @@ struct Ensambladora{
         galletasHechas = 0;
         lbTitulo = titulo;
         lbDatos = datos;
-         state = true;
+        state = true;
     }
 
     void sumarSegundo();

@@ -25,6 +25,7 @@ void ThreadEnsambladoraHorno::run(){
     int mezcla = receta->cantMezcla;
     int choco = receta->cantChocolate;
     this->paused = true;
+    qDebug() << "Soy una ensambladora";
     while(running){
         this->ensambladora->flagProcesando = false;
         while(paused){
@@ -36,11 +37,9 @@ void ThreadEnsambladoraHorno::run(){
             int cantChoco = ensambladora->cant * receta->cantChocolate;
             bool flagEnsambladora = ensambladora->flagProcesando;
             if(banda1Now>=cantMezcla && banda2Now>=cantChoco && !flagEnsambladora  && checkOnOff->isChecked() && ensambladora->state){
-
                 ensambladora->flagProcesando = true;
                 resume();
             }
-
             msleep(500);
         }
         if(ensambladora->cant > (horno->banda->capacidad - horno->banda->cantNow)){
@@ -52,7 +51,6 @@ void ThreadEnsambladoraHorno::run(){
             this->progressBar->setValue(((double)this->ensambladora->timeActual/this->ensambladora->duracionSegundos)*100);
             sleep(1);
             if(ensambladora->timeActual == ensambladora->duracionSegundos){
-
                 this->mutexMachineEnsambladora->lock();
                 int cantGalletas = ensambladora->makeCookies(mezcla, choco); //hace las galletas y asigna a una variable
                 ensambladora->galletasHechas+=cantGalletas; //suma el total de galletas hechas

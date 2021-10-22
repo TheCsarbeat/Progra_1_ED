@@ -83,5 +83,3 @@ int ColaPeticiones::getPeticionMachine(int id){
 
 }
 
-
-
