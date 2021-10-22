@@ -19,5 +19,6 @@
         <file>images/power-on.png</file>
         <file>images/simulation.png</file>
         <file>images/programmer.png</file>
+        <file>images/bandeja-full.png</file>
     </qresource>
 </RCC>

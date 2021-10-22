@@ -108,6 +108,7 @@ struct ListaSimplePlanificaciones{
     void borrar(QString tipoGalleta, int cant);
     int getLargo();
     void imprimir();
+    NodoPlanificacion* buscar(int index);
     QStringList toString();
 
 };

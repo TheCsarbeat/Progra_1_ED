@@ -29,6 +29,7 @@ struct Peticion{
     }
 
 
+
 };
 
 struct NodoPeticion{

@@ -258,7 +258,7 @@ width: 12px;</string>
          <x>20</x>
          <y>180</y>
          <width>250</width>
-         <height>401</height>
+         <height>381</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -321,7 +321,7 @@ width: 12px;</string>
          <x>290</x>
          <y>40</y>
          <width>270</width>
-         <height>541</height>
+         <height>521</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -2286,19 +2286,6 @@ image:url(&quot;:/images/data-processing.png&quot;);</string>
         </property>
        </widget>
       </widget>
-      <widget class="QPushButton" name="btnIniciar">
-       <property name="geometry">
-        <rect>
-         <x>940</x>
-         <y>720</y>
-         <width>121</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Start</string>
-       </property>
-      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="dataPage">
@@ -2451,205 +2438,11 @@ background-color:rgb(254, 188, 187);
         </property>
        </widget>
       </widget>
-      <widget class="QFrame" name="frame_13">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>500</y>
-         <width>501</width>
-         <height>201</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(250,250,250);</string>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_8">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>501</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Doppio One</family>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: white;
-background-color:rgb(167, 235, 248);</string>
-        </property>
-        <property name="text">
-         <string>Datos Mezcladora 1</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txtCantProcesarMezcladora1">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>145</y>
-          <width>191</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>20</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_9">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>140</y>
-          <width>101</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Cant Procesar</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txtMaxMecladora1">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>85</y>
-          <width>191</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>45</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txtDurationMecladora1">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>115</y>
-          <width>191</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>2</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_7">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>50</y>
-          <width>91</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Mínimo: </string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txtMinMezcladora1">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>55</y>
-          <width>191</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>20</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_6">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>80</y>
-          <width>91</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Máximo:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_5">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>110</y>
-          <width>91</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Duración:</string>
-        </property>
-       </widget>
-      </widget>
       <widget class="QFrame" name="frame_14">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>280</y>
+         <y>490</y>
          <width>500</width>
          <height>200</height>
         </rect>
@@ -2919,6 +2712,11 @@ background-color:rgb(167, 235, 248);</string>
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(167, 235, 248);</string>
+        </property>
         <property name="text">
          <string>50</string>
         </property>
@@ -2957,6 +2755,11 @@ background-color:rgb(167, 235, 248);</string>
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(167, 235, 248);</string>
+        </property>
         <property name="text">
          <string>2</string>
         </property>
@@ -2994,6 +2797,11 @@ background-color:rgb(167, 235, 248);</string>
           <family>Roboto</family>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(167, 235, 248);</string>
         </property>
         <property name="text">
          <string>30</string>
@@ -3051,6 +2859,11 @@ background-color:rgb(167, 235, 248);</string>
           <family>Roboto</family>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(167, 235, 248);</string>
         </property>
         <property name="text">
          <string>600</string>
@@ -3121,7 +2934,7 @@ background-color:rgb(25,25,50);</string>
       <widget class="QFrame" name="frame_16">
        <property name="geometry">
         <rect>
-         <x>570</x>
+         <x>530</x>
          <y>120</y>
          <width>500</width>
          <height>350</height>
@@ -3381,7 +3194,7 @@ border-color: rgb(255, 239, 120);</string>
       <widget class="QFrame" name="frame_21">
        <property name="geometry">
         <rect>
-         <x>570</x>
+         <x>530</x>
          <y>490</y>
          <width>501</width>
          <height>331</height>
@@ -4291,6 +4104,351 @@ border-color: rgb(240, 231, 227);</string>
         </property>
         <property name="text">
          <string>Capacidad:</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frame_13">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>270</y>
+         <width>501</width>
+         <height>201</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(250,250,250);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>501</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Doppio One</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color:rgb(167, 235, 248);</string>
+        </property>
+        <property name="text">
+         <string>Datos Mezcladora 1</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtCantProcesarMezcladora1">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>145</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(167, 235, 248);</string>
+        </property>
+        <property name="text">
+         <string>20</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>140</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Cant Procesar</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtMaxMecladora1">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>85</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(167, 235, 248);</string>
+        </property>
+        <property name="text">
+         <string>45</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtDurationMecladora1">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>115</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(167, 235, 248);</string>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Mínimo: </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtMinMezcladora1">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>55</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(167, 235, 248);</string>
+        </property>
+        <property name="text">
+         <string>20</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Máximo:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Duración:</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frame_23">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>840</y>
+         <width>501</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(250,250,250);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_55">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>500</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Doppio One</family>
+          <pointsize>16</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color:rgb(154, 123, 171);
+text-align: center;</string>
+        </property>
+        <property name="text">
+         <string>Receta</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtCantChocolateReceta">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>105</y>
+          <width>200</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(154, 123, 171);</string>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_56">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>100</y>
+          <width>120</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Cant Chocolate:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_57">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>120</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Cant Mezcla:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtCantMezclaReceta">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>55</y>
+          <width>200</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(154, 123, 171);</string>
+        </property>
+        <property name="text">
+         <string>5</string>
         </property>
        </widget>
       </widget>

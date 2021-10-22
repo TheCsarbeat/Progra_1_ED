@@ -74,11 +74,14 @@ int ColaPeticiones::getPeticionMachine(int id){
     int respuesta = 0;
 
     while(temp!=NULL){
-        //respuesta += temp->toString();
+        if(temp->peticion->idMachine == id){
+            respuesta += temp->peticion->cant;
+        }
         temp = temp->siguiente;
     }
-    //respuesta+="\n-----------------------------------";
     return respuesta;
 
 }
+
+
 

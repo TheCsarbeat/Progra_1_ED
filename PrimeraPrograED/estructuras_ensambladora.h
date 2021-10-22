@@ -42,6 +42,7 @@ struct Ensambladora{
     int timeActual;
     int galletasHechas;
     bool flagProcesando;
+    bool state;
     QLabel * lbTitulo;
     QLabel * lbDatos;
     Ensambladora(){
@@ -51,6 +52,7 @@ struct Ensambladora{
         timeActual = 0;
         flagProcesando = false;
         galletasHechas = 0;
+        state = true;
 
     }
     Ensambladora(QLabel * titulo, QLabel * datos, QLabel * banda1, QLabel * banda2){
@@ -62,6 +64,7 @@ struct Ensambladora{
         galletasHechas = 0;
         lbTitulo = titulo;
         lbDatos = datos;
+         state = true;
     }
 
     void sumarSegundo();

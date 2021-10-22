@@ -31,7 +31,7 @@ void MainWindow::on_btnOnOff_clicked(){
         ui->lbStatedPausedResume->setStyleSheet("color:black;");
 
         mainThread = new thread_main();
-        mainThread->__init__(this->mainStruct, this->ui->factoryPanel,arrayProgressBar, arrayCheackBoxOnOff);
+        mainThread->__init__(this->mainStruct,arrayProgressBar, arrayCheackBoxOnOff);
         mainThread->start();
     }else{
         //Cambiar desing
@@ -258,7 +258,7 @@ void MainWindow::cargarDatos(){
 
 
 
-    Receta * recetaCookies = new Receta(5,5);
+    Receta * recetaCookies = new Receta(ui->txtCantMezclaReceta->text().toInt(),ui->txtCantChocolateReceta->text().toInt());
 
     Horno * horno = new Horno(ui->lbDatosBandaHorno, 90, 5, 3,10,ui->lbDatosHorno,arrayLbDatosBandejas);
     //------------Horno
@@ -327,6 +327,11 @@ void MainWindow::imprimirDatos(){
 }
 
 void MainWindow::loadDataOnPaused(){
+
+    //Receta
+    mainStruct->receta->cantChocolate = ui->txtCantMezclaReceta->text().toInt();
+    mainStruct->receta->cantMezcla = ui->txtCantChocolateReceta->text().toInt();
+
     //----------Almacen
     mainStruct->almacen->carrito->capacidad = ui->txtCapacidadCar->text().toInt();
     mainStruct->almacen->carrito->duracionTotal = ui->txtDurationCar->text().toInt();

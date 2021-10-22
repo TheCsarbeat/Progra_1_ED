@@ -17,21 +17,23 @@ void ThreadHornoInspectores::__init__(QMutex *mutex1,QMutex *mutex2, Horno * hor
 }
 
 void ThreadHornoInspectores::run(){
-    horno->flagProcesando = true;
+
     this->running = true;
+    this->paused = true;
     while(running){
+        horno->flagProcesando = false;
         while(paused){
-            if(checkOnOff->isChecked()) resume();
+            bool flag = horno->flagProcesando;
+            //int cantNow = mainStruct->horno->getCurrentCantidad();
+            //int capacidad = mainStruct->horno->capacidad;
+            if(!flag && horno->banda->cantNow > 0  && horno->state){
+                horno->flagProcesando = true;
+                resume();
+            }
+
             msleep(500);
         }
-        qDebug() << "Llegue antes del if dentro del hilo";
-        qDebug() <<"Cpacidad: ";
-        qDebug() <<horno->capacidad;
 
-        qDebug() <<"Current Cantidad";
-        qDebug() <<horno->getCurrentCantidad();
-        qDebug() <<"Cant Now";
-        qDebug() <<horno->banda->cantNow;
 
         if(horno->capacidad > horno->getCurrentCantidad() && horno->banda->cantNow > 0){
             horno->lbTitulo->setText("Llenando...");
@@ -51,7 +53,7 @@ void ThreadHornoInspectores::run(){
                 mutexHornoInspectores->lock();
                 qDebug() << "Working on it";
                 mutexHornoInspectores->unlock();
-                stop();
+                pause();
             }
         }else{
             msleep(500);
@@ -62,14 +64,15 @@ void ThreadHornoInspectores::run(){
 
 void ThreadHornoInspectores::pause() {
     this->paused = true;
+    horno->flagProcesando = false;
+    horno->tiempoNow = 0;
+    horno->imprimir();
 
 }
 
 void ThreadHornoInspectores::stop() {
     running = false;
-    horno->flagProcesando = false;
-    horno->tiempoNow = 0;
-    horno->imprimir();
+
 }
 
 void ThreadHornoInspectores::resume() {

@@ -1,3 +1,4 @@
+
 #include "estructuras_planificacion.h"
 
 void ListaCircular::insertar(QString name, int cant){
@@ -198,4 +199,18 @@ QStringList ListaSimplePlanificaciones::toString(){
     }
 
     return list;
+}
+
+NodoPlanificacion* ListaSimplePlanificaciones::buscar(int index){
+    if(!isEmpty()){
+        NodoPlanificacion * temp = primerNodo;
+        int i = 0;
+        while(temp != ultimoNodo){
+            if (index == i)
+                return temp;
+            ++i;
+            temp = temp->siguiente;
+        }
+    }
+    return NULL;
 }

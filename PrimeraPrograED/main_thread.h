@@ -22,22 +22,16 @@ public:
     thread_main();
     //Variables propias
     MainStruct * mainStruct;
-    QFrame * mainPanel;
-
     bool running;
     bool paused;
 
-
-
     ColaPeticiones * colaPeticiones;
-
 
     //Array ProgressBar
     EstructuraProgressBar * arrayProgressBar[40];
 
     //CheckBox Elements
     QCheckBox * checkOnOff[40];
-
 
     //Sub hilos
     ThreadAlmacenMachines * hiloCarritoMachines;
@@ -51,19 +45,16 @@ public:
     QMutex *mutexEnsambladoraHorno;
     QMutex *mutexHornoInspectores;
 
-    void __init__(MainStruct * mainStruct, QFrame *mainPanel, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);
+    void __init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);
     void run();
     void stop();
     void pause();
     void resume();
 
     void encolar();
-    void arrancarCarrito();
-    void arrancarMezcladoras();
-    void arrancarEnsambladora();
     void arrancarHorno();
     void iniciarThreads();
-    void imprimirDatos();
+    void calcularGalletas();
 
 };
 
