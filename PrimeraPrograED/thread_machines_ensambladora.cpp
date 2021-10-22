@@ -27,6 +27,7 @@ void ThreadMachinesEnsambladora::run() {
         banda = ensambladora->bandas->array[1];
     }
     paused = true;
+    qDebug() << "Soy la mezcladora"+QString::number(machine->id);
     while (running){
         this->machine->flagProcesando = false;
         while (paused){

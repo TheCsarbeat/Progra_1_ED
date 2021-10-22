@@ -26,6 +26,7 @@ void ThreadAlmacenMachines::run() {
     almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
                                        +"\nChocolate entregado: "+QString::number(almacen->carrito->chocoTotal)
                                        +"\nMezcla entregada: "+QString::number(almacen->carrito->mezclaTotal));
+    qDebug() << "Soy un carro";
     while (running) {
         this->almacen->carrito->libre = true;
         while (paused) {

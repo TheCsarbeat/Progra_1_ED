@@ -169,6 +169,7 @@ release/qrc_imagesResource.cpp: ../PrimeraPrograED/imagesResource.qrc \
 		../PrimeraPrograED/images/chocolatera.png \
 		../PrimeraPrograED/images/assembler.png \
 		../PrimeraPrograED/images/banda_horno.png \
+		../PrimeraPrograED/images/bandeja-full.png \
 		../PrimeraPrograED/images/switch-off.png \
 		../PrimeraPrograED/images/simulation.png \
 		../PrimeraPrograED/images/horno.png \

@@ -20,10 +20,12 @@ void ThreadHornoInspectores::run(){
 
     this->running = true;
     this->paused = true;
+    qDebug() << "Soy un horno";
     while(running){
         horno->flagProcesando = false;
         while(paused){
             bool flag = horno->flagProcesando;
+            horno->lbTitulo->setText("Waiting...");
             if(!flag && horno->banda->cantNow > 0  && horno->state && checkOnOff->isChecked()){
                 horno->flagProcesando = true;
                 resume();

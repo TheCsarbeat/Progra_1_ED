@@ -377,3 +377,43 @@ void MainWindow::loadDataOnPaused(){
 
     imprimirDatos();
 }
+
+void MainWindow::on_checkBoxBandeja3_clicked()
+{
+    if(mainStruct->horno->bandejas->array[2]->active){
+        mainStruct->horno->bandejas->array[2]->active = false;
+    }else{
+        mainStruct->horno->bandejas->array[2]->active = true;
+    }
+}
+
+
+void MainWindow::on_checkBoxBandeja4_clicked()
+{
+    if(mainStruct->horno->bandejas->array[3]->active){
+        mainStruct->horno->bandejas->array[3]->active = false;
+    }else{
+        mainStruct->horno->bandejas->array[3]->active = true;
+    }
+}
+
+
+void MainWindow::on_checkBoxBandeja5_clicked()
+{
+    if(mainStruct->horno->bandejas->array[4]->active){
+        mainStruct->horno->bandejas->array[4]->active = false;
+    }else{
+        mainStruct->horno->bandejas->array[4]->active = true;
+    }
+}
+
+
+void MainWindow::on_checkBoxBandeja6_clicked()
+{
+    if(mainStruct->horno->bandejas->array[5]->active){
+        mainStruct->horno->bandejas->array[5]->active = false;
+    }else{
+        mainStruct->horno->bandejas->array[5]->active = true;
+    }
+}
+

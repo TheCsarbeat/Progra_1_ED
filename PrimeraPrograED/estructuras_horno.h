@@ -15,8 +15,6 @@ struct Bandeja{
     bool active;
     QLabel * lbDatos;
 
-    QLabel * lbDatos;
-
     Bandeja(){
         nombre = "";
         cantGalletasNow = 0;

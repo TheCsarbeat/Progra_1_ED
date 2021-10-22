@@ -25,6 +25,7 @@ void ThreadEnsambladoraHorno::run(){
     int mezcla = receta->cantMezcla;
     int choco = receta->cantChocolate;
     this->paused = true;
+    qDebug() << "Soy una ensambladora";
     while(running){
         this->ensambladora->flagProcesando = false;
         while(paused){
