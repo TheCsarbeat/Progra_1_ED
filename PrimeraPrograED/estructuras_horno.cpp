@@ -78,5 +78,4 @@ void Horno::imprimir(){
         bandejas->array[i]->imprimir();
     }
     banda->imprimir();
-
 }

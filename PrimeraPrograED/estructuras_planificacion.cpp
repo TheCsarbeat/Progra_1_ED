@@ -1,3 +1,4 @@
+
 #include "estructuras_planificacion.h"
 
 void ListaCircular::insertar(QString name, int cant){

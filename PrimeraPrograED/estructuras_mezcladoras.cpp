@@ -8,7 +8,7 @@ Machine::Machine(QLabel * titulo , QLabel * datos){
     gramosProcesar = 0;
     duracionSegudos = 0;
     tiempoActual = 0;
-    state = false;
+    state = true;
     flagEncolado = false;
     flagProcesando = false;
     lbTitulo = titulo;

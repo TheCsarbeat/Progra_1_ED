@@ -15,6 +15,8 @@ struct Bandeja{
     bool active;
     QLabel * lbDatos;
 
+    QLabel * lbDatos;
+
     Bandeja(){
         nombre = "";
         cantGalletasNow = 0;
@@ -68,7 +70,6 @@ struct Horno{
     int tiempoRellenado;
     int cantidadRellenado;
     bool state;
-
     Horno(){
         banda = new Banda("Banda Horno",new QLabel);
         bandejas = new ArrayBandejas();
