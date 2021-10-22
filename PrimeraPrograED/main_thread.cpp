@@ -116,9 +116,11 @@ void thread_main::iniciarThreads(){
 }
 
 void thread_main::calcularGalletas(){
-
+    qDebug()<<mainStruct->listaPlanificaciones->toString();
+    mainStruct->listaPlanificaciones->imprimir();
     for(int i= 0; i<mainStruct->listaPlanificaciones->getLargo(); i++){
         NodoPlanificacion * p = mainStruct->listaPlanificaciones->buscar(i);
+        qDebug()<<"Cantidad de tipos: "<<p->planificacion->cantTipos<<", Canti galletas por tipo: "<<p->planificacion->tipoGalleta->cantGalletas;
         TotalGalletas += (p->planificacion->cantTipos * p->planificacion->tipoGalleta->cantGalletas);
     }
     cantChocolate = mainStruct->receta->cantChocolate * TotalGalletas;

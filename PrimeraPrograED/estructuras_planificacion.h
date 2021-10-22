@@ -11,7 +11,7 @@ struct TipoGalleta{
     int cantEmpacado;
     int tiempoEmpacado;
 
-    TipoGalleta (QString _nombre, int _cantidad, int cant, int tiempo){
+    TipoGalleta (QString _nombre, int _cantidad, int tiempo, int cant){
         nombre = _nombre;
         cantGalletas = _cantidad;
         cantEmpacado = cant;

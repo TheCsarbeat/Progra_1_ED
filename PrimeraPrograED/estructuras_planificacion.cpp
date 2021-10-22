@@ -137,6 +137,7 @@ void ListaSimplePlanificaciones::insertarAlInicio(Planificacion * _planificacion
         primerNodo = nuevo;
     }
     largo++; //incremento porque se agreg� un elemento m�s
+
 }
 
 void ListaSimplePlanificaciones::imprimir(){

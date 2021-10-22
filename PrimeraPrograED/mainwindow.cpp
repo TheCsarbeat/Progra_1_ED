@@ -136,8 +136,9 @@ void MainWindow::on_listTiposGalletas_itemClicked(QListWidgetItem *item){
 //--------------------------------------Panificaciones Lista simple
 void MainWindow::on_btnAgregarPlanificacion_clicked(){
     if(!(ui->txtCantidadPlanificacion->text().isEmpty() && ui->cboPlanificacion->currentIndex()<0)){
-            QString texto = ui->cboPlanificacion->currentText();
-            TipoGalleta * tipo = new TipoGalleta(texto.split(", ").at(0),texto.split(", ").at(1).toInt(),0,0);
+            QStringList texto = ui->cboPlanificacion->currentText().split(", ");
+
+            TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toInt(),texto.at(3).toInt());
 
             int cantidad = ui->txtCantidadPlanificacion->text().toInt();
 
@@ -290,6 +291,18 @@ void MainWindow::cargarDatos(){
     this->mainStruct->listaCircularTiposGalletas->insertar("Paquete",20,5,4);
     this->mainStruct->listaCircularTiposGalletas->insertar("Tubo",16, 5,2);
     this->mainStruct->listaCircularTiposGalletas->insertar("Bolsa",2,2,6);
+
+    //Lista simple planificaciones
+    for (int i = 0; i<ui->listPlanificador->count(); i++ ) {
+        QStringList data = ui->listPlanificador->item(i)->text().split(" | ");
+        QStringList texto = data.at(0).split(", ");
+
+        TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toInt(),texto.at(3).toInt());
+        int cantidad = data.at(1).toInt();
+        Planificacion * planificacion = new Planificacion(tipo, cantidad);
+        this->mainStruct->listaPlanificaciones->insertarAlInicio(planificacion);
+    }
+
 
     ui->listTiposGalletas->addItems(this->mainStruct->listaCircularTiposGalletas->toString());
 
