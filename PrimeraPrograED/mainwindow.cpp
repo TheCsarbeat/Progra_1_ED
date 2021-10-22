@@ -22,6 +22,8 @@ MainWindow::~MainWindow(){
 //---------------------------------------------Inicio and Stop
 void MainWindow::on_btnOnOff_clicked(){
     if(ui->lbStateOnOff->text() == "Start"){
+        getUIWidgets();
+        cargarDatos();
         //Change Desing
         ui->lbStateOnOff->setText("Stop");
         ui->btnOnOff->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/power-off.png');");
@@ -39,9 +41,6 @@ void MainWindow::on_btnOnOff_clicked(){
         ui->btnOnOff->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/power-on.png');");
 
         mainThread->stop();
-        mainStruct = new MainStruct();
-        getUIWidgets();
-        cargarDatos();
 
         ui->btnPausedPlay->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/pause-unavailable.png');");
         ui->btnPausedPlay->setEnabled(false);
