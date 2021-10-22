@@ -9,6 +9,7 @@
 #include "thread_almacen_machines.h"
 #include "thread_machines_ensambladora.h"
 #include "thread_ensambladora_horno.h"
+#include "thread_horno_inspectores.h"
 
 
 #include <QLabel>
@@ -39,17 +40,17 @@ public:
 
 
     //Sub hilos
-    ThreadAlmacenMachines * hiloCarritoMachines[3];
+    ThreadAlmacenMachines * hiloCarritoMachines;
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
     ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
+    ThreadHornoInspectores * hiloHornoInspectores;
 
     //Mutex
     QMutex *mutexCarritoMachines;
     QMutex *mutexMachinesEnsambladora;
     QMutex *mutexEnsambladoraHorno;
+    QMutex *mutexHornoInspectores;
 
-
-    void iniciarThreads();
     void __init__(MainStruct * mainStruct, QFrame *mainPanel, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);
     void run();
     void stop();
@@ -60,7 +61,8 @@ public:
     void arrancarCarrito();
     void arrancarMezcladoras();
     void arrancarEnsambladora();
-
+    void arrancarHorno();
+    void iniciarThreads();
     void imprimirDatos();
 
 };

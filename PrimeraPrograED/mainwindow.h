@@ -7,7 +7,6 @@
 #include <QDebug>
 #include <QString>
 #include <QListWidgetItem>
-
 #include "main_thread.h"
 #include "main_struct.h"
 
@@ -30,6 +29,7 @@ public:
 
      QLabel * arrayLbMachines[3];
      QLabel * arrayLbDatosMachines[3];
+     QLabel * arrayLbDatosBandejas[6];
 
      EstructuraProgressBar * arrayProgressBar[40];
      QCheckBox * arrayCheackBoxOnOff[40];
@@ -37,31 +37,28 @@ public:
     ~MainWindow();
 
      void design();
-     void getUIWidgets();
-     void cargarDatos();
-     void imprimirDatos();
-     void loadDataOnPaused();
+    void getUIWidgets();
+    void cargarDatos();
+    void imprimirDatos();
+    void loadDataOnPaused();
 
 private slots:
-    //Inicio-Parado-Pausado-Play
-    void on_btnOnOff_clicked();
+     //Inicio-Parado-Pausado-Play
+     void on_btnOnOff_clicked();
+     void on_btnPausedPlay_clicked();
 
-    //Navegacion
-    void on_btnGotoDatos_clicked();
-    void on_btnGoToSimulation_clicked();
+     //Navegacion
+     void on_btnGoToDatos_clicked();
+     void on_btnGoToSimulation_clicked();
 
-    //Planificacion
-    void on_btnAgregarTipoGalleta_clicked();
-    void on_btnEliminarTipoGalleta_clicked();
-    void on_listTiposGalletas_itemDoubleClicked(QListWidgetItem *item);
+     //Planificacion
+     void on_btnAgregarTipoGalleta_clicked();
+     void on_btnEliminarTipoGalleta_clicked();
+     void on_listTiposGalletas_itemClicked(QListWidgetItem *item);
 
-    void on_btnAgregarPlanificacion_clicked();
-    void on_btnEliminarPlanificacion_clicked();
-    void on_listPlanificador_itemClicked(QListWidgetItem *item);
-
-
-
-    void on_btnPausedPlay_clicked();
+     void on_btnAgregarPlanificacion_clicked();
+     void on_btnEliminarPlanificacion_clicked();
+     void on_listPlanificador_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;

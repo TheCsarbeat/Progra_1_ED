@@ -13,6 +13,7 @@ Machine::Machine(QLabel * titulo , QLabel * datos){
     flagProcesando = false;
     lbTitulo = titulo;
     lbDatos = datos;
+    totalMezclado = 0;
 
 
 }
@@ -34,9 +35,10 @@ void Machine::procesar(){
 }
 
 void Machine::imprimirDatos(){
-    lbDatos->setText("cantidad Actual: "+QString::number(cantNow)
+    lbDatos->setText("Cant actual: "+QString::number(cantNow)
                      +"\n Min: "+QString::number(min)
-                     +"\n Max: "+QString::number(max));
+                     +"\n Max: "+QString::number(max)
+                     +"\n Total mezclado: "+QString::number(totalMezclado));
 }
 
 ArrayMachines::ArrayMachines(){

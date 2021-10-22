@@ -15,11 +15,12 @@ Carrito::Carrito(QLabel *lb, QLabel * Datos){
     capacidad = 0;
     duracionTotal = 0;
     cargaNow = 0;
-    estado = false;
+    estado = true;
     timeActual = 0;
     libre = true;
     lbTitulo = lb;
     lbDatos = Datos;
+    materiaPrimaEntregada = 0;
 }
 
 Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado, QLabel *lb,QLabel * Datos){
@@ -30,6 +31,7 @@ Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado, QLabel *lb,QL
     libre = false;
     lbTitulo = lb;
     lbDatos = Datos;
+    materiaPrimaEntregada = 0;
 
 }
 
@@ -38,28 +40,18 @@ void Carrito::sumarSegundo(){
 }
 
 void Carrito::imprimir(){
-    lbDatos->setText("Carga: "+QString::number(cargaNow));
+
+    lbDatos->update();
+    lbDatos->setText("Carga: "+QString::number(cargaNow)
+                     +"\nTotal entregada: "+QString::number(materiaPrimaEntregada));
+    lbDatos->update();
 }
 
 Almacen::Almacen(){
     carrito = new Carrito(new QLabel, new QLabel);
-    registro = new RegistroAlmacen;
 }
 
 
-Almacen::Almacen(Carrito * _car, RegistroAlmacen *_registro){
+Almacen::Almacen(Carrito * _car){
     carrito = _car;
-    registro = _registro;
-}
-
-RegistroAlmacen::RegistroAlmacen(){
-    cantMezclaCargada = 0;
-    cantChocolateCargado = 0;
-}
-
-void RegistroAlmacen::sumarCantMezcla(int cantidad){
-    cantMezclaCargada+=cantidad;
-}
-void RegistroAlmacen::sumarCantChocolate(int cantidad){
-    cantChocolateCargado+=cantidad;
 }

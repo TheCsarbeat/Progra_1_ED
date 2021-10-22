@@ -15,8 +15,9 @@ class ThreadAlmacenMachines :public QThread {
 public:
     ThreadAlmacenMachines();
     Almacen * almacen;
-    Machine * machine;
+    ArrayMachines * machines;
     QMutex * mutex;
+    Machine* machine;
 
     ColaPeticiones * colaPeticiones;
 
@@ -24,14 +25,14 @@ public:
     QCheckBox * checkOnOff;
     bool running;
     bool paused;
+    bool state;
 
-    void __init__(Almacen * almacen, Machine * machine,QMutex *mutex, ColaPeticiones * colaPeticiones,EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
+    void __init__(Almacen * almacen, ArrayMachines * machines,QMutex *mutex, ColaPeticiones * colaPeticiones,EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
     void run();
     void stop();
     void pause();
     void resume();
     void getCantPeticion();
-    void updateData();
     void resetDatos();
 
 };

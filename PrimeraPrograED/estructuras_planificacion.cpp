@@ -35,9 +35,15 @@ void ListaCircular::insertar(TipoGalleta *tipo){
 bool ListaCircular::exist(TipoGalleta *tipo){
     QString name = tipo->nombre;
     int cant = tipo->cantGalletas;
+    qDebug()<<"Nombre: "+name;
+    qDebug()<<"Cantidad: "+QString::number(cant);
+
     if (primerNodo != NULL){
         NodoTipoGalleta * tmp = primerNodo;
         do{
+            qDebug()<<"\n\n\n";
+            qDebug()<<"Nombre: "+tmp->tipo->nombre;
+            qDebug()<<"Cantidad: "+QString::number(tmp->tipo->cantGalletas);
             if (tmp->tipo->nombre == name && tmp->tipo->cantGalletas == cant ){
                 return true;
             }

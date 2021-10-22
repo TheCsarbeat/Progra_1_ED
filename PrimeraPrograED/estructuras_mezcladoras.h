@@ -14,6 +14,7 @@ struct Machine{
     int gramosProcesar;
     int tiempoActual;
     int duracionSegudos;
+    int totalMezclado;
     QLabel * lbTitulo;
     QLabel * lbDatos;
 

@@ -31,6 +31,7 @@ void thread_main::__init__(MainStruct * mainStruct, QFrame *mainPanel, Estructur
     mutexCarritoMachines = new QMutex();
     mutexMachinesEnsambladora = new QMutex();
     mutexEnsambladoraHorno = new QMutex();
+    mutexHornoInspectores = new QMutex();
 
 }
 
@@ -43,10 +44,10 @@ void thread_main::run() {
             sleep(1);
         }
 
-        arrancarCarrito();
+
         arrancarMezcladoras();
         arrancarEnsambladora();
-
+        arrancarHorno();
         msleep(500);
     }
 
@@ -66,13 +67,13 @@ void thread_main::encolar(){
     }
 }
 
-void thread_main::arrancarCarrito(){
+/*void thread_main::arrancarCarrito(){
     bool libreCarrito = mainStruct->almacen->carrito->libre;
-    if(!colaPeticiones->vacia() && libreCarrito == true && checkOnOff[0]->isChecked()){
+    if(!colaPeticiones->vacia() && libreCarrito == true  && checkOnOff[0]->isChecked()){
         Peticion * peticion = colaPeticiones->verFrente()->peticion;
-        hiloCarritoMachines[peticion->idMachine]->start();
+        //hiloCarritoMachines[peticion->idMachine]->start();
     }
-}
+}*/
 
 void thread_main::arrancarMezcladoras(){
     for(int i= 0; i<3; i++){
@@ -80,36 +81,45 @@ void thread_main::arrancarMezcladoras(){
             int cantMin = mainStruct->arrayMachine->array[i]->min;
             bool flagProcesando = mainStruct->arrayMachine->array[i]->flagProcesando;
 
-
-        if(cantNow >= cantMin && flagProcesando == false && checkOnOff[i+1]->isChecked()){
-            mainStruct->arrayMachine->array[i]->flagProcesando = true;            
+        if(cantNow >= cantMin && flagProcesando == false  && checkOnOff[i+1]->isChecked()){
+            mainStruct->arrayMachine->array[i]->flagProcesando = true;
             hiloMachinesEnsambladora[i]->start();
             msleep(300);
-        }else{
-            bool flagHiloStop = true;
         }
     }
 }
 
 void thread_main::arrancarEnsambladora(){
-
+\
     int cantMezcla = mainStruct->ensambladora->cant * mainStruct->receta->cantMezcla;
     int cantChoco = mainStruct->ensambladora->cant * mainStruct->receta->cantChocolate;
     int banda1Now = mainStruct->ensambladora->bandas->array[0]->cantNow;
     int banda2Now = mainStruct->ensambladora->bandas->array[1]->cantNow;
 
     bool flagEnsambladora = mainStruct->ensambladora->flagProcesando;
-    if(banda1Now>=cantMezcla && banda2Now>=cantChoco && !flagEnsambladora && checkOnOff[4]->isChecked()){
-        mainStruct->ensambladora->flagProcesando = true;        
+    if(banda1Now>=cantMezcla && banda2Now>=cantChoco && !flagEnsambladora  && checkOnOff[4]->isChecked()){
+        mainStruct->ensambladora->flagProcesando = true;
         hiloEnsambladoraHorno->start();
     }
     msleep(500);
 }
+
+void thread_main::arrancarHorno(){
+    int flag = mainStruct->horno->flagProcesando;
+    //int cantNow = mainStruct->horno->getCurrentCantidad();
+    //int capacidad = mainStruct->horno->capacidad;
+    if(!flag && mainStruct->horno->banda->cantNow > 0){
+        hiloHornoInspectores->start();
+    }
+}
+
 void thread_main::iniciarThreads(){
 
+    hiloCarritoMachines = new ThreadAlmacenMachines();
+    hiloCarritoMachines->__init__(mainStruct->almacen, mainStruct->arrayMachine, mutexCarritoMachines,colaPeticiones,arrayProgressBar[0], checkOnOff[0]);
+    hiloCarritoMachines->start();
+
     for(int i= 0; i<3; i++){
-        hiloCarritoMachines[i] = new ThreadAlmacenMachines();
-        hiloCarritoMachines[i]->__init__(mainStruct->almacen, mainStruct->arrayMachine->array[i], mutexCarritoMachines,colaPeticiones,arrayProgressBar[0], checkOnOff[0]);
 
         //MachinesEnsambladora
         hiloMachinesEnsambladora[i] = new ThreadMachinesEnsambladora();
@@ -121,7 +131,11 @@ void thread_main::iniciarThreads(){
     hiloEnsambladoraHorno = new ThreadEnsambladoraHorno();
     hiloEnsambladoraHorno->__init__(mutexMachinesEnsambladora,mutexEnsambladoraHorno, mainStruct->ensambladora,mainStruct->horno,mainStruct->receta, arrayProgressBar[4], checkOnOff[4]);
 
+    //Horno
+    hiloHornoInspectores = new ThreadHornoInspectores();
+    hiloHornoInspectores->__init__(mutexEnsambladoraHorno,mutexHornoInspectores,mainStruct->horno,mainStruct->inspectores,arrayProgressBar[5],checkOnOff[5]);
 }
+
 void thread_main::imprimirDatos(){
     mainStruct->almacen->carrito->imprimir();
     for(int i= 0; i<3; i++)mainStruct->arrayMachine->array[i]->imprimirDatos();
@@ -129,12 +143,15 @@ void thread_main::imprimirDatos(){
 
 void thread_main::pause() {
     this->paused = true;
+    mainStruct->almacen->carrito->estado = false;
 }
 
 void thread_main::stop() {
     this->running = false;
+    mainStruct->almacen->carrito->estado = false;
 }
 
 void thread_main::resume() {
     this->paused = false;
+    mainStruct->almacen->carrito->estado = true;
 }

@@ -28,49 +28,39 @@ void ThreadMachinesEnsambladora::run() {
     }
     while (running) {
         while (paused) {
-            if(checkOnOff->isChecked()) resume();
             msleep(500);
+            if(checkOnOff->isChecked())resume();
         }
 
-            //Pause conditions
-            if(machine->gramosProcesar > (banda->capacidad-banda->cantNow)){
-                checkOnOff->setChecked(false);
-                pause();
-            }else{
-                //Own Statements
-                this->machine->procesar();
-                this->machine->lbTitulo->setText("Processing...");
+        //Pause conditions
+        if(machine->gramosProcesar > (banda->capacidad-banda->cantNow)){
+            checkOnOff->setChecked(false);
+            pause();
+        }else{
+            //Own Statements
+            this->machine->procesar();
+            this->machine->lbTitulo->setText("Processing...");
+            this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
+            sleep(1);
 
-                try {
-                    this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
-                }  catch (...) {
-                    qDebug()<<EXIT_FAILURE;
-                }
+            //Stop Condition
+            if(this->machine->tiempoActual == this->machine->duracionSegudos){
+                resetDatos();
+                mutexMachineEnsambladora->lock();
+                banda->cantNow += this->machine->gramosProcesar;
+                machine->totalMezclado += this->machine->gramosProcesar;
+                mutexMachineEnsambladora->unlock();
 
-                sleep(1);
+                mutexCarritoMachine->lock();
+                this->machine->cantNow -= this->machine->gramosProcesar;
+                mutexCarritoMachine->unlock();
 
-                //Stop Condition
-                if(this->machine->tiempoActual >= this->machine->duracionSegudos){
+                stop();
+                banda->imprimir();
 
-
-                    resetDatos();
-
-                    mutexMachineEnsambladora->lock();
-                    banda->cantNow += this->machine->gramosProcesar;
-                    mutexMachineEnsambladora->unlock();
-
-
-                    mutexCarritoMachine->lock();
-                    this->machine->cantNow -= this->machine->gramosProcesar;
-                    mutexCarritoMachine->unlock();
-
-                    stop();
-                    banda->imprimir();
-
-                }
             }
+        }
     }
-
 }
 
 void ThreadMachinesEnsambladora::pause() {
@@ -82,21 +72,19 @@ void ThreadMachinesEnsambladora::pause() {
 void ThreadMachinesEnsambladora::stop() {
 
     this->running = false;
+
     this->mutexCarritoMachine->lock();
-    //NodoPeticion *peticion = this->colaPeticiones->verUltimo();
-
-
-   /*if(peticion != NULL){
+    NodoPeticion *peticion = this->colaPeticiones->verUltimo();
+    if(peticion != NULL){
         if(peticion->peticion->idMachine == this->machine->id){
             colaPeticiones->verUltimo()->peticion->cant += this->machine->gramosProcesar;
         }else{
             this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
         }
-    }else{*/
+    }else{
         this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
-    //}
+    }
     this->mutexCarritoMachine->unlock();
-
 
     colaPeticiones->imprimir();
     this->machine->imprimirDatos();
