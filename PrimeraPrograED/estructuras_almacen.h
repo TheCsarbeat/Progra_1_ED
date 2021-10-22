@@ -19,7 +19,8 @@ struct Carrito{
     int cargaNow;
     bool estado;
 
-    int materiaPrimaEntregada;
+    int chocoTotal;
+    int mezclaTotal;
 
     bool libre;
     int timeActual;

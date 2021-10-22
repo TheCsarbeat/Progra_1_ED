@@ -18,6 +18,7 @@ int Ensambladora::makeCookies(int mezcla, int choco){
 
 void Ensambladora::imprimir(){
     lbDatos->setText("Galletas Hechas: "+QString::number(galletasHechas));
+    lbDatos->update();
 }
 
 

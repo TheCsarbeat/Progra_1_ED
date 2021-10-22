@@ -11,5 +11,13 @@
         <file>images/banda_horno.png</file>
         <file>images/bandeja.png</file>
         <file>images/horno.png</file>
+        <file>images/data-processing.png</file>
+        <file>images/pause.png</file>
+        <file>images/pause-unavailable.png</file>
+        <file>images/play.png</file>
+        <file>images/power-off.png</file>
+        <file>images/power-on.png</file>
+        <file>images/simulation.png</file>
+        <file>images/programmer.png</file>
     </qresource>
 </RCC>

@@ -16,6 +16,9 @@ struct TipoGalleta{
     void imprimir(){
         qDebug() <<nombre<<"\t(" << cantGalletas <<")\n";
     }
+    QString toString(){
+        return nombre+", "+QString::number(cantGalletas);
+    }
 };
 
 struct NodoTipoGalleta{
@@ -27,6 +30,13 @@ struct NodoTipoGalleta{
         tipo = _tipo;
         siguiente = anterior =NULL;
     }
+
+    NodoTipoGalleta(QString _nombre, int _cantidad){
+        tipo->nombre = _nombre;
+        tipo->cantGalletas = _cantidad;
+        siguiente = anterior =NULL;
+    }
+
 };
 
 struct ListaCircular{
@@ -37,9 +47,12 @@ struct ListaCircular{
     }
 
     void insertar(QString name, int cant);
+    void insertar(TipoGalleta * tipo);
+    bool exist(TipoGalleta * tipo);
     void imprimir();
     NodoTipoGalleta * buscar(QString name, int cant);
     NodoTipoGalleta * eliminar(QString name, int cant);
+    QStringList toString();
 };
 
 struct Planificacion{
@@ -56,6 +69,9 @@ struct Planificacion{
         cantTipos = _cantTipos;
     }
     void imprimir ();
+    QString toString(){
+        return tipoGalleta->toString()+" | "+QString::number(cantTipos);
+    }
 
 };
 //Estructura de plafinicacion
@@ -89,8 +105,12 @@ struct ListaSimplePlanificaciones{
     bool isEmpty();
     void insertarAlInicio(Planificacion * _planificacion);
     NodoPlanificacion* borrarAlInicio();
+    void borrar(QString tipoGalleta, int cant);
     int getLargo();
     void imprimir();
+    NodoPlanificacion* buscar(int index);
+    QStringList toString();
+
 };
 struct Receta{
     int cantMezcla;
@@ -105,5 +125,6 @@ struct Receta{
         cantChocolate = _cantChocolate;
     }
 };
+
 
 #endif // ESTRUCTURAS_PLANIFICACION_H

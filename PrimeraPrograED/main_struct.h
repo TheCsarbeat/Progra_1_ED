@@ -13,6 +13,8 @@
 #include <QLabel>
 struct MainStruct{
 
+    ListaCircular *listaCircularTiposGalletas = new ListaCircular();
+    ListaSimplePlanificaciones * listaPlanificaciones = new ListaSimplePlanificaciones();
     Almacen * almacen;
     ArrayMachines * arrayMachine;
     ColaPeticiones * colaPeticiones;

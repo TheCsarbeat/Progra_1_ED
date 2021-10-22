@@ -169,11 +169,19 @@ release/qrc_imagesResource.cpp: ../PrimeraPrograED/imagesResource.qrc \
 		../PrimeraPrograED/images/chocolatera.png \
 		../PrimeraPrograED/images/assembler.png \
 		../PrimeraPrograED/images/banda_horno.png \
-		../PrimeraPrograED/images/banda1Mezcla.png \
 		../PrimeraPrograED/images/switch-off.png \
+		../PrimeraPrograED/images/simulation.png \
+		../PrimeraPrograED/images/horno.png \
+		../PrimeraPrograED/images/programmer.png \
+		../PrimeraPrograED/images/data-processing.png \
+		../PrimeraPrograED/images/pause.png \
+		../PrimeraPrograED/images/power-on.png \
+		../PrimeraPrograED/images/pause-unavailable.png \
+		../PrimeraPrograED/images/power-off.png \
+		../PrimeraPrograED/images/banda1Mezcla.png \
 		../PrimeraPrograED/images/banda\ 2Chocolate.png \
 		../PrimeraPrograED/images/batidora.png \
-		../PrimeraPrograED/images/horno.png \
+		../PrimeraPrograED/images/play.png \
 		../PrimeraPrograED/images/switch-on.png
 	C:\Qt\6.1.3\mingw81_64\bin\rcc.exe -name imagesResource ..\PrimeraPrograED\imagesResource.qrc -o release\qrc_imagesResource.cpp
 
@@ -319,13 +327,31 @@ release/moc_mainwindow.cpp: ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/QPalette \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QString \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QListWidgetItem \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlistwidget.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlistview.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlocale.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qrubberband.h \
 		../PrimeraPrograED/main_thread.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCore \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCoreDepends \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractanimation.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstracteventdispatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractnativeeventfilter.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractproxymodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qanimationgroup.h \
@@ -336,12 +362,10 @@ release/moc_mainwindow.cpp: ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qbytearraymatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcache.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlocale.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborarray.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborvalue.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborcommon.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qregularexpression.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcbormap.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborstream.h \
@@ -378,7 +402,6 @@ release/moc_mainwindow.cpp: ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuturesynchronizer.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuturewatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qidentityproxymodel.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qjnienvironment.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QScopedPointer \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qjniobject.h \
@@ -444,7 +467,6 @@ release/moc_mainwindow.cpp: ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qtcoreversion.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QFrame \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QProgressBar \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qprogressbar.h \
 		../PrimeraPrograED/main_struct.h \
@@ -467,6 +489,7 @@ release/moc_mainwindow.cpp: ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractbutton.h \
 		../PrimeraPrograED/thread_machines_ensambladora.h \
 		../PrimeraPrograED/thread_ensambladora_horno.h \
+		../PrimeraPrograED/thread_horno_inspectores.h \
 		release/moc_predefs.h \
 		C:/Qt/6.1.3/mingw81_64/bin/moc.exe
 	C:\Qt\6.1.3\mingw81_64\bin\moc.exe $(DEFINES) --include "Z:/TEC/II semestre 2021/Estructuras de Datos/Proyecto 1/Progra_1_ED/build-PrimeraPrograED-Desktop_Qt_6_1_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.1.3/mingw81_64/mkspecs/win32-g++ -I"Z:/TEC/II semestre 2021/Estructuras de Datos/Proyecto 1/Progra_1_ED/PrimeraPrograED" -IC:/Qt/6.1.3/mingw81_64/include -IC:/Qt/6.1.3/mingw81_64/include/QtWidgets -IC:/Qt/6.1.3/mingw81_64/include/QtGui -IC:/Qt/6.1.3/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\PrimeraPrograED\mainwindow.h -o release\moc_mainwindow.cpp
@@ -1656,13 +1679,31 @@ release/main.o: ../PrimeraPrograED/main.cpp ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/QPalette \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QString \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QListWidgetItem \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlistwidget.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlistview.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlocale.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qrubberband.h \
 		../PrimeraPrograED/main_thread.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCore \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCoreDepends \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractanimation.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstracteventdispatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractnativeeventfilter.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractproxymodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qanimationgroup.h \
@@ -1673,12 +1714,10 @@ release/main.o: ../PrimeraPrograED/main.cpp ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qbytearraymatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcache.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlocale.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborarray.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborvalue.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborcommon.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qregularexpression.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcbormap.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborstream.h \
@@ -1715,7 +1754,6 @@ release/main.o: ../PrimeraPrograED/main.cpp ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuturesynchronizer.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuturewatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qidentityproxymodel.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qjnienvironment.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QScopedPointer \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qjniobject.h \
@@ -1781,7 +1819,6 @@ release/main.o: ../PrimeraPrograED/main.cpp ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qtcoreversion.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QFrame \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QProgressBar \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qprogressbar.h \
 		../PrimeraPrograED/main_struct.h \
@@ -1804,6 +1841,7 @@ release/main.o: ../PrimeraPrograED/main.cpp ../PrimeraPrograED/mainwindow.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractbutton.h \
 		../PrimeraPrograED/thread_machines_ensambladora.h \
 		../PrimeraPrograED/thread_ensambladora_horno.h \
+		../PrimeraPrograED/thread_horno_inspectores.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qguiapplication.h \
@@ -2229,7 +2267,8 @@ release/main_thread.o: ../PrimeraPrograED/main_thread.cpp ../PrimeraPrograED/mai
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/qicon.h \
 		../PrimeraPrograED/thread_machines_ensambladora.h \
-		../PrimeraPrograED/thread_ensambladora_horno.h
+		../PrimeraPrograED/thread_ensambladora_horno.h \
+		../PrimeraPrograED/thread_horno_inspectores.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main_thread.o ..\PrimeraPrograED\main_thread.cpp
 
 release/mainwindow.o: ../PrimeraPrograED/mainwindow.cpp ../PrimeraPrograED/mainwindow.h \
@@ -2365,13 +2404,31 @@ release/mainwindow.o: ../PrimeraPrograED/mainwindow.cpp ../PrimeraPrograED/mainw
 		C:/Qt/6.1.3/mingw81_64/include/QtGui/QPalette \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QString \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QListWidgetItem \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlistwidget.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlistview.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlocale.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qrubberband.h \
 		../PrimeraPrograED/main_thread.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCore \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QtCoreDepends \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractanimation.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstracteventdispatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractnativeeventfilter.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qabstractproxymodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qanimationgroup.h \
@@ -2382,12 +2439,10 @@ release/mainwindow.o: ../PrimeraPrograED/mainwindow.cpp ../PrimeraPrograED/mainw
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qbytearraymatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcache.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qlocale.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborarray.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborvalue.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborcommon.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qregularexpression.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcbormap.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qcborstream.h \
@@ -2424,7 +2479,6 @@ release/mainwindow.o: ../PrimeraPrograED/mainwindow.cpp ../PrimeraPrograED/mainw
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuturesynchronizer.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qfuturewatcher.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qidentityproxymodel.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qjnienvironment.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/QScopedPointer \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qjniobject.h \
@@ -2490,7 +2544,6 @@ release/mainwindow.o: ../PrimeraPrograED/mainwindow.cpp ../PrimeraPrograED/mainw
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtCore/qtcoreversion.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QFrame \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QProgressBar \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qprogressbar.h \
 		../PrimeraPrograED/main_struct.h \
@@ -2513,37 +2566,15 @@ release/mainwindow.o: ../PrimeraPrograED/mainwindow.cpp ../PrimeraPrograED/mainw
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractbutton.h \
 		../PrimeraPrograED/thread_machines_ensambladora.h \
 		../PrimeraPrograED/thread_ensambladora_horno.h \
+		../PrimeraPrograED/thread_horno_inspectores.h \
 		ui_mainwindow.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtCore/QVariant \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QApplication \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qpen.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QMenuBar \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qmenu.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtGui/qaction.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QScrollArea \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qscrollarea.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QStackedWidget \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qstackedwidget.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QStatusBar \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QWidget \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qgridlayout.h
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.1.3/mingw81_64/include/QtWidgets/qpushbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\PrimeraPrograED\mainwindow.cpp
 
 release/thread_almacen_machines.o: ../PrimeraPrograED/thread_almacen_machines.cpp ../PrimeraPrograED/thread_almacen_machines.h \

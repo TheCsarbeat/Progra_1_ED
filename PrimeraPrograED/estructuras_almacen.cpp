@@ -15,12 +15,13 @@ Carrito::Carrito(QLabel *lb, QLabel * Datos){
     capacidad = 0;
     duracionTotal = 0;
     cargaNow = 0;
-    estado = false;
+    estado = true;
     timeActual = 0;
     libre = true;
     lbTitulo = lb;
     lbDatos = Datos;
-    materiaPrimaEntregada = 0;
+    mezclaTotal = 0;
+    chocoTotal = 0;
 }
 
 Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado, QLabel *lb,QLabel * Datos){
@@ -31,7 +32,8 @@ Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado, QLabel *lb,QL
     libre = false;
     lbTitulo = lb;
     lbDatos = Datos;
-    materiaPrimaEntregada = 0;
+    mezclaTotal = 0;
+    chocoTotal = 0;
 
 }
 
@@ -41,7 +43,9 @@ void Carrito::sumarSegundo(){
 
 void Carrito::imprimir(){
     lbDatos->setText("Carga: "+QString::number(cargaNow)
-                     +"\nTotal entregada: "+QString::number(materiaPrimaEntregada));
+                     +"\nChocolate entregado: "+QString::number(chocoTotal)
+                     +"\nMezcla entregada: "+QString::number(mezclaTotal));
+    lbDatos->update();
 }
 
 Almacen::Almacen(){

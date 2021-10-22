@@ -20,65 +20,95 @@ void ThreadMachinesEnsambladora::run() {
 
     this->running = true;
     Banda * banda;
-    this->machine->flagProcesando = true;
+    this->machine->flagProcesando = false;
     if(machine->nombre != "Chocolatera"){
         banda = ensambladora->bandas->array[0];
     }else{
         banda = ensambladora->bandas->array[1];
     }
-    while (running) {
-        while (paused) {
-            if(checkOnOff->isChecked()) resume();
+    paused = true;
+    while (running){
+        this->machine->flagProcesando = false;
+        while (paused){
+            int cantNow = machine->cantNow;
+            int cantMin = machine->min;
+            bool flagProcesando = machine->flagProcesando;
+            if(cantNow >= cantMin && flagProcesando == false  && checkOnOff->isChecked() && machine->state){
+                machine->flagProcesando = true;
+                resume();
+            }
             msleep(500);
         }
-        if(!checkOnOff->isChecked()) pause();
-        else{
-            //Pause conditions
-            if(machine->gramosProcesar > (banda->capacidad-banda->cantNow)){
-                checkOnOff->setChecked(false);
+        //Pause conditions
+        if(machine->gramosProcesar > (banda->capacidad-banda->cantNow)){
+            checkOnOff->setChecked(false);
+            pause();
+        }else{
+            //Own Statements
+            this->machine->procesar();
+            this->machine->lbTitulo->setText("Processing...");
+            this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
+            sleep(1);
+
+            //Stop Condition
+            if(this->machine->tiempoActual == this->machine->duracionSegudos){
+                resetDatos();
+                mutexMachineEnsambladora->lock();
+                banda->cantNow += this->machine->gramosProcesar;
+                machine->totalMezclado += this->machine->gramosProcesar;
+                mutexMachineEnsambladora->unlock();
+
+                mutexCarritoMachine->lock();
+                this->machine->cantNow -= this->machine->gramosProcesar;
+                mutexCarritoMachine->unlock();
+
                 pause();
-            }else{
-                //Own Statements
-                this->machine->procesar();
-                this->machine->lbTitulo->setText("Processing...");
-                qDebug() <<"Soy machine "+QString::number(machine->id);
-                this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
-                sleep(1);
+                banda->imprimir();
 
-                //Stop Condition
-                if(this->machine->tiempoActual == this->machine->duracionSegudos){
-                    resetDatos();
-                    mutexMachineEnsambladora->lock();
-                    banda->cantNow += this->machine->gramosProcesar;
-                    machine->totalMezclado += this->machine->gramosProcesar;
-                    mutexMachineEnsambladora->unlock();
-
-                    mutexCarritoMachine->lock();
-                    this->machine->cantNow -= this->machine->gramosProcesar;
-                    mutexCarritoMachine->unlock();
-
-                    stop();
-                    banda->imprimir();
-
-                }
             }
         }
-
-
     }
-
 }
 
 void ThreadMachinesEnsambladora::pause() {
     this->paused = true;
     this->machine->lbTitulo->setText(machine->nombre+" Waiting...");
+    this->mutexCarritoMachine->lock();
+    NodoPeticion *peticion = this->colaPeticiones->verUltimo();
+    int gramosAEnconlar = this->machine->max-(colaPeticiones->getPeticionMachine(machine->id)+this->machine->cantNow);
+    qDebug()<<colaPeticiones->getPeticionMachine(machine->id)+this->machine->cantNow;
+    if(peticion != NULL){
+        if(peticion->peticion->idMachine == this->machine->id){
+            colaPeticiones->verUltimo()->peticion->cant += this->machine->gramosProcesar;
+        }else{
+            this->colaPeticiones->encolar(this->machine->nombre,this->machine->gramosProcesar , this->machine->id);
+        }
+    }else{
+        this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
+    }
+    this->mutexCarritoMachine->unlock();
+
+    colaPeticiones->imprimir();
+    this->machine->imprimirDatos();
 
 }
 
 void ThreadMachinesEnsambladora::stop() {
 
     this->running = false;
-    this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
+
+    this->mutexCarritoMachine->lock();
+    NodoPeticion *peticion = this->colaPeticiones->verUltimo();
+    if(peticion != NULL){
+        if(peticion->peticion->idMachine == this->machine->id){
+            colaPeticiones->verUltimo()->peticion->cant += this->machine->gramosProcesar;
+        }else{
+            this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
+        }
+    }else{
+        this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
+    }
+    this->mutexCarritoMachine->unlock();
 
     colaPeticiones->imprimir();
     this->machine->imprimirDatos();

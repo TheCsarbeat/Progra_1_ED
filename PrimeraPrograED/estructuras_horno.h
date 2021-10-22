@@ -38,7 +38,14 @@ struct Bandeja{
 
 struct ArrayBandejas{
     Bandeja * array[6];
-
+    ArrayBandejas(){
+        array[0] = new Bandeja("Bandeja 1",new QLabel);
+        array[1] = new Bandeja("Bandeja 2",new QLabel);
+        array[2] = new Bandeja("Bandeja 3",new QLabel);
+        array[3] = new Bandeja("Bandeja 4",new QLabel);
+        array[4] = new Bandeja("Bandeja 5",new QLabel);
+        array[5] = new Bandeja("Bandeja 6",new QLabel);
+    }
     ArrayBandejas(QLabel * arrayLbBandejas[6]){
         array[0] = new Bandeja("Bandeja 1",arrayLbBandejas[0]);
         array[1] = new Bandeja("Bandeja 2",arrayLbBandejas[1]);
@@ -60,19 +67,33 @@ struct Horno{
     int capacidad;
     int tiempoRellenado;
     int cantidadRellenado;
+    bool state;
 
-    Horno(QLabel * lbDatosBanda, int _capacidad, int _cantidadRellenado, int _tiempoRellenado,QLabel * _lbTitulo, QLabel * arrayLbBandejas[6]){
+    Horno(){
+        banda = new Banda("Banda Horno",new QLabel);
+        bandejas = new ArrayBandejas();
+        flagProcesando = false;
+        tiempoHorneado = 0;
+        capacidad = 0;
+        cantidadRellenado = 0;
+        tiempoRellenado = 0;
+        tiempoNow = 0;
+        state = true;
+    }
+    Horno(QLabel * lbDatosBanda, int _capacidad, int _cantidadRellenado, int _tiempoRellenado, int _tiempoHorneado,QLabel * _lbTitulo, QLabel * arrayLbBandejas[6]){
         banda = new Banda("Banda Horno",lbDatosBanda);
         bandejas = new ArrayBandejas(arrayLbBandejas);
         lbTitulo = _lbTitulo;
         flagProcesando = false;
-        tiempoHorneado = 0;
+        tiempoHorneado = _tiempoHorneado;
         capacidad = _capacidad;
         cantidadRellenado = _cantidadRellenado;
         tiempoRellenado = _tiempoRellenado;
+        tiempoNow = 0;
+        state = true;
     }
     int getCurrentCantidad();
-    void apagarBandejas();
+    void apagarBandeja();
     bool llenarBandejas();
     void sumarSegundo();
     int hornear();

@@ -25,8 +25,9 @@ struct Peticion{
     }
 
     QString toString(){
-        return "\n\nID: "+QString::number(idMachine)+"\nMachine: "+nombreMachine+"\nCantidad: "+QString::number(cant);
+        return "\n\nMachine: "+nombreMachine+"\nCantidad: "+QString::number(cant);
     }
+
 
 };
 
@@ -65,9 +66,12 @@ struct ColaPeticiones{
     void encolar(QString _nombreMachine, int _cant, int id);
     NodoPeticion * desencolar (void);
     NodoPeticion * verFrente(void);
+    NodoPeticion * verUltimo(void);
     bool vacia(void);
     void imprimir(void);
     QString toString();
+
+    int getPeticionMachine(int id);
 };
 
 #endif // ESTRUCTURAS_PETICIONES_H

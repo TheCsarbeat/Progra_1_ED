@@ -9,7 +9,7 @@ void Bandeja::imprimir(){
                      +"\nHorneadas: "+QString::number(totalHorneado));
 }
 
-void Horno::apagarBandejas(){
+void Horno::apagarBandeja(){
     for(unsigned int i = 2; i < 6;i++){
         bandejas->array[i]->active = false;
     }
@@ -78,4 +78,5 @@ void Horno::imprimir(){
         bandejas->array[i]->imprimir();
     }
     banda->imprimir();
+
 }
