@@ -45,7 +45,7 @@ void ThreadMachinesEnsambladora::run() {
         //Pause conditions
         if(machine->gramosProcesar > (banda->capacidad-banda->cantNow)){
             checkOnOff->setChecked(false);
-            pause();
+            paused = true;
         }else{
             //Own Statements
             this->machine->procesar();
@@ -78,20 +78,20 @@ void ThreadMachinesEnsambladora::pause() {
     this->machine->lbTitulo->setText(machine->nombre+" Waiting...");
     this->mutexCarritoMachine->lock();
     NodoPeticion *peticion = this->colaPeticiones->verUltimo();
-    int gramosAEnconlar = this->machine->max-(colaPeticiones->getPeticionMachine(machine->id)+this->machine->cantNow);
-    qDebug()<<colaPeticiones->getPeticionMachine(machine->id)+this->machine->cantNow;
     if(peticion != NULL){
         if(peticion->peticion->idMachine == this->machine->id){
-            colaPeticiones->verUltimo()->peticion->cant += this->machine->gramosProcesar;
+            peticion->peticion->cant += this->machine->gramosProcesar;
         }else{
             this->colaPeticiones->encolar(this->machine->nombre,this->machine->gramosProcesar , this->machine->id);
         }
     }else{
         this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
     }
+    //this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
+    colaPeticiones->imprimir();
     this->mutexCarritoMachine->unlock();
 
-    colaPeticiones->imprimir();
+
     this->machine->imprimirDatos();
 
 }

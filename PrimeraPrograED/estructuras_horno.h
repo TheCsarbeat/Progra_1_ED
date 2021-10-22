@@ -14,6 +14,7 @@ struct Bandeja{
     int totalHorneado;
     bool active;
 
+
     QLabel * lbDatos;
 
     Bandeja(){

@@ -15,6 +15,8 @@ void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arra
     this->arrayProgressBar[2] = arrayProgressBar[2];
     this->arrayProgressBar[3] = arrayProgressBar[3];
     this->arrayProgressBar[4] = arrayProgressBar[4];
+    this->arrayProgressBar[5] = arrayProgressBar[5];
+    this->arrayProgressBar[6] = arrayProgressBar[6];
 
     //Array Checkbox
     this->checkOnOff[0] = checkOnOff[0];
@@ -22,6 +24,8 @@ void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arra
     this->checkOnOff[2] = checkOnOff[2];
     this->checkOnOff[3] = checkOnOff[3];
     this->checkOnOff[4] = checkOnOff[4];
+    this->checkOnOff[5] = checkOnOff[5];
+    this->checkOnOff[6] = checkOnOff[6];
 
 
     colaPeticiones = mainStruct->colaPeticiones;
@@ -48,10 +52,11 @@ void thread_main::run() {
 
     while (running) {
         while (paused) {
-            sleep(1);
+            sleep(2);
         }
         //arrancarHorno();
-        msleep(500);
+
+        msleep(1500);
     }
 
 }
@@ -111,7 +116,7 @@ void thread_main::iniciarThreads(){
 }
 
 void thread_main::calcularGalletas(){
-    int cantMezcla = 0, cantChocolate =0 , TotalGalletas =0;
+
     for(int i= 0; i<mainStruct->listaPlanificaciones->getLargo(); i++){
         NodoPlanificacion * p = mainStruct->listaPlanificaciones->buscar(i);
         TotalGalletas += (p->planificacion->cantTipos * p->planificacion->tipoGalleta->cantGalletas);

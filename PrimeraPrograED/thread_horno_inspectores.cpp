@@ -26,7 +26,7 @@ void ThreadHornoInspectores::run(){
             bool flag = horno->flagProcesando;
             //int cantNow = mainStruct->horno->getCurrentCantidad();
             //int capacidad = mainStruct->horno->capacidad;
-            if(!flag && horno->banda->cantNow > 0  && horno->state){
+            if(!flag && horno->banda->cantNow > 0  && checkOnOff->isChecked() && horno->state ){
                 horno->flagProcesando = true;
                 resume();
             }

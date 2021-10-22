@@ -79,10 +79,11 @@ void MainWindow::on_btnGoToSimulation_clicked(){
 void MainWindow::on_btnAgregarTipoGalleta_clicked(){
     QString nombre = ui->txtNombreTipoGalleta->text();
         int cantidad = ui->txtCantidadTipoGalleta->text().toInt();
+        int tiempoEmpacdo = ui->txtTiempoEmpacado->text().toInt();
+        int cantEmpacado = ui->txtCantEmpacado->text().toInt();
+        TipoGalleta *tipo = new TipoGalleta(nombre, cantidad, tiempoEmpacdo, cantEmpacado);
 
-        TipoGalleta *tipo = new TipoGalleta(nombre, cantidad);
-
-        if(!(nombre.isEmpty() && ui->txtCantidadTipoGalleta->text().isEmpty())){
+        if(!(nombre.isEmpty() && ui->txtCantidadTipoGalleta->text().isEmpty() && ui->txtTiempoEmpacado->text().isEmpty() && ui->txtCantEmpacado->text().isEmpty())){
             if(!this->mainStruct->listaCircularTiposGalletas->exist(tipo)){
                 this->mainStruct->listaCircularTiposGalletas->insertar(tipo);
                 ui->listTiposGalletas->addItem(tipo->toString());
@@ -98,10 +99,12 @@ void MainWindow::on_btnAgregarTipoGalleta_clicked(){
 void MainWindow::on_btnEliminarTipoGalleta_clicked(){
     QString nombre = ui->txtNombreTipoGalleta->text();
         int cantidad = ui->txtCantidadTipoGalleta->text().toInt();
+        int tiempoEmpacdo = ui->txtTiempoEmpacado->text().toInt();
+        int cantEmpacado = ui->txtCantEmpacado->text().toInt();
 
-        TipoGalleta *tipo = new TipoGalleta(nombre, cantidad);
+        TipoGalleta *tipo = new TipoGalleta(nombre, cantidad, tiempoEmpacdo, cantEmpacado);
 
-        if(!(nombre.isEmpty() && ui->txtCantidadTipoGalleta->text().isEmpty())){
+        if(!(nombre.isEmpty() && ui->txtCantidadTipoGalleta->text().isEmpty() && ui->txtTiempoEmpacado->text().isEmpty() && ui->txtCantEmpacado->text().isEmpty())){
             qDebug()<<"ENTRE";
             if(this->mainStruct->listaCircularTiposGalletas->exist(tipo)){
                 qDebug()<<"ENTdsfsdfRE";
@@ -126,6 +129,8 @@ void MainWindow::on_listTiposGalletas_itemClicked(QListWidgetItem *item){
     QStringList data = item->text().split(", ");
     ui->txtNombreTipoGalleta->setText(data.at(0));
     ui->txtCantidadTipoGalleta->setText(data.at(1));
+    ui->txtTiempoEmpacado->setText(data.at(2));
+    ui->txtCantEmpacado->setText(data.at(3));
 }
 
 
@@ -133,7 +138,7 @@ void MainWindow::on_listTiposGalletas_itemClicked(QListWidgetItem *item){
 void MainWindow::on_btnAgregarPlanificacion_clicked(){
     if(!(ui->txtCantidadPlanificacion->text().isEmpty() && ui->cboPlanificacion->currentIndex()<0)){
             QString texto = ui->cboPlanificacion->currentText();
-            TipoGalleta * tipo = new TipoGalleta(texto.split(", ").at(0),texto.split(", ").at(1).toInt());
+            TipoGalleta * tipo = new TipoGalleta(texto.split(", ").at(0),texto.split(", ").at(1).toInt(),0,0);
 
             int cantidad = ui->txtCantidadPlanificacion->text().toInt();
 
@@ -151,7 +156,7 @@ void MainWindow::on_btnEliminarPlanificacion_clicked(){
     QString texto = ui->cboPlanificacion->currentText();
         if(!(ui->txtCantidadPlanificacion->text().isEmpty() && texto.isEmpty())){
 
-            TipoGalleta * tipo = new TipoGalleta(texto.split(", ").at(0),texto.split(", ").at(1).toInt());
+            TipoGalleta * tipo = new TipoGalleta(texto.split(", ").at(0),texto.split(", ").at(1).toInt(),0,0);
             int cantidad = ui->txtCantidadPlanificacion->text().toInt();
             this->mainStruct->listaPlanificaciones->borrar(tipo->toString(), cantidad);
 
@@ -281,16 +286,12 @@ void MainWindow::cargarDatos(){
     //Main Struct
     mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, cola, nuevaEnsabladora,horno);
 
-    //Base de lista circular
-    this->mainStruct->listaCircularTiposGalletas->insertar("Caja",50);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Paquetote",25);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Paquete",10);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Tubo",16);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Bolsitica",2);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Bolsita",4);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Bolsa",8);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Bolsota",16);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Bolsatota",32);
+    //Base de lista circular                                nombre, cantGalletas, tiempoEmpacdo, cantEmpacado estos dos últimos por el tipo completo.
+    this->mainStruct->listaCircularTiposGalletas->insertar("Caja",50, 6, 3);
+    this->mainStruct->listaCircularTiposGalletas->insertar("Paquete",20,5,4);
+    this->mainStruct->listaCircularTiposGalletas->insertar("Tubo",16, 5,2);
+    this->mainStruct->listaCircularTiposGalletas->insertar("Bolsa",2,2,6);
+
     ui->listTiposGalletas->addItems(this->mainStruct->listaCircularTiposGalletas->toString());
 
     //Plafinicación

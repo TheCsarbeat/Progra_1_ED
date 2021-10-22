@@ -69,9 +69,6 @@ void ThreadAlmacenMachines::pause() {
     colaPeticiones->imprimir();
     machine->imprimirDatos();
     almacen->carrito->imprimir();
-
-    almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
-                     +"\nTotal entregada: "+QString::number(almacen->carrito->materiaPrimaEntregada));
     if(colaPeticiones->vacia())checkOnOff->setChecked(false);
 }
 
@@ -80,10 +77,7 @@ void ThreadAlmacenMachines::stop() {
 
     colaPeticiones->imprimir();
     machine->imprimirDatos();
-    almacen->carrito->imprimir();
-
-    almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
-                     +"\nTotal entregada: "+QString::number(almacen->carrito->materiaPrimaEntregada));
+    almacen->carrito->imprimir();   
     if(colaPeticiones->vacia())checkOnOff->setChecked(false);
     //destroyed();
 }
