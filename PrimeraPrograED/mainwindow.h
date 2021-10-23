@@ -33,6 +33,7 @@ public:
 
      EstructuraProgressBar * arrayProgressBar[40];
      QCheckBox * arrayCheackBoxOnOff[40];
+     QCheckBox * arrayCheckBoxHorno[5];
 
     ~MainWindow();
 
@@ -59,14 +60,6 @@ private slots:
      void on_btnAgregarPlanificacion_clicked();
      void on_btnEliminarPlanificacion_clicked();
      void on_listPlanificador_itemClicked(QListWidgetItem *item);
-
-     void on_checkBoxBandeja3_clicked();
-
-     void on_checkBoxBandeja4_clicked();
-
-     void on_checkBoxBandeja5_clicked();
-
-     void on_checkBoxBandeja6_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -24,7 +24,7 @@ struct MainStruct{
     Inspectores * inspectores;
 
     MainStruct();
-    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno);
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, Inspectores * inspectores);
 
     void encolarPeticiones();
 

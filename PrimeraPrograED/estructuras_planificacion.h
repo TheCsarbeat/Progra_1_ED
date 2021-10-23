@@ -8,16 +8,21 @@ struct TipoGalleta{
     QString nombre;
     int cantGalletas;
 
-    TipoGalleta (QString _nombre, int _cantidad){
+    int cantEmpacado;
+    int tiempoEmpacado;
+
+    TipoGalleta (QString _nombre, int _cantidad, int tiempo, int cant){
         nombre = _nombre;
         cantGalletas = _cantidad;
+        cantEmpacado = cant;
+        tiempoEmpacado = tiempo;
     }
     // imprime la informacion de un hijo
     void imprimir(){
-        qDebug() <<nombre<<"\t(" << cantGalletas <<")\n";
+        qDebug() <<"Nombre: "<<nombre<<", Cantidad: "<< cantGalletas <<"\nTiempo empacado: "<<tiempoEmpacado <<", CantEmpacado: "<<cantEmpacado;
     }
     QString toString(){
-        return nombre+", "+QString::number(cantGalletas);
+        return nombre+", "+QString::number(cantGalletas)+", "+QString::number(tiempoEmpacado)+", "+QString::number(cantEmpacado);
     }
 };
 
@@ -46,7 +51,7 @@ struct ListaCircular{
         primerNodo = NULL;
     }
 
-    void insertar(QString name, int cant);
+    void insertar(QString name, int cant,int tiempoEmpacdo,int cantEmpacado);
     void insertar(TipoGalleta * tipo);
     bool exist(TipoGalleta * tipo);
     void imprimir();

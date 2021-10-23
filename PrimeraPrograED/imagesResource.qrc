@@ -20,5 +20,12 @@
         <file>images/simulation.png</file>
         <file>images/programmer.png</file>
         <file>images/bandeja-full.png</file>
+        <file>images/banda-Empacadora.png</file>
+        <file>images/banda-transportadora-paquete.png</file>
+        <file>images/carretilla.png</file>
+        <file>images/carretilla2.png</file>
+        <file>images/empacadora1.png</file>
+        <file>images/paquete-de-caja-en-un-carro.png</file>
+        <file>images/supervisor-calidad.png</file>
     </qresource>
 </RCC>

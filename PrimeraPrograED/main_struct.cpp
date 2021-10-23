@@ -16,13 +16,14 @@ MainStruct::MainStruct(){
 }
 
 
-MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta, ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno){
+MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta, ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, Inspectores * _inspectores){
     almacen = _almacen;
     arrayMachine = _arrayMachine;
     colaPeticiones = cola;
     receta = _receta;
     horno = _horno;
     ensambladora = assembler;
+    inspectores = _inspectores;
 }
 
 void MainStruct::encolarPeticiones(){

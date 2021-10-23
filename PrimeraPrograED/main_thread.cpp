@@ -4,7 +4,7 @@ thread_main::thread_main(){
 
 }
 
-void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40],QCheckBox * checkOnOff[40]) {
+void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40],QCheckBox * checkOnOff[40], QCheckBox * checkOnOffHorno[5]) {
     this->mainStruct = mainStruct;
     this->running = false;
     this->paused = false;
@@ -16,6 +16,7 @@ void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arra
     this->arrayProgressBar[3] = arrayProgressBar[3];
     this->arrayProgressBar[4] = arrayProgressBar[4];
     this->arrayProgressBar[5] = arrayProgressBar[5];
+    this->arrayProgressBar[6] = arrayProgressBar[6];
 
     //Array Checkbox
     this->checkOnOff[0] = checkOnOff[0];
@@ -24,15 +25,22 @@ void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arra
     this->checkOnOff[3] = checkOnOff[3];
     this->checkOnOff[4] = checkOnOff[4];
     this->checkOnOff[5] = checkOnOff[5];
+    this->checkOnOff[6] = checkOnOff[6];
 
+    //Array CheckBox Horno
+    this->checkOnOffHorno[0] = checkOnOffHorno[0];
+    this->checkOnOffHorno[1] = checkOnOffHorno[1];
+    this->checkOnOffHorno[2] = checkOnOffHorno[2];
+    this->checkOnOffHorno[3] = checkOnOffHorno[3];
+    this->checkOnOffHorno[4] = checkOnOffHorno[4];
 
     colaPeticiones = mainStruct->colaPeticiones;
-
 
     mutexCarritoMachines = new QMutex();
     mutexMachinesEnsambladora = new QMutex();
     mutexEnsambladoraHorno = new QMutex();
-    mutexHornoInspectores = new QMutex();
+    mutexHornoInspector1 = new QMutex();
+    mutexInspector1ToInspector2 = new QMutex();
 
 }
 
@@ -50,10 +58,11 @@ void thread_main::run() {
 
     while (running) {
         while (paused) {
-            sleep(1);
+            sleep(2);
         }
         //arrancarHorno();
-        msleep(500);
+
+        msleep(1500);
     }
 
 }
@@ -74,8 +83,6 @@ void thread_main::encolar(){
 
 void thread_main::arrancarHorno(){
     int flag = mainStruct->horno->flagProcesando;
-    //int cantNow = mainStruct->horno->getCurrentCantidad();
-    //int capacidad = mainStruct->horno->capacidad;
     if(!flag && mainStruct->horno->banda->cantNow > 0){
         hiloHornoInspectores->start();
     }
@@ -106,16 +113,25 @@ void thread_main::iniciarThreads(){
 
     //Horno
     hiloHornoInspectores = new ThreadHornoInspectores();
-    hiloHornoInspectores->__init__(mutexEnsambladoraHorno,mutexHornoInspectores,mainStruct->horno,mainStruct->inspectores,arrayProgressBar[5],checkOnOff[5]);
+    hiloHornoInspectores->__init__(mutexEnsambladoraHorno,mutexHornoInspector1,mainStruct->horno,mainStruct->inspectores,arrayProgressBar[5],checkOnOffHorno);
     hiloHornoInspectores->start();
 
+    hiloInspectores[0] = new ThreadPrimerInspector();
+    hiloInspectores[0]->__init__(mutexHornoInspector1, mutexInspector1ToInspector2, mainStruct->horno, mainStruct->inspectores, mainStruct->inspectores->arrayInspectores->array[0], arrayProgressBar[6], checkOnOff[5]);
+    hiloInspectores[0]->start();
+
+    hiloInspectores[1] = new ThreadPrimerInspector();
+    hiloInspectores[1]->__init__(mutexHornoInspector1, mutexInspector1ToInspector2, mainStruct->horno, mainStruct->inspectores, mainStruct->inspectores->arrayInspectores->array[1], arrayProgressBar[7], checkOnOff[6]);
+    hiloInspectores[1]->start();
 
 }
 
 void thread_main::calcularGalletas(){
-    int cantMezcla = 0, cantChocolate =0 , TotalGalletas =0;
+    qDebug()<<mainStruct->listaPlanificaciones->toString();
+    mainStruct->listaPlanificaciones->imprimir();
     for(int i= 0; i<mainStruct->listaPlanificaciones->getLargo(); i++){
         NodoPlanificacion * p = mainStruct->listaPlanificaciones->buscar(i);
+        qDebug()<<"Cantidad de tipos: "<<p->planificacion->cantTipos<<", Canti galletas por tipo: "<<p->planificacion->tipoGalleta->cantGalletas;
         TotalGalletas += (p->planificacion->cantTipos * p->planificacion->tipoGalleta->cantGalletas);
     }
     cantChocolate = mainStruct->receta->cantChocolate * TotalGalletas;

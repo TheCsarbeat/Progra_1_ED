@@ -1,14 +1,14 @@
 
 #include "estructuras_planificacion.h"
 
-void ListaCircular::insertar(QString name, int cant){
+void ListaCircular::insertar(QString name, int cant, int tiempoEmpacdo,int cantEmpacado){
 
     if (primerNodo == NULL){
-        primerNodo = new NodoTipoGalleta(new TipoGalleta(name, cant));
+        primerNodo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado));
         primerNodo->siguiente= primerNodo;
         primerNodo->anterior = primerNodo;
     }else{
-        NodoTipoGalleta * nuevo = new NodoTipoGalleta(new TipoGalleta(name, cant));
+        NodoTipoGalleta * nuevo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado));
         nuevo->siguiente = primerNodo;
         nuevo->anterior = primerNodo->anterior;
         primerNodo->anterior->siguiente = nuevo;
@@ -73,7 +73,7 @@ QStringList  ListaCircular::toString(){
         NodoTipoGalleta * tmp = primerNodo;
         do{
             QString tipo = "";
-            tipo=tmp->tipo->nombre+ ", "+QString::number(tmp->tipo->cantGalletas);
+            tipo=tmp->tipo->nombre+ ", "+QString::number(tmp->tipo->cantGalletas)+ ", "+QString::number(tmp->tipo->tiempoEmpacado)+ ", "+QString::number(tmp->tipo->cantEmpacado);
             list.append(tipo);
             tmp = tmp->siguiente;
         }while(tmp!=primerNodo);
@@ -137,6 +137,7 @@ void ListaSimplePlanificaciones::insertarAlInicio(Planificacion * _planificacion
         primerNodo = nuevo;
     }
     largo++; //incremento porque se agreg� un elemento m�s
+
 }
 
 void ListaSimplePlanificaciones::imprimir(){

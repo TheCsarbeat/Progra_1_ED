@@ -24,7 +24,8 @@ SOURCES += \
     thread_almacen_machines.cpp \
     thread_ensambladora_horno.cpp \
     thread_horno_inspectores.cpp \
-    thread_machines_ensambladora.cpp
+    thread_machines_ensambladora.cpp \
+    thread_primer_inspector.cpp
 
 HEADERS += \
     estructuras_almacen.h \
@@ -43,7 +44,8 @@ HEADERS += \
     thread_ensambladora_horno.h \
     thread_ensambladora_horno.h \
     thread_horno_inspectores.h \
-    thread_machines_ensambladora.h
+    thread_machines_ensambladora.h \
+    thread_primer_inspector.h
 
 FORMS += \
     mainwindow.ui

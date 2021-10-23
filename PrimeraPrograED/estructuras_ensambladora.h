@@ -13,6 +13,7 @@ struct Banda{
     Banda(){
         cantNow = 0;
         capacidad = 0;
+        nombre = "";
         lbDatos = new QLabel();
     }
     Banda(QString nombreBanda, QLabel * lbDatosBanda){
@@ -28,9 +29,13 @@ struct Banda{
 struct ArrayBandas{
     Banda * array[2];
 
-    ArrayBandas(QLabel * banda1, QLabel * banda2){
-        array[0] = new Banda("Banda 1",banda1);
-        array[1] = new Banda("Banda 2",banda2);
+    ArrayBandas(){
+        array[0] = new Banda("banda",new QLabel);
+        array[0] = new Banda("banda",new QLabel);
+    }
+    ArrayBandas(QLabel * banda1, QLabel * banda2, QString banda1Name, QString banda2Name){
+        array[0] = new Banda(banda1Name,banda1);
+        array[1] = new Banda(banda2Name,banda2);
     }
 };
 
@@ -46,7 +51,7 @@ struct Ensambladora{
     QLabel * lbTitulo;
     QLabel * lbDatos;
     Ensambladora(){
-        bandas = new ArrayBandas(new QLabel, new QLabel);
+        bandas = new ArrayBandas(new QLabel, new QLabel, "Banda 1", "Banda 2");
         duracionSegundos = 0;
         cant = 0;
         timeActual = 0;
@@ -56,7 +61,7 @@ struct Ensambladora{
 
     }
     Ensambladora(QLabel * titulo, QLabel * datos, QLabel * banda1, QLabel * banda2){
-        bandas = new ArrayBandas(banda1, banda2);
+        bandas = new ArrayBandas(banda1, banda2, "Banda 1", "Banda 2");
         duracionSegundos = 0;
         cant = 0;
         timeActual = 0;

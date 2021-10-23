@@ -21,12 +21,10 @@ void ThreadEnsambladoraHorno::__init__(QMutex *mutex1,QMutex *mutex2, Ensamblado
 
 void ThreadEnsambladoraHorno::run(){
     this->running = true;
-
-    int mezcla = receta->cantMezcla;
-    int choco = receta->cantChocolate;
     this->paused = true;
-    qDebug() << "Soy una ensambladora";
     while(running){
+        int mezcla = receta->cantMezcla;
+        int choco = receta->cantChocolate;
         this->ensambladora->flagProcesando = false;
         while(paused){
             mutexMachineEnsambladora->lock();
@@ -43,7 +41,6 @@ void ThreadEnsambladoraHorno::run(){
             msleep(500);
         }
         if(ensambladora->cant > (horno->banda->capacidad - horno->banda->cantNow)){
-            qDebug()<<horno->banda->capacidad;
             checkOnOff->setChecked(false);
             pause();
         }else{

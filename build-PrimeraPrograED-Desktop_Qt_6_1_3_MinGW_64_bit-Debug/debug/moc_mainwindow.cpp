@@ -23,8 +23,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[36];
-    char stringdata0[447];
+    const uint offsetsAndSize[28];
+    char stringdata0[335];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -43,11 +43,7 @@ QT_MOC_LITERAL(210, 16), // "QListWidgetItem*"
 QT_MOC_LITERAL(227, 4), // "item"
 QT_MOC_LITERAL(232, 34), // "on_btnAgregarPlanificacion_cl..."
 QT_MOC_LITERAL(267, 35), // "on_btnEliminarPlanificacion_c..."
-QT_MOC_LITERAL(303, 31), // "on_listPlanificador_itemClicked"
-QT_MOC_LITERAL(335, 27), // "on_checkBoxBandeja3_clicked"
-QT_MOC_LITERAL(363, 27), // "on_checkBoxBandeja4_clicked"
-QT_MOC_LITERAL(391, 27), // "on_checkBoxBandeja5_clicked"
-QT_MOC_LITERAL(419, 27) // "on_checkBoxBandeja6_clicked"
+QT_MOC_LITERAL(303, 31) // "on_listPlanificador_itemClicked"
 
     },
     "MainWindow\0on_btnOnOff_clicked\0\0"
@@ -60,11 +56,7 @@ QT_MOC_LITERAL(419, 27) // "on_checkBoxBandeja6_clicked"
     "QListWidgetItem*\0item\0"
     "on_btnAgregarPlanificacion_clicked\0"
     "on_btnEliminarPlanificacion_clicked\0"
-    "on_listPlanificador_itemClicked\0"
-    "on_checkBoxBandeja3_clicked\0"
-    "on_checkBoxBandeja4_clicked\0"
-    "on_checkBoxBandeja5_clicked\0"
-    "on_checkBoxBandeja6_clicked"
+    "on_listPlanificador_itemClicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -74,7 +66,7 @@ static const uint qt_meta_data_MainWindow[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -82,20 +74,16 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   98,    2, 0x08,    0 /* Private */,
-       3,    0,   99,    2, 0x08,    1 /* Private */,
-       4,    0,  100,    2, 0x08,    2 /* Private */,
-       5,    0,  101,    2, 0x08,    3 /* Private */,
-       6,    0,  102,    2, 0x08,    4 /* Private */,
-       7,    0,  103,    2, 0x08,    5 /* Private */,
-       8,    1,  104,    2, 0x08,    6 /* Private */,
-      11,    0,  107,    2, 0x08,    8 /* Private */,
-      12,    0,  108,    2, 0x08,    9 /* Private */,
-      13,    1,  109,    2, 0x08,   10 /* Private */,
-      14,    0,  112,    2, 0x08,   12 /* Private */,
-      15,    0,  113,    2, 0x08,   13 /* Private */,
-      16,    0,  114,    2, 0x08,   14 /* Private */,
-      17,    0,  115,    2, 0x08,   15 /* Private */,
+       1,    0,   74,    2, 0x08,    0 /* Private */,
+       3,    0,   75,    2, 0x08,    1 /* Private */,
+       4,    0,   76,    2, 0x08,    2 /* Private */,
+       5,    0,   77,    2, 0x08,    3 /* Private */,
+       6,    0,   78,    2, 0x08,    4 /* Private */,
+       7,    0,   79,    2, 0x08,    5 /* Private */,
+       8,    1,   80,    2, 0x08,    6 /* Private */,
+      11,    0,   83,    2, 0x08,    8 /* Private */,
+      12,    0,   84,    2, 0x08,    9 /* Private */,
+      13,    1,   85,    2, 0x08,   10 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -108,10 +96,6 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 9,   10,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
 
        0        // eod
 };
@@ -132,10 +116,6 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->on_btnAgregarPlanificacion_clicked(); break;
         case 8: _t->on_btnEliminarPlanificacion_clicked(); break;
         case 9: _t->on_listPlanificador_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
-        case 10: _t->on_checkBoxBandeja3_clicked(); break;
-        case 11: _t->on_checkBoxBandeja4_clicked(); break;
-        case 12: _t->on_checkBoxBandeja5_clicked(); break;
-        case 13: _t->on_checkBoxBandeja6_clicked(); break;
         default: ;
         }
     }
@@ -149,7 +129,7 @@ const QMetaObject MainWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>
 
 
 >,
@@ -176,13 +156,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 14;
+        _id -= 10;
     }
     return _id;
 }

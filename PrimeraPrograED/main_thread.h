@@ -10,6 +10,7 @@
 #include "thread_machines_ensambladora.h"
 #include "thread_ensambladora_horno.h"
 #include "thread_horno_inspectores.h"
+#include "thread_primer_inspector.h"
 
 
 #include <QLabel>
@@ -32,20 +33,26 @@ public:
 
     //CheckBox Elements
     QCheckBox * checkOnOff[40];
+    QCheckBox * checkOnOffHorno[5];
 
     //Sub hilos
     ThreadAlmacenMachines * hiloCarritoMachines;
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
     ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
     ThreadHornoInspectores * hiloHornoInspectores;
+    ThreadPrimerInspector * hiloInspectores[2];
 
     //Mutex
     QMutex *mutexCarritoMachines;
     QMutex *mutexMachinesEnsambladora;
     QMutex *mutexEnsambladoraHorno;
-    QMutex *mutexHornoInspectores;
+    QMutex *mutexHornoInspector1;
+    QMutex *mutexInspector1ToInspector2;
 
-    void __init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);
+    //Variables de Condiciones de parada
+    int cantMezcla = 0, cantChocolate =0 , TotalGalletas =0;
+
+    void __init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40], QCheckBox * checkOnOffHorno[5]);
     void run();
     void stop();
     void pause();

@@ -14,5 +14,6 @@ debug/thread_almacen_machines.o
 debug/thread_ensambladora_horno.o
 debug/thread_horno_inspectores.o
 debug/thread_machines_ensambladora.o
+debug/thread_primer_inspector.o
 debug/qrc_imagesResource.o
 debug/moc_mainwindow.o

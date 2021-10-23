@@ -14,5 +14,6 @@ release/thread_almacen_machines.o
 release/thread_ensambladora_horno.o
 release/thread_horno_inspectores.o
 release/thread_machines_ensambladora.o
+release/thread_primer_inspector.o
 release/qrc_imagesResource.o
 release/moc_mainwindow.o
