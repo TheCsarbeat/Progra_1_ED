@@ -1107,7 +1107,7 @@ public:
         checkBoxBandeja6->setChecked(false);
         frame_20 = new QFrame(factoryPanel);
         frame_20->setObjectName(QString::fromUtf8("frame_20"));
-        frame_20->setGeometry(QRect(20, 890, 401, 121));
+        frame_20->setGeometry(QRect(10, 930, 401, 121));
         frame_20->setFrameShape(QFrame::StyledPanel);
         frame_20->setFrameShadow(QFrame::Raised);
         btnOnOff = new QPushButton(frame_20);
@@ -1231,12 +1231,12 @@ public:
         lbNameBandeja1_8->setStyleSheet(QString::fromUtf8("color: black;"));
         frameTransportador = new QFrame(factoryPanel);
         frameTransportador->setObjectName(QString::fromUtf8("frameTransportador"));
-        frameTransportador->setGeometry(QRect(380, 630, 291, 151));
+        frameTransportador->setGeometry(QRect(420, 900, 271, 151));
         frameTransportador->setFrameShape(QFrame::StyledPanel);
         frameTransportador->setFrameShadow(QFrame::Raised);
         label_62 = new QLabel(frameTransportador);
         label_62->setObjectName(QString::fromUtf8("label_62"));
-        label_62->setGeometry(QRect(200, 20, 91, 91));
+        label_62->setGeometry(QRect(190, 20, 71, 91));
         label_62->setStyleSheet(QString::fromUtf8("image:url(\":/images/carretilla2.png\");"));
         lbNameBandeja1_5 = new QLabel(frameTransportador);
         lbNameBandeja1_5->setObjectName(QString::fromUtf8("lbNameBandeja1_5"));
@@ -2175,7 +2175,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        contentPanel->setCurrentIndex(0);
+        contentPanel->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

@@ -27,7 +27,7 @@
      <string notr="true">this-&gt;setStyleSheet(&quot;background-color: rgb(255, 255, 255);&quot;);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="factoryPage">
      <property name="styleSheet">
@@ -2334,8 +2334,8 @@ QCheckBox::indicator:unchecked{
       <widget class="QFrame" name="frame_20">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>890</y>
+         <x>10</x>
+         <y>930</y>
          <width>401</width>
          <height>121</height>
         </rect>
@@ -2759,9 +2759,9 @@ QCheckBox::indicator:unchecked{
       <widget class="QFrame" name="frameTransportador">
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>630</y>
-         <width>291</width>
+         <x>420</x>
+         <y>900</y>
+         <width>271</width>
          <height>151</height>
         </rect>
        </property>
@@ -2774,9 +2774,9 @@ QCheckBox::indicator:unchecked{
        <widget class="QLabel" name="label_62">
         <property name="geometry">
          <rect>
-          <x>200</x>
+          <x>190</x>
           <y>20</y>
-          <width>91</width>
+          <width>71</width>
           <height>91</height>
          </rect>
         </property>
