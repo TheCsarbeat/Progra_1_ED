@@ -5,7 +5,7 @@ ThreadHornoInspectores::ThreadHornoInspectores()
 
 }
 
-void ThreadHornoInspectores::__init__(QMutex *mutex1,QMutex *mutex2, Horno * horno, Inspectores * inspectores, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff){
+void ThreadHornoInspectores::__init__(QMutex *mutex1,QMutex *mutex2, Horno * horno, Inspectores * inspectores, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff, Empacadora *em){
     this->mutexEnsambladoraHorno = mutex1;
     this->mutexHornoInspectores = mutex2;
     this->horno = horno;
@@ -14,13 +14,14 @@ void ThreadHornoInspectores::__init__(QMutex *mutex1,QMutex *mutex2, Horno * hor
     this->checkOnOff = checkOnOff;
     this->running = false;
     this->paused = false;
+    this->emp = em;
 }
 
 void ThreadHornoInspectores::run(){
 
     this->running = true;
     this->paused = true;
-    qDebug() << "Soy un horno";
+    int cont= 0;
     while(running){
         horno->flagProcesando = false;
         while(paused){
@@ -41,7 +42,6 @@ void ThreadHornoInspectores::run(){
             horno->lbTitulo->setText("Horneando...");
             progressBar->setValue(((double)this->horno->tiempoNow/this->horno->tiempoHorneado)*100);
             horno->sumarSegundo();
-            qDebug() << "tiempoNow: "+QString::number(horno->tiempoNow);
             sleep(1);
             if(horno->tiempoHorneado <= horno->tiempoNow){
                 mutexEnsambladoraHorno->lock();
@@ -49,10 +49,12 @@ void ThreadHornoInspectores::run(){
                 mutexEnsambladoraHorno->unlock();
 
                 mutexHornoInspectores->lock();
-                qDebug() << "Working on it";
+                this->emp->banda->cantNow+=horno->capacidad;
+                this->emp->banda->imprimir();
                 mutexHornoInspectores->unlock();
                 pause();
             }
+
         }else{
             msleep(500);
         }

@@ -52,6 +52,7 @@ void Horno::sumarSegundo(){
 }
 
 int Horno::getCurrentCantidad(){
+    if(flagHorneando) return cantidadCurrent;
     int cantidadTotal = 0;
     for(unsigned int i = 0; i < 6;i++){
         if(bandejas->array[i]->active == true){

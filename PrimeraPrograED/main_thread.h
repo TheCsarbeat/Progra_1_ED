@@ -10,6 +10,7 @@
 #include "thread_machines_ensambladora.h"
 #include "thread_ensambladora_horno.h"
 #include "thread_horno_inspectores.h"
+#include "thread_empacadora_transporte.h"
 
 
 #include <QLabel>
@@ -39,14 +40,19 @@ public:
     ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
     ThreadHornoInspectores * hiloHornoInspectores;
 
+    ThreadEmpacadoraTransporte * hiloEmpacadoraTransporte;
+
     //Mutex
     QMutex *mutexCarritoMachines;
     QMutex *mutexMachinesEnsambladora;
     QMutex *mutexEnsambladoraHorno;
     QMutex *mutexHornoInspectores;
+    QMutex *mutexInspectoresEmpacadora;
+    QMutex *mutexEmpacadoraTransporte;
+
 
     //Variables de Condiciones de parada
-    int cantMezcla = 0, cantChocolate =0 , TotalGalletas =0;
+    int cantMezcla = 0, cantChocolate =0 , TotalGalletas =0, cantTotalMachine[3]= {0,0,0};
 
     void __init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40]);
     void run();

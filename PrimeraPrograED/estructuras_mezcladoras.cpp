@@ -14,6 +14,7 @@ Machine::Machine(QLabel * titulo , QLabel * datos){
     lbTitulo = titulo;
     lbDatos = datos;
     totalMezclado = 0;
+    aviableEncolar = true;
 
 
 }

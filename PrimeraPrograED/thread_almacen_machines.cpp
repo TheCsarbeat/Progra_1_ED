@@ -22,11 +22,12 @@ void ThreadAlmacenMachines::run() {
 
     this->paused=true;
 
+
     //almacen->carrito->imprimir();
     almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
                                        +"\nChocolate entregado: "+QString::number(almacen->carrito->chocoTotal)
                                        +"\nMezcla entregada: "+QString::number(almacen->carrito->mezclaTotal));
-    qDebug() << "Soy un carro";
+
     while (running) {
         this->almacen->carrito->libre = true;
         while (paused) {
@@ -34,6 +35,7 @@ void ThreadAlmacenMachines::run() {
             if(!colaPeticiones->vacia() && this->almacen->carrito->libre == true  && checkOnOff->isChecked() && this->almacen->carrito->estado){
                 machine = machines->array[colaPeticiones->verFrente()->peticion->idMachine];
                 this->almacen->carrito->libre = false;
+
                 resume();
             }
 
@@ -42,13 +44,11 @@ void ThreadAlmacenMachines::run() {
             //Own Statements
             this->almacen->carrito->sumarSegundo();
             this->almacen->carrito->lbTitulo->setText("Llevando a: "+this->machine->nombre);
-
             this->progressBar->setValue(((double)this->almacen->carrito->timeActual/this->almacen->carrito->duracionTotal)*100);
-            sleep(1);
+            msleep(this->almacen->carrito->sleepTime);
 
             //Stop Condition
             if(this->almacen->carrito->duracionTotal == this->almacen->carrito->timeActual){
-
                 this->mutex->lock();
                 this->machine->cantNow += this->almacen->carrito->cargaNow;
                 if(machine->nombre == "Chocolatera"){
@@ -79,21 +79,17 @@ void ThreadAlmacenMachines::pause() {
     almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
                                        +"\nChocolate entregado: "+QString::number(almacen->carrito->chocoTotal)
                                        +"\nMezcla entregada: "+QString::number(almacen->carrito->mezclaTotal));
+    this->mutex->lock();
     if(colaPeticiones->vacia())checkOnOff->setChecked(false);
+    this->mutex->unlock();
+    if(almacen->carrito->chocoTotal == almacen->totalChocolate && almacen->carrito->mezclaTotal == almacen->totalMezcla)stop();
 }
 
 void ThreadAlmacenMachines::stop() {
     this->running = false;
+    checkOnOff->setChecked(false);
+    checkOnOff->setEnabled(false);
 
-    colaPeticiones->imprimir();
-    machine->imprimirDatos();
-    almacen->carrito->imprimir();
-
-    almacen->carrito->lbDatos->setText("Carga: "+QString::number(almacen->carrito->cargaNow)
-                                       +"\nChocolate entregado: "+QString::number(almacen->carrito->chocoTotal)
-                                       +"\nMezcla entregada: "+QString::number(almacen->carrito->mezclaTotal));
-    if(colaPeticiones->vacia())checkOnOff->setChecked(false);
-    //destroyed();
 }
 
 void ThreadAlmacenMachines::resume() {
@@ -102,6 +98,7 @@ void ThreadAlmacenMachines::resume() {
     this->almacen->carrito->libre = false;
 
     this->mutex->lock();
+    almacen->carrito->idMachine = machine->id;
     getCantPeticion();
     this->mutex->unlock();
 
@@ -112,18 +109,36 @@ void ThreadAlmacenMachines::resume() {
 void ThreadAlmacenMachines::getCantPeticion(){
 
     Peticion * peticion = colaPeticiones->verFrente()->peticion;
-    int cantPeticion = peticion->cant;
+
     int cargaCarrito = almacen->carrito->capacidad;
+    /*int diferencia =0;
+    if(peticion->idMachine == 2)
+        diferencia = almacen->totalChocolate - almacen->carrito->chocoTotal;
+    else
+        diferencia = almacen->totalMezcla - almacen->carrito->mezclaTotal;
+
+    if(diferencia>=almacen->carrito->capacidad)encolarNormal(peticion, cargaCarrito);
+    else{
+        if(diferencia == 0){
+            almacen->carrito->libre = true;
+            paused = true;
+        }else
+            almacen->carrito->cargaNow = diferencia;
+        colaPeticiones->desencolar();
+        machine->aviableEncolar= false;
+    }*/
+    encolarNormal(peticion, cargaCarrito);
     colaPeticiones->imprimir();
-    if(cantPeticion>= cargaCarrito){
+}
+
+void ThreadAlmacenMachines::encolarNormal(Peticion * peticion, int cargaCarrito){
+    if(peticion->cant>= cargaCarrito){
+        peticion->cant -= cargaCarrito;
         this->almacen->carrito->cargaNow = almacen->carrito->capacidad;
-        peticion->cant = peticion->cant-cargaCarrito;
     }else{
         this->almacen->carrito->cargaNow = peticion->cant;
         peticion->cant = 0;
     }
-
-
 }
 
 void ThreadAlmacenMachines::resetDatos(){

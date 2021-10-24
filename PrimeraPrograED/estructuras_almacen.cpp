@@ -22,9 +22,10 @@ Carrito::Carrito(QLabel *lb, QLabel * Datos){
     lbDatos = Datos;
     mezclaTotal = 0;
     chocoTotal = 0;
+    idMachine = -1;
 }
 
-Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado, QLabel *lb,QLabel * Datos){
+Carrito::Carrito(int _capacidad, double _duracionTotal, bool _estado, QLabel *lb,QLabel * Datos){
     capacidad = _capacidad;
     duracionTotal = _duracionTotal;
     estado = _estado;    
@@ -34,11 +35,25 @@ Carrito::Carrito(int _capacidad, int _duracionTotal, bool _estado, QLabel *lb,QL
     lbDatos = Datos;
     mezclaTotal = 0;
     chocoTotal = 0;
+    idMachine=-1;
 
 }
 
 void Carrito::sumarSegundo(){
-    timeActual++;
+    if(timeActual==0){
+        double num = duracionTotal- (int)duracionTotal;
+
+        timeActual = num;
+        sleepTime = num*1000;
+        if(num==0){
+            timeActual ++;
+            sleepTime =1000;
+        }
+    }else{
+        timeActual ++;
+        sleepTime =1000;
+    }
+
 }
 
 void Carrito::imprimir(){

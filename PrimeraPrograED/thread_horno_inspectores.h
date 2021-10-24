@@ -17,7 +17,7 @@ public:
     QMutex * mutexEnsambladoraHorno;
     Horno * horno;
     Inspectores * inspectores;
-
+    Empacadora *emp;
     EstructuraProgressBar * progressBar;
     QCheckBox * checkOnOff;
 
@@ -26,7 +26,7 @@ public:
     bool paused;
 
     ThreadHornoInspectores();
-    void __init__(QMutex *mutex1,QMutex *mutex2, Horno * horno, Inspectores * inspectores, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
+    void __init__(QMutex *mutex1,QMutex *mutex2, Horno * horno, Inspectores * inspectores, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff, Empacadora *emp);
     void run();
     void stop();
     void pause();

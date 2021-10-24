@@ -27,7 +27,6 @@ void ThreadMachinesEnsambladora::run() {
         banda = ensambladora->bandas->array[1];
     }
     paused = true;
-    qDebug() << "Soy la mezcladora"+QString::number(machine->id);
     while (running){
         this->machine->flagProcesando = false;
         while (paused){
@@ -76,16 +75,18 @@ void ThreadMachinesEnsambladora::pause() {
     this->machine->lbTitulo->setText(machine->nombre+" Waiting...");
     this->mutexCarritoMachine->lock();
     NodoPeticion *peticion = this->colaPeticiones->verUltimo();
-    if(peticion != NULL){
-        if(peticion->peticion->idMachine == this->machine->id){
-            peticion->peticion->cant += this->machine->gramosProcesar;
+    int gramosEncolar =  machine->gramosProcesar;
+    if(machine->aviableEncolar){
+        if(peticion != NULL){
+            if(peticion->peticion->idMachine == this->machine->id){
+                peticion->peticion->cant += gramosEncolar;
+            }else{
+                this->colaPeticiones->encolar(this->machine->nombre,gramosEncolar, this->machine->id);
+            }
         }else{
-            this->colaPeticiones->encolar(this->machine->nombre,this->machine->gramosProcesar , this->machine->id);
+            this->colaPeticiones->encolar(this->machine->nombre, gramosEncolar, this->machine->id);
         }
-    }else{
-        this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
     }
-    //this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
     colaPeticiones->imprimir();
     this->mutexCarritoMachine->unlock();
 
@@ -97,22 +98,6 @@ void ThreadMachinesEnsambladora::pause() {
 void ThreadMachinesEnsambladora::stop() {
 
     this->running = false;
-
-    this->mutexCarritoMachine->lock();
-    NodoPeticion *peticion = this->colaPeticiones->verUltimo();
-    if(peticion != NULL){
-        if(peticion->peticion->idMachine == this->machine->id){
-            colaPeticiones->verUltimo()->peticion->cant += this->machine->gramosProcesar;
-        }else{
-            this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
-        }
-    }else{
-        this->colaPeticiones->encolar(this->machine->nombre, this->machine->gramosProcesar, this->machine->id);
-    }
-    this->mutexCarritoMachine->unlock();
-
-    colaPeticiones->imprimir();
-    this->machine->imprimirDatos();
 
 }
 

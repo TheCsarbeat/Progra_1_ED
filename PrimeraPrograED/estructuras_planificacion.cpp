@@ -1,7 +1,7 @@
 
 #include "estructuras_planificacion.h"
 
-void ListaCircular::insertar(QString name, int cant, int tiempoEmpacdo,int cantEmpacado){
+void ListaCircular::insertar(QString name, int cant, double tiempoEmpacdo,int cantEmpacado){
 
     if (primerNodo == NULL){
         primerNodo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado));
@@ -36,15 +36,9 @@ void ListaCircular::insertar(TipoGalleta *tipo){
 bool ListaCircular::exist(TipoGalleta *tipo){
     QString name = tipo->nombre;
     int cant = tipo->cantGalletas;
-    qDebug()<<"Nombre: "+name;
-    qDebug()<<"Cantidad: "+QString::number(cant);
-
     if (primerNodo != NULL){
         NodoTipoGalleta * tmp = primerNodo;
         do{
-            qDebug()<<"\n\n\n";
-            qDebug()<<"Nombre: "+tmp->tipo->nombre;
-            qDebug()<<"Cantidad: "+QString::number(tmp->tipo->cantGalletas);
             if (tmp->tipo->nombre == name && tmp->tipo->cantGalletas == cant ){
                 return true;
             }
@@ -120,6 +114,7 @@ NodoTipoGalleta * ListaCircular::eliminar(QString name, int cant){
 void Planificacion::imprimir(){
          tipoGalleta->imprimir();
          qDebug()<< " Cantidad de tipos: "<<cantTipos<<"\n";
+         qDebug()<< " Probalidad: "<<probalidad<<"\n";
     }
 
 bool ListaSimplePlanificaciones::isEmpty(){
@@ -128,16 +123,34 @@ bool ListaSimplePlanificaciones::isEmpty(){
 
 
 void ListaSimplePlanificaciones::insertarAlInicio(Planificacion * _planificacion){
-    if (isEmpty()){
-        primerNodo = new NodoPlanificacion(_planificacion);
-    }
-    else{
-        NodoPlanificacion * nuevo = new NodoPlanificacion(_planificacion);
-        nuevo->siguiente = primerNodo;
-        primerNodo = nuevo;
-    }
-    largo++; //incremento porque se agreg� un elemento m�s
 
+    if(!exist(_planificacion)){
+        if (isEmpty()){
+            primerNodo = new NodoPlanificacion(_planificacion);
+        }
+        else{
+            NodoPlanificacion * nuevo = new NodoPlanificacion(_planificacion);
+            nuevo->siguiente = primerNodo;
+            primerNodo = nuevo;
+        }
+        largo++; //incremento porque se agreg� un elemento m�s
+    calcularProbalidad();
+    }
+}
+
+bool ListaSimplePlanificaciones::exist(Planificacion * _planificacion){
+    if(!isEmpty()){
+        NodoPlanificacion * temp = primerNodo;
+        QString nombre = _planificacion->tipoGalleta->nombre;
+        int cantGalletas = _planificacion->tipoGalleta->cantGalletas;
+        int cantTpos = _planificacion->cantTipos;
+        while(temp != ultimoNodo){
+            if (nombre == temp->planificacion->tipoGalleta->nombre && cantGalletas == temp->planificacion->tipoGalleta->cantGalletas && cantTpos == temp->planificacion->cantTipos)
+                return true;
+            temp = temp->siguiente;
+        }
+    }
+    return false;
 }
 
 void ListaSimplePlanificaciones::imprimir(){
@@ -215,3 +228,43 @@ NodoPlanificacion* ListaSimplePlanificaciones::buscar(int index){
     }
     return NULL;
 }
+
+void ListaSimplePlanificaciones::calcularProbalidad(){
+    NodoPlanificacion * temp = primerNodo;
+
+
+    int reducir = 100-largo;
+    int suma= 0;
+    int index = largo-1;
+
+    while(temp != ultimoNodo){
+        if(temp->siguiente == ultimoNodo)
+            temp->planificacion->probalidad = 100-suma;
+        else{
+            int valorAsignar = rand()%reducir;
+            temp->planificacion->probalidad = valorAsignar;
+            suma += valorAsignar;
+            reducir = 100-largo - (suma+index);
+
+            index--;
+        }
+
+        temp = temp->siguiente;
+
+    }
+
+}
+
+QStringList ListaSimplePlanificaciones::toStringParaEmpacadora(){
+    QStringList list;
+    if (primerNodo != NULL){
+        NodoPlanificacion * temp = primerNodo;
+        do{
+            list.append(temp->planificacion->toStringParaEmpacadora());
+            temp = temp->siguiente;
+        }while(temp!=NULL);
+    }
+
+    return list;
+}
+

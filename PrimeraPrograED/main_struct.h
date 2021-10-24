@@ -9,12 +9,13 @@
 #include "estructuras_progressbar.h"
 #include "estructuras_horno.h"
 #include "estructuras_inspectores.h"
+#include "estructuras_empacadora.h"
 
 #include <QLabel>
 struct MainStruct{
 
-    ListaCircular *listaCircularTiposGalletas = new ListaCircular();
-    ListaSimplePlanificaciones * listaPlanificaciones = new ListaSimplePlanificaciones();
+    ListaCircular *listaCircularTiposGalletas ;
+    ListaSimplePlanificaciones * listaPlanificaciones ;
     Almacen * almacen;
     ArrayMachines * arrayMachine;
     ColaPeticiones * colaPeticiones;
@@ -22,9 +23,10 @@ struct MainStruct{
     Receta * receta;
     Horno * horno;
     Inspectores * inspectores;
+    Empacadora *empacadora;
 
     MainStruct();
-    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno);
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, ListaCircular *listC, ListaSimplePlanificaciones * listP, Empacadora *em);
 
     void encolarPeticiones();
 

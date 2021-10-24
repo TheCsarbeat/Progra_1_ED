@@ -2,20 +2,21 @@
 #define ESTRUCTURAS_PLANIFICACION_H
 #include <QDebug>
 #include <QString>
-
+#include <QRandomGenerator>
 // Estructura de tipos de galletas
 struct TipoGalleta{
     QString nombre;
     int cantGalletas;
 
     int cantEmpacado;
-    int tiempoEmpacado;
+    double tiempoEmpacado;
 
-    TipoGalleta (QString _nombre, int _cantidad, int tiempo, int cant){
+    TipoGalleta (QString _nombre, int _cantidad, double tiempo, int cant){
         nombre = _nombre;
         cantGalletas = _cantidad;
         cantEmpacado = cant;
         tiempoEmpacado = tiempo;
+
     }
     // imprime la informacion de un hijo
     void imprimir(){
@@ -51,7 +52,7 @@ struct ListaCircular{
         primerNodo = NULL;
     }
 
-    void insertar(QString name, int cant,int tiempoEmpacdo,int cantEmpacado);
+    void insertar(QString name, int cant,double tiempoEmpacdo,int cantEmpacado);
     void insertar(TipoGalleta * tipo);
     bool exist(TipoGalleta * tipo);
     void imprimir();
@@ -63,6 +64,7 @@ struct ListaCircular{
 struct Planificacion{
     TipoGalleta * tipoGalleta;
     int cantTipos;
+    int probalidad;
 
     Planificacion(){
         tipoGalleta = NULL;
@@ -76,6 +78,12 @@ struct Planificacion{
     void imprimir ();
     QString toString(){
         return tipoGalleta->toString()+" | "+QString::number(cantTipos);
+    }
+
+    QString toStringParaEmpacadora(){
+
+        return QString::number(tipoGalleta->tiempoEmpacado)+" | "+QString::number(tipoGalleta->cantEmpacado)+
+                " | "+QString::number(probalidad)+" | "+QString::number(cantTipos)+" | "+tipoGalleta->nombre+" | "+QString::number(tipoGalleta->cantGalletas);
     }
 
 };
@@ -115,6 +123,11 @@ struct ListaSimplePlanificaciones{
     void imprimir();
     NodoPlanificacion* buscar(int index);
     QStringList toString();
+    bool exist(Planificacion * _planificacion);
+    void calcularProbalidad();
+    QStringList toStringParaEmpacadora();
+
+
 
 };
 struct Receta{

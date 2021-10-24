@@ -15,17 +15,19 @@ struct Carrito{
     QLabel * lbTitulo;
     QLabel * lbDatos;
     int capacidad;
-    int duracionTotal;
+    double duracionTotal;
     int cargaNow;
     bool estado;
     int chocoTotal;
     int mezclaTotal;
     bool libre;
-    int timeActual;
+    double timeActual;
+    int idMachine;
+    int sleepTime;
 
 
     Carrito(QLabel * Titulo,QLabel * Datos);
-    Carrito(int _capacidad, int _duracionTotal, bool _estado,QLabel * Titulo,QLabel * Datos);
+    Carrito(int _capacidad, double _duracionTotal, bool _estado,QLabel * Titulo,QLabel * Datos);
 
     void sumarSegundo();
     void imprimir();
@@ -36,6 +38,8 @@ struct Carrito{
 struct Almacen{
 
     Carrito * carrito;
+    int totalMezcla = 0;
+    int totalChocolate = 0;
 
     Almacen();
     Almacen(Carrito * _car);
