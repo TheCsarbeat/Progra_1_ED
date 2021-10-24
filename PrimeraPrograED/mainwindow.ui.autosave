@@ -27,7 +27,7 @@
      <string notr="true">this-&gt;setStyleSheet(&quot;background-color: rgb(255, 255, 255);&quot;);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="factoryPage">
      <property name="styleSheet">
@@ -36,8 +36,8 @@
      <widget class="QFrame" name="factoryPanel">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>0</y>
+        <x>0</x>
+        <y>-20</y>
         <width>1931</width>
         <height>1071</height>
        </rect>
