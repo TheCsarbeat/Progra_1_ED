@@ -10,6 +10,7 @@
 #include "estructuras_horno.h"
 #include "estructuras_inspectores.h"
 #include "estructuras_empacadora.h"
+#include "estructuras_transportadores.h"
 
 #include <QLabel>
 struct MainStruct{
@@ -24,9 +25,12 @@ struct MainStruct{
     Horno * horno;
     Inspectores * inspectores;
     Empacadora *empacadora;
+    ArrayTransportadores * arrayTransportadores;
 
     MainStruct();
-    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, Inspectores * inspectores,ListaCircular *listC, ListaSimplePlanificaciones * listP, Empacadora *em);
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola,
+               Ensambladora * assembler, Horno * _horno, Inspectores * inspectores,ListaCircular *listC,
+               ListaSimplePlanificaciones * listP, Empacadora *em, ArrayTransportadores *array);
 
     void encolarPeticiones();
 

@@ -12,56 +12,113 @@ struct NodoTransportador;
 struct Transportador;
 
 struct Transportador{
+
+
+    //datos de el
     int capacidad;
-    int cantNow;
-    bool busy;
+    int cargaNow;
+    double speed;
+    bool flagProcesando;
+
+
+    //procesar
+    int timeNow;
+    int sleepTime;
+
+
+    //Datos de paquete
     QString nombre;
-    TipoGalleta * tipoPaquete;
+    int id;
+
+
 
     Transportador(){
         capacidad = 0;
+        flagProcesando = false;
+        cargaNow = 0;
+        speed = 0;
+        timeNow = 0;
         nombre = "";
-        tipoPaquete = NULL;
-        busy = false;
-        cantNow = 0;
+        id = 0;
     }
-
-    Transportador(int _capacidad, QString _nombre, TipoGalleta * _tipoPaquete){
-        capacidad = _capacidad;
-        nombre = _nombre;
-        tipoPaquete = _tipoPaquete;
-        busy = false;
-        cantNow = 0;
+    QString toString(){
+        return "Carrito de: "+nombre+"\nCantidad Actual: "+QString::number(cargaNow)+"\nMax: "+QString::number(capacidad);
     }
-};
-
-struct NodoTransportador{
-    Transportador * transportador;
-    NodoTransportador * siguiente;
-
-    NodoTransportador(){
-        transportador = NULL;
-        siguiente = NULL;
+    QString toStringMoving(){
+        return "Tiempo Actual: "+QString::number(timeNow)+ "\nCarrito de: "+nombre+"\nCantidad Actual: "+QString::number(cargaNow)+"\nMax: "+QString::number(capacidad);
     }
-    NodoTransportador(Transportador * _transportador){
-        transportador = _transportador;
-        siguiente = NULL;
+    void sumarSegundo(){
+        if(timeNow==0){
+            double num = speed- (int)speed;
+            timeNow = num;
+            sleepTime = num*1000;
+            if(num==0){
+                timeNow ++;
+                sleepTime =1000;
+            }
+        }else{
+            timeNow ++;
+            sleepTime =1000;
+        }
     }
 };
 
-struct ListaTransportadores{
-    NodoTransportador * primerNodo;
-    NodoTransportador * ultimoNodo;
-    int largo;
 
-    ListaTransportadores(){
-        primerNodo = ultimoNodo = NULL;
-        largo = 0;
+struct ArrayTransportadores{
+
+    Transportador *p[200];
+    bool state;
+    int len;
+
+    //Visual
+    QLabel * lbDatos;
+    QLabel * lbtitulo;
+
+    ArrayTransportadores(){
+        for(int i= 0; i <200; i++){
+            p[i] = new Transportador();
+        }
+    }
+    ArrayTransportadores(ListaSimplePlanificaciones * lista, QLabel * titulo, QLabel *datos){
+        lbDatos = datos;
+        lbtitulo = titulo;
+        state = true;
+        QStringList listaPlanificaciones = lista->toStringParaEmpacadora();
+        len = listaPlanificaciones.length();
+
+        for(int i = 0; i< len; i++){
+            QString dato = listaPlanificaciones.at(i);
+            p[i] = new Transportador();
+            p[i]->nombre = listaPlanificaciones.at(i).split(" | ").at(4);
+            p[i]->id = listaPlanificaciones.at(i).split(" | ").at(6).toInt();
+            p[i]->capacidad =dato.split(" | ").at(7).toInt();
+            p[i]->speed =dato.split(" | ").at(8).toDouble();
+
+        }
+
+        for(int i = 0; i< len; i++){
+           qDebug()<<"-------------------------ff";
+           qDebug()<<"Nombre: "<<p[i]->nombre;
+           qDebug()<<"id: "<<p[i]->id;
+           qDebug()<<"capacidad: "<<p[i]->capacidad;
+           qDebug()<<"speed: "<<p[i]->speed;
+        }
+
+
     }
 
-    void insertar(Transportador * transportador);
-    NodoTransportador * buscar(QString name);
-    void agregarPaquete(QString name, int cant);
+
+
+    void imprimir(){
+        QString res = "";
+        for(int i = 0; i< len; i++){
+           res += p[i]->toStringMoving();
+           res += "\n--------------\n\n";
+
+        }
+        lbDatos->setText(res);
+        //lbDatos->update();
+    }
 };
 
 #endif // ESTRUCTURAS_TRANSPORTADORES_H

@@ -27,7 +27,7 @@
      <string notr="true">this-&gt;setStyleSheet(&quot;background-color: rgb(255, 255, 255);&quot;);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="factoryPage">
      <property name="styleSheet">
@@ -37,7 +37,7 @@
       <property name="geometry">
        <rect>
         <x>-10</x>
-        <y>0</y>
+        <y>-20</y>
         <width>1931</width>
         <height>1071</height>
        </rect>
@@ -2756,17 +2756,14 @@ QCheckBox::indicator:unchecked{
         </property>
        </widget>
       </widget>
-      <widget class="QFrame" name="frameTop_3">
+      <widget class="QFrame" name="frameTransportador">
        <property name="geometry">
         <rect>
-         <x>680</x>
-         <y>520</y>
-         <width>301</width>
-         <height>471</height>
+         <x>380</x>
+         <y>880</y>
+         <width>291</width>
+         <height>151</height>
         </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(97, 197, 161);</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
@@ -2777,54 +2774,38 @@ QCheckBox::indicator:unchecked{
        <widget class="QLabel" name="label_62">
         <property name="geometry">
          <rect>
-          <x>190</x>
-          <y>110</y>
+          <x>200</x>
+          <y>20</y>
           <width>91</width>
-          <height>81</height>
+          <height>91</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">image:url(&quot;:/images/empacadora1.png&quot;);</string>
+         <string notr="true">image:url(&quot;:/images/carretilla2.png&quot;);</string>
         </property>
         <property name="text">
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbDatosEmpacadora_2">
+       <widget class="QLabel" name="lbNameBandeja1_5">
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>140</y>
-          <width>141</width>
-          <height>61</height>
+          <y>10</y>
+          <width>111</width>
+          <height>31</height>
          </rect>
         </property>
-        <property name="text">
-         <string>datos</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBoxEmpacadora_2">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>70</y>
-          <width>51</width>
-          <height>41</height>
-         </rect>
+        <property name="font">
+         <font>
+          <family>Open Sans</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">QCheckBox::indicator{
-	width: 40px;
-	height:40px;
-}
-
-QCheckBox::indicator:checked{
-	image:url(&quot;:/images/switch-on.png&quot;);
-}
-
-QCheckBox::indicator:unchecked{
-	image:url(&quot;:/images/switch-off.png&quot;);
-}</string>
+         <string notr="true">color: black;</string>
         </property>
         <property name="text">
          <string/>
@@ -2836,8 +2817,8 @@ QCheckBox::indicator:unchecked{
        <widget class="QFrame" name="panelProgress3_6">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>130</y>
+          <x>20</x>
+          <y>50</y>
           <width>150</width>
           <height>20</height>
          </rect>
@@ -2866,7 +2847,7 @@ QCheckBox::indicator:unchecked{
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QFrame" name="progressEmpacadora_2">
+         <widget class="QFrame" name="progressTransportadores">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -2886,7 +2867,7 @@ QCheckBox::indicator:unchecked{
           </property>
          </widget>
         </widget>
-        <widget class="QLabel" name="lbProgressEmpacadora_2">
+        <widget class="QLabel" name="lbProgressTransportadores">
          <property name="geometry">
           <rect>
            <x>110</x>
@@ -2908,11 +2889,138 @@ QCheckBox::indicator:unchecked{
          </property>
         </widget>
        </widget>
-       <widget class="QLabel" name="lbNameBandeja1_5">
+       <widget class="QLabel" name="lbDatosEmpacadora_2">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>40</y>
+          <x>30</x>
+          <y>80</y>
+          <width>141</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>datos</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="lbTransportadores_2">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>600</y>
+         <width>611</width>
+         <height>281</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Open Sans</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frameTop_3">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>460</y>
+         <width>321</width>
+         <height>541</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(97, 197, 161);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QCheckBox" name="checkBoxTransportadores">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>10</y>
+          <width>51</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QCheckBox::indicator{
+	width: 40px;
+	height:40px;
+}
+
+QCheckBox::indicator:checked{
+	image:url(&quot;:/images/switch-on.png&quot;);
+}
+
+QCheckBox::indicator:unchecked{
+	image:url(&quot;:/images/switch-off.png&quot;);
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QScrollArea" name="scrollAreaPedidos_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>120</y>
+          <width>301</width>
+          <height>411</height>
+         </rect>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaContents_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>299</width>
+           <height>409</height>
+          </rect>
+         </property>
+         <widget class="QLabel" name="lbTransportadores">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>301</width>
+            <height>371</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="lbNameBandeja1_9">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
           <width>111</width>
           <height>31</height>
          </rect>
@@ -3012,7 +3120,7 @@ border-style: solid;
 border-color: rgb(254, 188, 187);;</string>
         </property>
         <property name="text">
-         <string>1</string>
+         <string>0.5</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="txtCapacidadCar">
@@ -3844,7 +3952,7 @@ border-color: rgb(255, 239, 120);</string>
          <x>310</x>
          <y>490</y>
          <width>501</width>
-         <height>381</height>
+         <height>431</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -3886,7 +3994,7 @@ text-align: center;</string>
         <property name="geometry">
          <rect>
           <x>120</x>
-          <y>105</y>
+          <y>91</y>
           <width>200</width>
           <height>21</height>
          </rect>
@@ -3910,7 +4018,7 @@ border-color: rgb(154, 123, 171);</string>
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>100</y>
+          <y>86</y>
           <width>91</width>
           <height>31</height>
          </rect>
@@ -3978,7 +4086,7 @@ border-width: 1px;
          <rect>
           <x>120</x>
           <y>55</y>
-          <width>191</width>
+          <width>201</width>
           <height>21</height>
          </rect>
         </property>
@@ -4030,7 +4138,7 @@ border-color: rgb(154, 123, 171);</string>
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>240</y>
+          <y>290</y>
           <width>471</width>
           <height>131</height>
          </rect>
@@ -4039,9 +4147,9 @@ border-color: rgb(154, 123, 171);</string>
        <widget class="QLineEdit" name="txtTiempoEmpacado">
         <property name="geometry">
          <rect>
-          <x>170</x>
-          <y>145</y>
-          <width>181</width>
+          <x>160</x>
+          <y>175</y>
+          <width>81</width>
           <height>21</height>
          </rect>
         </property>
@@ -4054,7 +4162,7 @@ border-color: rgb(154, 123, 171);</string>
         <property name="styleSheet">
          <string notr="true">border-width: 1px;
 border-style: solid;
-border-color: rgb(154, 123, 171);</string>
+border-color:rgb(97, 197, 161);</string>
         </property>
         <property name="text">
          <string>5</string>
@@ -4063,8 +4171,8 @@ border-color: rgb(154, 123, 171);</string>
        <widget class="QLabel" name="label_71">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>140</y>
+          <x>10</x>
+          <y>171</y>
           <width>141</width>
           <height>31</height>
          </rect>
@@ -4082,9 +4190,9 @@ border-color: rgb(154, 123, 171);</string>
        <widget class="QLineEdit" name="txtCantEmpacado">
         <property name="geometry">
          <rect>
-          <x>170</x>
-          <y>190</y>
-          <width>181</width>
+          <x>160</x>
+          <y>205</y>
+          <width>81</width>
           <height>21</height>
          </rect>
         </property>
@@ -4097,7 +4205,7 @@ border-color: rgb(154, 123, 171);</string>
         <property name="styleSheet">
          <string notr="true">border-width: 1px;
 border-style: solid;
-border-color: rgb(154, 123, 171);</string>
+border-color:rgb(97, 197, 161);</string>
         </property>
         <property name="text">
          <string>6</string>
@@ -4106,9 +4214,9 @@ border-color: rgb(154, 123, 171);</string>
        <widget class="QLabel" name="label_74">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>185</y>
-          <width>141</width>
+          <x>10</x>
+          <y>200</y>
+          <width>131</width>
           <height>31</height>
          </rect>
         </property>
@@ -4119,14 +4227,14 @@ border-color: rgb(154, 123, 171);</string>
          </font>
         </property>
         <property name="text">
-         <string>Cant Empacado: </string>
+         <string>Cant Empacado:</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_75">
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>215</y>
+          <y>250</y>
           <width>471</width>
           <height>21</height>
          </rect>
@@ -4138,7 +4246,137 @@ border-color: rgb(154, 123, 171);</string>
          </font>
         </property>
         <property name="text">
-         <string>Nombre, Cantidad, Tiempo, Cant Empacado</string>
+         <string>Nombre, Cantidad, Tiempo, Cant Empacado, Capacidad, Velocidad</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtCapacidadTransporte">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>175</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color:rgb(97, 197, 161);</string>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtVelocidadTransporte">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>205</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color:rgb(97, 197, 161);</string>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_92">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>200</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Velocidad</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_93">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>171</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Capacidad:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_69">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>140</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Doppio One</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Datos Empacado</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_85">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>140</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Doppio One</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Datos Transporte</string>
         </property>
        </widget>
       </widget>
@@ -4290,7 +4528,7 @@ border-style: solid;
 border-color: rgb(240, 231, 227);</string>
         </property>
         <property name="text">
-         <string>10</string>
+         <string>5</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_40">
@@ -4446,7 +4684,7 @@ border-style: solid;
 border-color: rgb(240, 231, 227);</string>
         </property>
         <property name="text">
-         <string>5</string>
+         <string>15</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_44">
@@ -5076,8 +5314,8 @@ border-color: rgb(167, 235, 248);</string>
       <widget class="QFrame" name="frame_23">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>880</y>
+         <x>830</x>
+         <y>790</y>
          <width>301</width>
          <height>151</height>
         </rect>
@@ -5287,7 +5525,7 @@ border-style: solid;
 border-color:rgb(97, 197, 161);</string>
         </property>
         <property name="text">
-         <string>80</string>
+         <string>2</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_67">
@@ -5355,7 +5593,7 @@ border-style: solid;
 border-color:rgb(97, 197, 161);</string>
         </property>
         <property name="text">
-         <string>30</string>
+         <string>10</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_80">
@@ -5401,7 +5639,7 @@ border-style: solid;
 border-color:rgb(97, 197, 161);</string>
         </property>
         <property name="text">
-         <string>50</string>
+         <string>300</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_81">
@@ -5504,7 +5742,7 @@ border-style: solid;
 border-color:rgb(97, 197, 161);</string>
         </property>
         <property name="text">
-         <string>50</string>
+         <string>150</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_76">
@@ -5853,7 +6091,7 @@ background-color:rgb(154, 123, 171);</string>
        <widget class="QLineEdit" name="txtCantidadPlanificacion">
         <property name="geometry">
          <rect>
-          <x>150</x>
+          <x>164</x>
           <y>85</y>
           <width>131</width>
           <height>21</height>
@@ -5879,7 +6117,7 @@ border-color: rgb(154, 123, 171);</string>
          <rect>
           <x>20</x>
           <y>80</y>
-          <width>91</width>
+          <width>131</width>
           <height>31</height>
          </rect>
         </property>
@@ -5890,7 +6128,7 @@ border-color: rgb(154, 123, 171);</string>
          </font>
         </property>
         <property name="text">
-         <string>Cantidad:</string>
+         <string>Cantidad de tipos:</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_33">
@@ -6000,7 +6238,7 @@ border-color: white;</string>
        <widget class="QComboBox" name="cboPlanificacion">
         <property name="geometry">
          <rect>
-          <x>150</x>
+          <x>164</x>
           <y>55</y>
           <width>131</width>
           <height>22</height>
@@ -6023,7 +6261,7 @@ border-color: rgb(154, 123, 171);</string>
      <x>0</x>
      <y>0</y>
      <width>1920</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

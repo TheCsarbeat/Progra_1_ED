@@ -16,7 +16,8 @@ MainStruct::MainStruct(){
 }
 
 
-MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta, ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, Inspectores * _inspectores,ListaCircular *listC, ListaSimplePlanificaciones * listP, Empacadora *em){
+MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta, ColaPeticiones * cola, Ensambladora * assembler,
+                       Horno * _horno, Inspectores * _inspectores,ListaCircular *listC, ListaSimplePlanificaciones * listP, Empacadora *em, ArrayTransportadores *transpo){
     almacen = _almacen;
     arrayMachine = _arrayMachine;
     colaPeticiones = cola;
@@ -27,6 +28,7 @@ MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Recet
     listaCircularTiposGalletas = listC;
     listaPlanificaciones = listP;
     empacadora = em;
+    arrayTransportadores = transpo;
 }
 
 void MainStruct::encolarPeticiones(){

@@ -1,14 +1,14 @@
 
 #include "estructuras_planificacion.h"
 
-void ListaCircular::insertar(QString name, int cant, double tiempoEmpacdo,int cantEmpacado){
+void ListaCircular::insertar(QString name, int cant, double tiempoEmpacdo,int cantEmpacado, int capacidadTRansporte, double velocidadTransporte){
 
     if (primerNodo == NULL){
-        primerNodo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado));
+        primerNodo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado, capacidadTRansporte, velocidadTransporte));
         primerNodo->siguiente= primerNodo;
         primerNodo->anterior = primerNodo;
     }else{
-        NodoTipoGalleta * nuevo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado));
+        NodoTipoGalleta * nuevo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado, capacidadTRansporte, velocidadTransporte));
         nuevo->siguiente = primerNodo;
         nuevo->anterior = primerNodo->anterior;
         primerNodo->anterior->siguiente = nuevo;
@@ -67,7 +67,8 @@ QStringList  ListaCircular::toString(){
         NodoTipoGalleta * tmp = primerNodo;
         do{
             QString tipo = "";
-            tipo=tmp->tipo->nombre+ ", "+QString::number(tmp->tipo->cantGalletas)+ ", "+QString::number(tmp->tipo->tiempoEmpacado)+ ", "+QString::number(tmp->tipo->cantEmpacado);
+            tipo=tmp->tipo->nombre+ ", "+QString::number(tmp->tipo->cantGalletas)+ ", "+QString::number(tmp->tipo->tiempoEmpacado)+ ", "+QString::number(tmp->tipo->cantEmpacado)
+                    + ", "+QString::number(tmp->tipo->capacidadTransporte)+ ", "+QString::number(tmp->tipo->velocidadTransporte);
             list.append(tipo);
             tmp = tmp->siguiente;
         }while(tmp!=primerNodo);
@@ -133,8 +134,9 @@ void ListaSimplePlanificaciones::insertarAlInicio(Planificacion * _planificacion
             nuevo->siguiente = primerNodo;
             primerNodo = nuevo;
         }
+        primerNodo->planificacion->id = largo;
         largo++; //incremento porque se agreg� un elemento m�s
-    calcularProbalidad();
+        calcularProbalidad();
     }
 }
 

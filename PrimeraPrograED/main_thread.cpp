@@ -4,7 +4,7 @@ thread_main::thread_main(){
 
 }
 
-void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40],QCheckBox * checkOnOff[40], QCheckBox * checkOnOffHorno[5]) {
+void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40],QCheckBox * checkOnOff[40], QCheckBox * checkOnOffHorno[5],QWidget *ui) {
     this->mainStruct = mainStruct;
     this->running = false;
     this->paused = false;
@@ -136,8 +136,18 @@ void thread_main::iniciarThreads(){
 
     //Empacadora
     hiloEmpacadoraTransporte = new ThreadEmpacadoraTransporte();
-    hiloEmpacadoraTransporte->__init__(mutexInspectoresEmpacadora,mutexEmpacadoraTransporte,mainStruct->empacadora,arrayProgressBar[7],checkOnOff[7]);
+    hiloEmpacadoraTransporte->__init__(mutexInspectoresEmpacadora,mutexEmpacadoraTransporte,mainStruct->empacadora, mainStruct->arrayTransportadores,arrayProgressBar[7],checkOnOff[7]);
     hiloEmpacadoraTransporte->start();
+
+    //Transportadores
+    ThreadTransportadoresAlmacen * hiloTransporteAlmace[mainStruct->arrayTransportadores->len];
+    for(int i=mainStruct->arrayTransportadores->len-1; i>=0; i--){
+        hiloTransporteAlmace[i] = new ThreadTransportadoresAlmacen();
+        hiloTransporteAlmace[i]->__init__(mutexEmpacadoraTransporte,mainStruct->arrayTransportadores,i, mainStruct->empacadora, arrayProgressBar[1],checkOnOff[8]);
+        hiloTransporteAlmace[i]->start();
+    }
+
+
 
 
 }
@@ -146,7 +156,7 @@ void thread_main::calcularGalletas(){
     mainStruct->listaPlanificaciones->imprimir();
     for(int i= 0; i<mainStruct->listaPlanificaciones->getLargo(); i++){
         NodoPlanificacion * p = mainStruct->listaPlanificaciones->buscar(i);
-        qDebug()<<"Cantidad de tipos: "<<p->planificacion->cantTipos<<", Canti galletas por tipo: "<<p->planificacion->tipoGalleta->cantGalletas;
+
         TotalGalletas += (p->planificacion->cantTipos * p->planificacion->tipoGalleta->cantGalletas);
     }
     cantChocolate = mainStruct->receta->cantChocolate * TotalGalletas;
@@ -172,6 +182,7 @@ void thread_main::pause() {
     mainStruct->horno->state = false;
     mainStruct->inspectores->arrayInspectores->array[0]->state = false;
     mainStruct->inspectores->arrayInspectores->array[1]->state = false;
+    mainStruct->empacadora->state = false;
 }
 
 void thread_main::stop() {
@@ -184,12 +195,11 @@ void thread_main::stop() {
     mainStruct->horno->state = false;
     mainStruct->inspectores->arrayInspectores->array[0]->state = false;
     mainStruct->inspectores->arrayInspectores->array[1]->state = false;
+    mainStruct->empacadora->state = false;
 }
 
 void thread_main::resume() {
-    qDebug()<<"La cantidad de Galletas total son: "<<TotalGalletas;
-    qDebug()<<"Chocolate necesario: "<<cantChocolate;
-    qDebug()<<"Mezcla necesaria: "<<cantMezcla;
+
     this->paused = false;
     mainStruct->almacen->carrito->estado = true;
     for(int i= 0; i<3; i++){
@@ -199,4 +209,5 @@ void thread_main::resume() {
     mainStruct->horno->state = true;
     mainStruct->inspectores->arrayInspectores->array[0]->state = true;
     mainStruct->inspectores->arrayInspectores->array[1]->state = true;
+    mainStruct->empacadora->state = false;
 }
