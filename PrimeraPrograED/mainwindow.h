@@ -69,6 +69,8 @@ private slots:
 
      void on_txtMinMezcladora1_editingFinished();
 
+     void on_txtCantInspeccionar1_editingFinished();
+
 private:
     Ui::MainWindow *ui;
 };

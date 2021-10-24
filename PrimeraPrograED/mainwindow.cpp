@@ -517,3 +517,25 @@ void MainWindow::on_txtMinMezcladora1_editingFinished()
     }
 }
 
+
+void MainWindow::on_txtCantInspeccionar1_editingFinished()
+{
+    if(ui->txtCantInspeccionar1->text().toInt() < mainStruct->inspectores->arrayInspectores->array[0]->actualGalletas){
+        QMessageBox msgBox;
+        msgBox.setText("La modificación no se puede realizar");
+        msgBox.exec();
+        ui->txtCantInspeccionar1->setText(QString::number(mainStruct->inspectores->arrayInspectores->array[0]->actualGalletas));
+    }
+}
+
+
+void MainWindow::on_txtCantInspeccionar2_editingFinished()
+{
+    if(ui->txtCantInspeccionar2->text().toInt() < mainStruct->inspectores->arrayInspectores->array[1]->actualGalletas){
+        QMessageBox msgBox;
+        msgBox.setText("La modificación no se puede realizar");
+        msgBox.exec();
+        ui->txtCantInspeccionar2->setText(QString::number(mainStruct->inspectores->arrayInspectores->array[1]->actualGalletas));
+    }
+}
+
