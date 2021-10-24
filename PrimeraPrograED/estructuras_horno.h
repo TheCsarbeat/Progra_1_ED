@@ -69,6 +69,10 @@ struct Horno{
     int tiempoRellenado;
     int cantidadRellenado;
     bool state;
+
+    int cantidadCurrent = 0;
+    bool flagHorneando = false;
+
     Horno(){
         banda = new Banda("Banda Horno",new QLabel);
         bandejas = new ArrayBandejas();

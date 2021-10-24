@@ -64,6 +64,8 @@ private slots:
 
      void on_txtMaxMecladora1_editingFinished();
 
+     void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     estructuras_almacen.cpp \
+    estructuras_empacadora.cpp \
     estructuras_ensambladora.cpp \
     estructuras_horno.cpp \
     estructuras_inspectores.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     main_thread.cpp \
     mainwindow.cpp \
     thread_almacen_machines.cpp \
+    thread_empacadora_transporte.cpp \
     thread_ensambladora_horno.cpp \
     thread_horno_inspectores.cpp \
     thread_inspectores_ensambladora.cpp \
@@ -30,6 +32,7 @@ SOURCES += \
 
 HEADERS += \
     estructuras_almacen.h \
+    estructuras_empacadora.h \
     estructuras_ensambladora.h \
     estructuras_horno.h \
     estructuras_horno.h \
@@ -43,6 +46,7 @@ HEADERS += \
     main_thread.h \
     mainwindow.h \
     thread_almacen_machines.h \
+    thread_empacadora_transporte.h \
     thread_ensambladora_horno.h \
     thread_ensambladora_horno.h \
     thread_horno_inspectores.h \

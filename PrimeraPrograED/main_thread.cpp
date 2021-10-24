@@ -17,6 +17,9 @@ void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arra
     this->arrayProgressBar[4] = arrayProgressBar[4];
     this->arrayProgressBar[5] = arrayProgressBar[5];
     this->arrayProgressBar[6] = arrayProgressBar[6];
+    this->arrayProgressBar[7] = arrayProgressBar[7];
+    this->arrayProgressBar[8] = arrayProgressBar[8];
+    this->arrayProgressBar[10] = arrayProgressBar[10];
 
     //Array Checkbox
     this->checkOnOff[0] = checkOnOff[0];
@@ -24,8 +27,12 @@ void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arra
     this->checkOnOff[2] = checkOnOff[2];
     this->checkOnOff[3] = checkOnOff[3];
     this->checkOnOff[4] = checkOnOff[4];
-    this->checkOnOff[5] = checkOnOff[5];
+    this->checkOnOff[5] = checkOnOff[5]; //El horno
     this->checkOnOff[6] = checkOnOff[6];
+    this->checkOnOff[7] = checkOnOff[7];
+    this->checkOnOff[8] = checkOnOff[8];
+    this->checkOnOff[10] = checkOnOff[10];
+
 
     //Array CheckBox Horno
     this->checkOnOffHorno[0] = checkOnOffHorno[0];
@@ -41,6 +48,10 @@ void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arra
     mutexEnsambladoraHorno = new QMutex();
     mutexHornoInspector1 = new QMutex();
     mutexInspector1ToInspector2 = new QMutex();
+
+    mutexInspectoresEmpacadora = new QMutex();
+    mutexEmpacadoraTransporte = new QMutex();
+
 
 }
 
@@ -60,8 +71,6 @@ void thread_main::run() {
         while (paused) {
             sleep(2);
         }
-        //arrancarHorno();
-
         msleep(1500);
     }
 
@@ -124,10 +133,15 @@ void thread_main::iniciarThreads(){
     hiloInspectores[1]->__init__(mutexHornoInspector1, mutexInspector1ToInspector2, mainStruct->horno, mainStruct->inspectores, mainStruct->inspectores->arrayInspectores->array[1], arrayProgressBar[7], checkOnOff[6]);
     hiloInspectores[1]->start();
 
+    //Empacadora
+    hiloEmpacadoraTransporte = new ThreadEmpacadoraTransporte();
+    hiloEmpacadoraTransporte->__init__(mutexInspectoresEmpacadora,mutexEmpacadoraTransporte,mainStruct->empacadora,arrayProgressBar[7],checkOnOff[7]);
+    hiloEmpacadoraTransporte->start();
+
+
 }
 
 void thread_main::calcularGalletas(){
-    qDebug()<<mainStruct->listaPlanificaciones->toString();
     mainStruct->listaPlanificaciones->imprimir();
     for(int i= 0; i<mainStruct->listaPlanificaciones->getLargo(); i++){
         NodoPlanificacion * p = mainStruct->listaPlanificaciones->buscar(i);
@@ -136,6 +150,9 @@ void thread_main::calcularGalletas(){
     }
     cantChocolate = mainStruct->receta->cantChocolate * TotalGalletas;
     cantMezcla = mainStruct->receta->cantMezcla * TotalGalletas;
+
+    mainStruct->almacen->totalChocolate = cantChocolate;
+    mainStruct->almacen->totalMezcla = cantMezcla;
 
     qDebug()<<"La cantidad de Galletas total son: "<<TotalGalletas;
     qDebug()<<"Chocolate necesario: "<<cantChocolate;
@@ -169,6 +186,9 @@ void thread_main::stop() {
 }
 
 void thread_main::resume() {
+    qDebug()<<"La cantidad de Galletas total son: "<<TotalGalletas;
+    qDebug()<<"Chocolate necesario: "<<cantChocolate;
+    qDebug()<<"Mezcla necesaria: "<<cantMezcla;
     this->paused = false;
     mainStruct->almacen->carrito->estado = true;
     for(int i= 0; i<3; i++){

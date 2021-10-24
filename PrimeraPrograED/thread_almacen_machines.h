@@ -34,6 +34,7 @@ public:
     void resume();
     void getCantPeticion();
     void resetDatos();
+    void encolarNormal(Peticion * peticion, int cargaCarrito);
 
 };
 

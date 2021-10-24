@@ -18,6 +18,8 @@ struct Machine{
     QLabel * lbTitulo;
     QLabel * lbDatos;
 
+    bool aviableEncolar;
+
     bool state;
     bool flagEncolado;
     bool flagProcesando;

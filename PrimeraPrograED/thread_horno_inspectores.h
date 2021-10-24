@@ -17,7 +17,7 @@ public:
     QMutex * mutexEnsambladoraHorno;
     Horno * horno;
     Inspectores * inspectores;
-
+    Empacadora *emp;
     EstructuraProgressBar * progressBar;
     QCheckBox * arrayCheckOnOff[5];
 

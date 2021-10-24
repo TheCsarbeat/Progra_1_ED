@@ -49,6 +49,7 @@ void MainWindow::on_btnOnOff_clicked(){
     }
 }
 void MainWindow::on_btnPausedPlay_clicked(){
+
     if(ui->lbStatedPausedResume->text() == "Pause"){
             //Change Desing
             ui->lbStatedPausedResume->setText("Resume");
@@ -67,6 +68,7 @@ void MainWindow::on_btnPausedPlay_clicked(){
 void MainWindow::on_btnGoToDatos_clicked(){
     if(ui->lbStatedPausedResume->text()== "Resume" || ui->lbStateOnOff->text() == "Start"){
              ui->contentPanel->setCurrentIndex(1);
+
          }
 }
 void MainWindow::on_btnGoToSimulation_clicked(){
@@ -78,7 +80,7 @@ void MainWindow::on_btnGoToSimulation_clicked(){
 void MainWindow::on_btnAgregarTipoGalleta_clicked(){
     QString nombre = ui->txtNombreTipoGalleta->text();
         int cantidad = ui->txtCantidadTipoGalleta->text().toInt();
-        int tiempoEmpacdo = ui->txtTiempoEmpacado->text().toInt();
+        double tiempoEmpacdo = ui->txtTiempoEmpacado->text().toDouble();
         int cantEmpacado = ui->txtCantEmpacado->text().toInt();
         TipoGalleta *tipo = new TipoGalleta(nombre, cantidad, tiempoEmpacdo, cantEmpacado);
 
@@ -98,20 +100,22 @@ void MainWindow::on_btnAgregarTipoGalleta_clicked(){
 void MainWindow::on_btnEliminarTipoGalleta_clicked(){
     QString nombre = ui->txtNombreTipoGalleta->text();
         int cantidad = ui->txtCantidadTipoGalleta->text().toInt();
-        int tiempoEmpacdo = ui->txtTiempoEmpacado->text().toInt();
+        double tiempoEmpacdo = ui->txtTiempoEmpacado->text().toDouble();
         int cantEmpacado = ui->txtCantEmpacado->text().toInt();
 
         TipoGalleta *tipo = new TipoGalleta(nombre, cantidad, tiempoEmpacdo, cantEmpacado);
 
         if(!(nombre.isEmpty() && ui->txtCantidadTipoGalleta->text().isEmpty() && ui->txtTiempoEmpacado->text().isEmpty() && ui->txtCantEmpacado->text().isEmpty())){
-            qDebug()<<"ENTRE";
+
             if(this->mainStruct->listaCircularTiposGalletas->exist(tipo)){
-                qDebug()<<"ENTdsfsdfRE";
+
                 this->mainStruct->listaCircularTiposGalletas->eliminar(nombre, cantidad);
                 ui->listTiposGalletas->clear();
                 ui->listTiposGalletas->addItems(this->mainStruct->listaCircularTiposGalletas->toString());
                 ui->txtNombreTipoGalleta->setText("");
                 ui->txtCantidadTipoGalleta->setText("");
+                ui->txtTiempoEmpacado->setText("");
+                ui->txtCantEmpacado->setText("");
 
                 //Plafinicación
                 ui->cboPlanificacion->clear();
@@ -138,7 +142,7 @@ void MainWindow::on_btnAgregarPlanificacion_clicked(){
     if(!(ui->txtCantidadPlanificacion->text().isEmpty() && ui->cboPlanificacion->currentIndex()<0)){
             QStringList texto = ui->cboPlanificacion->currentText().split(", ");
 
-            TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toInt(),texto.at(3).toInt());
+            TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toDouble(),texto.at(3).toInt());
 
             int cantidad = ui->txtCantidadPlanificacion->text().toInt();
 
@@ -153,10 +157,12 @@ void MainWindow::on_btnAgregarPlanificacion_clicked(){
 
 
 void MainWindow::on_btnEliminarPlanificacion_clicked(){
-    QString texto = ui->cboPlanificacion->currentText();
+        QString texto = ui->cboPlanificacion->currentText();
         if(!(ui->txtCantidadPlanificacion->text().isEmpty() && texto.isEmpty())){
 
-            TipoGalleta * tipo = new TipoGalleta(texto.split(", ").at(0),texto.split(", ").at(1).toInt(),0,0);
+            QStringList texto = ui->cboPlanificacion->currentText().split(", ");
+
+            TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toDouble(),texto.at(3).toInt());
             int cantidad = ui->txtCantidadPlanificacion->text().toInt();
             this->mainStruct->listaPlanificaciones->borrar(tipo->toString(), cantidad);
 
@@ -181,7 +187,12 @@ void MainWindow::on_listPlanificador_itemClicked(QListWidgetItem *item){
 void MainWindow::design(){
     QVBoxLayout * lay = new QVBoxLayout();
     lay->addWidget(ui->lbCola);
-    ui->scrollAreaContents->setLayout(lay);
+    ui->scrollAreaContents->setLayout(lay);    
+
+    QVBoxLayout * lay1 = new QVBoxLayout();
+    lay1->addWidget(ui->lbPaquetesSupervisados);
+    ui->scrollAreaContents_2->setLayout(lay1);
+
     ui->contentPanel->setCurrentIndex(0);
 }
 
@@ -211,6 +222,8 @@ void MainWindow::getUIWidgets(){
     arrayProgressBar[3]= new EstructuraProgressBar(ui->progressMachine3, ui->lbProgressMachine3); //progressBar del Chocolatera
     arrayProgressBar[4]= new EstructuraProgressBar(ui->progressAssembler, ui->lbProgressAssembler); //progressBar de Assembler
     arrayProgressBar[5]= new EstructuraProgressBar(ui->progressHorno, ui->lbProgressHorno);
+    //
+    arrayProgressBar[7]= new EstructuraProgressBar(ui->progressEmpacadora, ui->lbProgressEmpacadora);
 
     //Array Checkbox
     arrayCheackBoxOnOff[0] = this->ui->checkBoxCar;
@@ -227,16 +240,55 @@ void MainWindow::getUIWidgets(){
     arrayCheckBoxHorno[2] = this->ui->checkBoxBandeja4;
     arrayCheckBoxHorno[3] = this->ui->checkBoxBandeja5;
     arrayCheckBoxHorno[4] = this->ui->checkBoxBandeja6;
+    //
+    arrayCheackBoxOnOff[7] = this->ui->checkBoxEmpacadora;
 
 
 }
 void MainWindow::cargarDatos(){
 
+    //Base de lista circular                                nombre, cantGalletas, tiempoEmpacdo, cantEmpacado estos dos últimos por el tipo completo.
+    ListaCircular * listC = new ListaCircular();
+    ListaSimplePlanificaciones *listP = new ListaSimplePlanificaciones();
+    listC->insertar("Caja",50, 6.3, 3);
+    listC->insertar("Paquete",20,5.2,4);
+    listC->insertar("Tubo",16, 5.6,2);
+    listC->insertar("Bolsa",2,2.4,6);
+
+    //Lista simple planificaciones
+    for (int i = 0; i<ui->listPlanificador->count(); i++ ) {
+        QStringList data = ui->listPlanificador->item(i)->text().split(" | ");
+        QStringList texto = data.at(0).split(", ");
+
+        TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toDouble(),texto.at(3).toInt());
+        int cantidad = data.at(1).toInt();
+        Planificacion * planificacion = new Planificacion(tipo, cantidad);
+        listP->insertarAlInicio(planificacion);
+    }
+
+    //Planificaciones
+    TipoGalleta * tipo = new TipoGalleta("Bolsa",2,2.4,6);
+    Planificacion * planificacion = new Planificacion(tipo, 20);
+    listP->insertarAlInicio(planificacion);
+    ui->listPlanificador->clear();
+    ui->listPlanificador->addItems(listP->toString());
+
+    ui->listTiposGalletas->clear();
+    ui->listTiposGalletas->addItems(listC->toString());
+
+    //Plafinicación
+    ui->cboPlanificacion->clear();
+    QStringList tiposPlanificacion = listC->toString();
+    for (int i =0; i<tiposPlanificacion.length(); i++) {
+        ui->cboPlanificacion->addItem(tiposPlanificacion.at(i));
+    }
+
+
     //Almacen
     Carrito *carro= new Carrito(this->ui->lbCarro, this->ui->lbDatosCar);
 
     carro->capacidad = ui->txtCapacidadCar->text().toInt();
-    carro->duracionTotal = ui->txtDurationCar->text().toInt();
+    carro->duracionTotal = ui->txtDurationCar->text().toDouble();
 
     Almacen * almacenNuevo = new Almacen(carro);
 
@@ -308,37 +360,15 @@ void MainWindow::cargarDatos(){
         horno->bandejas->array[4]->capacidad = ui->txtMaxBandeja_5->text().toInt();
         horno->bandejas->array[5]->capacidad = ui->txtMaxBandeja_6->text().toInt();
 
+    //Empacadora
+    Empacadora *nuevaEmpacadora = new Empacadora(listP, ui->lbNameEmpacadora, ui->lbDatosEmpacadora,ui->lbBandaEmpacadoraSupervisada, ui->lbPaquetesSupervisados);
+    nuevaEmpacadora->banda->capacidad = ui->txtCapacidadBandaCalidad->text().toInt();
+    nuevaEmpacadora->banda->cantNow = 0;
+
+
 
     //Main Struct
-    mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, cola, nuevaEnsabladora,horno,inspectores);
-
-    //Base de lista circular                                nombre, cantGalletas, tiempoEmpacdo, cantEmpacado estos dos últimos por el tipo completo.
-    this->mainStruct->listaCircularTiposGalletas->insertar("Caja",50, 6, 3);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Paquete",20,5,4);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Tubo",16, 5,2);
-    this->mainStruct->listaCircularTiposGalletas->insertar("Bolsa",2,2,6);
-
-    //Lista simple planificaciones
-    for (int i = 0; i<ui->listPlanificador->count(); i++ ) {
-        QStringList data = ui->listPlanificador->item(i)->text().split(" | ");
-        QStringList texto = data.at(0).split(", ");
-
-        TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toInt(),texto.at(3).toInt());
-        int cantidad = data.at(1).toInt();
-        Planificacion * planificacion = new Planificacion(tipo, cantidad);
-        this->mainStruct->listaPlanificaciones->insertarAlInicio(planificacion);
-    }
-
-
-    ui->listTiposGalletas->addItems(this->mainStruct->listaCircularTiposGalletas->toString());
-
-    //Plafinicación
-    ui->cboPlanificacion->clear();
-    QStringList tiposPlanificacion = this->mainStruct->listaCircularTiposGalletas->toString();
-    for (int i =0; i<tiposPlanificacion.length(); i++) {
-        ui->cboPlanificacion->addItem(tiposPlanificacion.at(i));
-    }
-
+    mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, cola, nuevaEnsabladora,horno, listC, listP, nuevaEmpacadora);
     imprimirDatos();
 }
 
@@ -363,6 +393,10 @@ void MainWindow::imprimirDatos(){
     for(int i= 0; i<6; i++){
         this->mainStruct->horno->bandejas->array[i]->imprimir();
     }
+
+    //Empacadora
+    this->mainStruct->empacadora->banda->imprimir();
+    this->mainStruct->empacadora->imprimir();
 }
 
 void MainWindow::loadDataOnPaused(){
@@ -434,5 +468,13 @@ void MainWindow::on_txtMaxMecladora1_editingFinished()
     QMessageBox msgBox;
     msgBox.setText("The document has been modified.");
     msgBox.exec();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+
+    mainStruct->listaPlanificaciones->calcularProbalidad();
+    mainStruct->listaPlanificaciones->imprimir();
 }
 

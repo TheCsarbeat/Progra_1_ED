@@ -78,6 +78,7 @@ void ThreadHornoInspectores::run(){
                 mutexHornoInspectores->unlock();
                 pause();
             }
+
         }else{
             msleep(500);
         }
