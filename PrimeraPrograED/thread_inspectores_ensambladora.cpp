@@ -5,7 +5,7 @@ ThreadPrimerInspector::ThreadPrimerInspector()
 
 }
 
-void ThreadPrimerInspector::__init__(QMutex *mutex1,QMutex *mutex2, Horno * horno, Inspectores * inspectores,Inspector * inspector, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff){
+void ThreadPrimerInspector::__init__(QMutex *mutex1,QMutex *mutex2, Horno * horno, Inspectores * inspectores,Inspector * inspector, Empacadora * empacadora, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff){
     this->mutexHornoInspector1 = mutex1;
     this->mutexInspector1ToInspector2 = mutex2;
     this->horno = horno;
@@ -15,6 +15,7 @@ void ThreadPrimerInspector::__init__(QMutex *mutex1,QMutex *mutex2, Horno * horn
     this->paused = false;
     this->checkOnOff = checkOnOff;
     this->inspector = inspector;
+    this->empacadora = empacadora;
 }
 
 void ThreadPrimerInspector::run(){
@@ -28,7 +29,7 @@ void ThreadPrimerInspector::run(){
         bandaSiguiente = inspectores->arrayBandas->array[1];
     }else{
         bandaActual = inspectores->arrayBandas->array[1];
-        bandaSiguiente = inspectores->otraBanda;
+        bandaSiguiente = empacadora->banda;
     }
     mutexInspector1ToInspector2->unlock();
     while(running){
@@ -80,5 +81,6 @@ void ThreadPrimerInspector::pause() {
     inspector->tiempoNow = 0;
     inspector->actualGalletas = 0;
     inspectores->imprimir();
+    empacadora->banda->imprimir();
 }
 

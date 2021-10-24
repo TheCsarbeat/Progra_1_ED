@@ -1,4 +1,5 @@
 debug/estructuras_almacen.o
+debug/estructuras_empacadora.o
 debug/estructuras_ensambladora.o
 debug/estructuras_horno.o
 debug/estructuras_inspectores.o
@@ -12,6 +13,7 @@ debug/main_struct.o
 debug/main_thread.o
 debug/mainwindow.o
 debug/thread_almacen_machines.o
+debug/thread_empacadora_transporte.o
 debug/thread_ensambladora_horno.o
 debug/thread_horno_inspectores.o
 debug/thread_inspectores_ensambladora.o

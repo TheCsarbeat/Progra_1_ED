@@ -50,16 +50,12 @@ public:
     QMutex *mutexMachinesEnsambladora;
     QMutex *mutexEnsambladoraHorno;
     QMutex *mutexHornoInspector1;
-    QMutex *mutexInspector1ToInspector2;
     QMutex *mutexInspectoresEmpacadora;
     QMutex *mutexEmpacadoraTransporte;
 
 
     //Variables de Condiciones de parada
     int cantMezcla = 0, cantChocolate =0 , TotalGalletas =0, cantTotalMachine[3]= {0,0,0};
-
-    //Variables de Condiciones de parada
-    int cantMezcla = 0, cantChocolate =0 , TotalGalletas =0;
 
     void __init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40], QCheckBox * checkOnOffHorno[5]);
     void run();

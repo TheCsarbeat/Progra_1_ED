@@ -362,13 +362,13 @@ void MainWindow::cargarDatos(){
 
     //Empacadora
     Empacadora *nuevaEmpacadora = new Empacadora(listP, ui->lbNameEmpacadora, ui->lbDatosEmpacadora,ui->lbBandaEmpacadoraSupervisada, ui->lbPaquetesSupervisados);
-    nuevaEmpacadora->banda->capacidad = ui->txtCapacidadBandaCalidad->text().toInt();
+    nuevaEmpacadora->banda->capacidad = ui->txtCapacidadBandaCalidad_3->text().toInt();
     nuevaEmpacadora->banda->cantNow = 0;
 
 
 
     //Main Struct
-    mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, cola, nuevaEnsabladora,horno, listC, listP, nuevaEmpacadora);
+    mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, cola, nuevaEnsabladora,horno,inspectores, listC, listP, nuevaEmpacadora);
     imprimirDatos();
 }
 
