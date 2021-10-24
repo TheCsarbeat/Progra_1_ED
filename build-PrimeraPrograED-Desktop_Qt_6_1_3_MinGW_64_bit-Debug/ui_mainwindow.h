@@ -170,6 +170,7 @@ public:
     QFrame *barEmpacadora;
     QFrame *progressEmpacadora;
     QLabel *lbProgressEmpacadora;
+    QLabel *lbDatosBandaEmpacadora3;
     QFrame *frameTop_3;
     QLabel *label_62;
     QLabel *lbDatosEmpacadora_2;
@@ -291,7 +292,7 @@ public:
     QLabel *label_65;
     QLineEdit *txtDuracionEmpacado;
     QLabel *label_66;
-    QLineEdit *txtMaxBandeja_7;
+    QLineEdit *txtProbabilidadInspector1;
     QLineEdit *txtCapacidadHorno_2;
     QLabel *label_67;
     QLineEdit *txtTiempoRellenado_2;
@@ -299,9 +300,9 @@ public:
     QLineEdit *txtCantRellenado_2;
     QLabel *label_69;
     QLabel *label_70;
-    QLineEdit *txtMaxBandeja_8;
+    QLineEdit *txtProbabilidadInspector2;
     QLabel *label_80;
-    QLineEdit *txtCapacidadBandaEmpacadora;
+    QLineEdit *txtCapacidadBandaEmpacadora1;
     QLabel *label_81;
     QLabel *label_72;
     QLabel *label_82;
@@ -340,7 +341,7 @@ public:
         factoryPanel->setFrameShadow(QFrame::Raised);
         frameTop = new QFrame(factoryPanel);
         frameTop->setObjectName(QString::fromUtf8("frameTop"));
-        frameTop->setGeometry(QRect(1480, 520, 431, 351));
+        frameTop->setGeometry(QRect(1480, 520, 431, 381));
         frameTop->setStyleSheet(QString::fromUtf8("background-color:rgb(97, 197, 161);"));
         frameTop->setFrameShape(QFrame::StyledPanel);
         frameTop->setFrameShadow(QFrame::Raised);
@@ -350,11 +351,11 @@ public:
         label_58->setStyleSheet(QString::fromUtf8("image:url(\":/images/supervisor-calidad.png\");"));
         label_60 = new QLabel(frameTop);
         label_60->setObjectName(QString::fromUtf8("label_60"));
-        label_60->setGeometry(QRect(15, 90, 71, 61));
+        label_60->setGeometry(QRect(15, 70, 71, 61));
         label_60->setStyleSheet(QString::fromUtf8("image:url(\":/images/supervisor-calidad.png\");"));
         lbDatosInspector1 = new QLabel(frameTop);
         lbDatosInspector1->setObjectName(QString::fromUtf8("lbDatosInspector1"));
-        lbDatosInspector1->setGeometry(QRect(330, 290, 91, 41));
+        lbDatosInspector1->setGeometry(QRect(300, 290, 121, 71));
         lbNameInspector1 = new QLabel(frameTop);
         lbNameInspector1->setObjectName(QString::fromUtf8("lbNameInspector1"));
         lbNameInspector1->setGeometry(QRect(250, 160, 161, 21));
@@ -382,15 +383,15 @@ public:
         checkBoxInspector1->setChecked(true);
         lbNameInspector2 = new QLabel(frameTop);
         lbNameInspector2->setObjectName(QString::fromUtf8("lbNameInspector2"));
-        lbNameInspector2->setGeometry(QRect(15, 30, 131, 21));
+        lbNameInspector2->setGeometry(QRect(15, 10, 131, 21));
         lbNameInspector2->setFont(font);
         lbNameInspector2->setStyleSheet(QString::fromUtf8("color: black;"));
         lbDatosInspector2 = new QLabel(frameTop);
         lbDatosInspector2->setObjectName(QString::fromUtf8("lbDatosInspector2"));
-        lbDatosInspector2->setGeometry(QRect(25, 160, 91, 41));
+        lbDatosInspector2->setGeometry(QRect(10, 140, 121, 81));
         checkBoxInspector2 = new QCheckBox(frameTop);
         checkBoxInspector2->setObjectName(QString::fromUtf8("checkBoxInspector2"));
-        checkBoxInspector2->setGeometry(QRect(30, 50, 41, 31));
+        checkBoxInspector2->setGeometry(QRect(30, 30, 41, 31));
         checkBoxInspector2->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
 "	width: 40px;\n"
 "	height:40px;\n"
@@ -1094,7 +1095,7 @@ public:
         frame_19->setFrameShadow(QFrame::Raised);
         label_30 = new QLabel(frame_19);
         label_30->setObjectName(QString::fromUtf8("label_30"));
-        label_30->setGeometry(QRect(0, 0, 500, 31));
+        label_30->setGeometry(QRect(0, 0, 401, 31));
         QFont font4;
         font4.setFamilies({QString::fromUtf8("Doppio One")});
         font4.setPointSize(16);
@@ -1253,6 +1254,9 @@ public:
         lbProgressEmpacadora->setObjectName(QString::fromUtf8("lbProgressEmpacadora"));
         lbProgressEmpacadora->setGeometry(QRect(110, 0, 21, 20));
         lbProgressEmpacadora->setFont(font1);
+        lbDatosBandaEmpacadora3 = new QLabel(frameTop_2);
+        lbDatosBandaEmpacadora3->setObjectName(QString::fromUtf8("lbDatosBandaEmpacadora3"));
+        lbDatosBandaEmpacadora3->setGeometry(QRect(90, 260, 111, 51));
         frameTop_3 = new QFrame(factoryPanel);
         frameTop_3->setObjectName(QString::fromUtf8("frameTop_3"));
         frameTop_3->setGeometry(QRect(820, 510, 301, 471));
@@ -1913,7 +1917,7 @@ public:
 "border-color: rgb(154, 123, 171);"));
         frame_24 = new QFrame(dataPanel);
         frame_24->setObjectName(QString::fromUtf8("frame_24"));
-        frame_24->setGeometry(QRect(1080, 500, 500, 351));
+        frame_24->setGeometry(QRect(1080, 500, 500, 361));
         frame_24->setStyleSheet(QString::fromUtf8("background-color:rgb(250,250,250);"));
         frame_24->setFrameShape(QFrame::StyledPanel);
         frame_24->setFrameShadow(QFrame::Raised);
@@ -1925,45 +1929,45 @@ public:
 "background-color:rgb(97, 197, 161);"));
         label_64 = new QLabel(frame_24);
         label_64->setObjectName(QString::fromUtf8("label_64"));
-        label_64->setGeometry(QRect(20, 50, 91, 31));
+        label_64->setGeometry(QRect(20, 70, 91, 31));
         label_64->setFont(font5);
         label_65 = new QLabel(frame_24);
         label_65->setObjectName(QString::fromUtf8("label_65"));
-        label_65->setGeometry(QRect(20, 80, 121, 31));
+        label_65->setGeometry(QRect(20, 100, 121, 31));
         label_65->setFont(font5);
         txtDuracionEmpacado = new QLineEdit(frame_24);
         txtDuracionEmpacado->setObjectName(QString::fromUtf8("txtDuracionEmpacado"));
-        txtDuracionEmpacado->setGeometry(QRect(140, 85, 101, 21));
+        txtDuracionEmpacado->setGeometry(QRect(140, 105, 101, 21));
         txtDuracionEmpacado->setFont(font5);
         txtDuracionEmpacado->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         label_66 = new QLabel(frame_24);
         label_66->setObjectName(QString::fromUtf8("label_66"));
-        label_66->setGeometry(QRect(20, 230, 101, 31));
+        label_66->setGeometry(QRect(20, 250, 101, 31));
         label_66->setFont(font5);
-        txtMaxBandeja_7 = new QLineEdit(frame_24);
-        txtMaxBandeja_7->setObjectName(QString::fromUtf8("txtMaxBandeja_7"));
-        txtMaxBandeja_7->setGeometry(QRect(120, 235, 110, 21));
-        txtMaxBandeja_7->setFont(font5);
-        txtMaxBandeja_7->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
+        txtProbabilidadInspector1 = new QLineEdit(frame_24);
+        txtProbabilidadInspector1->setObjectName(QString::fromUtf8("txtProbabilidadInspector1"));
+        txtProbabilidadInspector1->setGeometry(QRect(120, 255, 110, 21));
+        txtProbabilidadInspector1->setFont(font5);
+        txtProbabilidadInspector1->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         txtCapacidadHorno_2 = new QLineEdit(frame_24);
         txtCapacidadHorno_2->setObjectName(QString::fromUtf8("txtCapacidadHorno_2"));
-        txtCapacidadHorno_2->setGeometry(QRect(140, 55, 101, 21));
+        txtCapacidadHorno_2->setGeometry(QRect(140, 75, 101, 21));
         txtCapacidadHorno_2->setFont(font5);
         txtCapacidadHorno_2->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         label_67 = new QLabel(frame_24);
         label_67->setObjectName(QString::fromUtf8("label_67"));
-        label_67->setGeometry(QRect(50, 190, 131, 31));
+        label_67->setGeometry(QRect(50, 210, 131, 31));
         label_67->setFont(font7);
         label_67->setStyleSheet(QString::fromUtf8(""));
         txtTiempoRellenado_2 = new QLineEdit(frame_24);
         txtTiempoRellenado_2->setObjectName(QString::fromUtf8("txtTiempoRellenado_2"));
-        txtTiempoRellenado_2->setGeometry(QRect(370, 85, 101, 21));
+        txtTiempoRellenado_2->setGeometry(QRect(370, 105, 101, 21));
         txtTiempoRellenado_2->setFont(font5);
         txtTiempoRellenado_2->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
@@ -1974,106 +1978,106 @@ public:
         label_68->setFont(font5);
         txtCantRellenado_2 = new QLineEdit(frame_24);
         txtCantRellenado_2->setObjectName(QString::fromUtf8("txtCantRellenado_2"));
-        txtCantRellenado_2->setGeometry(QRect(370, 55, 101, 21));
+        txtCantRellenado_2->setGeometry(QRect(370, 75, 101, 21));
         txtCantRellenado_2->setFont(font5);
         txtCantRellenado_2->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color: rgb(240, 231, 227);"));
         label_69 = new QLabel(frame_24);
         label_69->setObjectName(QString::fromUtf8("label_69"));
-        label_69->setGeometry(QRect(250, 80, 121, 31));
+        label_69->setGeometry(QRect(250, 100, 121, 31));
         label_69->setFont(font5);
         label_70 = new QLabel(frame_24);
         label_70->setObjectName(QString::fromUtf8("label_70"));
-        label_70->setGeometry(QRect(300, 190, 131, 31));
+        label_70->setGeometry(QRect(300, 210, 131, 31));
         label_70->setFont(font7);
         label_70->setStyleSheet(QString::fromUtf8(""));
-        txtMaxBandeja_8 = new QLineEdit(frame_24);
-        txtMaxBandeja_8->setObjectName(QString::fromUtf8("txtMaxBandeja_8"));
-        txtMaxBandeja_8->setGeometry(QRect(360, 235, 110, 21));
-        txtMaxBandeja_8->setFont(font5);
-        txtMaxBandeja_8->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
+        txtProbabilidadInspector2 = new QLineEdit(frame_24);
+        txtProbabilidadInspector2->setObjectName(QString::fromUtf8("txtProbabilidadInspector2"));
+        txtProbabilidadInspector2->setGeometry(QRect(360, 255, 110, 21));
+        txtProbabilidadInspector2->setFont(font5);
+        txtProbabilidadInspector2->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         label_80 = new QLabel(frame_24);
         label_80->setObjectName(QString::fromUtf8("label_80"));
-        label_80->setGeometry(QRect(20, 110, 71, 31));
+        label_80->setGeometry(QRect(20, 130, 71, 31));
         label_80->setFont(font7);
         label_80->setStyleSheet(QString::fromUtf8(""));
-        txtCapacidadBandaEmpacadora = new QLineEdit(frame_24);
-        txtCapacidadBandaEmpacadora->setObjectName(QString::fromUtf8("txtCapacidadBandaEmpacadora"));
-        txtCapacidadBandaEmpacadora->setGeometry(QRect(110, 150, 101, 21));
-        txtCapacidadBandaEmpacadora->setFont(font5);
-        txtCapacidadBandaEmpacadora->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
+        txtCapacidadBandaEmpacadora1 = new QLineEdit(frame_24);
+        txtCapacidadBandaEmpacadora1->setObjectName(QString::fromUtf8("txtCapacidadBandaEmpacadora1"));
+        txtCapacidadBandaEmpacadora1->setGeometry(QRect(110, 170, 101, 21));
+        txtCapacidadBandaEmpacadora1->setFont(font5);
+        txtCapacidadBandaEmpacadora1->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         label_81 = new QLabel(frame_24);
         label_81->setObjectName(QString::fromUtf8("label_81"));
-        label_81->setGeometry(QRect(20, 140, 81, 41));
+        label_81->setGeometry(QRect(20, 160, 81, 41));
         label_81->setFont(font5);
         label_72 = new QLabel(frame_24);
         label_72->setObjectName(QString::fromUtf8("label_72"));
-        label_72->setGeometry(QRect(260, 230, 100, 31));
+        label_72->setGeometry(QRect(260, 250, 100, 31));
         label_72->setFont(font5);
         label_82 = new QLabel(frame_24);
         label_82->setObjectName(QString::fromUtf8("label_82"));
-        label_82->setGeometry(QRect(240, 110, 71, 31));
+        label_82->setGeometry(QRect(240, 130, 71, 31));
         label_82->setFont(font7);
         label_82->setStyleSheet(QString::fromUtf8(""));
         label_83 = new QLabel(frame_24);
         label_83->setObjectName(QString::fromUtf8("label_83"));
-        label_83->setGeometry(QRect(240, 140, 81, 41));
+        label_83->setGeometry(QRect(240, 160, 81, 41));
         label_83->setFont(font5);
         txtCapacidadBandaEmpacadora2 = new QLineEdit(frame_24);
         txtCapacidadBandaEmpacadora2->setObjectName(QString::fromUtf8("txtCapacidadBandaEmpacadora2"));
-        txtCapacidadBandaEmpacadora2->setGeometry(QRect(340, 150, 111, 21));
+        txtCapacidadBandaEmpacadora2->setGeometry(QRect(340, 170, 111, 21));
         txtCapacidadBandaEmpacadora2->setFont(font5);
         txtCapacidadBandaEmpacadora2->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         label_76 = new QLabel(frame_24);
         label_76->setObjectName(QString::fromUtf8("label_76"));
-        label_76->setGeometry(QRect(20, 270, 121, 21));
+        label_76->setGeometry(QRect(20, 290, 121, 21));
         QFont font10;
         font10.setFamilies({QString::fromUtf8("MS Shell Dlg 2")});
         font10.setPointSize(11);
         label_76->setFont(font10);
         txtCantInspeccionar1 = new QLineEdit(frame_24);
         txtCantInspeccionar1->setObjectName(QString::fromUtf8("txtCantInspeccionar1"));
-        txtCantInspeccionar1->setGeometry(QRect(150, 270, 81, 21));
+        txtCantInspeccionar1->setGeometry(QRect(150, 290, 81, 21));
         txtCantInspeccionar1->setFont(font5);
         txtCantInspeccionar1->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         label_77 = new QLabel(frame_24);
         label_77->setObjectName(QString::fromUtf8("label_77"));
-        label_77->setGeometry(QRect(260, 270, 121, 21));
+        label_77->setGeometry(QRect(260, 290, 121, 21));
         label_77->setFont(font10);
         txtCantInspeccionar2 = new QLineEdit(frame_24);
         txtCantInspeccionar2->setObjectName(QString::fromUtf8("txtCantInspeccionar2"));
-        txtCantInspeccionar2->setGeometry(QRect(380, 270, 91, 21));
+        txtCantInspeccionar2->setGeometry(QRect(380, 290, 91, 21));
         txtCantInspeccionar2->setFont(font5);
         txtCantInspeccionar2->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         label_78 = new QLabel(frame_24);
         label_78->setObjectName(QString::fromUtf8("label_78"));
-        label_78->setGeometry(QRect(20, 300, 61, 21));
+        label_78->setGeometry(QRect(20, 320, 61, 21));
         label_78->setFont(font10);
         txtTiempoInspector1 = new QLineEdit(frame_24);
         txtTiempoInspector1->setObjectName(QString::fromUtf8("txtTiempoInspector1"));
-        txtTiempoInspector1->setGeometry(QRect(90, 300, 141, 21));
+        txtTiempoInspector1->setGeometry(QRect(90, 320, 141, 21));
         txtTiempoInspector1->setFont(font5);
         txtTiempoInspector1->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color:rgb(97, 197, 161);"));
         label_79 = new QLabel(frame_24);
         label_79->setObjectName(QString::fromUtf8("label_79"));
-        label_79->setGeometry(QRect(260, 300, 61, 21));
+        label_79->setGeometry(QRect(260, 320, 61, 21));
         label_79->setFont(font10);
         txtTiempoInspector2 = new QLineEdit(frame_24);
         txtTiempoInspector2->setObjectName(QString::fromUtf8("txtTiempoInspector2"));
-        txtTiempoInspector2->setGeometry(QRect(330, 300, 141, 21));
+        txtTiempoInspector2->setGeometry(QRect(330, 320, 141, 21));
         txtTiempoInspector2->setFont(font5);
         txtTiempoInspector2->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
@@ -2193,6 +2197,7 @@ public:
         lbNameBandeja1_4->setText(QCoreApplication::translate("MainWindow", "Empacadora", nullptr));
         checkBoxEmpacadora->setText(QString());
         lbProgressEmpacadora->setText(QCoreApplication::translate("MainWindow", "0 %", nullptr));
+        lbDatosBandaEmpacadora3->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
         label_62->setText(QString());
         lbDatosEmpacadora_2->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
         lbNameBandeja1_5->setText(QCoreApplication::translate("MainWindow", "Empacadora", nullptr));
@@ -2297,7 +2302,7 @@ public:
         label_65->setText(QCoreApplication::translate("MainWindow", "Duraci\303\263n:", nullptr));
         txtDuracionEmpacado->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
         label_66->setText(QCoreApplication::translate("MainWindow", "Probabilidad:", nullptr));
-        txtMaxBandeja_7->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
+        txtProbabilidadInspector1->setText(QCoreApplication::translate("MainWindow", "80", nullptr));
         txtCapacidadHorno_2->setText(QCoreApplication::translate("MainWindow", "90", nullptr));
         label_67->setText(QCoreApplication::translate("MainWindow", "Inspector 1", nullptr));
         txtTiempoRellenado_2->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
@@ -2305,22 +2310,22 @@ public:
         txtCantRellenado_2->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         label_69->setText(QCoreApplication::translate("MainWindow", "Time Rellenado:", nullptr));
         label_70->setText(QCoreApplication::translate("MainWindow", "Inspector 2", nullptr));
-        txtMaxBandeja_8->setText(QCoreApplication::translate("MainWindow", "30", nullptr));
+        txtProbabilidadInspector2->setText(QCoreApplication::translate("MainWindow", "30", nullptr));
         label_80->setText(QCoreApplication::translate("MainWindow", "Banda 1", nullptr));
-        txtCapacidadBandaEmpacadora->setText(QCoreApplication::translate("MainWindow", "150", nullptr));
+        txtCapacidadBandaEmpacadora1->setText(QCoreApplication::translate("MainWindow", "50", nullptr));
         label_81->setText(QCoreApplication::translate("MainWindow", "Capacidad:", nullptr));
         label_72->setText(QCoreApplication::translate("MainWindow", "Probabilidad:", nullptr));
         label_82->setText(QCoreApplication::translate("MainWindow", "Banda 2", nullptr));
         label_83->setText(QCoreApplication::translate("MainWindow", "Capacidad:", nullptr));
-        txtCapacidadBandaEmpacadora2->setText(QCoreApplication::translate("MainWindow", "150", nullptr));
+        txtCapacidadBandaEmpacadora2->setText(QCoreApplication::translate("MainWindow", "50", nullptr));
         label_76->setText(QCoreApplication::translate("MainWindow", "Cant Inspecionar:", nullptr));
         txtCantInspeccionar1->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
         label_77->setText(QCoreApplication::translate("MainWindow", "Cant Inspecionar:", nullptr));
         txtCantInspeccionar2->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
         label_78->setText(QCoreApplication::translate("MainWindow", "Tiempo:", nullptr));
-        txtTiempoInspector1->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
+        txtTiempoInspector1->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         label_79->setText(QCoreApplication::translate("MainWindow", "Tiempo:", nullptr));
-        txtTiempoInspector2->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
+        txtTiempoInspector2->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
     } // retranslateUi
 
 };

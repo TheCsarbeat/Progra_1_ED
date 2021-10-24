@@ -14,6 +14,7 @@ void Inspector::imprimir(){
                      +"\nMax: "+QString::number(capacidad)
                      +"\nAceptadas: "+QString::number(totalAccepted)
                      +"\nRechazadas: "+QString::number(totalRejected));
+    lbDatos->update();
 }
 
 void Inspector::sumarSegundo(){
@@ -25,5 +26,6 @@ void Inspectores::imprimir(){
     arrayInspectores->array[1]->imprimir();
     arrayBandas->array[0]->imprimir();
     arrayBandas->array[1]->imprimir();
+    otraBanda->imprimir();
 }
 

@@ -152,6 +152,8 @@ void thread_main::pause() {
     }
     mainStruct->ensambladora->state = false;
     mainStruct->horno->state = false;
+    mainStruct->inspectores->arrayInspectores->array[0]->state = false;
+    mainStruct->inspectores->arrayInspectores->array[1]->state = false;
 }
 
 void thread_main::stop() {
@@ -162,6 +164,8 @@ void thread_main::stop() {
     }
     mainStruct->ensambladora->state = false;
     mainStruct->horno->state = false;
+    mainStruct->inspectores->arrayInspectores->array[0]->state = false;
+    mainStruct->inspectores->arrayInspectores->array[1]->state = false;
 }
 
 void thread_main::resume() {
@@ -172,4 +176,6 @@ void thread_main::resume() {
     }
     mainStruct->ensambladora->state = true;
     mainStruct->horno->state = true;
+    mainStruct->inspectores->arrayInspectores->array[0]->state = true;
+    mainStruct->inspectores->arrayInspectores->array[1]->state = true;
 }

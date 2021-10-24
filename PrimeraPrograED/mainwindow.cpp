@@ -274,21 +274,26 @@ void MainWindow::cargarDatos(){
     Receta * recetaCookies = new Receta(ui->txtCantMezclaReceta->text().toInt(),ui->txtCantChocolateReceta->text().toInt());
 
     Inspectores * inspectores = new Inspectores(this->ui->lbDatosBandaEmpacadora1, this->ui->lbDatosBandaEmpacadora2);
+    //otra banda de prueba
+    inspectores->otraBanda->nombre = "Otra banda";
+    inspectores->otraBanda->lbDatos = this->ui->lbDatosBandaEmpacadora3;
+    inspectores->otraBanda->capacidad = 50;
+
     //Bandas Inspectores
-    inspectores->arrayBandas->array[0]->capacidad = 200;
-    inspectores->arrayBandas->array[1]->capacidad = 200;
+    inspectores->arrayBandas->array[0]->capacidad = ui->txtCapacidadBandaEmpacadora1->text().toInt();
+    inspectores->arrayBandas->array[1]->capacidad = ui->txtCapacidadBandaEmpacadora2->text().toInt();
 
     //Inspectores
-    inspectores->arrayInspectores->array[0]->capacidad = 15;
+    inspectores->arrayInspectores->array[0]->capacidad = ui->txtCantInspeccionar1->text().toInt();
     inspectores->arrayInspectores->array[0]->lbDatos = this->ui->lbDatosInspector1;
-    inspectores->arrayInspectores->array[0]->tiempo = 5;
-    inspectores->arrayInspectores->array[0]->rate = 15;
+    inspectores->arrayInspectores->array[0]->tiempo = ui->txtTiempoInspector1->text().toInt();
+    inspectores->arrayInspectores->array[0]->rate = ui->txtProbabilidadInspector1->text().toInt();
     inspectores->arrayInspectores->array[0]->lbTitle = ui->lbNameInspector1;
 
-    inspectores->arrayInspectores->array[1]->capacidad = 20;
+    inspectores->arrayInspectores->array[1]->capacidad = ui->txtCantInspeccionar2->text().toInt();;
     inspectores->arrayInspectores->array[1]->lbDatos = this->ui->lbDatosInspector2;
-    inspectores->arrayInspectores->array[1]->tiempo = 5;
-    inspectores->arrayInspectores->array[1]->rate = 30;
+    inspectores->arrayInspectores->array[1]->tiempo = ui->txtTiempoInspector2->text().toInt();
+    inspectores->arrayInspectores->array[1]->rate = ui->txtProbabilidadInspector2->text().toInt();;
     inspectores->arrayInspectores->array[1]->lbTitle = ui->lbNameInspector2;
 
     //------------Horno
@@ -411,6 +416,27 @@ void MainWindow::loadDataOnPaused(){
         mainStruct->horno->bandejas->array[4]->capacidad = ui->txtMaxBandeja_5->text().toInt();
         mainStruct->horno->bandejas->array[5]->capacidad = ui->txtMaxBandeja_6->text().toInt();
 
+    //Inspectores
+    mainStruct->inspectores->arrayInspectores->array[0]->capacidad = ui->txtCantInspeccionar1->text().toInt();
+    mainStruct->inspectores->arrayInspectores->array[0]->rate = ui->txtProbabilidadInspector1->text().toInt();
+    mainStruct->inspectores->arrayInspectores->array[0]->tiempo = ui->txtTiempoInspector1->text().toInt();
+
+    mainStruct->inspectores->arrayInspectores->array[1]->capacidad = ui->txtCantInspeccionar2->text().toInt();
+    mainStruct->inspectores->arrayInspectores->array[1]->rate = ui->txtProbabilidadInspector2->text().toInt();
+    mainStruct->inspectores->arrayInspectores->array[1]->tiempo = ui->txtTiempoInspector2->text().toInt();
+
+        //Bandas Inspectores
+        mainStruct->inspectores->arrayBandas->array[0]->capacidad = ui->txtCapacidadBandaEmpacadora1->text().toInt();
+        mainStruct->inspectores->arrayBandas->array[1]->capacidad = ui->txtCapacidadBandaEmpacadora2->text().toInt();
 
     imprimirDatos();
 }
+
+
+void MainWindow::on_txtMaxMecladora1_editingFinished()
+{
+    QMessageBox msgBox;
+    msgBox.setText("The document has been modified.");
+    msgBox.exec();
+}
+

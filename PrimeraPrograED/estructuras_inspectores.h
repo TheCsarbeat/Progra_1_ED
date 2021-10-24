@@ -68,14 +68,17 @@ struct ArrayInspectores{
 struct Inspectores{
     ArrayBandas * arrayBandas;
     ArrayInspectores * arrayInspectores;
+    Banda * otraBanda;
 
     Inspectores(){
         arrayBandas = new ArrayBandas();
         arrayInspectores = new ArrayInspectores();
+        otraBanda = new Banda();
     }
     Inspectores(QLabel * lbDatos1, QLabel * lbDatos2){
         arrayBandas = new ArrayBandas(lbDatos1, lbDatos2, "Banda sin inspeccionar", "Banda del medio");
         arrayInspectores = new ArrayInspectores();
+        otraBanda = new Banda();
     }
     void imprimir();
 };

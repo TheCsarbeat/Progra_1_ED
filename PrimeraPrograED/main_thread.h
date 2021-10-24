@@ -10,7 +10,7 @@
 #include "thread_machines_ensambladora.h"
 #include "thread_ensambladora_horno.h"
 #include "thread_horno_inspectores.h"
-#include "thread_primer_inspector.h"
+#include "thread_inspectores_ensambladora.h"
 
 
 #include <QLabel>

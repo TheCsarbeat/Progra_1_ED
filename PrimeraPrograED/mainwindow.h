@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QPalette>
+#include <QMessageBox>
 #include "qpalette.h"
 #include <QDebug>
 #include <QString>
@@ -60,6 +61,8 @@ private slots:
      void on_btnAgregarPlanificacion_clicked();
      void on_btnEliminarPlanificacion_clicked();
      void on_listPlanificador_itemClicked(QListWidgetItem *item);
+
+     void on_txtMaxMecladora1_editingFinished();
 
 private:
     Ui::MainWindow *ui;

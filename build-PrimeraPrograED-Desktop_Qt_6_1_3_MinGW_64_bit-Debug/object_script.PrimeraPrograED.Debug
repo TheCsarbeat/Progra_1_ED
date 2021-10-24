@@ -6,6 +6,7 @@ debug/estructuras_mezcladoras.o
 debug/estructuras_peticiones.o
 debug/estructuras_planificacion.o
 debug/estructuras_progressbar.o
+debug/estructuras_transportadores.o
 debug/main.o
 debug/main_struct.o
 debug/main_thread.o
@@ -13,7 +14,7 @@ debug/mainwindow.o
 debug/thread_almacen_machines.o
 debug/thread_ensambladora_horno.o
 debug/thread_horno_inspectores.o
+debug/thread_inspectores_ensambladora.o
 debug/thread_machines_ensambladora.o
-debug/thread_primer_inspector.o
 debug/qrc_imagesResource.o
 debug/moc_mainwindow.o

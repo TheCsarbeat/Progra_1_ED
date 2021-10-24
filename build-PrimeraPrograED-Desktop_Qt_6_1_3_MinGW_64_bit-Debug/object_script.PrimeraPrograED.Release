@@ -6,6 +6,7 @@ release/estructuras_mezcladoras.o
 release/estructuras_peticiones.o
 release/estructuras_planificacion.o
 release/estructuras_progressbar.o
+release/estructuras_transportadores.o
 release/main.o
 release/main_struct.o
 release/main_thread.o
@@ -13,7 +14,7 @@ release/mainwindow.o
 release/thread_almacen_machines.o
 release/thread_ensambladora_horno.o
 release/thread_horno_inspectores.o
+release/thread_inspectores_ensambladora.o
 release/thread_machines_ensambladora.o
-release/thread_primer_inspector.o
 release/qrc_imagesResource.o
 release/moc_mainwindow.o

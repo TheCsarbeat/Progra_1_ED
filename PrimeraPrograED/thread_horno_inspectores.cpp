@@ -58,8 +58,7 @@ void ThreadHornoInspectores::run(){
         if(horno->getCapacidad() > (inspectores->arrayBandas->array[0]->capacidad - inspectores->arrayBandas->array[0]->cantNow)){
             arrayCheckOnOff[0]->setChecked(false);
             pause();
-        }
-        if(horno->getCapacidad() > horno->getCurrentCantidad() && horno->banda->cantNow > 0){
+        }else if(horno->getCapacidad() > horno->getCurrentCantidad() && horno->banda->cantNow > 0){
             horno->lbTitulo->setText("Llenando...");
             sleep(horno->tiempoRellenado);
             horno->llenarBandejas();
@@ -68,7 +67,6 @@ void ThreadHornoInspectores::run(){
             horno->lbTitulo->setText("Horneando...");
             progressBar->setValue(((double)this->horno->tiempoNow/this->horno->tiempoHorneado)*100);
             horno->sumarSegundo();
-            qDebug() << "tiempoNow: "+QString::number(horno->tiempoNow);
             sleep(1);
             if(horno->tiempoHorneado <= horno->tiempoNow){
                 mutexEnsambladoraHorno->lock();
