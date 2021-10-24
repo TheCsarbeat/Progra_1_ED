@@ -11,18 +11,32 @@ struct TipoGalleta{
     int cantEmpacado;
     double tiempoEmpacado;
 
+    int capacidadTransporte;
+    double velocidadTransporte;
+
     TipoGalleta (QString _nombre, int _cantidad, double tiempo, int cant){
         nombre = _nombre;
         cantGalletas = _cantidad;
         cantEmpacado = cant;
         tiempoEmpacado = tiempo;
+
+    }
+    TipoGalleta (QString _nombre, int _cantidad, double tiempo, int cant, int capa, double velocidad){
+        nombre = _nombre;
+        cantGalletas = _cantidad;
+        cantEmpacado = cant;
+        tiempoEmpacado = tiempo;
+        capacidadTransporte = capa;
+        velocidadTransporte = velocidad;
+
     }
     // imprime la informacion de un hijo
     void imprimir(){
-        qDebug() <<"Nombre: "<<nombre<<", Cantidad: "<< cantGalletas <<"\nTiempo empacado: "<<tiempoEmpacado <<", CantEmpacado: "<<cantEmpacado;
+        //qDebug() <<"Nombre: "<<nombre<<", Cantidad: "<< cantGalletas <<"\nTiempo empacado: "<<tiempoEmpacado <<", CantEmpacado: "<<cantEmpacado;
     }
     QString toString(){
-        return nombre+", "+QString::number(cantGalletas)+", "+QString::number(tiempoEmpacado)+", "+QString::number(cantEmpacado);
+        return nombre+", "+QString::number(cantGalletas)+", "+QString::number(tiempoEmpacado)+", "+QString::number(cantEmpacado)+", "
+                +QString::number(capacidadTransporte)+", "+QString::number(velocidadTransporte);
     }
 };
 
@@ -51,7 +65,7 @@ struct ListaCircular{
         primerNodo = NULL;
     }
 
-    void insertar(QString name, int cant,double tiempoEmpacdo,int cantEmpacado);
+    void insertar(QString name, int cant,double tiempoEmpacdo,int cantEmpacado,int capacidadTRansporte, double velocidadTransporte);
     void insertar(TipoGalleta * tipo);
     bool exist(TipoGalleta * tipo);
     void imprimir();
@@ -64,7 +78,7 @@ struct Planificacion{
     TipoGalleta * tipoGalleta;
     int cantTipos;
     int probalidad;
-
+    int id;
     Planificacion(){
         tipoGalleta = NULL;
         cantTipos = 0;
@@ -82,7 +96,8 @@ struct Planificacion{
     QString toStringParaEmpacadora(){
 
         return QString::number(tipoGalleta->tiempoEmpacado)+" | "+QString::number(tipoGalleta->cantEmpacado)+
-                " | "+QString::number(probalidad)+" | "+QString::number(cantTipos)+" | "+tipoGalleta->nombre+" | "+QString::number(tipoGalleta->cantGalletas);
+                " | "+QString::number(probalidad)+" | "+QString::number(cantTipos)+" | "+tipoGalleta->nombre+" | "+QString::number(tipoGalleta->cantGalletas)+
+                " | "+QString::number(id) +" | "+QString::number(tipoGalleta->capacidadTransporte)+ " | "+QString::number(tipoGalleta->velocidadTransporte);
     }
 
 };

@@ -12,6 +12,7 @@
 #include "thread_horno_inspectores.h"
 #include "thread_inspectores_ensambladora.h"
 #include "thread_empacadora_transporte.h"
+#include "thread_transportadores_almacen.h"
 
 
 #include <QLabel>
@@ -43,6 +44,8 @@ public:
     ThreadHornoInspectores * hiloHornoInspectores;
     ThreadPrimerInspector * hiloInspectores[2];
 
+
+
     ThreadEmpacadoraTransporte * hiloEmpacadoraTransporte;
 
     //Mutex
@@ -53,11 +56,12 @@ public:
     QMutex *mutexInspectoresEmpacadora;
     QMutex *mutexEmpacadoraTransporte;
 
+    QWidget *ui;
 
     //Variables de Condiciones de parada
     int cantMezcla = 0, cantChocolate =0 , TotalGalletas =0, cantTotalMachine[3]= {0,0,0};
 
-    void __init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40], QCheckBox * checkOnOffHorno[5]);
+    void __init__(MainStruct * mainStruct, EstructuraProgressBar * arrayProgressBar[40], QCheckBox * checkOnOff[40], QCheckBox * checkOnOffHorno[5],QWidget *ui);
     void run();
     void stop();
     void pause();

@@ -16,6 +16,7 @@ public:
     QMutex * mutexInspectorEmpacadora;
     QStringList listaPlanificaciones;
     Empacadora * empacadora;
+     ArrayTransportadores * transportadores;
 
 
 
@@ -33,7 +34,7 @@ public:
     bool esperarGalletas;
 
 
-    void __init__(QMutex *mutex1,QMutex *mutex2, Empacadora * empacadora, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
+    void __init__(QMutex *mutex1,QMutex *mutex2, Empacadora * empacadora, ArrayTransportadores * transporte, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);
     void run();
     void stop();
     void pause();

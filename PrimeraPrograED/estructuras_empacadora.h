@@ -10,9 +10,10 @@ struct PeticionEmpacadora{
     int totalPaquetesEmpacados;
     int cantGalletasPorPaquete;
     QString nombre;
-    int id = 0;
+    int id;
     int probabilidad;
     int sumaProbabilidades = 0;
+
 
 
     PeticionEmpacadora(){
@@ -47,14 +48,6 @@ struct ArrayPeticionEmpacadaora{
     }
 
     void crear(int len,PeticionEmpacadora* miArray[]){
-        /*for(int i = 0; i< len; i++){
-           qDebug()<<"-------------------------desde crear";
-           qDebug()<<"Nombre: "<<miArray[i]->nombre;
-           qDebug()<<"tiempoDuracion: "<<miArray[i]->tiempoDuracion;
-           qDebug()<<"cantEmpacado: "<<miArray[i]->cantEmpacado;
-           qDebug()<<"cantPaquetes: "<<miArray[i]->cantPaquetes;
-           qDebug()<<"probabilidad: "<<miArray[i]->probabilidad;
-        }*/
         PeticionEmpacadora *temporal = new PeticionEmpacadora();
 
         for (int i = 0;i < len; i++){
@@ -95,7 +88,7 @@ struct Empacadora{
         state = true;
         timeNow = 0.0;
     }
-    Empacadora( ListaSimplePlanificaciones * _lista, QLabel * titulo, QLabel *datos, QLabel * lbDatosB, QLabel * pedidos){
+    Empacadora(ListaSimplePlanificaciones * _lista, QLabel * titulo, QLabel *datos, QLabel * lbDatosB, QLabel * pedidos){
         lista = _lista;
         banda = new Banda("Banda Supervisadas",lbDatosB);
         lbtitulo = titulo;
@@ -105,6 +98,7 @@ struct Empacadora{
         state = true;
         timeNow = 0.0;
         cantTiposEmpacandoActual =0;
+        cantGalletasAEmpacar = 0;
 
         QStringList listaPlanificaciones = lista->toStringParaEmpacadora();
         len = listaPlanificaciones.length();
@@ -117,19 +111,20 @@ struct Empacadora{
             p[i]->cantPaquetesPorEmpacar = listaPlanificaciones.at(i).split(" | ").at(3).toInt(); // Estos son los paquetes por empacar
             p[i]->nombre = listaPlanificaciones.at(i).split(" | ").at(4);
             p[i]->cantGalletasPorPaquete =listaPlanificaciones.at(i).split(" | ").at(5).toInt();
+            p[i]->id = listaPlanificaciones.at(i).split(" | ").at(6).toInt();
 
         }
 
         arrayP->crear(len, p);
 
-        /*for(int i = 0; i< len; i++){
-           qDebug()<<"-------------------------ff";
+        for(int i = 0; i< len; i++){
+           qDebug()<<"RRRRRRRRRR";
+           qDebug()<<"id: "<<p[i]->id;
            qDebug()<<"Nombre: "<<p[i]->nombre;
            qDebug()<<"tiempoDuracion: "<<p[i]->tiempoDuracion;
            qDebug()<<"cantEmpacado: "<<p[i]->cantEmpacado;
-           qDebug()<<"cantPaquetes: "<<p[i]->cantPaquetes;
            qDebug()<<"probabilidad: "<<p[i]->probabilidad;
-        }*/
+        }
 
 
     }
