@@ -6056,35 +6056,6 @@ border-color: rgb(154, 123, 171);</string>
          <string/>
         </property>
        </widget>
-       <widget class="QPushButton" name="btnEliminarPlanificacion">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>120</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Doppio One</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>ClosedHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: black;
-background-color: white;
-border-width: 2px;
-border-style: solid;
-border-color: rgb(154, 123, 171);</string>
-        </property>
-        <property name="text">
-         <string>Eliminar</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="btnAgregarPlanificacion">
         <property name="geometry">
          <rect>

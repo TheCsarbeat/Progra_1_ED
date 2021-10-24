@@ -20,28 +20,35 @@ MainWindow::~MainWindow(){
 //---------------------------------------------Inicio and Stop
 void MainWindow::on_btnOnOff_clicked(){
     if(ui->lbStateOnOff->text() == "Start"){
-        getUIWidgets();
-        mainStruct = new MainStruct();
+        if(listP->largo !=0){
+            //Change Desing
+            getUIWidgets();
+            mainStruct = new MainStruct();
+             cargarDatos();
+            ui->lbStateOnOff->setText("Stop");
+            ui->btnOnOff->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/power-off.png');");
 
-        cargarDatos();
+            ui->btnPausedPlay->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/pause.png');");
+            ui->btnPausedPlay->setEnabled(true);
+            ui->lbStatedPausedResume->setStyleSheet("color:black;");
 
-        //Change Desing
-        ui->lbStateOnOff->setText("Stop");
-        ui->btnOnOff->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/power-off.png');");
+            mainThread = new thread_main();
+            mainThread->__init__(this->mainStruct,arrayProgressBar, arrayCheackBoxOnOff, arrayCheckBoxHorno, ui->centralwidget);
+            mainThread->start();
+        }else{
+            QMessageBox msgBox;
+            msgBox.setText("No hay planificaciones");
+            msgBox.exec();
 
-        ui->btnPausedPlay->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/pause.png');");
-        ui->btnPausedPlay->setEnabled(true);
-        ui->lbStatedPausedResume->setStyleSheet("color:black;");
+        }
 
-        mainThread = new thread_main();
-        mainThread->__init__(this->mainStruct,arrayProgressBar, arrayCheackBoxOnOff, arrayCheckBoxHorno, ui->centralwidget);
-        mainThread->start();
+
     }else{
         //Cambiar desing
         ui->lbStateOnOff->setText("Start");
         ui->btnOnOff->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/power-on.png');");
 
-        mainThread->stop();
+        mainThread->pause();
         ui->listPlanificador->clear();
         ui->listTiposGalletas->clear();
 

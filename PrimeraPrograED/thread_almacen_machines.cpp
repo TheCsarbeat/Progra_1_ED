@@ -57,7 +57,10 @@ void ThreadAlmacenMachines::run() {
                 }else{
                     almacen->carrito->mezclaTotal += almacen->carrito->cargaNow;
                 }
-                if(colaPeticiones->verFrente()->peticion->cant == 0)colaPeticiones->desencolar();
+                if(!colaPeticiones->vacia()){
+                    if(colaPeticiones->verFrente()->peticion->cant == 0 )colaPeticiones->desencolar();
+                }
+
                 this->mutex->unlock();
 
                 resetDatos();

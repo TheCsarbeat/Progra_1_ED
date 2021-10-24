@@ -2,17 +2,19 @@
 #include "estructuras_planificacion.h"
 
 void ListaCircular::insertar(QString name, int cant, double tiempoEmpacdo,int cantEmpacado, int capacidadTRansporte, double velocidadTransporte){
-
-    if (primerNodo == NULL){
-        primerNodo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado, capacidadTRansporte, velocidadTransporte));
-        primerNodo->siguiente= primerNodo;
-        primerNodo->anterior = primerNodo;
-    }else{
-        NodoTipoGalleta * nuevo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado, capacidadTRansporte, velocidadTransporte));
-        nuevo->siguiente = primerNodo;
-        nuevo->anterior = primerNodo->anterior;
-        primerNodo->anterior->siguiente = nuevo;
-        primerNodo->anterior = nuevo;
+    NodoTipoGalleta * tipo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado, capacidadTRansporte, velocidadTransporte));
+    if(!exist(tipo->tipo)){
+        if (primerNodo == NULL){
+            primerNodo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado, capacidadTRansporte, velocidadTransporte));
+            primerNodo->siguiente= primerNodo;
+            primerNodo->anterior = primerNodo;
+        }else{
+            NodoTipoGalleta * nuevo = new NodoTipoGalleta(new TipoGalleta(name, cant,tiempoEmpacdo,cantEmpacado, capacidadTRansporte, velocidadTransporte));
+            nuevo->siguiente = primerNodo;
+            nuevo->anterior = primerNodo->anterior;
+            primerNodo->anterior->siguiente = nuevo;
+            primerNodo->anterior = nuevo;
+        }
     }
 }
 

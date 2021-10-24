@@ -72,6 +72,7 @@ void thread_main::run() {
                 mainStruct->arrayMachine->array[i]->aviableEncolar = false;
             }
         }
+
         msleep(1500);
     }
 
