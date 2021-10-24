@@ -4,7 +4,7 @@ void Bandeja::sumarHorneadas(){
     totalHorneado += capacidad;
 }
 void Bandeja::imprimir(){
-    lbDatos->setText("Cant Actual: "+QString::number(cantGalletasNow) //segmentation fault arreglar
+    lbDatos->setText("Cant Actual: "+QString::number(cantGalletasNow)
                      +"\nMax: "+QString::number(capacidad)
                      +"\nHorneadas: "+QString::number(totalHorneado));
 }
@@ -60,6 +60,16 @@ int Horno::getCurrentCantidad(){
         }
     }
     return cantidadTotal;
+}
+
+int Horno::getCapacidad(){
+    int capacidadTotal = 0;
+    for(unsigned int i = 0; i < 6;i++){
+        if(bandejas->array[i]->active == true){
+         capacidadTotal+=bandejas->array[i]->capacidad;
+        }
+    }
+    return capacidadTotal;
 }
 
 int Horno::hornear(){

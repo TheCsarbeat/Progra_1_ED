@@ -16,7 +16,6 @@ struct TipoGalleta{
         cantGalletas = _cantidad;
         cantEmpacado = cant;
         tiempoEmpacado = tiempo;
-
     }
     // imprime la informacion de un hijo
     void imprimir(){

@@ -33,7 +33,7 @@ void MainWindow::on_btnOnOff_clicked(){
         ui->lbStatedPausedResume->setStyleSheet("color:black;");
 
         mainThread = new thread_main();
-        mainThread->__init__(this->mainStruct,arrayProgressBar, arrayCheackBoxOnOff);
+        mainThread->__init__(this->mainStruct,arrayProgressBar, arrayCheackBoxOnOff, arrayCheckBoxHorno);
         mainThread->start();
     }else{
         //Cambiar desing
@@ -231,7 +231,15 @@ void MainWindow::getUIWidgets(){
     arrayCheackBoxOnOff[2] = this->ui->checkBoxMachine2;
     arrayCheackBoxOnOff[3] = this->ui->checkBoxMachine3;
     arrayCheackBoxOnOff[4] = this->ui->checkBoxAssembler;
-    arrayCheackBoxOnOff[5] = this->ui->checkBoxHorno;
+    arrayCheackBoxOnOff[5] = this->ui->checkBoxInspector1;
+    arrayCheackBoxOnOff[6] = this->ui->checkBoxInspector2;
+
+    //Array CheckBox Horno
+    arrayCheckBoxHorno[0] = this->ui->checkBoxHorno;
+    arrayCheckBoxHorno[1] = this->ui->checkBoxBandeja3;
+    arrayCheckBoxHorno[2] = this->ui->checkBoxBandeja4;
+    arrayCheckBoxHorno[3] = this->ui->checkBoxBandeja5;
+    arrayCheckBoxHorno[4] = this->ui->checkBoxBandeja6;
     //
     arrayCheackBoxOnOff[7] = this->ui->checkBoxEmpacadora;
 
@@ -317,12 +325,30 @@ void MainWindow::cargarDatos(){
 
     Receta * recetaCookies = new Receta(ui->txtCantMezclaReceta->text().toInt(),ui->txtCantChocolateReceta->text().toInt());
 
-    Horno * horno = new Horno(ui->lbDatosBandaHorno, 90, 5, 3,10,ui->lbDatosHorno,arrayLbDatosBandejas);
+    Inspectores * inspectores = new Inspectores(this->ui->lbDatosBandaEmpacadora1, this->ui->lbDatosBandaEmpacadora2);
+
+    //Bandas Inspectores
+    inspectores->arrayBandas->array[0]->capacidad = ui->txtCapacidadBandaEmpacadora1->text().toInt();
+    inspectores->arrayBandas->array[1]->capacidad = ui->txtCapacidadBandaEmpacadora2->text().toInt();
+
+    //Inspectores
+    inspectores->arrayInspectores->array[0]->capacidad = ui->txtCantInspeccionar1->text().toInt();
+    inspectores->arrayInspectores->array[0]->lbDatos = this->ui->lbDatosInspector1;
+    inspectores->arrayInspectores->array[0]->tiempo = ui->txtTiempoInspector1->text().toInt();
+    inspectores->arrayInspectores->array[0]->rate = ui->txtProbabilidadInspector1->text().toInt();
+    inspectores->arrayInspectores->array[0]->lbTitle = ui->lbNameInspector1;
+
+    inspectores->arrayInspectores->array[1]->capacidad = ui->txtCantInspeccionar2->text().toInt();;
+    inspectores->arrayInspectores->array[1]->lbDatos = this->ui->lbDatosInspector2;
+    inspectores->arrayInspectores->array[1]->tiempo = ui->txtTiempoInspector2->text().toInt();
+    inspectores->arrayInspectores->array[1]->rate = ui->txtProbabilidadInspector2->text().toInt();;
+    inspectores->arrayInspectores->array[1]->lbTitle = ui->lbNameInspector2;
+
     //------------Horno
+    Horno * horno = new Horno(ui->lbDatosBandaHorno, 5, 3, 10,ui->lbDatosHorno,arrayLbDatosBandejas);
 
     horno->banda->capacidad = ui->txtCapacidadBandaHorno->text().toInt();
     horno->cantidadRellenado = ui->txtCantRellenado->text().toInt();
-    horno->capacidad = ui->txtCapacidadHorno->text().toInt();
     horno->tiempoHorneado = ui->txtTiempoHorneado->text().toInt();
     horno->tiempoRellenado = ui->txtTiempoRellenado->text().toInt();
 
@@ -336,15 +362,13 @@ void MainWindow::cargarDatos(){
 
     //Empacadora
     Empacadora *nuevaEmpacadora = new Empacadora(listP, ui->lbNameEmpacadora, ui->lbDatosEmpacadora,ui->lbBandaEmpacadoraSupervisada, ui->lbPaquetesSupervisados);
-    nuevaEmpacadora->banda->capacidad = ui->txtCapacidadBandaCalidad->text().toInt();
+    nuevaEmpacadora->banda->capacidad = ui->txtCapacidadBandaCalidad_3->text().toInt();
     nuevaEmpacadora->banda->cantNow = 0;
 
 
 
     //Main Struct
-    mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, cola, nuevaEnsabladora,horno, listC, listP, nuevaEmpacadora);
-
-
+    mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, cola, nuevaEnsabladora,horno,inspectores, listC, listP, nuevaEmpacadora);
     imprimirDatos();
 }
 
@@ -411,7 +435,6 @@ void MainWindow::loadDataOnPaused(){
 
     //------------Horno
     mainStruct->horno->cantidadRellenado = ui->txtCantRellenado->text().toInt();
-    mainStruct->horno->capacidad = ui->txtCapacidadHorno->text().toInt();
     mainStruct->horno->tiempoHorneado = ui->txtTiempoHorneado->text().toInt();
     mainStruct->horno->tiempoRellenado = ui->txtTiempoRellenado->text().toInt();
 
@@ -423,47 +446,28 @@ void MainWindow::loadDataOnPaused(){
         mainStruct->horno->bandejas->array[4]->capacidad = ui->txtMaxBandeja_5->text().toInt();
         mainStruct->horno->bandejas->array[5]->capacidad = ui->txtMaxBandeja_6->text().toInt();
 
+    //Inspectores
+    mainStruct->inspectores->arrayInspectores->array[0]->capacidad = ui->txtCantInspeccionar1->text().toInt();
+    mainStruct->inspectores->arrayInspectores->array[0]->rate = ui->txtProbabilidadInspector1->text().toInt();
+    mainStruct->inspectores->arrayInspectores->array[0]->tiempo = ui->txtTiempoInspector1->text().toInt();
+
+    mainStruct->inspectores->arrayInspectores->array[1]->capacidad = ui->txtCantInspeccionar2->text().toInt();
+    mainStruct->inspectores->arrayInspectores->array[1]->rate = ui->txtProbabilidadInspector2->text().toInt();
+    mainStruct->inspectores->arrayInspectores->array[1]->tiempo = ui->txtTiempoInspector2->text().toInt();
+
+        //Bandas Inspectores
+        mainStruct->inspectores->arrayBandas->array[0]->capacidad = ui->txtCapacidadBandaEmpacadora1->text().toInt();
+        mainStruct->inspectores->arrayBandas->array[1]->capacidad = ui->txtCapacidadBandaEmpacadora2->text().toInt();
 
     imprimirDatos();
 }
 
-void MainWindow::on_checkBoxBandeja3_clicked()
+
+void MainWindow::on_txtMaxMecladora1_editingFinished()
 {
-    if(mainStruct->horno->bandejas->array[2]->active){
-        mainStruct->horno->bandejas->array[2]->active = false;
-    }else{
-        mainStruct->horno->bandejas->array[2]->active = true;
-    }
-}
-
-
-void MainWindow::on_checkBoxBandeja4_clicked()
-{
-    if(mainStruct->horno->bandejas->array[3]->active){
-        mainStruct->horno->bandejas->array[3]->active = false;
-    }else{
-        mainStruct->horno->bandejas->array[3]->active = true;
-    }
-}
-
-
-void MainWindow::on_checkBoxBandeja5_clicked()
-{
-    if(mainStruct->horno->bandejas->array[4]->active){
-        mainStruct->horno->bandejas->array[4]->active = false;
-    }else{
-        mainStruct->horno->bandejas->array[4]->active = true;
-    }
-}
-
-
-void MainWindow::on_checkBoxBandeja6_clicked()
-{
-    if(mainStruct->horno->bandejas->array[5]->active){
-        mainStruct->horno->bandejas->array[5]->active = false;
-    }else{
-        mainStruct->horno->bandejas->array[5]->active = true;
-    }
+    QMessageBox msgBox;
+    msgBox.setText("The document has been modified.");
+    msgBox.exec();
 }
 
 

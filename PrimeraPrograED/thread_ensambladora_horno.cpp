@@ -21,8 +21,6 @@ void ThreadEnsambladoraHorno::__init__(QMutex *mutex1,QMutex *mutex2, Ensamblado
 
 void ThreadEnsambladoraHorno::run(){
     this->running = true;
-
-
     this->paused = true;
     while(running){
         int mezcla = receta->cantMezcla;

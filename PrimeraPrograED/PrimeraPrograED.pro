@@ -18,6 +18,7 @@ SOURCES += \
     estructuras_peticiones.cpp \
     estructuras_planificacion.cpp \
     estructuras_progressbar.cpp \
+    estructuras_transportadores.cpp \
     main.cpp \
     main_struct.cpp \
     main_thread.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     thread_empacadora_transporte.cpp \
     thread_ensambladora_horno.cpp \
     thread_horno_inspectores.cpp \
+    thread_inspectores_ensambladora.cpp \
     thread_machines_ensambladora.cpp
 
 HEADERS += \
@@ -39,6 +41,7 @@ HEADERS += \
     estructuras_peticiones.h \
     estructuras_planificacion.h \
     estructuras_progressbar.h \
+    estructuras_transportadores.h \
     main_struct.h \
     main_thread.h \
     mainwindow.h \
@@ -47,6 +50,7 @@ HEADERS += \
     thread_ensambladora_horno.h \
     thread_ensambladora_horno.h \
     thread_horno_inspectores.h \
+    thread_inspectores_ensambladora.h \
     thread_machines_ensambladora.h
 
 FORMS += \

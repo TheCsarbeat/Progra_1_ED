@@ -16,16 +16,16 @@ MainStruct::MainStruct(){
 }
 
 
-MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, ListaCircular *listC, ListaSimplePlanificaciones * listP, Empacadora *em){
+MainStruct::MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta, ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, Inspectores * _inspectores,ListaCircular *listC, ListaSimplePlanificaciones * listP, Empacadora *em){
     almacen = _almacen;
     arrayMachine = _arrayMachine;
     colaPeticiones = cola;
     receta = _receta;
     horno = _horno;
     ensambladora = assembler;
+    inspectores = _inspectores;
     listaCircularTiposGalletas = listC;
     listaPlanificaciones = listP;
-
     empacadora = em;
 }
 

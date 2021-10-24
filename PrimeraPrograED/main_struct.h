@@ -26,7 +26,7 @@ struct MainStruct{
     Empacadora *empacadora;
 
     MainStruct();
-    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, ListaCircular *listC, ListaSimplePlanificaciones * listP, Empacadora *em);
+    MainStruct(Almacen * _almacen,  ArrayMachines * _arrayMachine, Receta * _receta,ColaPeticiones * cola, Ensambladora * assembler, Horno * _horno, Inspectores * inspectores,ListaCircular *listC, ListaSimplePlanificaciones * listP, Empacadora *em);
 
     void encolarPeticiones();
 

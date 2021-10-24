@@ -19,14 +19,14 @@ public:
     Inspectores * inspectores;
     Empacadora *emp;
     EstructuraProgressBar * progressBar;
-    QCheckBox * checkOnOff;
+    QCheckBox * arrayCheckOnOff[5];
 
      //propios
     bool running;
     bool paused;
 
     ThreadHornoInspectores();
-    void __init__(QMutex *mutex1,QMutex *mutex2, Horno * horno, Inspectores * inspectores, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff, Empacadora *emp);
+    void __init__(QMutex *mutex1,QMutex *mutex2, Horno * horno, Inspectores * inspectores, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff[5]);
     void run();
     void stop();
     void pause();

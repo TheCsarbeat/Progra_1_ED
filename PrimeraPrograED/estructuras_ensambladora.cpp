@@ -3,6 +3,7 @@
 void Banda::imprimir(){
     lbDatos->setText("Cant Actual: "+QString::number(cantNow)
                      +"\nMax: "+QString::number(capacidad));
+    lbDatos->update();
 }
 void Ensambladora::sumarSegundo(){
     timeActual++;
