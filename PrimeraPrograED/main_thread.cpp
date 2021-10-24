@@ -73,9 +73,6 @@ void thread_main::run() {
             sleep(2);
         }
         ui->update();
-        this->mainStruct->empacadora->banda->cantNow+=5;
-        this->mainStruct->empacadora->banda->imprimir();
-        msleep(1000);
     }
 
 }

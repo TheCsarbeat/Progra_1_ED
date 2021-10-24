@@ -48,10 +48,10 @@ void ThreadMachinesEnsambladora::run() {
             this->machine->procesar();
             this->machine->lbTitulo->setText("Processing...");
             this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
-            msleep(machine->sleepTime);
+            msleep(1000);
 
             //Stop Condition
-            if(this->machine->tiempoActual == this->machine->duracionSegudos){
+            if(this->machine->tiempoActual >= this->machine->duracionSegudos){
                 resetDatos();
                 mutexMachineEnsambladora->lock();
                 banda->cantNow += this->machine->gramosProcesar;

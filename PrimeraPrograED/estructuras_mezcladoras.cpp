@@ -32,19 +32,7 @@ void Machine::setState(bool _state){
 }
 
 void Machine::procesar(){
-    if(tiempoActual==0){
-        double num = duracionSegudos- (int)duracionSegudos;
-
-        tiempoActual = num;
-        sleepTime = num*1000;
-        if(num==0){
-            tiempoActual ++;
-            sleepTime =1000;
-        }
-    }else{
-        tiempoActual ++;
-        sleepTime =1000;
-    }
+    tiempoActual++;
 }
 
 void Machine::imprimirDatos(){
