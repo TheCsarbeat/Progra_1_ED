@@ -34,6 +34,7 @@ public:
      QLabel * arrayLbMachines[3];
      QLabel * arrayLbDatosMachines[3];
      QLabel * arrayLbDatosBandejas[6];
+     QCheckBox * arrayCheckBoxHornoBandejas[6];
 
      EstructuraProgressBar * arrayProgressBar[40];
      QCheckBox * arrayCheackBoxOnOff[40];
@@ -66,9 +67,13 @@ private slots:
      void on_btnEliminarPlanificacion_clicked();
      void on_listPlanificador_itemClicked(QListWidgetItem *item);
 
+     void on_pushButton_clicked();
+
      void on_txtMaxMecladora1_editingFinished();
 
-     void on_pushButton_clicked();
+     void on_txtMinMezcladora1_editingFinished();
+
+     void on_txtCantInspeccionar1_editingFinished();
 
 private:
     Ui::MainWindow *ui;

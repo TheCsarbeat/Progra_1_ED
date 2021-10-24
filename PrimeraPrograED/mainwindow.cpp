@@ -11,8 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
     design();
     getUIWidgets();
     cargarDatos();
-
-
 }
 
 MainWindow::~MainWindow(){
@@ -239,6 +237,14 @@ void MainWindow::getUIWidgets(){
     arrayLbDatosBandejas[4] = this->ui->lbDatosBandeja5;
     arrayLbDatosBandejas[5] = this->ui->lbDatosBandeja6;
 
+    //Array CheckBox Horno
+    arrayCheckBoxHornoBandejas[0] = this->ui->checkBoxIconBandeja1;
+    arrayCheckBoxHornoBandejas[1] = this->ui->checkBoxIconBandeja2;
+    arrayCheckBoxHornoBandejas[2] = this->ui->checkBoxIconBandeja3;
+    arrayCheckBoxHornoBandejas[3] = this->ui->checkBoxIconBandeja4;
+    arrayCheckBoxHornoBandejas[4] = this->ui->checkBoxIconBandeja5;
+    arrayCheckBoxHornoBandejas[5] = this->ui->checkBoxIconBandeja6;
+
     //Array ProgressBar
     arrayProgressBar[0]= new EstructuraProgressBar(ui->progressCar, ui->lbProgressCar); //progressBar del carro
     arrayProgressBar[1]= new EstructuraProgressBar(ui->progressMachine1, ui->lbProgressMachine1); //progressBar del Machine 1
@@ -267,9 +273,6 @@ void MainWindow::getUIWidgets(){
     arrayCheckBoxHorno[2] = this->ui->checkBoxBandeja4;
     arrayCheckBoxHorno[3] = this->ui->checkBoxBandeja5;
     arrayCheckBoxHorno[4] = this->ui->checkBoxBandeja6;
-    //
-
-
 
 }
 void MainWindow::cargarDatos(){
@@ -361,7 +364,7 @@ void MainWindow::cargarDatos(){
     inspectores->arrayInspectores->array[1]->lbTitle = ui->lbNameInspector2;
 
     //------------Horno
-    Horno * horno = new Horno(ui->lbDatosBandaHorno, 5, 3, 10,ui->lbDatosHorno,arrayLbDatosBandejas);
+    Horno * horno = new Horno(ui->lbDatosBandaHorno, 5, 3, 10,ui->lbDatosHorno,arrayLbDatosBandejas, arrayCheckBoxHornoBandejas);
 
     horno->banda->capacidad = ui->txtCapacidadBandaHorno->text().toInt();
     horno->cantidadRellenado = ui->txtCantRellenado->text().toInt();
@@ -411,8 +414,7 @@ void MainWindow::imprimirDatos(){
         this->mainStruct->horno->bandejas->array[i]->imprimir();
     }
 
-
-
+    this->mainStruct->inspectores->imprimir();
     //Empacadora
     this->mainStruct->empacadora->banda->imprimir();
     this->mainStruct->empacadora->imprimir();
@@ -497,19 +499,55 @@ void MainWindow::loadDataOnPaused(){
     imprimirDatos();
 }
 
-
-void MainWindow::on_txtMaxMecladora1_editingFinished()
+void MainWindow::on_pushButton_clicked()
 {
-    QMessageBox msgBox;
-    msgBox.setText("The document has been modified.");
-    msgBox.exec();
+    mainStruct->listaPlanificaciones->calcularProbalidad();
+    mainStruct->listaPlanificaciones->imprimir();
 }
 
 
-void MainWindow::on_pushButton_clicked()
-{
 
-    mainStruct->listaPlanificaciones->calcularProbalidad();
-    mainStruct->listaPlanificaciones->imprimir();
+void MainWindow::on_txtMaxMecladora1_editingFinished()
+{
+    if(mainStruct->arrayMachine->array[0]->cantNow > ui->txtMaxMecladora1->text().toInt() || ui->txtMaxMecladora1->text().toInt() < mainStruct->arrayMachine->array[0]->min){
+        QMessageBox msgBox;
+        msgBox.setText("La modificación no se puede realizar");
+        msgBox.exec();
+        ui->txtMaxMecladora1->setText(QString::number(mainStruct->arrayMachine->array[0]->max));
+    }
+
+}
+
+
+void MainWindow::on_txtMinMezcladora1_editingFinished()
+{
+ if(ui->txtMinMezcladora1->text().toInt() > mainStruct->arrayMachine->array[0]->max){
+        QMessageBox msgBox;
+        msgBox.setText("La modificación no se puede realizar");
+        msgBox.exec();
+        ui->txtMinMezcladora1->setText(QString::number(mainStruct->arrayMachine->array[0]->min));
+    }
+}
+
+
+void MainWindow::on_txtCantInspeccionar1_editingFinished()
+{
+    if(ui->txtCantInspeccionar1->text().toInt() < mainStruct->inspectores->arrayInspectores->array[0]->actualGalletas){
+        QMessageBox msgBox;
+        msgBox.setText("La modificación no se puede realizar");
+        msgBox.exec();
+        ui->txtCantInspeccionar1->setText(QString::number(mainStruct->inspectores->arrayInspectores->array[0]->actualGalletas));
+    }
+}
+
+
+void MainWindow::on_txtCantInspeccionar2_editingFinished()
+{
+    if(ui->txtCantInspeccionar2->text().toInt() < mainStruct->inspectores->arrayInspectores->array[1]->actualGalletas){
+        QMessageBox msgBox;
+        msgBox.setText("La modificación no se puede realizar");
+        msgBox.exec();
+        ui->txtCantInspeccionar2->setText(QString::number(mainStruct->inspectores->arrayInspectores->array[1]->actualGalletas));
+    }
 }
 

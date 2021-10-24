@@ -24,22 +24,25 @@ bool Horno::llenarBandejas(){
                         if(suma <= bandejas->array[i]->capacidad){
                             bandejas->array[i]->cantGalletasNow = suma;
                             banda->cantNow -= cantidadRellenado;
-                            return true;
                         }else if(bandejas->array[i]->nombre != "Bandeja 6" && bandejas->array[i+1]->active){
                             int overflow = suma - bandejas->array[i]->capacidad;
                             bandejas->array[i]->cantGalletasNow = bandejas->array[i]->capacidad;
                             bandejas->array[i+1]->cantGalletasNow += overflow;
                             banda->cantNow -= cantidadRellenado;
-                            return true;
                         }else{
                             int diferencia = bandejas->array[i]->capacidad - bandejas->array[i]->cantGalletasNow;
                             bandejas->array[i]->cantGalletasNow = bandejas->array[i]->capacidad;
                             banda->cantNow -= diferencia;
-                            return true;
                         }
+                        if(bandejas->array[i]->cantGalletasNow == bandejas->array[i]->capacidad){
+                            bandejas->array[i]->icon->setChecked(true);
+                        }
+                        return true;
                     }else{                       
                         return false;
                     }
+                }else{
+                    bandejas->array[i]->icon->setChecked(true);
                 }
         }
 
@@ -79,6 +82,7 @@ int Horno::hornear(){
             bandejas->array[i]->sumarHorneadas();
             horneadas += bandejas->array[i]->capacidad;
             bandejas->array[i]->cantGalletasNow = 0;
+            bandejas->array[i]->icon->setChecked(false);
         }
     }
     return horneadas;

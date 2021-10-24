@@ -10,13 +10,14 @@
 #include "thread_machines_ensambladora.h"
 #include "thread_ensambladora_horno.h"
 #include "thread_horno_inspectores.h"
-#include "thread_inspectores_ensambladora.h"
+#include "thread_inspectores_empacadora.h"
 #include "thread_empacadora_transporte.h"
 #include "thread_transportadores_almacen.h"
 
 
 #include <QLabel>
 #include <QCheckBox>
+#include <QPushButton>
 
 
 class thread_main :public QThread {
@@ -54,6 +55,7 @@ public:
     QMutex *mutexHornoInspector1;
     QMutex *mutexInspectoresEmpacadora;
     QMutex *mutexEmpacadoraTransporte;
+    QMutex *mutexCalculoParada;
 
     QWidget *ui;
 
