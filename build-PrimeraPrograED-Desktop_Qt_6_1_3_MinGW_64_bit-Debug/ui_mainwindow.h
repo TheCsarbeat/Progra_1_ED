@@ -166,15 +166,20 @@ public:
     QLabel *lbPaquetesSupervisados;
     QLabel *label_84;
     QLabel *lbNameBandeja1_8;
-    QFrame *frameTop_3;
+    QFrame *frameTransportador;
     QLabel *label_62;
-    QLabel *lbDatosEmpacadora_2;
-    QCheckBox *checkBoxEmpacadora_2;
+    QLabel *lbNameBandeja1_5;
     QFrame *panelProgress3_6;
     QFrame *barEmpacadora_2;
-    QFrame *progressEmpacadora_2;
-    QLabel *lbProgressEmpacadora_2;
-    QLabel *lbNameBandeja1_5;
+    QFrame *progressTransportadores;
+    QLabel *lbProgressTransportadores;
+    QLabel *lbDatosEmpacadora_2;
+    QFrame *frameTop_3;
+    QCheckBox *checkBoxTransportadores;
+    QScrollArea *scrollAreaPedidos_2;
+    QWidget *scrollAreaContents_3;
+    QLabel *lbTransportadores;
+    QLabel *lbNameBandeja1_9;
     QWidget *dataPage;
     QFrame *dataPanel;
     QFrame *frame_12;
@@ -232,6 +237,12 @@ public:
     QLineEdit *txtCantEmpacado;
     QLabel *label_74;
     QLabel *label_75;
+    QLineEdit *txtCapacidadTransporte;
+    QLineEdit *txtVelocidadTransporte;
+    QLabel *label_92;
+    QLabel *label_93;
+    QLabel *label_69;
+    QLabel *label_85;
     QPushButton *btnGoToSimulation;
     QLabel *lbStatedPausedResume_3;
     QFrame *frame_22;
@@ -338,7 +349,7 @@ public:
         factoryPage->setStyleSheet(QString::fromUtf8(""));
         factoryPanel = new QFrame(factoryPage);
         factoryPanel->setObjectName(QString::fromUtf8("factoryPanel"));
-        factoryPanel->setGeometry(QRect(-10, 0, 1931, 1071));
+        factoryPanel->setGeometry(QRect(-10, -20, 1931, 1071));
         factoryPanel->setStyleSheet(QString::fromUtf8("background-color:rgb(255, 255, 255);"));
         factoryPanel->setFrameShape(QFrame::StyledPanel);
         factoryPanel->setFrameShadow(QFrame::Raised);
@@ -1218,23 +1229,55 @@ public:
         lbNameBandeja1_8->setGeometry(QRect(130, 150, 181, 21));
         lbNameBandeja1_8->setFont(font);
         lbNameBandeja1_8->setStyleSheet(QString::fromUtf8("color: black;"));
+        frameTransportador = new QFrame(factoryPanel);
+        frameTransportador->setObjectName(QString::fromUtf8("frameTransportador"));
+        frameTransportador->setGeometry(QRect(380, 630, 291, 151));
+        frameTransportador->setFrameShape(QFrame::StyledPanel);
+        frameTransportador->setFrameShadow(QFrame::Raised);
+        label_62 = new QLabel(frameTransportador);
+        label_62->setObjectName(QString::fromUtf8("label_62"));
+        label_62->setGeometry(QRect(200, 20, 91, 91));
+        label_62->setStyleSheet(QString::fromUtf8("image:url(\":/images/carretilla2.png\");"));
+        lbNameBandeja1_5 = new QLabel(frameTransportador);
+        lbNameBandeja1_5->setObjectName(QString::fromUtf8("lbNameBandeja1_5"));
+        lbNameBandeja1_5->setGeometry(QRect(20, 10, 111, 31));
+        lbNameBandeja1_5->setFont(font);
+        lbNameBandeja1_5->setStyleSheet(QString::fromUtf8("color: black;"));
+        lbNameBandeja1_5->setProperty("checked", QVariant(false));
+        panelProgress3_6 = new QFrame(frameTransportador);
+        panelProgress3_6->setObjectName(QString::fromUtf8("panelProgress3_6"));
+        panelProgress3_6->setGeometry(QRect(20, 50, 150, 20));
+        panelProgress3_6->setFrameShape(QFrame::StyledPanel);
+        panelProgress3_6->setFrameShadow(QFrame::Raised);
+        barEmpacadora_2 = new QFrame(panelProgress3_6);
+        barEmpacadora_2->setObjectName(QString::fromUtf8("barEmpacadora_2"));
+        barEmpacadora_2->setGeometry(QRect(0, 0, 100, 20));
+        barEmpacadora_2->setStyleSheet(QString::fromUtf8("background-color:rgb(230, 230, 230);"));
+        barEmpacadora_2->setFrameShape(QFrame::StyledPanel);
+        barEmpacadora_2->setFrameShadow(QFrame::Raised);
+        progressTransportadores = new QFrame(barEmpacadora_2);
+        progressTransportadores->setObjectName(QString::fromUtf8("progressTransportadores"));
+        progressTransportadores->setGeometry(QRect(0, 0, 81, 20));
+        progressTransportadores->setStyleSheet(QString::fromUtf8("background-color:rgb(46, 194, 67);"));
+        progressTransportadores->setFrameShape(QFrame::StyledPanel);
+        progressTransportadores->setFrameShadow(QFrame::Raised);
+        lbProgressTransportadores = new QLabel(panelProgress3_6);
+        lbProgressTransportadores->setObjectName(QString::fromUtf8("lbProgressTransportadores"));
+        lbProgressTransportadores->setGeometry(QRect(110, 0, 71, 21));
+        lbProgressTransportadores->setFont(font3);
+        lbDatosEmpacadora_2 = new QLabel(frameTransportador);
+        lbDatosEmpacadora_2->setObjectName(QString::fromUtf8("lbDatosEmpacadora_2"));
+        lbDatosEmpacadora_2->setGeometry(QRect(30, 80, 141, 61));
         frameTop_3 = new QFrame(factoryPanel);
         frameTop_3->setObjectName(QString::fromUtf8("frameTop_3"));
-        frameTop_3->setGeometry(QRect(680, 520, 301, 471));
+        frameTop_3->setGeometry(QRect(700, 460, 321, 541));
         frameTop_3->setStyleSheet(QString::fromUtf8("background-color:rgb(97, 197, 161);"));
         frameTop_3->setFrameShape(QFrame::StyledPanel);
         frameTop_3->setFrameShadow(QFrame::Raised);
-        label_62 = new QLabel(frameTop_3);
-        label_62->setObjectName(QString::fromUtf8("label_62"));
-        label_62->setGeometry(QRect(190, 110, 91, 81));
-        label_62->setStyleSheet(QString::fromUtf8("image:url(\":/images/empacadora1.png\");"));
-        lbDatosEmpacadora_2 = new QLabel(frameTop_3);
-        lbDatosEmpacadora_2->setObjectName(QString::fromUtf8("lbDatosEmpacadora_2"));
-        lbDatosEmpacadora_2->setGeometry(QRect(20, 140, 141, 61));
-        checkBoxEmpacadora_2 = new QCheckBox(frameTop_3);
-        checkBoxEmpacadora_2->setObjectName(QString::fromUtf8("checkBoxEmpacadora_2"));
-        checkBoxEmpacadora_2->setGeometry(QRect(210, 70, 51, 41));
-        checkBoxEmpacadora_2->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
+        checkBoxTransportadores = new QCheckBox(frameTop_3);
+        checkBoxTransportadores->setObjectName(QString::fromUtf8("checkBoxTransportadores"));
+        checkBoxTransportadores->setGeometry(QRect(240, 10, 51, 41));
+        checkBoxTransportadores->setStyleSheet(QString::fromUtf8("QCheckBox::indicator{\n"
 "	width: 40px;\n"
 "	height:40px;\n"
 "}\n"
@@ -1246,33 +1289,24 @@ public:
 "QCheckBox::indicator:unchecked{\n"
 "	image:url(\":/images/switch-off.png\");\n"
 "}"));
-        checkBoxEmpacadora_2->setChecked(false);
-        panelProgress3_6 = new QFrame(frameTop_3);
-        panelProgress3_6->setObjectName(QString::fromUtf8("panelProgress3_6"));
-        panelProgress3_6->setGeometry(QRect(10, 130, 150, 20));
-        panelProgress3_6->setFrameShape(QFrame::StyledPanel);
-        panelProgress3_6->setFrameShadow(QFrame::Raised);
-        barEmpacadora_2 = new QFrame(panelProgress3_6);
-        barEmpacadora_2->setObjectName(QString::fromUtf8("barEmpacadora_2"));
-        barEmpacadora_2->setGeometry(QRect(0, 0, 100, 20));
-        barEmpacadora_2->setStyleSheet(QString::fromUtf8("background-color:rgb(230, 230, 230);"));
-        barEmpacadora_2->setFrameShape(QFrame::StyledPanel);
-        barEmpacadora_2->setFrameShadow(QFrame::Raised);
-        progressEmpacadora_2 = new QFrame(barEmpacadora_2);
-        progressEmpacadora_2->setObjectName(QString::fromUtf8("progressEmpacadora_2"));
-        progressEmpacadora_2->setGeometry(QRect(0, 0, 81, 20));
-        progressEmpacadora_2->setStyleSheet(QString::fromUtf8("background-color:rgb(46, 194, 67);"));
-        progressEmpacadora_2->setFrameShape(QFrame::StyledPanel);
-        progressEmpacadora_2->setFrameShadow(QFrame::Raised);
-        lbProgressEmpacadora_2 = new QLabel(panelProgress3_6);
-        lbProgressEmpacadora_2->setObjectName(QString::fromUtf8("lbProgressEmpacadora_2"));
-        lbProgressEmpacadora_2->setGeometry(QRect(110, 0, 71, 21));
-        lbProgressEmpacadora_2->setFont(font3);
-        lbNameBandeja1_5 = new QLabel(frameTop_3);
-        lbNameBandeja1_5->setObjectName(QString::fromUtf8("lbNameBandeja1_5"));
-        lbNameBandeja1_5->setGeometry(QRect(40, 40, 111, 31));
-        lbNameBandeja1_5->setFont(font);
-        lbNameBandeja1_5->setStyleSheet(QString::fromUtf8("color: black;"));
+        checkBoxTransportadores->setChecked(true);
+        scrollAreaPedidos_2 = new QScrollArea(frameTop_3);
+        scrollAreaPedidos_2->setObjectName(QString::fromUtf8("scrollAreaPedidos_2"));
+        scrollAreaPedidos_2->setGeometry(QRect(10, 120, 301, 411));
+        scrollAreaPedidos_2->setWidgetResizable(true);
+        scrollAreaContents_3 = new QWidget();
+        scrollAreaContents_3->setObjectName(QString::fromUtf8("scrollAreaContents_3"));
+        scrollAreaContents_3->setGeometry(QRect(0, 0, 299, 409));
+        lbTransportadores = new QLabel(scrollAreaContents_3);
+        lbTransportadores->setObjectName(QString::fromUtf8("lbTransportadores"));
+        lbTransportadores->setGeometry(QRect(0, 0, 301, 371));
+        lbTransportadores->setFont(font);
+        scrollAreaPedidos_2->setWidget(scrollAreaContents_3);
+        lbNameBandeja1_9 = new QLabel(frameTop_3);
+        lbNameBandeja1_9->setObjectName(QString::fromUtf8("lbNameBandeja1_9"));
+        lbNameBandeja1_9->setGeometry(QRect(20, 10, 111, 31));
+        lbNameBandeja1_9->setFont(font);
+        lbNameBandeja1_9->setStyleSheet(QString::fromUtf8("color: black;"));
         contentPanel->addWidget(factoryPage);
         dataPage = new QWidget();
         dataPage->setObjectName(QString::fromUtf8("dataPage"));
@@ -1519,7 +1553,7 @@ public:
         label_28->setStyleSheet(QString::fromUtf8(""));
         frame_21 = new QFrame(dataPanel);
         frame_21->setObjectName(QString::fromUtf8("frame_21"));
-        frame_21->setGeometry(QRect(310, 490, 501, 381));
+        frame_21->setGeometry(QRect(310, 490, 501, 431));
         frame_21->setStyleSheet(QString::fromUtf8("background-color:rgb(250,250,250);"));
         frame_21->setFrameShape(QFrame::StyledPanel);
         frame_21->setFrameShadow(QFrame::Raised);
@@ -1532,14 +1566,14 @@ public:
 "text-align: center;"));
         txtCantidadTipoGalleta = new QLineEdit(frame_21);
         txtCantidadTipoGalleta->setObjectName(QString::fromUtf8("txtCantidadTipoGalleta"));
-        txtCantidadTipoGalleta->setGeometry(QRect(120, 105, 200, 21));
+        txtCantidadTipoGalleta->setGeometry(QRect(120, 91, 200, 21));
         txtCantidadTipoGalleta->setFont(font6);
         txtCantidadTipoGalleta->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color: rgb(154, 123, 171);"));
         label_34 = new QLabel(frame_21);
         label_34->setObjectName(QString::fromUtf8("label_34"));
-        label_34->setGeometry(QRect(20, 100, 91, 31));
+        label_34->setGeometry(QRect(20, 86, 91, 31));
         label_34->setFont(font6);
         label_35 = new QLabel(frame_21);
         label_35->setObjectName(QString::fromUtf8("label_35"));
@@ -1560,7 +1594,7 @@ public:
 "    border-color: white;"));
         txtNombreTipoGalleta = new QLineEdit(frame_21);
         txtNombreTipoGalleta->setObjectName(QString::fromUtf8("txtNombreTipoGalleta"));
-        txtNombreTipoGalleta->setGeometry(QRect(120, 55, 191, 21));
+        txtNombreTipoGalleta->setGeometry(QRect(120, 55, 201, 21));
         txtNombreTipoGalleta->setFont(font6);
         txtNombreTipoGalleta->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
@@ -1577,36 +1611,68 @@ public:
 "border-color: rgb(154, 123, 171);"));
         listTiposGalletas = new QListWidget(frame_21);
         listTiposGalletas->setObjectName(QString::fromUtf8("listTiposGalletas"));
-        listTiposGalletas->setGeometry(QRect(20, 240, 471, 131));
+        listTiposGalletas->setGeometry(QRect(20, 290, 471, 131));
         txtTiempoEmpacado = new QLineEdit(frame_21);
         txtTiempoEmpacado->setObjectName(QString::fromUtf8("txtTiempoEmpacado"));
-        txtTiempoEmpacado->setGeometry(QRect(170, 145, 181, 21));
+        txtTiempoEmpacado->setGeometry(QRect(160, 175, 81, 21));
         txtTiempoEmpacado->setFont(font6);
         txtTiempoEmpacado->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
-"border-color: rgb(154, 123, 171);"));
+"border-color:rgb(97, 197, 161);"));
         label_71 = new QLabel(frame_21);
         label_71->setObjectName(QString::fromUtf8("label_71"));
-        label_71->setGeometry(QRect(20, 140, 141, 31));
+        label_71->setGeometry(QRect(10, 171, 141, 31));
         label_71->setFont(font6);
         txtCantEmpacado = new QLineEdit(frame_21);
         txtCantEmpacado->setObjectName(QString::fromUtf8("txtCantEmpacado"));
-        txtCantEmpacado->setGeometry(QRect(170, 190, 181, 21));
+        txtCantEmpacado->setGeometry(QRect(160, 205, 81, 21));
         txtCantEmpacado->setFont(font6);
         txtCantEmpacado->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
-"border-color: rgb(154, 123, 171);"));
+"border-color:rgb(97, 197, 161);"));
         label_74 = new QLabel(frame_21);
         label_74->setObjectName(QString::fromUtf8("label_74"));
-        label_74->setGeometry(QRect(20, 185, 141, 31));
+        label_74->setGeometry(QRect(10, 200, 131, 31));
         label_74->setFont(font6);
         label_75 = new QLabel(frame_21);
         label_75->setObjectName(QString::fromUtf8("label_75"));
-        label_75->setGeometry(QRect(20, 215, 471, 21));
+        label_75->setGeometry(QRect(20, 250, 471, 21));
         QFont font9;
         font9.setFamilies({QString::fromUtf8("Roboto")});
         font9.setPointSize(10);
         label_75->setFont(font9);
+        txtCapacidadTransporte = new QLineEdit(frame_21);
+        txtCapacidadTransporte->setObjectName(QString::fromUtf8("txtCapacidadTransporte"));
+        txtCapacidadTransporte->setGeometry(QRect(360, 175, 91, 21));
+        txtCapacidadTransporte->setFont(font6);
+        txtCapacidadTransporte->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
+"border-style: solid;\n"
+"border-color:rgb(97, 197, 161);"));
+        txtVelocidadTransporte = new QLineEdit(frame_21);
+        txtVelocidadTransporte->setObjectName(QString::fromUtf8("txtVelocidadTransporte"));
+        txtVelocidadTransporte->setGeometry(QRect(360, 205, 91, 21));
+        txtVelocidadTransporte->setFont(font6);
+        txtVelocidadTransporte->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
+"border-style: solid;\n"
+"border-color:rgb(97, 197, 161);"));
+        label_92 = new QLabel(frame_21);
+        label_92->setObjectName(QString::fromUtf8("label_92"));
+        label_92->setGeometry(QRect(260, 200, 91, 31));
+        label_92->setFont(font6);
+        label_93 = new QLabel(frame_21);
+        label_93->setObjectName(QString::fromUtf8("label_93"));
+        label_93->setGeometry(QRect(260, 171, 91, 31));
+        label_93->setFont(font6);
+        label_69 = new QLabel(frame_21);
+        label_69->setObjectName(QString::fromUtf8("label_69"));
+        label_69->setGeometry(QRect(60, 140, 161, 31));
+        label_69->setFont(font7);
+        label_69->setStyleSheet(QString::fromUtf8(""));
+        label_85 = new QLabel(frame_21);
+        label_85->setObjectName(QString::fromUtf8("label_85"));
+        label_85->setGeometry(QRect(280, 140, 161, 31));
+        label_85->setFont(font7);
+        label_85->setStyleSheet(QString::fromUtf8(""));
         btnGoToSimulation = new QPushButton(dataPanel);
         btnGoToSimulation->setObjectName(QString::fromUtf8("btnGoToSimulation"));
         btnGoToSimulation->setGeometry(QRect(20, 55, 281, 65));
@@ -1849,7 +1915,7 @@ public:
         label_5->setFont(font6);
         frame_23 = new QFrame(dataPanel);
         frame_23->setObjectName(QString::fromUtf8("frame_23"));
-        frame_23->setGeometry(QRect(310, 880, 301, 151));
+        frame_23->setGeometry(QRect(830, 790, 301, 151));
         frame_23->setStyleSheet(QString::fromUtf8("background-color:rgb(250,250,250);"));
         frame_23->setFrameShape(QFrame::StyledPanel);
         frame_23->setFrameShadow(QFrame::Raised);
@@ -2050,14 +2116,14 @@ public:
 "background-color:rgb(154, 123, 171);"));
         txtCantidadPlanificacion = new QLineEdit(frame_19);
         txtCantidadPlanificacion->setObjectName(QString::fromUtf8("txtCantidadPlanificacion"));
-        txtCantidadPlanificacion->setGeometry(QRect(150, 85, 131, 21));
+        txtCantidadPlanificacion->setGeometry(QRect(164, 85, 131, 21));
         txtCantidadPlanificacion->setFont(font6);
         txtCantidadPlanificacion->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color: rgb(154, 123, 171);"));
         label_31 = new QLabel(frame_19);
         label_31->setObjectName(QString::fromUtf8("label_31"));
-        label_31->setGeometry(QRect(20, 80, 91, 31));
+        label_31->setGeometry(QRect(20, 80, 131, 31));
         label_31->setFont(font6);
         label_33 = new QLabel(frame_19);
         label_33->setObjectName(QString::fromUtf8("label_33"));
@@ -2093,7 +2159,7 @@ public:
         listPlanificador->setGeometry(QRect(20, 160, 361, 181));
         cboPlanificacion = new QComboBox(frame_19);
         cboPlanificacion->setObjectName(QString::fromUtf8("cboPlanificacion"));
-        cboPlanificacion->setGeometry(QRect(150, 55, 131, 22));
+        cboPlanificacion->setGeometry(QRect(164, 55, 131, 22));
         cboPlanificacion->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
 "border-style: solid;\n"
 "border-color: rgb(154, 123, 171);"));
@@ -2109,7 +2175,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        contentPanel->setCurrentIndex(1);
+        contentPanel->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -2210,12 +2276,14 @@ public:
         label_84->setText(QString());
         lbNameBandeja1_8->setText(QCoreApplication::translate("MainWindow", "Banda de inspeccionadas", nullptr));
         label_62->setText(QString());
+        lbNameBandeja1_5->setText(QString());
+        lbProgressTransportadores->setText(QCoreApplication::translate("MainWindow", "0%", nullptr));
         lbDatosEmpacadora_2->setText(QCoreApplication::translate("MainWindow", "datos", nullptr));
-        checkBoxEmpacadora_2->setText(QString());
-        lbProgressEmpacadora_2->setText(QCoreApplication::translate("MainWindow", "0%", nullptr));
-        lbNameBandeja1_5->setText(QCoreApplication::translate("MainWindow", "Transportadores", nullptr));
+        checkBoxTransportadores->setText(QString());
+        lbTransportadores->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        lbNameBandeja1_9->setText(QCoreApplication::translate("MainWindow", "Transportadores", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Duraci\303\263n:", nullptr));
-        txtDurationCar->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        txtDurationCar->setText(QCoreApplication::translate("MainWindow", "0.5", nullptr));
         txtCapacidadCar->setText(QCoreApplication::translate("MainWindow", "100", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Capacidad:", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Datos Del Carrito", nullptr));
@@ -2260,21 +2328,27 @@ public:
         txtTiempoEmpacado->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         label_71->setText(QCoreApplication::translate("MainWindow", "Tiempo Empacado:", nullptr));
         txtCantEmpacado->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
-        label_74->setText(QCoreApplication::translate("MainWindow", "Cant Empacado: ", nullptr));
-        label_75->setText(QCoreApplication::translate("MainWindow", "Nombre, Cantidad, Tiempo, Cant Empacado", nullptr));
+        label_74->setText(QCoreApplication::translate("MainWindow", "Cant Empacado:", nullptr));
+        label_75->setText(QCoreApplication::translate("MainWindow", "Nombre, Cantidad, Tiempo, Cant Empacado, Capacidad, Velocidad", nullptr));
+        txtCapacidadTransporte->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        txtVelocidadTransporte->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
+        label_92->setText(QCoreApplication::translate("MainWindow", "Velocidad", nullptr));
+        label_93->setText(QCoreApplication::translate("MainWindow", "Capacidad:", nullptr));
+        label_69->setText(QCoreApplication::translate("MainWindow", "Datos Empacado", nullptr));
+        label_85->setText(QCoreApplication::translate("MainWindow", "Datos Transporte", nullptr));
         btnGoToSimulation->setText(QString());
         lbStatedPausedResume_3->setText(QCoreApplication::translate("MainWindow", "Go to Simulation", nullptr));
         label_36->setText(QCoreApplication::translate("MainWindow", "Datos Horno", nullptr));
         label_37->setText(QCoreApplication::translate("MainWindow", "Capacidad:", nullptr));
         label_39->setText(QCoreApplication::translate("MainWindow", "Time Horneado:", nullptr));
-        txtTiempoHorneado->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
+        txtTiempoHorneado->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         label_40->setText(QCoreApplication::translate("MainWindow", "Max:", nullptr));
         txtMaxBandeja->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
         txtCapacidadHorno->setText(QCoreApplication::translate("MainWindow", "90", nullptr));
         label_41->setText(QCoreApplication::translate("MainWindow", "Bandeja 1", nullptr));
         txtTiempoRellenado->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
         label_43->setText(QCoreApplication::translate("MainWindow", "Cant Rellenado:", nullptr));
-        txtCantRellenado->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        txtCantRellenado->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
         label_44->setText(QCoreApplication::translate("MainWindow", "Time Rellenado:", nullptr));
         label_45->setText(QCoreApplication::translate("MainWindow", "Bandeja 2", nullptr));
         label_46->setText(QCoreApplication::translate("MainWindow", "Max:", nullptr));
@@ -2310,17 +2384,17 @@ public:
         txtCantMezclaReceta->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         label_63->setText(QCoreApplication::translate("MainWindow", "Datos Empacadora", nullptr));
         label_66->setText(QCoreApplication::translate("MainWindow", "Probabilidad:", nullptr));
-        txtProbabilidadInspector1->setText(QCoreApplication::translate("MainWindow", "80", nullptr));
+        txtProbabilidadInspector1->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
         label_67->setText(QCoreApplication::translate("MainWindow", "Inspector 1", nullptr));
         label_70->setText(QCoreApplication::translate("MainWindow", "Inspector 2", nullptr));
-        txtProbabilidadInspector2->setText(QCoreApplication::translate("MainWindow", "30", nullptr));
+        txtProbabilidadInspector2->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
         label_80->setText(QCoreApplication::translate("MainWindow", "Banda 1", nullptr));
-        txtCapacidadBandaEmpacadora1->setText(QCoreApplication::translate("MainWindow", "50", nullptr));
+        txtCapacidadBandaEmpacadora1->setText(QCoreApplication::translate("MainWindow", "300", nullptr));
         label_81->setText(QCoreApplication::translate("MainWindow", "Capacidad:", nullptr));
         label_72->setText(QCoreApplication::translate("MainWindow", "Probabilidad:", nullptr));
         label_82->setText(QCoreApplication::translate("MainWindow", "Banda 2", nullptr));
         label_83->setText(QCoreApplication::translate("MainWindow", "Capacidad:", nullptr));
-        txtCapacidadBandaEmpacadora2->setText(QCoreApplication::translate("MainWindow", "50", nullptr));
+        txtCapacidadBandaEmpacadora2->setText(QCoreApplication::translate("MainWindow", "150", nullptr));
         label_76->setText(QCoreApplication::translate("MainWindow", "Cant Inspecionar:", nullptr));
         txtCantInspeccionar1->setText(QCoreApplication::translate("MainWindow", "15", nullptr));
         label_77->setText(QCoreApplication::translate("MainWindow", "Cant Inspecionar:", nullptr));
@@ -2337,7 +2411,7 @@ public:
         label_220->setText(QCoreApplication::translate("MainWindow", "Estos datos se toman de la configuracion de tipos de galletas", nullptr));
         label_30->setText(QCoreApplication::translate("MainWindow", "Planificador", nullptr));
         txtCantidadPlanificacion->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
-        label_31->setText(QCoreApplication::translate("MainWindow", "Cantidad:", nullptr));
+        label_31->setText(QCoreApplication::translate("MainWindow", "Cantidad de tipos:", nullptr));
         label_33->setText(QCoreApplication::translate("MainWindow", "Tipo de galletas", nullptr));
         iconMachine3_2->setText(QString());
         btnEliminarPlanificacion->setText(QCoreApplication::translate("MainWindow", "Eliminar", nullptr));

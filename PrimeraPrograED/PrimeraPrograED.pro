@@ -27,7 +27,7 @@ SOURCES += \
     thread_empacadora_transporte.cpp \
     thread_ensambladora_horno.cpp \
     thread_horno_inspectores.cpp \
-    thread_inspectores_ensambladora.cpp \
+    thread_inspectores_empacadora.cpp \
     thread_machines_ensambladora.cpp \
     thread_transportadores_almacen.cpp
 
@@ -51,7 +51,7 @@ HEADERS += \
     thread_ensambladora_horno.h \
     thread_ensambladora_horno.h \
     thread_horno_inspectores.h \
-    thread_inspectores_ensambladora.h \
+    thread_inspectores_empacadora.h \
     thread_machines_ensambladora.h \
     thread_transportadores_almacen.h
 

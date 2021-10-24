@@ -18,5 +18,6 @@ release/thread_ensambladora_horno.o
 release/thread_horno_inspectores.o
 release/thread_inspectores_empacadora.o
 release/thread_machines_ensambladora.o
+release/thread_transportadores_almacen.o
 release/qrc_imagesResource.o
 release/moc_mainwindow.o
