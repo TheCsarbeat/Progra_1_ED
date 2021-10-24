@@ -274,10 +274,6 @@ void MainWindow::cargarDatos(){
     Receta * recetaCookies = new Receta(ui->txtCantMezclaReceta->text().toInt(),ui->txtCantChocolateReceta->text().toInt());
 
     Inspectores * inspectores = new Inspectores(this->ui->lbDatosBandaEmpacadora1, this->ui->lbDatosBandaEmpacadora2);
-    //otra banda de prueba
-    inspectores->otraBanda->nombre = "Otra banda";
-    inspectores->otraBanda->lbDatos = this->ui->lbDatosBandaEmpacadora3;
-    inspectores->otraBanda->capacidad = 50;
 
     //Bandas Inspectores
     inspectores->arrayBandas->array[0]->capacidad = ui->txtCapacidadBandaEmpacadora1->text().toInt();

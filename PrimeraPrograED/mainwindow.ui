@@ -54,10 +54,10 @@
       <widget class="QFrame" name="frameTop">
        <property name="geometry">
         <rect>
-         <x>1480</x>
-         <y>520</y>
+         <x>1470</x>
+         <y>360</y>
          <width>431</width>
-         <height>381</height>
+         <height>421</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1502,7 +1502,7 @@ QCheckBox::indicator:unchecked{
        <property name="geometry">
         <rect>
          <x>1030</x>
-         <y>160</y>
+         <y>10</y>
          <width>701</width>
          <height>331</height>
         </rect>
@@ -2331,212 +2331,6 @@ QCheckBox::indicator:unchecked{
         </widget>
        </widget>
       </widget>
-      <widget class="QFrame" name="frame_19">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>590</y>
-         <width>401</width>
-         <height>291</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(250,250,250);</string>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_30">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>401</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Doppio One</family>
-          <pointsize>16</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: white;
-background-color:rgb(154, 123, 171);</string>
-        </property>
-        <property name="text">
-         <string>Planificador</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txtCantidadPlanificacion">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>85</y>
-          <width>131</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border-width: 1px;
-border-style: solid;
-border-color: rgb(154, 123, 171);</string>
-        </property>
-        <property name="text">
-         <string>6</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_31">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>80</y>
-          <width>91</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Cantidad:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_33">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>50</y>
-          <width>121</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Tipo de galletas</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="iconMachine3_2">
-        <property name="geometry">
-         <rect>
-          <x>310</x>
-          <y>40</y>
-          <width>71</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">image:url(&quot;:/images/programmer.png&quot;);
-</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btnEliminarPlanificacion">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>120</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Doppio One</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>ClosedHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: black;
-background-color: white;
-border-width: 2px;
-border-style: solid;
-border-color: rgb(154, 123, 171);</string>
-        </property>
-        <property name="text">
-         <string>Eliminar</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btnAgregarPlanificacion">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>120</y>
-          <width>171</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Doppio One</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>ClosedHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: white;
-background-color:rgb(154, 123, 171);
-border-width: 1px;
-border-style: solid;
-border-color: white;</string>
-        </property>
-        <property name="text">
-         <string>Agregar</string>
-        </property>
-       </widget>
-       <widget class="QListWidget" name="listPlanificador">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>160</y>
-          <width>361</width>
-          <height>111</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QComboBox" name="cboPlanificacion">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>55</y>
-          <width>131</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border-width: 1px;
-border-style: solid;
-border-color: rgb(154, 123, 171);</string>
-        </property>
-       </widget>
-      </widget>
       <widget class="QFrame" name="frame_20">
        <property name="geometry">
         <rect>
@@ -2691,10 +2485,10 @@ image:url(&quot;:/images/data-processing.png&quot;);</string>
       <widget class="QFrame" name="frameTop_2">
        <property name="geometry">
         <rect>
-         <x>1180</x>
-         <y>520</y>
-         <width>270</width>
-         <height>341</height>
+         <x>1030</x>
+         <y>360</y>
+         <width>421</width>
+         <height>571</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -2709,7 +2503,7 @@ image:url(&quot;:/images/data-processing.png&quot;);</string>
        <widget class="QLabel" name="label_61">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>270</x>
           <y>50</y>
           <width>91</width>
           <height>81</height>
@@ -2728,19 +2522,19 @@ image:url(&quot;:/images/data-processing.png&quot;);</string>
           <x>20</x>
           <y>70</y>
           <width>141</width>
-          <height>61</height>
+          <height>71</height>
          </rect>
         </property>
         <property name="text">
          <string>datos</string>
         </property>
        </widget>
-       <widget class="QLabel" name="lbNameBandeja1_4">
+       <widget class="QLabel" name="lbNameEmpacadora">
         <property name="geometry">
          <rect>
           <x>20</x>
           <y>10</y>
-          <width>91</width>
+          <width>231</width>
           <height>21</height>
          </rect>
         </property>
@@ -2762,8 +2556,8 @@ image:url(&quot;:/images/data-processing.png&quot;);</string>
        <widget class="QCheckBox" name="checkBoxEmpacadora">
         <property name="geometry">
          <rect>
-          <x>200</x>
-          <y>0</y>
+          <x>300</x>
+          <y>10</y>
           <width>51</width>
           <height>41</height>
          </rect>
@@ -2864,12 +2658,12 @@ QCheckBox::indicator:unchecked{
          </property>
         </widget>
        </widget>
-       <widget class="QLabel" name="lbDatosBandaEmpacadora3">
+       <widget class="QLabel" name="lbBandaEmpacadoraSupervisada">
         <property name="geometry">
          <rect>
-          <x>90</x>
-          <y>260</y>
-          <width>111</width>
+          <x>130</x>
+          <y>250</y>
+          <width>141</width>
           <height>51</height>
          </rect>
         </property>
@@ -2877,12 +2671,96 @@ QCheckBox::indicator:unchecked{
          <string>datos</string>
         </property>
        </widget>
+       <widget class="QScrollArea" name="scrollAreaPedidos">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>320</y>
+          <width>261</width>
+          <height>201</height>
+         </rect>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaContents_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>259</width>
+           <height>199</height>
+          </rect>
+         </property>
+         <widget class="QLabel" name="lbPaquetesSupervisados">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>30</y>
+            <width>231</width>
+            <height>171</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="label_84">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>180</y>
+          <width>171</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image:url(&quot;:/images/banda-Empacadora.png&quot;);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbNameBandeja1_8">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>150</y>
+          <width>181</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Open Sans</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: black;</string>
+        </property>
+        <property name="text">
+         <string>Banda de inspeccionadas</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frameTop_3">
        <property name="geometry">
         <rect>
-         <x>820</x>
-         <y>510</y>
+         <x>680</x>
+         <y>520</y>
          <width>301</width>
          <height>471</height>
         </rect>
@@ -2899,8 +2777,8 @@ QCheckBox::indicator:unchecked{
        <widget class="QLabel" name="label_62">
         <property name="geometry">
          <rect>
-          <x>170</x>
-          <y>50</y>
+          <x>190</x>
+          <y>110</y>
           <width>91</width>
           <height>81</height>
          </rect>
@@ -2916,7 +2794,7 @@ QCheckBox::indicator:unchecked{
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>70</y>
+          <y>140</y>
           <width>141</width>
           <height>61</height>
          </rect>
@@ -2925,35 +2803,11 @@ QCheckBox::indicator:unchecked{
          <string>datos</string>
         </property>
        </widget>
-       <widget class="QLabel" name="lbNameBandeja1_5">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>10</y>
-          <width>91</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Open Sans</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: black;</string>
-        </property>
-        <property name="text">
-         <string>Empacadora</string>
-        </property>
-       </widget>
        <widget class="QCheckBox" name="checkBoxEmpacadora_2">
         <property name="geometry">
          <rect>
-          <x>200</x>
-          <y>0</y>
+          <x>210</x>
+          <y>70</y>
           <width>51</width>
           <height>41</height>
          </rect>
@@ -2982,8 +2836,8 @@ QCheckBox::indicator:unchecked{
        <widget class="QFrame" name="panelProgress3_6">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>50</y>
+          <x>10</x>
+          <y>130</y>
           <width>150</width>
           <height>20</height>
          </rect>
@@ -3054,6 +2908,30 @@ QCheckBox::indicator:unchecked{
          </property>
         </widget>
        </widget>
+       <widget class="QLabel" name="lbNameBandeja1_5">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>40</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Open Sans</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: black;</string>
+        </property>
+        <property name="text">
+         <string>Transportadores</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -3081,7 +2959,7 @@ QCheckBox::indicator:unchecked{
         <rect>
          <x>10</x>
          <y>120</y>
-         <width>500</width>
+         <width>281</width>
          <height>121</height>
         </rect>
        </property>
@@ -3118,7 +2996,7 @@ QCheckBox::indicator:unchecked{
          <rect>
           <x>130</x>
           <y>85</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3142,7 +3020,7 @@ border-color: rgb(254, 188, 187);;</string>
          <rect>
           <x>130</x>
           <y>45</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3212,7 +3090,7 @@ background-color:rgb(254, 188, 187);
         <rect>
          <x>10</x>
          <y>490</y>
-         <width>500</width>
+         <width>281</width>
          <height>200</height>
         </rect>
        </property>
@@ -3255,7 +3133,7 @@ background-color:rgb(167, 235, 248);</string>
          <rect>
           <x>130</x>
           <y>85</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3336,7 +3214,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>130</x>
           <y>145</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3379,7 +3257,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>130</x>
           <y>55</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3403,7 +3281,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>130</x>
           <y>115</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3428,7 +3306,7 @@ border-color: rgb(167, 235, 248);</string>
         <rect>
          <x>10</x>
          <y>720</y>
-         <width>500</width>
+         <width>281</width>
          <height>200</height>
         </rect>
        </property>
@@ -3471,7 +3349,7 @@ background-color:rgb(167, 235, 248);</string>
          <rect>
           <x>130</x>
           <y>55</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3514,7 +3392,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>130</x>
           <y>115</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3557,7 +3435,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>130</x>
           <y>145</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3619,7 +3497,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>130</x>
           <y>85</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3703,9 +3581,9 @@ background-color:rgb(25,25,50);</string>
       <widget class="QFrame" name="frame_16">
        <property name="geometry">
         <rect>
-         <x>530</x>
+         <x>310</x>
          <y>120</y>
-         <width>500</width>
+         <width>211</width>
          <height>350</height>
         </rect>
        </property>
@@ -3748,7 +3626,7 @@ background-color:rgb(255, 239, 120);</string>
          <rect>
           <x>130</x>
           <y>290</y>
-          <width>191</width>
+          <width>71</width>
           <height>21</height>
          </rect>
         </property>
@@ -3829,7 +3707,7 @@ border-color: rgb(255, 239, 120);</string>
          <rect>
           <x>130</x>
           <y>85</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3872,7 +3750,7 @@ border-color: rgb(255, 239, 120);</string>
          <rect>
           <x>130</x>
           <y>190</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3896,7 +3774,7 @@ border-color: rgb(255, 239, 120);</string>
          <rect>
           <x>130</x>
           <y>55</y>
-          <width>191</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -3963,7 +3841,7 @@ border-color: rgb(255, 239, 120);</string>
       <widget class="QFrame" name="frame_21">
        <property name="geometry">
         <rect>
-         <x>530</x>
+         <x>310</x>
          <y>490</y>
          <width>501</width>
          <height>381</height>
@@ -4100,7 +3978,7 @@ border-width: 1px;
          <rect>
           <x>120</x>
           <y>55</y>
-          <width>200</width>
+          <width>191</width>
           <height>21</height>
          </rect>
         </property>
@@ -4313,7 +4191,7 @@ image:url(&quot;:/images/simulation.png&quot;);
       <widget class="QFrame" name="frame_22">
        <property name="geometry">
         <rect>
-         <x>1080</x>
+         <x>540</x>
          <y>120</y>
          <width>500</width>
          <height>351</height>
@@ -4986,7 +4864,7 @@ border-color: rgb(240, 231, 227);</string>
         <rect>
          <x>10</x>
          <y>270</y>
-         <width>501</width>
+         <width>281</width>
          <height>201</height>
         </rect>
        </property>
@@ -5027,7 +4905,7 @@ background-color:rgb(167, 235, 248);</string>
          <rect>
           <x>120</x>
           <y>145</y>
-          <width>191</width>
+          <width>71</width>
           <height>21</height>
          </rect>
         </property>
@@ -5070,7 +4948,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>120</x>
           <y>85</y>
-          <width>191</width>
+          <width>71</width>
           <height>21</height>
          </rect>
         </property>
@@ -5094,7 +4972,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>120</x>
           <y>115</y>
-          <width>191</width>
+          <width>71</width>
           <height>21</height>
          </rect>
         </property>
@@ -5137,7 +5015,7 @@ border-color: rgb(167, 235, 248);</string>
          <rect>
           <x>120</x>
           <y>55</y>
-          <width>191</width>
+          <width>71</width>
           <height>21</height>
          </rect>
         </property>
@@ -5198,9 +5076,9 @@ border-color: rgb(167, 235, 248);</string>
       <widget class="QFrame" name="frame_23">
        <property name="geometry">
         <rect>
-         <x>530</x>
+         <x>310</x>
          <y>880</y>
-         <width>501</width>
+         <width>301</width>
          <height>151</height>
         </rect>
        </property>
@@ -5244,7 +5122,7 @@ text-align: center;</string>
          <rect>
           <x>150</x>
           <y>105</y>
-          <width>200</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -5306,7 +5184,7 @@ border-color: rgb(154, 123, 171);</string>
          <rect>
           <x>150</x>
           <y>55</y>
-          <width>200</width>
+          <width>61</width>
           <height>21</height>
          </rect>
         </property>
@@ -5329,10 +5207,10 @@ border-color: rgb(154, 123, 171);</string>
       <widget class="QFrame" name="frame_24">
        <property name="geometry">
         <rect>
-         <x>1080</x>
-         <y>500</y>
+         <x>1060</x>
+         <y>120</y>
          <width>500</width>
-         <height>361</height>
+         <height>351</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -5971,6 +5849,212 @@ border-color:rgb(97, 197, 161);</string>
         </property>
         <property name="text">
          <string>5</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frame_19">
+       <property name="geometry">
+        <rect>
+         <x>830</x>
+         <y>490</y>
+         <width>401</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(250,250,250);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_30">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>401</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Doppio One</family>
+          <pointsize>16</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color:rgb(154, 123, 171);</string>
+        </property>
+        <property name="text">
+         <string>Planificador</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtCantidadPlanificacion">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>85</y>
+          <width>131</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(154, 123, 171);</string>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_31">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>80</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Cantidad:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_33">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Tipo de galletas</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="iconMachine3_2">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>40</y>
+          <width>71</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image:url(&quot;:/images/programmer.png&quot;);
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnEliminarPlanificacion">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>120</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Doppio One</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>ClosedHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: black;
+background-color: white;
+border-width: 2px;
+border-style: solid;
+border-color: rgb(154, 123, 171);</string>
+        </property>
+        <property name="text">
+         <string>Eliminar</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnAgregarPlanificacion">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>120</y>
+          <width>171</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Doppio One</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>ClosedHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color:rgb(154, 123, 171);
+border-width: 1px;
+border-style: solid;
+border-color: white;</string>
+        </property>
+        <property name="text">
+         <string>Agregar</string>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="listPlanificador">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>160</y>
+          <width>361</width>
+          <height>111</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cboPlanificacion">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>55</y>
+          <width>131</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: rgb(154, 123, 171);</string>
         </property>
        </widget>
       </widget>
