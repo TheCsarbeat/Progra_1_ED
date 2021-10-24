@@ -27,5 +27,6 @@
         <file>images/empacadora1.png</file>
         <file>images/paquete-de-caja-en-un-carro.png</file>
         <file>images/supervisor-calidad.png</file>
+        <file>images/envio.png</file>
     </qresource>
 </RCC>

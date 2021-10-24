@@ -284,11 +284,6 @@ void MainWindow::cargarDatos(){
     listC->insertar("Tubo",16, 5.6,2,10,5.0);
     listC->insertar("Bolsa",2,2.4,6,12,8.0);
 
-    //Planificaciones
-    TipoGalleta * tipo = new TipoGalleta("Bolsa",2,2.4,6,12,8.0);
-    Planificacion * planificacion = new Planificacion(tipo, 20);
-    listP->insertarAlInicio(planificacion);
-
     ui->listPlanificador->clear();
     ui->listPlanificador->addItems(listP->toString());
 
@@ -471,6 +466,7 @@ void MainWindow::loadDataOnPaused(){
     mainStruct->horno->cantidadRellenado = ui->txtCantRellenado->text().toInt();
     mainStruct->horno->tiempoHorneado = ui->txtTiempoHorneado->text().toInt();
     mainStruct->horno->tiempoRellenado = ui->txtTiempoRellenado->text().toInt();
+    mainStruct->horno->banda->capacidad = ui->txtCapacidadBandaHorno->text().toInt();
 
         //Bandejas
         mainStruct->horno->bandejas->array[0]->capacidad = ui->txtMaxBandeja->text().toInt();
@@ -548,6 +544,105 @@ void MainWindow::on_txtCantInspeccionar2_editingFinished()
         msgBox.setText("La modificación no se puede realizar");
         msgBox.exec();
         ui->txtCantInspeccionar2->setText(QString::number(mainStruct->inspectores->arrayInspectores->array[1]->actualGalletas));
+    }
+}
+
+
+void MainWindow::on_txtCantProcesarMezcladora1_editingFinished()
+{
+    if(ui->txtCantProcesarMezcladora1->text().toInt() > mainStruct->arrayMachine->array[0]->min){
+        QMessageBox msgBox;
+        msgBox.setText("La cantidad a procesar no puede ser mayor a min");
+        msgBox.exec();
+        ui->txtCantProcesarMezcladora1->setText(QString::number(mainStruct->arrayMachine->array[0]->gramosProcesar));
+    }
+}
+
+
+void MainWindow::on_txtCantProcesarMezcladora2_editingFinished()
+{
+    if(ui->txtCantProcesarMezcladora2->text().toInt() > mainStruct->arrayMachine->array[1]->min){
+        QMessageBox msgBox;
+        msgBox.setText("La cantidad a procesar no puede ser mayor a min");
+        msgBox.exec();
+        ui->txtCantProcesarMezcladora2->setText(QString::number(mainStruct->arrayMachine->array[1]->gramosProcesar));
+    }
+}
+
+
+void MainWindow::on_txtCantProcesarChocolatera_editingFinished()
+{
+    if(ui->txtCantProcesarChocolatera->text().toInt() > mainStruct->arrayMachine->array[2]->min){
+        QMessageBox msgBox;
+        msgBox.setText("La cantidad a procesar no puede ser mayor a min");
+        msgBox.exec();
+        ui->txtCantProcesarChocolatera->setText(QString::number(mainStruct->arrayMachine->array[2]->gramosProcesar));
+    }
+}
+
+
+void MainWindow::on_txtMaxChocolatera_editingFinished()
+{
+    if(ui->txtMaxChocolatera->text().toInt() < mainStruct->arrayMachine->array[2]->min){
+        QMessageBox msgBox;
+        msgBox.setText("No valido");
+        msgBox.exec();
+        ui->txtMaxChocolatera->setText(QString::number(mainStruct->arrayMachine->array[2]->max));
+    }
+}
+
+
+void MainWindow::on_txtMaxBanda2Chocolate_editingFinished()
+{
+    if(ui->txtMaxBanda2Chocolate->text().toInt() < mainStruct->ensambladora->bandas->array[1]->cantNow){
+        QMessageBox msgBox;
+        msgBox.setText("No valido");
+        msgBox.exec();
+        ui->txtMaxBanda2Chocolate->setText(QString::number(mainStruct->ensambladora->bandas->array[1]->capacidad));
+    }
+}
+
+
+void MainWindow::on_txtMaxBanda1Mezcla_editingFinished()
+{
+    if(ui->txtMaxBanda1Mezcla->text().toInt() < mainStruct->ensambladora->bandas->array[0]->cantNow){
+        QMessageBox msgBox;
+        msgBox.setText("No valido");
+        msgBox.exec();
+        ui->txtMaxBanda1Mezcla->setText(QString::number(mainStruct->ensambladora->bandas->array[0]->capacidad));
+    }
+}
+
+
+void MainWindow::on_txtCapacidadBandaEmpacadora1_editingFinished()
+{
+    if(ui->txtCapacidadBandaEmpacadora1->text().toInt() < mainStruct->inspectores->arrayBandas->array[0]->cantNow){
+        QMessageBox msgBox;
+        msgBox.setText("No valido");
+        msgBox.exec();
+        ui->txtCapacidadBandaEmpacadora1->setText(QString::number(mainStruct->inspectores->arrayBandas->array[0]->capacidad));
+    }
+}
+
+
+void MainWindow::on_txtCapacidadBandaEmpacadora2_editingFinished()
+{
+    if(ui->txtCapacidadBandaEmpacadora2->text().toInt() < mainStruct->inspectores->arrayBandas->array[1]->cantNow){
+        QMessageBox msgBox;
+        msgBox.setText("No valido");
+        msgBox.exec();
+        ui->txtCapacidadBandaEmpacadora2->setText(QString::number(mainStruct->inspectores->arrayBandas->array[1]->capacidad));
+    }
+}
+
+
+void MainWindow::on_txtCapacidadBandaCalidad_3_editingFinished()
+{
+    if(ui->txtCapacidadBandaCalidad_3->text().toInt() < mainStruct->empacadora->banda->cantNow){
+        QMessageBox msgBox;
+        msgBox.setText("No valido");
+        msgBox.exec();
+        ui->txtCapacidadBandaCalidad_3->setText(QString::number(mainStruct->empacadora->banda->capacidad));
     }
 }
 

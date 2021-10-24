@@ -53,8 +53,6 @@ void ThreadEmpacadoraTransporte::run(){
                 empacadora->flagProcesando = true;
                 empacadora->cantGalletasAEmpacar =galletasAEmpacar;
                     while(empacadora->banda->cantNow < galletasAEmpacar){
-                        qDebug()<<"Galletas a empacar:"<< galletasAEmpacar;
-                        qDebug()<<"Cant Now:"<< empacadora->banda->cantNow;
                         this->empacadora->lbtitulo->setText("Waiting for cookies: "+empacadora->p[id]->nombre+"...");
                         msleep(500);
                     }

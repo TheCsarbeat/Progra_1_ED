@@ -75,6 +75,26 @@ private slots:
 
      void on_txtCantInspeccionar1_editingFinished();
 
+     void on_txtCantInspeccionar2_editingFinished();
+
+     void on_txtCantProcesarMezcladora1_editingFinished();
+
+     void on_txtCantProcesarMezcladora2_editingFinished();
+
+     void on_txtCantProcesarChocolatera_editingFinished();
+
+     void on_txtMaxChocolatera_editingFinished();
+
+     void on_txtMaxBanda2Chocolate_editingFinished();
+
+     void on_txtMaxBanda1Mezcla_editingFinished();
+
+     void on_txtCapacidadBandaEmpacadora1_editingFinished();
+
+     void on_txtCapacidadBandaEmpacadora2_editingFinished();
+
+     void on_txtCapacidadBandaCalidad_3_editingFinished();
+
 private:
     Ui::MainWindow *ui;
 };
