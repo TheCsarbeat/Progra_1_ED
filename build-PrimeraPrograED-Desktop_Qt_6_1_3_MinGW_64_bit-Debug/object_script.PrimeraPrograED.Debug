@@ -16,7 +16,7 @@ debug/thread_almacen_machines.o
 debug/thread_empacadora_transporte.o
 debug/thread_ensambladora_horno.o
 debug/thread_horno_inspectores.o
-debug/thread_inspectores_ensambladora.o
+debug/thread_inspectores_empacadora.o
 debug/thread_machines_ensambladora.o
 debug/qrc_imagesResource.o
 debug/moc_mainwindow.o

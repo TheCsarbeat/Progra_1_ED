@@ -49,8 +49,7 @@ void thread_main::__init__(MainStruct * mainStruct, EstructuraProgressBar * arra
     mutexHornoInspector1 = new QMutex();
     mutexInspectoresEmpacadora = new QMutex();
     mutexEmpacadoraTransporte = new QMutex();
-
-
+    mutexCalculoParada = new QMutex();
 }
 
 void thread_main::run() {
@@ -64,10 +63,14 @@ void thread_main::run() {
     this->running = true;
     encolar();
     iniciarThreads();
-
-    while (running) {
+    while (running){
         while (paused) {
             sleep(2);
+        }
+        if(mainStruct->ensambladora->galletasHechas >= TotalGalletas){
+            for(int i= 0; i<3; i++){
+                mainStruct->arrayMachine->array[i]->aviableEncolar = false;
+            }
         }
         msleep(1500);
     }
@@ -124,11 +127,11 @@ void thread_main::iniciarThreads(){
     hiloHornoInspectores->start();
 
     hiloInspectores[0] = new ThreadPrimerInspector();
-    hiloInspectores[0]->__init__(mutexHornoInspector1, mutexInspectoresEmpacadora, mainStruct->horno, mainStruct->inspectores, mainStruct->inspectores->arrayInspectores->array[0], mainStruct->empacadora, arrayProgressBar[6], checkOnOff[5]);
+    hiloInspectores[0]->__init__(mutexHornoInspector1, mutexInspectoresEmpacadora, mainStruct->horno, mainStruct->inspectores, mainStruct->inspectores->arrayInspectores->array[0], mainStruct->empacadora, checkOnOff[5]);
     hiloInspectores[0]->start();
 
     hiloInspectores[1] = new ThreadPrimerInspector();
-    hiloInspectores[1]->__init__(mutexHornoInspector1, mutexInspectoresEmpacadora, mainStruct->horno, mainStruct->inspectores, mainStruct->inspectores->arrayInspectores->array[1], mainStruct->empacadora, arrayProgressBar[7], checkOnOff[6]);
+    hiloInspectores[1]->__init__(mutexHornoInspector1, mutexInspectoresEmpacadora, mainStruct->horno, mainStruct->inspectores, mainStruct->inspectores->arrayInspectores->array[1], mainStruct->empacadora, checkOnOff[6]);
     hiloInspectores[1]->start();
 
     //Empacadora

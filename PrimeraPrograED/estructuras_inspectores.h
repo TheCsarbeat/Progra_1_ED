@@ -20,6 +20,7 @@ struct Inspector{
     int totalAccepted;
     QLabel * lbTitle;
     QLabel * lbDatos;
+    QString nombre;
 
     Inspector(){
         id = 0;
@@ -34,8 +35,9 @@ struct Inspector{
         totalRejected = 0;
         lbDatos = new QLabel();
         lbTitle = new QLabel();
+        nombre = "";
     }
-    Inspector(int _id){
+    Inspector(int _id, QString name){
         id = _id;
         state = true;
         flagProcesando = false;
@@ -48,6 +50,7 @@ struct Inspector{
         totalRejected = 0;
         lbDatos = new QLabel();
         lbTitle = new QLabel();
+        nombre = name;
     }
 
     int inspect();
@@ -59,8 +62,8 @@ struct ArrayInspectores{
     Inspector * array[2];
 
     ArrayInspectores(){
-        array[0] = new Inspector(0);
-        array[1] = new Inspector(1);
+        array[0] = new Inspector(0, "Inspector 1");
+        array[1] = new Inspector(1, "Inspector 2");
     }
 };
 
