@@ -244,6 +244,7 @@ void ListaSimplePlanificaciones::calcularProbalidad(){
             temp->planificacion->probalidad = 100-suma;
         else{
             int valorAsignar = rand()%reducir;
+            while(valorAsignar==0)valorAsignar = rand()%reducir;
             temp->planificacion->probalidad = valorAsignar;
             suma += valorAsignar;
             reducir = 100-largo - (suma+index);

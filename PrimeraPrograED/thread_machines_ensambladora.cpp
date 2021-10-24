@@ -48,7 +48,7 @@ void ThreadMachinesEnsambladora::run() {
             this->machine->procesar();
             this->machine->lbTitulo->setText("Processing...");
             this->progressBar->setValue(((double)this->machine->tiempoActual/this->machine->duracionSegudos)*100);
-            sleep(1);
+            msleep(machine->sleepTime);
 
             //Stop Condition
             if(this->machine->tiempoActual == this->machine->duracionSegudos){
@@ -96,7 +96,7 @@ void ThreadMachinesEnsambladora::pause() {
 }
 
 void ThreadMachinesEnsambladora::stop() {
-
+    this->paused = false;
     this->running = false;
 
 }

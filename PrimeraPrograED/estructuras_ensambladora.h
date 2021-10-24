@@ -42,14 +42,16 @@ struct ArrayBandas{
 
 struct Ensambladora{
     ArrayBandas * bandas;
-    int duracionSegundos;
-    int cant;
+    double duracionSegundos;
+    int sleepTime =0;
     int timeActual;
+    int cant;    
     int galletasHechas;
     bool flagProcesando;
     bool state;
     QLabel * lbTitulo;
     QLabel * lbDatos;
+
     Ensambladora(){
         bandas = new ArrayBandas(new QLabel, new QLabel, "Banda 1", "Banda 2");
         duracionSegundos = 0;

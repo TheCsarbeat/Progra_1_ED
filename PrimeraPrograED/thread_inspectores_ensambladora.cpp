@@ -84,3 +84,8 @@ void ThreadPrimerInspector::pause() {
     empacadora->banda->imprimir();
 }
 
+void ThreadPrimerInspector::stop(){
+    this->paused = false;
+    this->running = false;
+}
+

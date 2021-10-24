@@ -6,7 +6,19 @@ void Banda::imprimir(){
     lbDatos->update();
 }
 void Ensambladora::sumarSegundo(){
-    timeActual++;
+    if(timeActual==0){
+        double num = duracionSegundos- (int)duracionSegundos;
+
+        timeActual = num;
+        sleepTime = num*1000;
+        if(num==0){
+            timeActual ++;
+            sleepTime =1000;
+        }
+    }else{
+        timeActual ++;
+        sleepTime =1000;
+    }
 }
 
 int Ensambladora::makeCookies(int mezcla, int choco){

@@ -96,7 +96,8 @@ void ThreadHornoInspectores::pause() {
 }
 
 void ThreadHornoInspectores::stop() {
-    running = false;
+    this->paused = false;
+    this->running = false;
 
 }
 

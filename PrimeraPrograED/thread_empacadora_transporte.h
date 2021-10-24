@@ -32,6 +32,7 @@ public:
     bool paused;
     bool waiting;
     bool esperarGalletas;
+    bool flagParando;
 
 
     void __init__(QMutex *mutex1,QMutex *mutex2, Empacadora * empacadora, ArrayTransportadores * transporte, EstructuraProgressBar * progressBar, QCheckBox * checkOnOff);

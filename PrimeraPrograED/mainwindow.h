@@ -28,6 +28,9 @@ public:
      thread_main * mainThread;
      MainStruct * mainStruct = new MainStruct();
 
+     ListaCircular * listC = new ListaCircular();
+     ListaSimplePlanificaciones *listP = new ListaSimplePlanificaciones();
+
      QLabel * arrayLbMachines[3];
      QLabel * arrayLbDatosMachines[3];
      QLabel * arrayLbDatosBandejas[6];
@@ -35,6 +38,7 @@ public:
      EstructuraProgressBar * arrayProgressBar[40];
      QCheckBox * arrayCheackBoxOnOff[40];
      QCheckBox * arrayCheckBoxHorno[5];
+
 
     ~MainWindow();
 

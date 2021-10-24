@@ -23,7 +23,10 @@ MainWindow::~MainWindow(){
 void MainWindow::on_btnOnOff_clicked(){
     if(ui->lbStateOnOff->text() == "Start"){
         getUIWidgets();
+        mainStruct = new MainStruct();
+
         cargarDatos();
+
         //Change Desing
         ui->lbStateOnOff->setText("Stop");
         ui->btnOnOff->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/power-off.png');");
@@ -41,6 +44,8 @@ void MainWindow::on_btnOnOff_clicked(){
         ui->btnOnOff->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/power-on.png');");
 
         mainThread->stop();
+        ui->listPlanificador->clear();
+        ui->listTiposGalletas->clear();
 
         ui->btnPausedPlay->setStyleSheet("border-width: 1px;border-style: solid;image:url(':/images/pause-unavailable.png');");
         ui->btnPausedPlay->setEnabled(false);
@@ -205,9 +210,12 @@ void MainWindow::design(){
     ui->scrollAreaContents_2->setLayout(lay1);
 
     QVBoxLayout * lay2 = new QVBoxLayout();
-
     lay2->addWidget(ui->lbTransportadores);
     ui->scrollAreaContents_3->setLayout(lay2);
+
+    QVBoxLayout * lay3 = new QVBoxLayout();
+    lay3->addWidget(ui->lbTransportadores_2);
+    ui->scrollArea_2->setLayout(lay3);
 
     ui->contentPanel->setCurrentIndex(0);
 }
@@ -240,7 +248,7 @@ void MainWindow::getUIWidgets(){
     arrayProgressBar[5]= new EstructuraProgressBar(ui->progressHorno, ui->lbProgressHorno);
     //
     arrayProgressBar[7]= new EstructuraProgressBar(ui->progressEmpacadora, ui->lbProgressEmpacadora);
-    arrayProgressBar[8]= new EstructuraProgressBar(ui->progressTransportadores, ui->lbProgressTransportadores);
+    arrayProgressBar[8]= new EstructuraProgressBar(ui->progressEmpacadora, ui->lbProgressEmpacadora);
 
     //Array Checkbox
     arrayCheackBoxOnOff[0] = this->ui->checkBoxCar;
@@ -267,23 +275,11 @@ void MainWindow::getUIWidgets(){
 void MainWindow::cargarDatos(){
 
     //Base de lista circular                                nombre, cantGalletas, tiempoEmpacdo, cantEmpacado estos dos últimos por el tipo completo.
-    ListaCircular * listC = new ListaCircular();
-    ListaSimplePlanificaciones *listP = new ListaSimplePlanificaciones();
+
     listC->insertar("Caja",50, 6.3, 3,6,10.0);
     listC->insertar("Paquete",20,5.2,4,6,5.1);
     listC->insertar("Tubo",16, 5.6,2,10,5.0);
     listC->insertar("Bolsa",2,2.4,6,12,8.0);
-
-    //Lista simple planificaciones
-    for (int i = 0; i<ui->listPlanificador->count(); i++ ) {
-        QStringList data = ui->listPlanificador->item(i)->text().split(" | ");
-        QStringList texto = data.at(0).split(", ");
-
-        TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toDouble(),texto.at(3).toInt(),texto.at(4).toInt(),texto.at(5).toDouble());
-        int cantidad = data.at(1).toInt();
-        Planificacion * planificacion = new Planificacion(tipo, cantidad);
-        listP->insertarAlInicio(planificacion);
-    }
 
     //Planificaciones
     TipoGalleta * tipo = new TipoGalleta("Bolsa",2,2.4,6,12,8.0);
@@ -316,17 +312,17 @@ void MainWindow::cargarDatos(){
     ArrayMachines *arraymachines = new ArrayMachines(arrayLbMachines,arrayLbDatosMachines);
     arraymachines->array[0]->min = ui->txtMinMezcladora1->text().toInt();
     arraymachines->array[0]->max = ui->txtMaxMecladora1->text().toInt();
-    arraymachines->array[0]->duracionSegudos = ui->txtDurationMecladora1->text().toInt();
+    arraymachines->array[0]->duracionSegudos = ui->txtDurationMecladora1->text().toDouble();
     arraymachines->array[0]->gramosProcesar =  ui->txtCantProcesarMezcladora1->text().toInt();
 
     arraymachines->array[1]->min = ui->txtMinMezcladora2->text().toInt();
     arraymachines->array[1]->max = ui->txtMaxMecladora2->text().toInt();
-    arraymachines->array[1]->duracionSegudos = ui->txttDurationMecladora2->text().toInt();
+    arraymachines->array[1]->duracionSegudos = ui->txttDurationMecladora2->text().toDouble();
     arraymachines->array[1]->gramosProcesar =  ui->txtCantProcesarMezcladora2->text().toInt();
 
     arraymachines->array[2]->min = ui->txtMinChocolatera->text().toInt();
     arraymachines->array[2]->max = ui->txtMaxChocolatera->text().toInt();
-    arraymachines->array[2]->duracionSegudos = ui->txtDurationChocolatera->text().toInt();
+    arraymachines->array[2]->duracionSegudos = ui->txtDurationChocolatera->text().toDouble();
     arraymachines->array[2]->gramosProcesar =  ui->txtCantProcesarChocolatera->text().toInt();
 
     //ColaPeticiones
@@ -336,7 +332,7 @@ void MainWindow::cargarDatos(){
     Ensambladora * nuevaEnsabladora = new Ensambladora(ui->lbNameAssembler, ui->lbDatosAssembler, ui->lbDatosBanda1Mezcla, ui->lbDatosBanda2Chocolate);
 
     nuevaEnsabladora->cant = ui->txtCantProcesarAssembler->text().toInt();
-    nuevaEnsabladora->duracionSegundos = ui->txtDurationAssembler->text().toInt();
+    nuevaEnsabladora->duracionSegundos = ui->txtDurationAssembler->text().toDouble();
     //Bandas
     nuevaEnsabladora->bandas->array[0]->capacidad = ui->txtMaxBanda1Mezcla->text().toInt();
     nuevaEnsabladora->bandas->array[1]->capacidad = ui->txtMaxBanda2Chocolate->text().toInt();
@@ -386,7 +382,7 @@ void MainWindow::cargarDatos(){
     nuevaEmpacadora->banda->cantNow = 0;
 
     //Transportadores
-    ArrayTransportadores * arrayTransportadores = new ArrayTransportadores(listP, ui->lbTransportadores, ui->lbTransportadores);
+    ArrayTransportadores * arrayTransportadores = new ArrayTransportadores(listP, ui->lbTransportadores_2, ui->lbTransportadores);
 
     //Main Struct
     mainStruct = new MainStruct(almacenNuevo, arraymachines,recetaCookies, cola, nuevaEnsabladora,horno,inspectores, listC, listP, nuevaEmpacadora,arrayTransportadores);
@@ -415,12 +411,27 @@ void MainWindow::imprimirDatos(){
         this->mainStruct->horno->bandejas->array[i]->imprimir();
     }
 
+
+
     //Empacadora
     this->mainStruct->empacadora->banda->imprimir();
     this->mainStruct->empacadora->imprimir();
+
+
 }
 
 void MainWindow::loadDataOnPaused(){
+
+    //Lista simple planificaciones
+    for (int i = 0; i<ui->listPlanificador->count(); i++ ) {
+        QStringList data = ui->listPlanificador->item(i)->text().split(" | ");
+        QStringList texto = data.at(0).split(", ");
+
+        TipoGalleta * tipo = new TipoGalleta(texto.at(0),texto.at(1).toInt(),texto.at(2).toDouble(),texto.at(3).toInt(),texto.at(4).toInt(),texto.at(5).toDouble());
+        int cantidad = data.at(1).toInt();
+        Planificacion * planificacion = new Planificacion(tipo, cantidad);
+        listP->insertarAlInicio(planificacion);
+    }
 
     //Receta
     mainStruct->receta->cantChocolate = ui->txtCantMezclaReceta->text().toInt();
@@ -428,27 +439,27 @@ void MainWindow::loadDataOnPaused(){
 
     //----------Almacen
     mainStruct->almacen->carrito->capacidad = ui->txtCapacidadCar->text().toInt();
-    mainStruct->almacen->carrito->duracionTotal = ui->txtDurationCar->text().toInt();
+    mainStruct->almacen->carrito->duracionTotal = ui->txtDurationCar->text().toDouble();
 
     //-----------Machines
     mainStruct->arrayMachine->array[0]->min = ui->txtMinMezcladora1->text().toInt();
     mainStruct->arrayMachine->array[0]->max = ui->txtMaxMecladora1->text().toInt();
-    mainStruct->arrayMachine->array[0]->duracionSegudos = ui->txtDurationMecladora1->text().toInt();
+    mainStruct->arrayMachine->array[0]->duracionSegudos = ui->txtDurationMecladora1->text().toDouble();
     mainStruct->arrayMachine->array[0]->gramosProcesar =  ui->txtCantProcesarMezcladora1->text().toInt();
 
     mainStruct->arrayMachine->array[1]->min = ui->txtMinMezcladora2->text().toInt();
     mainStruct->arrayMachine->array[1]->max = ui->txtMaxMecladora2->text().toInt();
-    mainStruct->arrayMachine->array[1]->duracionSegudos = ui->txttDurationMecladora2->text().toInt();
+    mainStruct->arrayMachine->array[1]->duracionSegudos = ui->txttDurationMecladora2->text().toDouble();
     mainStruct->arrayMachine->array[1]->gramosProcesar =  ui->txtCantProcesarMezcladora2->text().toInt();
 
     mainStruct->arrayMachine->array[2]->min = ui->txtMinChocolatera->text().toInt();
     mainStruct->arrayMachine->array[2]->max = ui->txtMaxChocolatera->text().toInt();
-    mainStruct->arrayMachine->array[2]->duracionSegudos = ui->txtDurationChocolatera->text().toInt();
+    mainStruct->arrayMachine->array[2]->duracionSegudos = ui->txtDurationChocolatera->text().toDouble();
     mainStruct->arrayMachine->array[2]->gramosProcesar =  ui->txtCantProcesarChocolatera->text().toInt();
 
     //--------------Ensambladora
     mainStruct->ensambladora->cant = ui->txtCantProcesarAssembler->text().toInt();
-    mainStruct->ensambladora->duracionSegundos = ui->txtDurationAssembler->text().toInt();
+    mainStruct->ensambladora->duracionSegundos = ui->txtDurationAssembler->text().toDouble();
 
         //Bandas
         mainStruct->ensambladora->bandas->array[0]->capacidad = ui->txtMaxBanda1Mezcla->text().toInt();
@@ -479,6 +490,9 @@ void MainWindow::loadDataOnPaused(){
         //Bandas Inspectores
         mainStruct->inspectores->arrayBandas->array[0]->capacidad = ui->txtCapacidadBandaEmpacadora1->text().toInt();
         mainStruct->inspectores->arrayBandas->array[1]->capacidad = ui->txtCapacidadBandaEmpacadora2->text().toInt();
+
+    //empacadora
+    mainStruct->empacadora->banda->capacidad = ui->txtCapacidadBandaCalidad_3->text().toInt();
 
     imprimirDatos();
 }

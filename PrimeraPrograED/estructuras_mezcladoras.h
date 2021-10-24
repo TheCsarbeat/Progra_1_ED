@@ -13,10 +13,12 @@ struct Machine{
     int cantNow;
     int gramosProcesar;
     int tiempoActual;
-    int duracionSegudos;
+    double duracionSegudos;
     int totalMezclado;
     QLabel * lbTitulo;
     QLabel * lbDatos;
+
+    int sleepTime;
 
     bool aviableEncolar;
 

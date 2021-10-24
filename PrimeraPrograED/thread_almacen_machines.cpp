@@ -39,6 +39,7 @@ void ThreadAlmacenMachines::run() {
                 resume();
             }
 
+
             msleep(500);
         }
             //Own Statements
@@ -86,22 +87,17 @@ void ThreadAlmacenMachines::pause() {
 }
 
 void ThreadAlmacenMachines::stop() {
+    this->paused = false;
     this->running = false;
-    checkOnOff->setChecked(false);
-    checkOnOff->setEnabled(false);
-
 }
 
 void ThreadAlmacenMachines::resume() {
     this->paused = false;
-
     this->almacen->carrito->libre = false;
-
     this->mutex->lock();
     almacen->carrito->idMachine = machine->id;
     getCantPeticion();
     this->mutex->unlock();
-
     almacen->carrito->imprimir();
 
 }

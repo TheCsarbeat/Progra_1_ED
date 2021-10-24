@@ -15,6 +15,7 @@ void ThreadEmpacadoraTransporte::__init__(QMutex *mutex1,QMutex *mutex2, Empacad
     this->checkOnOff = checkOnOff;
     this->listaPlanificaciones = empacadora->lista->toStringParaEmpacadora();
     this->transportadores = transporte;
+    this->flagParando = true;
 
 }
 
@@ -23,61 +24,60 @@ void ThreadEmpacadoraTransporte::run(){
 
     int sumaProbabilidades = 0;
 
-    this->empacadora->flagProcesando = false;
+
     this->paused = true;
+    int index;
     while(running){
+        this->empacadora->flagProcesando = false;
         while(paused){
-            int index;
+            if(empacadora->state){
             this->empacadora->lbDatos->setText("Nombre : \nCantidad paquete: "+QString::number(empacadora->cantTiposEmpacandoActual)
                                                +"\nGalletas por paquete: "+QString::number(empacadora->cantGalletasAEmpacar));
             int random = rand()%100;
             empacadora->imprimir();
-
-
             for(int i = 0; i<listaPlanificaciones.length(); i++){
-
-                int diferencia = empacadora->p[i]->cantPaquetesPorEmpacar - empacadora->p[i]->totalPaquetesEmpacados;
-
-                if(empacadora->p[i]->probabilidad+sumaProbabilidades>=random && empacadora->p[i]->probabilidad !=0 && empacadora->p[i]->cantEmpacado<= diferencia){
-                     int galletasAEmpacar = empacadora->p[i]->cantEmpacado* empacadora->p[i]->cantGalletasPorPaquete;
-                     id = i;
-                        for(int i =0; i<this->transportadores->len; i++){
-                            if(transportadores->p[i]->id == empacadora->p[id]->id){
-                                index = i;
-                            }
-                        }
-                        int diferneciaPaquetes =  transportadores->p[index]->capacidad - transportadores->p[index]->cargaNow;
-
-
-
-
-
-                        if(empacadora->p[i]->totalPaquetesEmpacados < empacadora->p[i]->cantPaquetesPorEmpacar && diferneciaPaquetes>= empacadora->p[id]->cantEmpacado && !this->empacadora->flagProcesando && checkOnOff->isChecked() && empacadora->state){
-                            empacadora->flagProcesando = true;
-                            empacadora->cantGalletasAEmpacar =galletasAEmpacar;
-                            while(empacadora->banda->cantNow < galletasAEmpacar){
-                                 this->empacadora->lbtitulo->setText("Waiting for cookies: "+empacadora->p[i]->nombre+"...");
-                                  msleep(500);
-                            }
-                            resume();
-                        }
-
-
-
+                if(empacadora->p[i]->probabilidad+sumaProbabilidades>=random && empacadora->p[i]->probabilidad !=0 ){
+                    id = i;
+                    for(int j =0; j<this->transportadores->len; j++){
+                        if(transportadores->p[j]->id == empacadora->p[id]->id)index = j;
+                    }
                 }
                 sumaProbabilidades+=empacadora->p[i]->probabilidad;
-
             }
-            sumaProbabilidades =0;
+            sumaProbabilidades=0;
+
+            int diferencia = empacadora->p[id]->cantPaquetesPorEmpacar - empacadora->p[id]->totalPaquetesEmpacados;
+            int galletasAEmpacar = empacadora->p[id]->cantEmpacado * empacadora->p[id]->cantGalletasPorPaquete;
+            if( empacadora->p[id]->cantEmpacado<= diferencia && empacadora->p[id]->totalPaquetesEmpacados < empacadora->p[id]->cantPaquetesPorEmpacar && !this->empacadora->flagProcesando && checkOnOff->isChecked() && empacadora->state){
+                qDebug("Estamos entrando");
+                empacadora->flagProcesando = true;
+                empacadora->cantGalletasAEmpacar =galletasAEmpacar;
+                    while(empacadora->banda->cantNow < galletasAEmpacar){
+                        qDebug()<<"Galletas a empacar:"<< galletasAEmpacar;
+                        qDebug()<<"Cant Now:"<< empacadora->banda->cantNow;
+                        this->empacadora->lbtitulo->setText("Waiting for cookies: "+empacadora->p[id]->nombre+"...");
+                        msleep(500);
+                    }
+
+                    mutexInspectorEmpacadora->lock();
+                    empacadora->banda->cantNow -=empacadora->cantGalletasAEmpacar;
+                    mutexInspectorEmpacadora->unlock();
+                resume();
+            }
+
             msleep(500);
+            }
+
         } //Fin While pause
 
 
-        /*if(machine->gramosProcesar > (banda->capacidad-banda->cantNow)){
+        if(empacadora->p[id]->cantEmpacado > (transportadores->p[index]->capacidad - transportadores->p[index]->cargaNow)){
             checkOnOff->setChecked(false);
             paused = true;
-        }else{*/
+            empacadora->banda->cantNow +=empacadora->cantGalletasAEmpacar;
+        }else{
             //Own Statements
+
             this->empacadora->sumarSegundo(empacadora->p[id]->tiempoDuracion);
             this->empacadora->lbtitulo->setText("Empacando...");
             this->empacadora->lbDatos->setText("Nombre : "+empacadora->p[id]->nombre+ "\nCantidad paquete: "+QString::number(empacadora->p[id]->cantEmpacado)+
@@ -101,19 +101,15 @@ void ThreadEmpacadoraTransporte::run(){
                         }
                     }
                 }
-
                 pause();
-
-
             }
-        //}
-
-
+        }//fin else
 
     }
 }
 
 void ThreadEmpacadoraTransporte::stop(){
+    this->paused = false;
     this->running = false;
 }
 
@@ -125,10 +121,8 @@ void ThreadEmpacadoraTransporte::pause() {
 
     for(int i =0; i<this->transportadores->len; i++){
         if(transportadores->p[i]->id == empacadora->p[id]->id){
-            qDebug()<<"\n\n*******************************\nId empaca: "+transportadores->p[i]->nombre+" , "+QString::number(empacadora->p[id]->id)+
-                                                     "\nID transportador: "+transportadores->p[i]->nombre+" , "+QString::number(transportadores->p[i]->id);
             this->transportadores->p[i]->cargaNow += this->empacadora->p[id]->cantEmpacado;
-            qDebug()<<"\n*********"<<this->transportadores->p[i]->cargaNow<<"Cantidad por epaque: "<<this->empacadora->p[id]->cantEmpacado;
+
         }
     }
 
@@ -151,13 +145,6 @@ void ThreadEmpacadoraTransporte::pause() {
 
 void ThreadEmpacadoraTransporte::resume() {
     this->paused = false;
-
-    mutexInspectorEmpacadora->lock();
-    empacadora->cantTiposEmpacandoActual = empacadora->p[id]->cantEmpacado;
-    empacadora->banda->cantNow -=empacadora->cantGalletasAEmpacar;
-    mutexInspectorEmpacadora->unlock();
-
-
 }
 
 int* ThreadEmpacadoraTransporte::ordenarArray(int miArray[], int len){

@@ -46,7 +46,8 @@ void ThreadEnsambladoraHorno::run(){
         }else{
             ensambladora->sumarSegundo();
             this->progressBar->setValue(((double)this->ensambladora->timeActual/this->ensambladora->duracionSegundos)*100);
-            sleep(1);
+            qDebug()<<ensambladora->sleepTime;
+            msleep(ensambladora->sleepTime);
             if(ensambladora->timeActual == ensambladora->duracionSegundos){
                 this->mutexMachineEnsambladora->lock();
                 int cantGalletas = ensambladora->makeCookies(mezcla, choco); //hace las galletas y asigna a una variable
@@ -65,12 +66,8 @@ void ThreadEnsambladoraHorno::run(){
 }
 
 void ThreadEnsambladoraHorno::stop(){
+    this->paused = false;
     this->running = false;
-    ensambladora->timeActual = 0;
-    this->ensambladora->flagProcesando = false;
-    this->progressBar->setValue(0);
-    ensambladora->imprimir();
-    horno->banda->imprimir();
 }
 
 void ThreadEnsambladoraHorno::pause() {

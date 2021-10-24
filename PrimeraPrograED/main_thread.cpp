@@ -143,7 +143,7 @@ void thread_main::iniciarThreads(){
     hiloEmpacadoraTransporte->start();
 
     //Transportadores
-    ThreadTransportadoresAlmacen * hiloTransporteAlmace[mainStruct->arrayTransportadores->len];
+    lenTransportadores = mainStruct->arrayTransportadores->len-1;
     for(int i=mainStruct->arrayTransportadores->len-1; i>=0; i--){
         hiloTransporteAlmace[i] = new ThreadTransportadoresAlmacen();
         hiloTransporteAlmace[i]->__init__(mutexEmpacadoraTransporte,mainStruct->arrayTransportadores,i, mainStruct->empacadora, arrayProgressBar[1],checkOnOff[8]);
@@ -186,6 +186,7 @@ void thread_main::pause() {
     mainStruct->inspectores->arrayInspectores->array[0]->state = false;
     mainStruct->inspectores->arrayInspectores->array[1]->state = false;
     mainStruct->empacadora->state = false;
+    mainStruct->arrayTransportadores->state = false;
 }
 
 void thread_main::stop() {
@@ -199,6 +200,16 @@ void thread_main::stop() {
     mainStruct->inspectores->arrayInspectores->array[0]->state = false;
     mainStruct->inspectores->arrayInspectores->array[1]->state = false;
     mainStruct->empacadora->state = false;
+    mainStruct->arrayTransportadores->state = false;
+
+    hiloCarritoMachines->stop();
+    hiloEmpacadoraTransporte->stop();
+    hiloHornoInspectores->stop();
+    for(int i= 0; i<3; i++)hiloMachinesEnsambladora[i]->stop();
+    for(int i= 0; i<2; i++)hiloInspectores[i]->stop();
+    for(int i=0; i<lenTransportadores; i++)hiloTransporteAlmace[i]->stop();
+
+
 }
 
 void thread_main::resume() {
@@ -212,5 +223,7 @@ void thread_main::resume() {
     mainStruct->horno->state = true;
     mainStruct->inspectores->arrayInspectores->array[0]->state = true;
     mainStruct->inspectores->arrayInspectores->array[1]->state = true;
-    mainStruct->empacadora->state = false;
+    mainStruct->empacadora->state = true;
+    mainStruct->arrayTransportadores->state = true;
+
 }

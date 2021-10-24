@@ -42,7 +42,6 @@ Carrito::Carrito(int _capacidad, double _duracionTotal, bool _estado, QLabel *lb
 void Carrito::sumarSegundo(){
     if(timeActual==0){
         double num = duracionTotal- (int)duracionTotal;
-
         timeActual = num;
         sleepTime = num*1000;
         if(num==0){

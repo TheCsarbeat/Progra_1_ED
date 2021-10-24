@@ -25,6 +25,8 @@ struct Transportador{
     int timeNow;
     int sleepTime;
 
+    int cantProcesado;
+
 
     //Datos de paquete
     QString nombre;
@@ -40,9 +42,10 @@ struct Transportador{
         timeNow = 0;
         nombre = "";
         id = 0;
+        cantProcesado=0;
     }
     QString toString(){
-        return "Carrito de: "+nombre+"\nCantidad Actual: "+QString::number(cargaNow)+"\nMax: "+QString::number(capacidad);
+        return "Carga de: "+nombre+"\nCantidad registrada: "+QString::number(cantProcesado);
     }
     QString toStringMoving(){
         return "Tiempo Actual: "+QString::number(timeNow)+ "\nCarrito de: "+nombre+"\nCantidad Actual: "+QString::number(cargaNow)+"\nMax: "+QString::number(capacidad);
@@ -106,8 +109,15 @@ struct ArrayTransportadores{
 
 
     }
+    void imprimirRegistro(){
+        QString res = "";
+        for(int i = 0; i< len; i++){
+           res += p[i]->toString();
+           res += "\n--------------\n\n";
 
-
+        }
+        lbtitulo->setText(res);
+    }
 
     void imprimir(){
         QString res = "";
@@ -117,7 +127,6 @@ struct ArrayTransportadores{
 
         }
         lbDatos->setText(res);
-        //lbDatos->update();
     }
 };
 

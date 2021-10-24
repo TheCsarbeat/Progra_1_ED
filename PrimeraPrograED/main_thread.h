@@ -42,12 +42,11 @@ public:
     ThreadMachinesEnsambladora * hiloMachinesEnsambladora[3];
     ThreadEnsambladoraHorno * hiloEnsambladoraHorno;
     ThreadHornoInspectores * hiloHornoInspectores;
-    ThreadPrimerInspector * hiloInspectores[2];
-
-
-
+    ThreadPrimerInspector * hiloInspectores[2];    
     ThreadEmpacadoraTransporte * hiloEmpacadoraTransporte;
 
+    ThreadTransportadoresAlmacen * hiloTransporteAlmace[20];
+    int lenTransportadores;
     //Mutex
     QMutex *mutexCarritoMachines;
     QMutex *mutexMachinesEnsambladora;

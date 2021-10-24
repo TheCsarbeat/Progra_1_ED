@@ -569,7 +569,7 @@ width: 12px;</string>
             <x>0</x>
             <y>0</y>
             <width>250</width>
-            <height>341</height>
+            <height>321</height>
            </rect>
           </property>
           <property name="font">
@@ -2674,10 +2674,10 @@ QCheckBox::indicator:unchecked{
        <widget class="QScrollArea" name="scrollAreaPedidos">
         <property name="geometry">
          <rect>
-          <x>90</x>
-          <y>320</y>
-          <width>261</width>
-          <height>201</height>
+          <x>70</x>
+          <y>290</y>
+          <width>291</width>
+          <height>231</height>
          </rect>
         </property>
         <property name="widgetResizable">
@@ -2688,17 +2688,17 @@ QCheckBox::indicator:unchecked{
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>259</width>
-           <height>199</height>
+           <width>289</width>
+           <height>229</height>
           </rect>
          </property>
          <widget class="QLabel" name="lbPaquetesSupervisados">
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>30</y>
-            <width>231</width>
-            <height>171</height>
+            <y>0</y>
+            <width>291</width>
+            <height>231</height>
            </rect>
           </property>
           <property name="font">
@@ -2756,178 +2756,13 @@ QCheckBox::indicator:unchecked{
         </property>
        </widget>
       </widget>
-      <widget class="QFrame" name="frameTransportador">
-       <property name="geometry">
-        <rect>
-         <x>380</x>
-         <y>880</y>
-         <width>291</width>
-         <height>151</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_62">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>20</y>
-          <width>91</width>
-          <height>91</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">image:url(&quot;:/images/carretilla2.png&quot;);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="lbNameBandeja1_5">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>10</y>
-          <width>111</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Open Sans</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: black;</string>
-        </property>
-        <property name="text">
-         <string>Transportador</string>
-        </property>
-       </widget>
-       <widget class="QFrame" name="panelProgress3_6">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>50</y>
-          <width>150</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QFrame" name="barEmpacadora_2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>100</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:rgb(230, 230, 230);</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QFrame" name="progressTransportadores">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>81</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color:rgb(46, 194, 67);</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QLabel" name="lbProgressTransportadores">
-         <property name="geometry">
-          <rect>
-           <x>110</x>
-           <y>0</y>
-           <width>21</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Open Sans Light</family>
-           <pointsize>7</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>0 %</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QLabel" name="lbDatosEmpacadora_2">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>80</y>
-          <width>141</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>datos</string>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QLabel" name="lbTransportadores_2">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>600</y>
-         <width>611</width>
-         <height>281</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Open Sans</family>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
       <widget class="QFrame" name="frameTop_3">
        <property name="geometry">
         <rect>
          <x>700</x>
-         <y>460</y>
+         <y>500</y>
          <width>321</width>
-         <height>541</height>
+         <height>431</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -2975,7 +2810,7 @@ QCheckBox::indicator:unchecked{
           <x>10</x>
           <y>120</y>
           <width>301</width>
-          <height>411</height>
+          <height>291</height>
          </rect>
         </property>
         <property name="widgetResizable">
@@ -2987,7 +2822,7 @@ QCheckBox::indicator:unchecked{
            <x>0</x>
            <y>0</y>
            <width>299</width>
-           <height>409</height>
+           <height>289</height>
           </rect>
          </property>
          <widget class="QLabel" name="lbTransportadores">
@@ -2996,7 +2831,7 @@ QCheckBox::indicator:unchecked{
             <x>0</x>
             <y>0</y>
             <width>301</width>
-            <height>371</height>
+            <height>291</height>
            </rect>
           </property>
           <property name="font">
@@ -3036,6 +2871,66 @@ QCheckBox::indicator:unchecked{
         <property name="text">
          <string>Transportadores</string>
         </property>
+       </widget>
+       <widget class="QLabel" name="label_62">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>20</y>
+          <width>71</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image:url(&quot;:/images/carretilla2.png&quot;);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QScrollArea" name="scrollArea_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>590</y>
+         <width>251</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaContents_4">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>249</width>
+          <height>289</height>
+         </rect>
+        </property>
+        <widget class="QLabel" name="lbTransportadores_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>241</width>
+           <height>281</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Open Sans</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
        </widget>
       </widget>
      </widget>

@@ -26,6 +26,7 @@ void ThreadTransportadoresAlmacen::run(){
     while(running){
         while(paused){
             this->transportadores->imprimir();
+            this->transportadores->imprimirRegistro();
             if(transportadores->p[i]->cargaNow == transportadores->p[i]->capacidad && !this->transportadores->p[i]->flagProcesando && checkOnOff->isChecked() && transportadores->state){
                 this->transportadores->p[i]->flagProcesando=true;
                 resume();
@@ -47,12 +48,7 @@ void ThreadTransportadoresAlmacen::run(){
 
             //Stop Condition
             if(this->transportadores->p[i]->timeNow == transportadores->p[i]->speed){
-                /*if(!this->transportador->aviable){
-                    waiting = true;
-                    while(waiting){
-                        if(this->transportador->aviable)waiting=false;
-                    }
-                }*/
+                transportadores->p[i]->cantProcesado += transportadores->p[i]->capacidad;
                 pause();
 
 
@@ -65,12 +61,12 @@ void ThreadTransportadoresAlmacen::run(){
 }
 
 void ThreadTransportadoresAlmacen::stop(){
+    this->paused = false;
     this->running = false;
 }
 
 void ThreadTransportadoresAlmacen::pause() {
     this->paused = true;
-    this->empacadora->lbtitulo->setText("Waiting...");
 
     this->transportadores->p[i]->timeNow =0;
     this->transportadores->p[i]->cargaNow =0;

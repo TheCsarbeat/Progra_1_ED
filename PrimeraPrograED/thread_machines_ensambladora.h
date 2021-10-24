@@ -21,6 +21,7 @@ public:
     EstructuraProgressBar * progressBar;
     QCheckBox * checkOnOff;
 
+
     bool running;
     bool paused;
 
