@@ -27,7 +27,7 @@
      <string notr="true">this-&gt;setStyleSheet(&quot;background-color: rgb(255, 255, 255);&quot;);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="factoryPage">
      <property name="styleSheet">
@@ -5370,7 +5370,7 @@ border-style: solid;
 border-color: rgb(154, 123, 171);</string>
         </property>
         <property name="text">
-         <string>5</string>
+         <string>10</string>
         </property>
        </widget>
       </widget>

@@ -284,12 +284,11 @@ void MainWindow::getUIWidgets(){
 }
 void MainWindow::cargarDatos(){
 
-    //Base de lista circular                                nombre, cantGalletas, tiempoEmpacdo, cantEmpacado estos dos últimos por el tipo completo.
+    //Base de lista circular       nombre, cantGalletas, tiempoEmpacdo, cantEmpacado estos dos últimos por el tipo completo.
 
-    listC->insertar("Caja",50, 6.3, 3,6,10.0);
-    listC->insertar("Paquete",20,5.2,4,6,5.1);
-    listC->insertar("Tubo",16, 5.6,2,10,5.0);
-    listC->insertar("Bolsa",2,2.4,6,12,8.0);
+   /* listC->insertar("Paquete",4, 5.6, 1,6,10.0);
+    listC->insertar("Tubo",16, 5.6,2,2,5.0);
+    listC->insertar("Paquetito",2,2,6,1,8.0);*/
 
     ui->listPlanificador->clear();
     ui->listPlanificador->addItems(listP->toString());
